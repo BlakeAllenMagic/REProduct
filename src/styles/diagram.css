@@ -1,1 +1,128 @@
-/* Filled in later in phase 1. */
+/* Block diagram (home screen). */
+
+.diagram {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 8px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.diagram-svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  font-family: var(--font);
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.diagram-title {
+  font-size: 22px;
+  font-weight: 600;
+  fill: var(--text);
+}
+
+.diagram-note {
+  font-size: 15px;
+  fill: var(--text-muted);
+  text-anchor: middle;
+}
+
+.diagram-wires path,
+.diagram-antenna line {
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-width: 2;
+}
+
+.diagram-antenna path {
+  fill: none;
+  stroke: var(--text-muted);
+  stroke-width: 2;
+  stroke-linejoin: round;
+}
+
+.diagram-arrowhead {
+  fill: var(--text-muted);
+}
+
+/* ---- Blocks ---- */
+
+.block {
+  cursor: pointer;
+  touch-action: manipulation;
+  outline: none;
+}
+
+.block-bg {
+  fill: var(--accent-soft);
+  stroke: var(--accent);
+  stroke-width: 2;
+  transition: fill 80ms;
+}
+
+.block-symbol {
+  fill: none;
+  stroke: var(--accent);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.block-label {
+  font-size: 17px;
+  font-weight: 600;
+  fill: var(--text);
+  text-anchor: middle;
+}
+
+.block:active .block-bg {
+  fill: var(--pressed);
+}
+
+.block:focus-visible .block-bg {
+  stroke-width: 4;
+}
+
+.block-badge circle {
+  fill: var(--accent);
+  stroke: var(--surface);
+  stroke-width: 3;
+}
+
+.block-badge text {
+  fill: #fff;
+  font-size: 15px;
+  font-weight: 700;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+/* No parts: visibly disabled, not tappable. */
+.block.is-disabled {
+  cursor: default;
+  pointer-events: none;
+}
+
+.block.is-disabled .block-bg {
+  fill: var(--bg);
+  stroke: var(--disabled);
+  stroke-dasharray: 6 5;
+}
+
+.block.is-disabled .block-symbol {
+  stroke: var(--disabled);
+}
+
+.block.is-disabled .block-label {
+  fill: var(--disabled);
+}
+
+.diagram-help {
+  max-width: 1100px;
+  margin: 12px auto 0;
+  color: var(--text-muted);
+  text-align: center;
+}
