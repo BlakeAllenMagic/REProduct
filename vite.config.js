@@ -42,6 +42,6 @@ export default defineConfig({
   base: './',
   plugins: [devDatasheets()],
   build: {
-    target: 'safari17',
+    target: 'safari18',
   },
 });

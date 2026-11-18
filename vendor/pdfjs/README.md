@@ -6,7 +6,7 @@
 
 Why vendored: the app must work offline, so PDF.js ships inside the app shell instead of loading from a CDN.
 
-Browser support: the PDF.js FAQ lists the legacy build as "Safari 18+: Mostly". Safari 17 isn't listed. Test on the real iPad.
+Browser support: the PDF.js FAQ lists the legacy build as "Safari 18+: Mostly", which is why the app's baseline is iPadOS 18 / Safari 18. The modern build's FAQ entry has no Safari row at all, so stay on the legacy build.
 
 Left out on purpose (add them if a real datasheet renders wrong):
 - `standard_fonts/` (820 KB): for PDFs that use non-embedded standard fonts. The browser's own fonts are used instead.

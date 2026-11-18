@@ -23,8 +23,10 @@ All of this must work with no internet connection. When the device is online, th
 
 ## Target platforms (in priority order)
 
-1. iPad, Safari, installed to the Home Screen (iPadOS 17 or newer)
-2. Mac, Safari "Add to Dock" (macOS Sonoma or newer); Chrome on Mac is a secondary option
+1. iPad, Safari, installed to the Home Screen (iPadOS 18 or newer)
+2. Mac, Safari "Add to Dock" (macOS Sonoma or newer, with Safari 18 or newer); Chrome on Mac is a secondary option
+
+The Safari 18 baseline comes from PDF.js, whose FAQ lists its legacy build as supporting Safari 18 and newer.
 
 Do not add Android or Windows workarounds yet. Use standard web APIs so those platforms can be added later.
 
@@ -191,11 +193,11 @@ Do one phase at a time, and don't start the next until the current one's "done w
 | 4 | `sync_datasheets.py`, GitHub Action, R2 upload, in-app update flow | Changing a sample PDF upstream leads to exactly one re-download on the device |
 | 5 | Search by part number, sort and filter, compare, branding, more diagrams | As agreed per feature |
 
-**Current phase: 0**
+**Current phase: 1**
 
 ## Coding conventions
 
-- ES modules and modern JS (Safari 17 baseline), no transpiling unless needed.
+- ES modules and modern JS (Safari 18 baseline), no transpiling unless needed.
 - Small, single-purpose modules. Keep service worker logic in `sw.js` and cache helpers in `src/offline/`.
 - All async errors are caught and shown in the UI, never swallowed silently.
 - Python tools use the standard library first. If a third-party package is needed, list it in `tools/requirements.txt`. Use type hints and argparse.
