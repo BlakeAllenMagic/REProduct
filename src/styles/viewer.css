@@ -1,1 +1,107 @@
-/* Filled in later in phase 1. */
+/* Datasheet viewer. */
+
+/* The viewer fills the screen under the top bar; only the PDF area scrolls. */
+.view[data-view='part'] {
+  padding: 0;
+}
+
+.viewer {
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - var(--topbar-h) - var(--safe-top));
+}
+
+.viewer-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 6px calc(12px + var(--safe-right)) 6px calc(12px + var(--safe-left));
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+}
+
+.viewer-info {
+  flex: 1;
+  min-width: 0;
+  color: var(--text-muted);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.viewer-group {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.viewer-group .btn {
+  font-size: 22px;
+  padding: 0 8px;
+}
+
+.viewer-group .btn[aria-label='Fit page width'] {
+  font-size: 16px;
+}
+
+.viewer-label {
+  min-width: 64px;
+  text-align: center;
+  font-variant-numeric: tabular-nums;
+}
+
+.pdf-scroll {
+  position: relative; /* page offsets are measured from here */
+  flex: 1;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
+  background: #5b6168;
+  /* One-finger panning stays native; pinch is handled by src/pdf/pinch.js. */
+  touch-action: pan-x pan-y;
+  outline: none;
+  padding-bottom: var(--safe-bottom);
+}
+
+.pdf-pages {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: max-content;
+  min-width: 100%;
+  will-change: transform;
+}
+
+.pdf-page {
+  position: relative;
+  flex: none;
+  background: #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+}
+
+.pdf-page canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* Narrow screens: put the part info on its own row. */
+@media (max-width: 700px) {
+  .viewer-toolbar {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+  .viewer-info {
+    flex-basis: 100%;
+  }
+}
+
+.message .btn {
+  margin-top: 8px;
+  text-decoration: none;
+}
+
+.message-note {
+  font-size: 14px;
+}
