@@ -1,42 +1,52 @@
-CLAUDE.md: RF Line Card App
-What this is
+# CLAUDE.md: RF Line Card App
+
+## What this is
 
 An offline-first web app (PWA) that a manufacturer's sales rep uses during customer visits to present his line card. The rep firm focuses on RF front-end components.
 
-Core flow:
+**Core flow:**
 
-The rep opens an interactive RF block diagram (receiver chain to start).
-He taps a block, for example the LNA.
-A table shows every line card part in that category with its key specs.
-He taps a part, and its datasheet opens inside the app.
-He taps "Send datasheet," and the PDF goes to the customer by email.
+1. The rep opens an interactive RF block diagram (receiver chain to start).
+2. He taps a block, for example the LNA.
+3. A table shows every line card part in that category with its key specs.
+4. He taps a part, and its datasheet opens inside the app.
+5. He taps "Send datasheet," and the PDF goes to the customer by email.
 
 All of this must work with no internet connection. When the device is online, the app quietly checks for updated datasheets and downloads only the ones that changed.
 
-Users and context
-Primary user: one sales rep (the firm owner), often in secure customer facilities with no Wi-Fi or cell signal.
-Audience: customer engineers looking over his shoulder. It has to look professional and respond quickly.
-Scale: about 500 parts eventually. Plan for 500 to 1,000 parts and roughly 1.5 to 3 GB of datasheets.
-Redistribution: the rep has permission to redistribute every datasheet. Bundling and emailing PDFs is allowed.
-Target platforms (in priority order)
-iPad, Safari, installed to the Home Screen (iPadOS 17 or newer)
-Mac, Safari "Add to Dock" (macOS Sonoma or newer); Chrome on Mac is a secondary option
+## Users and context
+
+- **Primary user:** one sales rep (the firm owner), often in secure customer facilities with no Wi-Fi or cell signal.
+- **Audience:** customer engineers looking over his shoulder. It has to look professional and respond quickly.
+- **Scale:** about 500 parts eventually. Plan for 500 to 1,000 parts and roughly 1.5 to 3 GB of datasheets.
+- **Redistribution:** the rep has permission to redistribute every datasheet. Bundling and emailing PDFs is allowed.
+
+## Target platforms (in priority order)
+
+1. iPad, Safari, installed to the Home Screen (iPadOS 17 or newer)
+2. Mac, Safari "Add to Dock" (macOS Sonoma or newer); Chrome on Mac is a secondary option
 
 Do not add Android or Windows workarounds yet. Use standard web APIs so those platforms can be added later.
 
-Non-negotiables
-Offline first. Every feature in the core flow works in airplane mode once datasheets are downloaded. Network access is an enhancement and never a requirement.
-No server at runtime. The app is static files. The only "backend" is a scheduled build job (see Datasheet update pipeline).
-Minimal dependencies. Vanilla JS with ES modules, plain CSS, and an SVG diagram. Vite is allowed as the dev server and bundler. Do not use a UI framework unless I approve one. PDF.js is the only expected runtime library.
-Never lose downloaded data. A failed update must not delete or corrupt datasheets that are already cached.
-Touch first. Tap targets are at least 44x44 pt, nothing depends on hover, and it works in both portrait and landscape on iPad.
-Architecture
-Data source of truth
-data/categories.yaml defines each category: id, display name, which diagram blocks map to it, and its spec columns (key, label, unit, sort direction, number or text).
-data/parts/<category>.csv has one CSV per category, because each category has different spec columns. The rep can edit these in Numbers or Excel.
-tools/build_linecard.py validates the CSVs against categories.yaml and generates public/linecard.json. Validation fails loudly on unknown columns, missing required fields, duplicate part numbers, or bad units.
-linecard.json (generated, never hand-edited)
-json
+## Non-negotiables
+
+- **Offline first.** Every feature in the core flow works in airplane mode once datasheets are downloaded. Network access is an enhancement and never a requirement.
+- **No server at runtime.** The app is static files. The only "backend" is a scheduled build job (see Datasheet update pipeline).
+- **Minimal dependencies.** Vanilla JS with ES modules, plain CSS, and an SVG diagram. Vite is allowed as the dev server and bundler. Do not use a UI framework unless I approve one. PDF.js is the only expected runtime library.
+- **Never lose downloaded data.** A failed update must not delete or corrupt datasheets that are already cached.
+- **Touch first.** Tap targets are at least 44x44 pt, nothing depends on hover, and it works in both portrait and landscape on iPad.
+
+## Architecture
+
+### Data source of truth
+
+- `data/categories.yaml` defines each category: id, display name, which diagram blocks map to it, and its spec columns (key, label, unit, sort direction, number or text).
+- `data/parts/<category>.csv` has one CSV per category, because each category has different spec columns. The rep can edit these in Numbers or Excel.
+- `tools/build_linecard.py` validates the CSVs against `categories.yaml` and generates `public/linecard.json`. Validation fails loudly on unknown columns, missing required fields, duplicate part numbers, or bad units.
+
+### linecard.json (generated, never hand-edited)
+
+```json
 {
   "dataVersion": "2026-11-18T14:00:00Z",
   "categories": [
@@ -67,68 +77,82 @@ json
     }
   ]
 }
+```
 
 Datasheet files are content addressed: the filename is the SHA-256 of the PDF. When a datasheet changes, its URL changes. Cached files never go stale, and the app finds updates by comparing hash sets.
 
-Block diagram
-A hand-built SVG in src/diagram/receiver.svg. Each clickable block has data-category="<id>".
-A category can appear in more than one block (for example, amplifiers at RF and IF).
-Each block shows a part count badge, and blocks with zero parts look visibly disabled.
-Later: transmitter and transceiver diagrams that use the same mechanism.
-Offline strategy (most important section)
+### Block diagram
+
+- A hand-built SVG in `src/diagram/receiver.svg`. Each clickable block has `data-category="<id>"`.
+- A category can appear in more than one block (for example, amplifiers at RF and IF).
+- Each block shows a part count badge, and blocks with zero parts look visibly disabled.
+- Later: transmitter and transceiver diagrams that use the same mechanism.
+
+## Offline strategy (most important section)
 
 Use two separate caches with different lifecycles:
 
-App shell cache (shell-v<N>): HTML, CSS, JS, the SVG, icons, the PDF.js build, and linecard.json. It is precached in the service worker install event. It stays small, under 10 MB.
-Datasheet cache (datasheets, not versioned): PDFs keyed by their content-addressed URL. It is filled by an in-app download manager, never by the service worker install event. If one file fails during precache, the whole install fails, and with 1.5 GB that is guaranteed to happen.
+- **App shell cache (`shell-v<N>`):** HTML, CSS, JS, the SVG, icons, the PDF.js build, and `linecard.json`. It is precached in the service worker install event. It stays small, under 10 MB.
+- **Datasheet cache (`datasheets`, not versioned):** PDFs keyed by their content-addressed URL. It is filled by an in-app download manager, never by the service worker install event. If one file fails during precache, the whole install fails, and with 1.5 GB that is guaranteed to happen.
 
-Download manager requirements:
+**Download manager requirements:**
 
-"Download all" and "Download this category" buttons
-Concurrency of 3, retries with backoff, resumable. On restart it skips hashes that are already cached.
-Progress UI showing files done, total, and MB, plus a clear error list
-Before a large download, call navigator.storage.estimate() and warn if there isn't enough room
-After the first successful download, call navigator.storage.persist()
-Show storage used and a "last synced" timestamp on a Settings screen
+- "Download all" and "Download this category" buttons
+- Concurrency of 3, retries with backoff, resumable. On restart it skips hashes that are already cached.
+- Progress UI showing files done, total, and MB, plus a clear error list
+- Before a large download, call `navigator.storage.estimate()` and warn if there isn't enough room
+- After the first successful download, call `navigator.storage.persist()`
+- Show storage used and a "last synced" timestamp on a Settings screen
 
-Update flow when online:
+**Update flow when online:**
 
-Fetch linecard.json network-first, falling back to the cached copy.
-Compare its datasheet hashes with what's in the datasheet cache.
-Queue only new or changed hashes. Delete orphaned hashes only after the new files are cached successfully.
-Mark parts whose datasheet changed in the last 30 days with an "Updated" badge.
+1. Fetch `linecard.json` network-first, falling back to the cached copy.
+2. Compare its datasheet hashes with what's in the datasheet cache.
+3. Queue only new or changed hashes. Delete orphaned hashes only after the new files are cached successfully.
+4. Mark parts whose datasheet changed in the last 30 days with an "Updated" badge.
 
-Service worker routing:
+**Service worker routing:**
 
-App shell: cache-first
-linecard.json: network-first with a cache fallback and a short timeout of about 3 seconds, so a weak signal doesn't hang the app
-datasheets/*: cache-first, with network fallback only when online
+- App shell: cache-first
+- `linecard.json`: network-first with a cache fallback and a short timeout of about 3 seconds, so a weak signal doesn't hang the app
+- `datasheets/*`: cache-first, with network fallback only when online
 
-iOS notes:
+**iOS notes:**
 
-Safari has no install prompt. Show a one-time "Share, then Add to Home Screen" instruction when the app isn't running in standalone mode.
-Home Screen web apps get their own storage, separate from Safari. Datasheets must be downloaded inside the installed app, not in a Safari tab.
-PDF viewing
-Use a locally vendored PDF.js (pdfjs-dist) build, included in the app shell, so viewing works offline and looks the same on iPad and Mac. Do not rely on opening blob URLs in a new tab, because that behaves inconsistently in iOS standalone mode.
-Read the PDF from the datasheet cache, render with PDF.js, and support pinch zoom and page navigation.
-If a datasheet isn't downloaded yet, show "Not downloaded." Offer to download it when online, or show the manufacturer link when offline.
-Send datasheet (email)
-Primary: navigator.share({ files: [pdfFile], title, text }), guarded by navigator.canShare({ files }). This works in iPad and Mac Safari and attaches the actual PDF through Mail or any other app.
-Gotcha: sharing requires a recent user gesture. Build the File object when the part is selected, not after the button tap, so the share call runs right away.
-Fallback: a mailto: link with the subject, part number, a short message, and the manufacturer's datasheet URL. mailto links cannot attach files.
-The default message text lives in one config file so the rep can edit it.
-Datasheet update pipeline (build time, not in the app)
-tools/sync_datasheets.py is run on a schedule by a GitHub Action, weekly by default, with manual dispatch also allowed.
-For each part, download sourceUrl, compute its SHA-256, and upload to storage under datasheets/<sha256>.pdf if that file is new.
-Write the new hash, size, and date into the build data, then regenerate linecard.json and bump dataVersion.
-Some manufacturer sites block scripts or require a login. Log those failures, keep the previous version, and list them in a summary report. Never fail the whole run because of one part.
-Send a real browser User-Agent, rate limit requests, and check that each response is actually a PDF (magic bytes %PDF) and not an HTML error page.
-Browsers can't fetch manufacturer PDFs directly because of CORS. That is why this happens at build time.
-Hosting
-App: Cloudflare Pages, free tier
-Datasheets: Cloudflare R2 bucket on a custom subdomain, with CORS allowing the app's origin
-Do not commit PDFs to git. 1.5 GB or more doesn't belong in a repo. Keep datasheets/ in .gitignore. For local development, use a small sample set in dev-datasheets/.
-Project structure
+- Safari has no install prompt. Show a one-time "Share, then Add to Home Screen" instruction when the app isn't running in standalone mode.
+- Home Screen web apps get their own storage, separate from Safari. Datasheets must be downloaded inside the installed app, not in a Safari tab.
+
+## PDF viewing
+
+- Use a locally vendored PDF.js (`pdfjs-dist`) build, included in the app shell, so viewing works offline and looks the same on iPad and Mac. Do not rely on opening blob URLs in a new tab, because that behaves inconsistently in iOS standalone mode.
+- Read the PDF from the datasheet cache, render with PDF.js, and support pinch zoom and page navigation.
+- If a datasheet isn't downloaded yet, show "Not downloaded." Offer to download it when online, or show the manufacturer link when offline.
+
+## Send datasheet (email)
+
+- **Primary:** `navigator.share({ files: [pdfFile], title, text })`, guarded by `navigator.canShare({ files })`. This works in iPad and Mac Safari and attaches the actual PDF through Mail or any other app.
+- **Gotcha:** sharing requires a recent user gesture. Build the `File` object when the part is selected, not after the button tap, so the share call runs right away.
+- **Fallback:** a `mailto:` link with the subject, part number, a short message, and the manufacturer's datasheet URL. mailto links cannot attach files.
+- The default message text lives in one config file so the rep can edit it.
+
+## Datasheet update pipeline (build time, not in the app)
+
+- `tools/sync_datasheets.py` is run on a schedule by a GitHub Action, weekly by default, with manual dispatch also allowed.
+- For each part, download `sourceUrl`, compute its SHA-256, and upload to storage under `datasheets/<sha256>.pdf` if that file is new.
+- Write the new hash, size, and date into the build data, then regenerate `linecard.json` and bump `dataVersion`.
+- Some manufacturer sites block scripts or require a login. Log those failures, keep the previous version, and list them in a summary report. Never fail the whole run because of one part.
+- Send a real browser User-Agent, rate limit requests, and check that each response is actually a PDF (magic bytes `%PDF`) and not an HTML error page.
+- Browsers can't fetch manufacturer PDFs directly because of CORS. That is why this happens at build time.
+
+## Hosting
+
+- **App:** Cloudflare Pages, free tier
+- **Datasheets:** Cloudflare R2 bucket on a custom subdomain, with CORS allowing the app's origin
+- Do not commit PDFs to git. 1.5 GB or more doesn't belong in a repo. Keep `datasheets/` in `.gitignore`. For local development, use a small sample set in `dev-datasheets/`.
+
+## Project structure
+
+```
 /
 ├── CLAUDE.md
 ├── data/
@@ -151,42 +175,52 @@ Project structure
 │   └── styles/
 ├── vendor/pdfjs/
 └── dev-datasheets/          (small sample set, about 5 PDFs)
-Build phases
+```
+
+## Build phases
 
 Do one phase at a time, and don't start the next until the current one's "done when" passes.
 
-Phase	Scope	Done when
-0	Schema, categories.yaml, 3 categories (LNA, mixer, filter) with 3 to 5 sample parts each, build_linecard.py	linecard.json builds and validation catches a deliberately broken CSV
-1	SVG diagram, parts table, PDF.js viewer, local sample PDFs	Full tap flow works in Safari on Mac
-2	Manifest, service worker, app shell cache, download manager, Settings screen	Installed on iPad, all sample PDFs downloaded, full flow works in airplane mode after a force-quit
-3	Send datasheet (Web Share plus mailto fallback)	Email with the PDF attached is composed on iPad while offline
-4	sync_datasheets.py, GitHub Action, R2 upload, in-app update flow	Changing a sample PDF upstream leads to exactly one re-download on the device
-5	Search by part number, sort and filter, compare, branding, more diagrams	As agreed per feature
+| Phase | Scope | Done when |
+|---|---|---|
+| 0 | Schema, `categories.yaml`, 3 categories (LNA, mixer, filter) with 3 to 5 sample parts each, `build_linecard.py` | `linecard.json` builds and validation catches a deliberately broken CSV |
+| 1 | SVG diagram, parts table, PDF.js viewer, local sample PDFs | Full tap flow works in Safari on Mac |
+| 2 | Manifest, service worker, app shell cache, download manager, Settings screen | Installed on iPad, all sample PDFs downloaded, full flow works in airplane mode after a force-quit |
+| 3 | Send datasheet (Web Share plus mailto fallback) | Email with the PDF attached is composed on iPad while offline |
+| 4 | `sync_datasheets.py`, GitHub Action, R2 upload, in-app update flow | Changing a sample PDF upstream leads to exactly one re-download on the device |
+| 5 | Search by part number, sort and filter, compare, branding, more diagrams | As agreed per feature |
 
-Current phase: 0
+**Current phase: 0**
 
-Coding conventions
-ES modules and modern JS (Safari 17 baseline), no transpiling unless needed.
-Small, single-purpose modules. Keep service worker logic in sw.js and cache helpers in src/offline/.
-All async errors are caught and shown in the UI, never swallowed silently.
-Python tools use the standard library first. If a third-party package is needed, list it in tools/requirements.txt. Use type hints and argparse.
-No secrets in the repo. R2 credentials come from GitHub Action secrets only.
-Testing checklist (run before calling a phase done)
-[ ] Chrome or Safari dev tools: service worker is active and the caches contain what's expected
-[ ] Network set to Offline, then a hard reload: app still loads
-[ ] Real iPad, installed to the Home Screen, airplane mode, force-quit, reopen: full flow works
-[ ] Interrupt a "Download all" halfway, then resume: no duplicate files and no corrupted files
-[ ] Simulate a storage quota error: the app shows a clear message and doesn't crash
-[ ] Portrait and landscape layouts on iPad
-How to work with me
-I want to understand and own this code. Explain the reasoning behind design choices, especially for service workers, caching, and storage.
-Start every phase in plan mode. Propose the approach and file changes, and wait for my approval.
-Make small, reviewable changes. After each step, tell me how to test it.
-If a requirement here conflicts with what I ask for in a prompt, point out the conflict instead of quietly choosing one.
-If you're unsure about a browser API's support in Safari, say so and suggest a quick test rather than guessing.
-Out of scope for now
-User accounts, login, or multiple reps
-Analytics or tracking of customer views
-Native App Store apps
-Android or Windows specific work
-Editing parts inside the app (the CSVs are the source of truth)
+## Coding conventions
+
+- ES modules and modern JS (Safari 17 baseline), no transpiling unless needed.
+- Small, single-purpose modules. Keep service worker logic in `sw.js` and cache helpers in `src/offline/`.
+- All async errors are caught and shown in the UI, never swallowed silently.
+- Python tools use the standard library first. If a third-party package is needed, list it in `tools/requirements.txt`. Use type hints and argparse.
+- No secrets in the repo. R2 credentials come from GitHub Action secrets only.
+
+## Testing checklist (run before calling a phase done)
+
+- [ ] Chrome or Safari dev tools: service worker is active and the caches contain what's expected
+- [ ] Network set to Offline, then a hard reload: app still loads
+- [ ] Real iPad, installed to the Home Screen, airplane mode, force-quit, reopen: full flow works
+- [ ] Interrupt a "Download all" halfway, then resume: no duplicate files and no corrupted files
+- [ ] Simulate a storage quota error: the app shows a clear message and doesn't crash
+- [ ] Portrait and landscape layouts on iPad
+
+## How to work with me
+
+- I want to understand and own this code. Explain the reasoning behind design choices, especially for service workers, caching, and storage.
+- Start every phase in plan mode. Propose the approach and file changes, and wait for my approval.
+- Make small, reviewable changes. After each step, tell me how to test it.
+- If a requirement here conflicts with what I ask for in a prompt, point out the conflict instead of quietly choosing one.
+- If you're unsure about a browser API's support in Safari, say so and suggest a quick test rather than guessing.
+
+## Out of scope for now
+
+- User accounts, login, or multiple reps
+- Analytics or tracking of customer views
+- Native App Store apps
+- Android or Windows specific work
+- Editing parts inside the app (the CSVs are the source of truth)
