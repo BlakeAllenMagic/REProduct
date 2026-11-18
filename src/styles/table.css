@@ -1,1 +1,96 @@
-/* Filled in later in phase 1. */
+/* Parts table. */
+
+.table-count {
+  max-width: 1400px;
+  margin: 0 auto 8px;
+  color: var(--text-muted);
+}
+
+/* Wide tables scroll sideways inside this box (iPad portrait), not the page. */
+.table-scroll {
+  max-width: 1400px;
+  margin: 0 auto;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  /* A soft shadow on the right edge while more columns are hidden. The white
+     "cover" scrolls with the content and hides the shadow at the far end. */
+  background:
+    linear-gradient(to left, var(--surface) 24px, rgba(255, 255, 255, 0)) right / 48px 100%
+      no-repeat local,
+    radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0)) right /
+      14px 100% no-repeat scroll,
+    var(--surface);
+}
+
+.parts-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  font-variant-numeric: tabular-nums;
+}
+
+.parts-table th,
+.parts-table td {
+  height: 52px; /* row height above the 44 pt minimum */
+  padding: 6px 14px;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+  white-space: nowrap;
+  vertical-align: middle;
+}
+
+.parts-table thead th {
+  height: 44px;
+  background: var(--bg);
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+  /* No text-transform: uppercase would turn "dBm" into "DBM". */
+}
+
+.parts-table .num {
+  text-align: right;
+}
+
+.parts-table td.desc {
+  white-space: normal;
+  min-width: 220px;
+  color: var(--text-muted);
+}
+
+.parts-table tbody tr:last-child > * {
+  border-bottom: 0;
+}
+
+/* Part number column stays put while the specs scroll sideways. */
+.parts-table th:first-child {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+}
+
+.parts-table thead th:first-child {
+  background: var(--bg);
+  z-index: 2;
+}
+
+.parts-table tbody th a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--tap);
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.part-row {
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.part-row:active > * {
+  background: var(--pressed);
+}
