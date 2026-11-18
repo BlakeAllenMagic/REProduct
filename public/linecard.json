@@ -1,0 +1,434 @@
+{
+  "dataVersion": "2026-11-18T16:33:37Z",
+  "categories": [
+    {
+      "id": "lna",
+      "name": "Low Noise Amplifiers",
+      "blocks": [
+        "lna"
+      ],
+      "specs": [
+        {
+          "key": "freq_min_ghz",
+          "label": "Freq Min",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "freq_max_ghz",
+          "label": "Freq Max",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "nf_db",
+          "label": "NF",
+          "unit": "dB",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "gain_db",
+          "label": "Gain",
+          "unit": "dB",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "op1db_dbm",
+          "label": "OP1dB",
+          "unit": "dBm",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "supply_v",
+          "label": "Supply",
+          "unit": "V",
+          "type": "number"
+        },
+        {
+          "key": "package",
+          "label": "Package",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "mixer",
+      "name": "Mixers",
+      "blocks": [
+        "mixer"
+      ],
+      "specs": [
+        {
+          "key": "rf_min_ghz",
+          "label": "RF Min",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "rf_max_ghz",
+          "label": "RF Max",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "lo_min_ghz",
+          "label": "LO Min",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "lo_max_ghz",
+          "label": "LO Max",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "if_max_ghz",
+          "label": "IF Max",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "conv_loss_db",
+          "label": "Conv Loss",
+          "unit": "dB",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "iip3_dbm",
+          "label": "IIP3",
+          "unit": "dBm",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "lo_drive_dbm",
+          "label": "LO Drive",
+          "unit": "dBm",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "package",
+          "label": "Package",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "filter",
+      "name": "Filters",
+      "blocks": [
+        "rf_filter",
+        "if_filter"
+      ],
+      "specs": [
+        {
+          "key": "filter_type",
+          "label": "Type",
+          "type": "text"
+        },
+        {
+          "key": "pass_min_ghz",
+          "label": "Pass Min",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "pass_max_ghz",
+          "label": "Pass Max",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "insertion_loss_db",
+          "label": "IL",
+          "unit": "dB",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "rejection_db",
+          "label": "Rejection",
+          "unit": "dB",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "technology",
+          "label": "Tech",
+          "type": "text"
+        },
+        {
+          "key": "package",
+          "label": "Package",
+          "type": "text"
+        }
+      ]
+    }
+  ],
+  "parts": [
+    {
+      "id": "acme-alm1234",
+      "category": "lna",
+      "manufacturer": "Acme RF",
+      "mpn": "ALM-1234",
+      "description": "0.5 to 6 GHz LNA, 0.6 dB NF",
+      "specs": {
+        "freq_min_ghz": 0.5,
+        "freq_max_ghz": 6,
+        "nf_db": 0.6,
+        "gain_db": 18,
+        "op1db_dbm": 20,
+        "supply_v": 5,
+        "package": "2x2 mm DFN"
+      },
+      "datasheet": {
+        "sourceUrl": "https://manufacturer.example/ALM-1234.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "acme-alm2280",
+      "category": "lna",
+      "manufacturer": "Acme RF",
+      "mpn": "ALM-2280",
+      "description": "2 to 18 GHz wideband LNA",
+      "specs": {
+        "freq_min_ghz": 2,
+        "freq_max_ghz": 18,
+        "nf_db": 1.8,
+        "gain_db": 22,
+        "op1db_dbm": 16,
+        "supply_v": 5,
+        "package": "3x3 mm QFN"
+      },
+      "datasheet": {
+        "sourceUrl": "https://manufacturer.example/ALM-2280.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "kestrel-kln4020",
+      "category": "lna",
+      "manufacturer": "Kestrel Semiconductor",
+      "mpn": "KLN-4020",
+      "description": "24 to 30 GHz LNA for 5G FR2",
+      "specs": {
+        "freq_min_ghz": 24,
+        "freq_max_ghz": 30,
+        "nf_db": 2.4,
+        "gain_db": 21,
+        "supply_v": 3.3,
+        "package": "Bare die"
+      },
+      "datasheet": {
+        "sourceUrl": "https://kestrel.example/pdf/KLN-4020.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "northwind-nla0310",
+      "category": "lna",
+      "manufacturer": "Northwind Microwave",
+      "mpn": "NLA-0310",
+      "description": "Low current GNSS LNA",
+      "specs": {
+        "freq_min_ghz": 1.1,
+        "freq_max_ghz": 1.7,
+        "nf_db": 0.75,
+        "gain_db": 17,
+        "op1db_dbm": 8,
+        "supply_v": 1.8,
+        "package": "1.5x1.5 mm DFN"
+      },
+      "datasheet": {
+        "sourceUrl": "https://northwind.example/datasheets/NLA-0310.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "acme-amx0750",
+      "category": "mixer",
+      "manufacturer": "Acme RF",
+      "mpn": "AMX-0750",
+      "description": "Passive double-balanced mixer",
+      "specs": {
+        "rf_min_ghz": 0.7,
+        "rf_max_ghz": 5,
+        "lo_min_ghz": 0.7,
+        "lo_max_ghz": 5,
+        "if_max_ghz": 1.5,
+        "conv_loss_db": 7.2,
+        "iip3_dbm": 22,
+        "lo_drive_dbm": 15,
+        "package": "3x3 mm QFN"
+      },
+      "datasheet": {
+        "sourceUrl": "https://manufacturer.example/AMX-0750.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "kestrel-kmx1100",
+      "category": "mixer",
+      "manufacturer": "Kestrel Semiconductor",
+      "mpn": "KMX-1100",
+      "description": "Mixer with integrated LO buffer",
+      "specs": {
+        "rf_min_ghz": 0.4,
+        "rf_max_ghz": 3,
+        "lo_min_ghz": 0.4,
+        "lo_max_ghz": 3,
+        "if_max_ghz": 0.5,
+        "conv_loss_db": 7.8,
+        "iip3_dbm": 25,
+        "lo_drive_dbm": 0,
+        "package": "4x4 mm QFN"
+      },
+      "datasheet": {
+        "sourceUrl": "https://kestrel.example/pdf/KMX-1100.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "northwind-nmx2600",
+      "category": "mixer",
+      "manufacturer": "Northwind Microwave",
+      "mpn": "NMX-2600",
+      "description": "6 to 26 GHz double-balanced mixer",
+      "specs": {
+        "rf_min_ghz": 6,
+        "rf_max_ghz": 26,
+        "lo_min_ghz": 6,
+        "lo_max_ghz": 26,
+        "if_max_ghz": 6,
+        "conv_loss_db": 8.5,
+        "iip3_dbm": 18,
+        "lo_drive_dbm": 13,
+        "package": "Bare die"
+      },
+      "datasheet": {
+        "sourceUrl": "https://northwind.example/datasheets/NMX-2600.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "acme-afb2450",
+      "category": "filter",
+      "manufacturer": "Acme RF",
+      "mpn": "AFB-2450",
+      "description": "2.4 GHz ISM bandpass filter",
+      "specs": {
+        "filter_type": "bandpass",
+        "pass_min_ghz": 2.4,
+        "pass_max_ghz": 2.5,
+        "insertion_loss_db": 1.2,
+        "rejection_db": 40,
+        "technology": "Ceramic",
+        "package": "1008"
+      },
+      "datasheet": {
+        "sourceUrl": "https://manufacturer.example/AFB-2450.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "acme-afh1000",
+      "category": "filter",
+      "manufacturer": "Acme RF",
+      "mpn": "AFH-1000",
+      "description": "1 GHz highpass filter",
+      "specs": {
+        "filter_type": "highpass",
+        "pass_min_ghz": 1,
+        "pass_max_ghz": 8,
+        "insertion_loss_db": 0.6,
+        "rejection_db": 30,
+        "technology": "LTCC",
+        "package": "0603"
+      },
+      "datasheet": {
+        "sourceUrl": "https://manufacturer.example/AFH-1000.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "kestrel-ksf1575",
+      "category": "filter",
+      "manufacturer": "Kestrel Semiconductor",
+      "mpn": "KSF-1575",
+      "description": "GPS L1 SAW filter",
+      "specs": {
+        "filter_type": "bandpass",
+        "pass_min_ghz": 1.565,
+        "pass_max_ghz": 1.586,
+        "insertion_loss_db": 0.9,
+        "rejection_db": 45,
+        "technology": "SAW",
+        "package": "1.4x1.1 mm"
+      },
+      "datasheet": {
+        "sourceUrl": "https://kestrel.example/pdf/KSF-1575.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "northwind-nfl6000",
+      "category": "filter",
+      "manufacturer": "Northwind Microwave",
+      "mpn": "NFL-6000",
+      "description": "DC to 6 GHz lowpass filter",
+      "specs": {
+        "filter_type": "lowpass",
+        "pass_min_ghz": 0,
+        "pass_max_ghz": 6,
+        "insertion_loss_db": 0.8,
+        "rejection_db": 35,
+        "technology": "LTCC",
+        "package": "0805"
+      },
+      "datasheet": {
+        "sourceUrl": "https://northwind.example/datasheets/NFL-6000.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    }
+  ]
+}
