@@ -1,0 +1,14 @@
+# Datasheet PDFs never go in git (see CLAUDE.md, Hosting). They live in R2.
+datasheets/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# Node / Vite (later phases)
+node_modules/
+dist/
+
+# OS clutter
+.DS_Store
