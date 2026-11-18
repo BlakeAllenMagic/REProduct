@@ -226,6 +226,36 @@ def parse_number(text: str, unit: str | None) -> tuple[float | int | None, str |
     return (int(value) if value.is_integer() else value), None
 
 
+_MONTH = r"(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)"
+# Patterns Excel produces when it "helpfully" converts a text cell, and then
+# writes back when the CSV is saved. Each matches the whole cell.
+EXCEL_DAMAGE = [
+    # "MAR-1" becomes "1-Mar", "MAR-10" becomes "Mar-10". Excel writes the month
+    # as "Mar", so a real all-caps "MAR-10" is not flagged.
+    (re.compile(rf"^\d{{1,2}}-{_MONTH}(?:-\d{{2,4}})?$"), "looks like a date Excel created"),
+    (re.compile(rf"^{_MONTH}-\d{{2,4}}$"), "looks like a date Excel created"),
+    (re.compile(r"^\d{1,2}/\d{1,2}/\d{2,4}$"), "looks like a date Excel created"),
+    # "2E10" becomes "2.00E+10".
+    (re.compile(r"^\d+(?:\.\d+)?E\+\d+$", re.IGNORECASE), "looks like scientific notation Excel created"),
+]
+# Chip sizes like 0201, 0402, 0603 lose their leading zero: "0603" becomes "603".
+PACKAGE_LOST_ZERO = re.compile(r"^\d{3}$")
+
+
+def excel_damage_hint(key: str, text: str) -> str | None:
+    """Return a warning if a text cell looks like Excel converted it, else None.
+
+    These are warnings, not errors: the value is valid text, it just might not
+    be what was originally typed. Compare against `git diff` to be sure.
+    """
+    for pattern, reason in EXCEL_DAMAGE:
+        if pattern.match(text):
+            return f"{text!r} {reason}. Check it against the datasheet"
+    if key == "package" and PACKAGE_LOST_ZERO.match(text):
+        return f"{text!r} looks like Excel removed a leading zero (was it '0{text}'?)"
+    return None
+
+
 def make_part_id(manufacturer: str, mpn: str) -> str:
     """'Acme RF' + 'ALM-1234' -> 'acme-alm1234' (first word of the maker + the MPN)."""
     maker = re.sub(r"[^a-z0-9]", "", manufacturer.split()[0].lower())
@@ -332,6 +362,14 @@ def _build_part(
     if url and not url.startswith("https://"):
         report.error(where, f"datasheet_url must start with https:// (got {url!r})")
         ok = False
+
+    text_columns = ["manufacturer", "mpn", "description"] + [
+        k for k, s in specs.items() if s["type"] == "text"
+    ]
+    for col in text_columns:
+        hint = excel_damage_hint(col, cells[col]) if cells[col] else None
+        if hint:
+            report.warn(where, f"{col}: {hint}")
 
     values: dict[str, Any] = {}
     for key, spec in specs.items():

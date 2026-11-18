@@ -231,6 +231,48 @@ class BrokenDatasheetRecordTests(BuildTestCase):
         self.assertIn("gone-part", err)
 
 
+class ExcelDamageWarningTests(BuildTestCase):
+    def assert_warns(self, *messages: str) -> None:
+        """Build still succeeds, but prints a warning containing each message."""
+        code, _, err = self.run_tool()
+        self.assertEqual(code, 0, err)
+        self.assertIn("warning:", err)
+        for message in messages:
+            self.assertIn(message, err)
+
+    def test_real_data_has_no_warnings(self) -> None:
+        code, _, err = self.run_tool()
+        self.assertEqual(code, 0, err)
+        self.assertNotIn("warning:", err)
+
+    def test_package_lost_leading_zero(self) -> None:
+        self.edit("parts/filter.csv", ",LTCC,0603", ",LTCC,603")
+        self.assert_warns("filter.csv:3: package:", "was it '0603'?")
+
+    def test_mpn_turned_into_date(self) -> None:
+        self.edit("parts/lna.csv", "Acme RF,ALM-2280,", "Acme RF,Mar-10,")
+        self.assert_warns("lna.csv:3: mpn:", "looks like a date")
+
+    def test_mpn_turned_into_day_month_date(self) -> None:
+        self.edit("parts/lna.csv", "Acme RF,ALM-2280,", "Acme RF,1-Mar,")
+        self.assert_warns("looks like a date")
+
+    def test_mpn_turned_into_scientific_notation(self) -> None:
+        self.edit("parts/lna.csv", "Acme RF,ALM-2280,", "Acme RF,2.00E+10,")
+        self.assert_warns("scientific notation")
+
+    def test_real_all_caps_part_number_not_flagged(self) -> None:
+        self.edit("parts/lna.csv", "Acme RF,ALM-2280,", "Acme RF,MAR-10,")
+        code, _, err = self.run_tool()
+        self.assertEqual(code, 0, err)
+        self.assertNotIn("warning:", err)
+
+    def test_four_digit_package_not_flagged(self) -> None:
+        # "1008" is a real chip size and has no leading zero to lose.
+        code, _, err = self.run_tool()
+        self.assertNotIn("'1008'", err)
+
+
 class HelperTests(unittest.TestCase):
     def test_part_id(self) -> None:
         self.assertEqual(build_linecard.make_part_id("Acme RF", "ALM-1234"), "acme-alm1234")
