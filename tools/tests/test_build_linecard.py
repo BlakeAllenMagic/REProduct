@@ -86,7 +86,16 @@ class GoodDataTests(BuildTestCase):
         self.assertEqual(
             set(part["datasheet"]), {"sourceUrl", "file", "sha256", "bytes", "updated"}
         )
-        self.assertIsNone(part["datasheet"]["sha256"])  # no sync has run yet
+        # This part has a sample datasheet from tools/make_sample_datasheets.py.
+        self.assertRegex(part["datasheet"]["sha256"], r"^[0-9a-f]{64}$")
+        self.assertEqual(part["datasheet"]["file"], f"datasheets/{part['datasheet']['sha256']}.pdf")
+
+    def test_part_without_datasheet_has_nulls(self) -> None:
+        self.run_tool()
+        card = json.loads(self.out.read_text(encoding="utf-8"))
+        part = next(p for p in card["parts"] if p["id"] == "kestrel-kln4020")
+        self.assertIsNone(part["datasheet"]["sha256"])
+        self.assertIsNone(part["datasheet"]["file"])
 
     def test_unit_suffix_matching_column_is_accepted(self) -> None:
         self.edit("parts/lna.csv", ",0.6,18,", ",0.6 dB,18,")

@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-18T16:33:37Z",
+  "dataVersion": "2026-11-18T16:58:16Z",
   "categories": [
     {
       "id": "lna",
@@ -189,10 +189,10 @@
       },
       "datasheet": {
         "sourceUrl": "https://manufacturer.example/ALM-1234.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/6ca5121a9f73429fd633a98634bb3f28fffc785b601c3b2fc499eb0481f741d3.pdf",
+        "sha256": "6ca5121a9f73429fd633a98634bb3f28fffc785b601c3b2fc499eb0481f741d3",
+        "bytes": 6947,
+        "updated": "2026-10-02"
       }
     },
     {
@@ -257,10 +257,10 @@
       },
       "datasheet": {
         "sourceUrl": "https://northwind.example/datasheets/NLA-0310.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/1d7b770c450832a132065d5990b52e11224aef12ddb4e30103738c9f8f8bc81c.pdf",
+        "sha256": "1d7b770c450832a132065d5990b52e11224aef12ddb4e30103738c9f8f8bc81c",
+        "bytes": 3848,
+        "updated": "2026-11-10"
       }
     },
     {
@@ -282,10 +282,10 @@
       },
       "datasheet": {
         "sourceUrl": "https://manufacturer.example/AMX-0750.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/45a3017a7e57c6e904b1ee3da45b31fed2d8a49b37b4da9b3455a7c80e528650.pdf",
+        "sha256": "45a3017a7e57c6e904b1ee3da45b31fed2d8a49b37b4da9b3455a7c80e528650",
+        "bytes": 4640,
+        "updated": "2025-06-18"
       }
     },
     {
@@ -355,10 +355,10 @@
       },
       "datasheet": {
         "sourceUrl": "https://manufacturer.example/AFB-2450.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/b3a5b773c08255e914d95f6244af8baa3d4ae066264f62c355bf560de66ac70a.pdf",
+        "sha256": "b3a5b773c08255e914d95f6244af8baa3d4ae066264f62c355bf560de66ac70a",
+        "bytes": 3796,
+        "updated": "2026-03-30"
       }
     },
     {
@@ -401,10 +401,10 @@
       },
       "datasheet": {
         "sourceUrl": "https://kestrel.example/pdf/KSF-1575.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/482ce1acdb0487bf59e8601da6b67bceef3d66092362507f5b441349b8f99089.pdf",
+        "sha256": "482ce1acdb0487bf59e8601da6b67bceef3d66092362507f5b441349b8f99089",
+        "bytes": 4640,
+        "updated": "2026-11-12"
       }
     },
     {
