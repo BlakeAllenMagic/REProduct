@@ -30,6 +30,12 @@ The Safari 18 baseline comes from PDF.js, whose FAQ lists its legacy build as su
 
 Do not add Android or Windows workarounds yet. Use standard web APIs so those platforms can be added later.
 
+## Testing devices
+
+- **Day to day:** no iPad or Mac is available for development, so testing happens on Windows in Chrome or Edge, plus automated tap-flow tests (`npm run test:e2e`) that run in Chromium and in WebKit, the engine inside Safari. Playwright runs WebKit on Windows too.
+- **Windows is a test bench, not a target platform.** Never write code that only exists to make Windows work. If something works on Windows but would behave differently on an iPad, say so.
+- **What Windows can't show:** Safari's pinch gesture events, Home Screen app storage, iOS storage limits and eviction, iPad canvas memory limits, and sharing from an installed iPad app. These are covered by the Apple device check below, which must pass on a real iPad (borrowed, or a cloud device service) before the rep relies on the app.
+
 ## Non-negotiables
 
 - **Offline first.** Every feature in the core flow works in airplane mode once datasheets are downloaded. Network access is an enhancement and never a requirement.
@@ -182,15 +188,15 @@ Use two separate caches with different lifecycles:
 
 ## Build phases
 
-Do one phase at a time, and don't start the next until the current one's "done when" passes.
+Do one phase at a time, and don't start the next until the current one's "done when" passes. "Done when" is checked on Windows (see Testing devices); the Apple device check is separate and must pass before the rep uses the app.
 
 | Phase | Scope | Done when |
 |---|---|---|
 | 0 | Schema, `categories.yaml`, 3 categories (LNA, mixer, filter) with 3 to 5 sample parts each, `build_linecard.py` | `linecard.json` builds and validation catches a deliberately broken CSV |
-| 1 | SVG diagram, parts table, PDF.js viewer, local sample PDFs | Full tap flow works in Safari on Mac |
-| 2 | Manifest, service worker, app shell cache, download manager, Settings screen | Installed on iPad, all sample PDFs downloaded, full flow works in airplane mode after a force-quit |
-| 3 | Send datasheet (Web Share plus mailto fallback) | Email with the PDF attached is composed on iPad while offline |
-| 4 | `sync_datasheets.py`, GitHub Action, R2 upload, in-app update flow | Changing a sample PDF upstream leads to exactly one re-download on the device |
+| 1 | SVG diagram, parts table, PDF.js viewer, local sample PDFs | Full tap flow works in Chrome or Edge on Windows, and the tap-flow tests pass in Chromium and WebKit |
+| 2 | Manifest, service worker, app shell cache, download manager, Settings screen | Installed from Chrome or Edge on Windows, all sample PDFs downloaded, full flow works offline after closing and reopening the app |
+| 3 | Send datasheet (Web Share plus mailto fallback) | On Windows, the share sheet attaches the PDF while offline, and the mailto fallback opens a prefilled email |
+| 4 | `sync_datasheets.py`, GitHub Action, R2 upload, in-app update flow | Changing a sample PDF upstream leads to exactly one re-download on the test device |
 | 5 | Search by part number, sort and filter, compare, branding, more diagrams | As agreed per feature |
 
 **Current phase: 1**
@@ -205,12 +211,23 @@ Do one phase at a time, and don't start the next until the current one's "done w
 
 ## Testing checklist (run before calling a phase done)
 
-- [ ] Chrome or Safari dev tools: service worker is active and the caches contain what's expected
+- [ ] `npm test` and `npm run test:e2e` pass (Chromium and WebKit)
+- [ ] Chrome or Edge dev tools: service worker is active and the caches contain what's expected
 - [ ] Network set to Offline, then a hard reload: app still loads
-- [ ] Real iPad, installed to the Home Screen, airplane mode, force-quit, reopen: full flow works
+- [ ] Installed from Chrome or Edge on Windows, offline, app closed and reopened: full flow works
 - [ ] Interrupt a "Download all" halfway, then resume: no duplicate files and no corrupted files
 - [ ] Simulate a storage quota error: the app shows a clear message and doesn't crash
-- [ ] Portrait and landscape layouts on iPad
+- [ ] Dev tools device emulation, iPad size, portrait and landscape: layout works and tap targets are big enough
+
+## Apple device check (real iPad, before the rep relies on the app)
+
+- [ ] Safari tab: full tap flow, pinch zoom on a datasheet
+- [ ] Installed to the Home Screen, datasheets downloaded inside the installed app
+- [ ] Airplane mode, force-quit, reopen: full flow works
+- [ ] Send datasheet while offline composes an email with the PDF attached
+- [ ] Portrait and landscape layouts
+- [ ] A long real datasheet (50+ pages): scroll through it, no blank pages
+- [ ] Mac Safari (if available): Add to Dock, same flow, trackpad pinch
 
 ## How to work with me
 

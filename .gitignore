@@ -12,3 +12,7 @@ dist/
 
 # OS clutter
 .DS_Store
+
+# Playwright output
+test-results/
+playwright-report/
