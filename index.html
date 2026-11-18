@@ -1,0 +1,25 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="color-scheme" content="light" />
+    <title>RF Line Card</title>
+    <link rel="stylesheet" href="/src/styles/base.css" />
+    <link rel="stylesheet" href="/src/styles/diagram.css" />
+    <link rel="stylesheet" href="/src/styles/table.css" />
+    <link rel="stylesheet" href="/src/styles/viewer.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="topbar-back" id="back" href="#/" hidden>
+        <span aria-hidden="true">‹</span> <span id="back-label">Back</span>
+      </a>
+      <h1 class="topbar-title" id="title">RF Line Card</h1>
+      <div class="topbar-actions" id="actions"></div>
+    </header>
+    <div class="errors" id="errors" aria-live="assertive"></div>
+    <main class="view" id="view"></main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
