@@ -3,9 +3,11 @@
 import { config } from './config.js';
 import { indexLinecard } from './data.js';
 import { startRouter } from './router.js';
+import { installDownloadChip } from './ui/download-chip.js';
 import { installErrorHandling, showError } from './ui/errors.js';
 import { renderDiagram } from './views/diagram.js';
 import { renderPartsTable } from './views/parts-table.js';
+import { renderSettings } from './views/settings.js';
 import { renderViewer } from './views/viewer.js';
 
 const els = {
@@ -14,12 +16,14 @@ const els = {
   back: document.getElementById('back'),
   backLabel: document.getElementById('back-label'),
   actions: document.getElementById('actions'),
+  settingsLink: document.getElementById('settings-link'),
 };
 
 const views = {
   home: renderDiagram,
   category: renderPartsTable,
   part: renderViewer,
+  settings: renderSettings,
 };
 
 let current = null; // { destroy } of the view on screen
@@ -42,6 +46,7 @@ async function show(ctx, route) {
   els.view.replaceChildren();
   els.actions.replaceChildren();
   els.view.dataset.view = route.name;
+  els.settingsLink.hidden = route.name === 'settings';
   window.scrollTo(0, 0);
 
   try {
@@ -69,6 +74,7 @@ async function show(ctx, route) {
 
 async function start() {
   installErrorHandling(document.getElementById('errors'));
+  installDownloadChip(document.getElementById('download-chip'));
   let ctx;
   try {
     ctx = await loadLinecard();

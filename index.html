@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/src/styles/diagram.css" />
     <link rel="stylesheet" href="/src/styles/table.css" />
     <link rel="stylesheet" href="/src/styles/viewer.css" />
+    <link rel="stylesheet" href="/src/styles/settings.css" />
   </head>
   <body>
     <header class="topbar">
@@ -26,7 +27,21 @@
         <span aria-hidden="true">‹</span> <span id="back-label">Back</span>
       </a>
       <h1 class="topbar-title" id="title">RF Line Card</h1>
-      <div class="topbar-actions" id="actions"></div>
+      <div class="topbar-actions">
+        <span id="actions" class="view-actions"></span>
+        <a class="download-chip" id="download-chip" href="#/settings" hidden></a>
+        <a class="btn btn-icon" id="settings-link" href="#/settings" aria-label="Settings">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true">
+            <path
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.8"
+              stroke-linejoin="round"
+              d="M12 15.2a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4Zm7.4-2.1.1-1.1-.1-1.1 2-1.6-2-3.4-2.4.8a7.6 7.6 0 0 0-1.9-1.1L14.6 3h-4l-.5 2.6a7.6 7.6 0 0 0-1.9 1.1l-2.4-.8-2 3.4 2 1.6-.1 1.1.1 1.1-2 1.6 2 3.4 2.4-.8c.6.5 1.2.8 1.9 1.1l.5 2.6h4l.5-2.6c.7-.3 1.3-.6 1.9-1.1l2.4.8 2-3.4-2-1.6Z"
+            />
+          </svg>
+        </a>
+      </div>
     </header>
     <div class="errors" id="errors" aria-live="assertive"></div>
     <main class="view" id="view"></main>

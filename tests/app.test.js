@@ -16,6 +16,8 @@ test('parseHash: known routes', () => {
   assert.deepEqual(parseHash(''), { name: 'home' });
   assert.deepEqual(parseHash('#/category/lna'), { name: 'category', id: 'lna' });
   assert.deepEqual(parseHash('#/part/acme-alm1234'), { name: 'part', id: 'acme-alm1234' });
+  assert.deepEqual(parseHash('#/settings'), { name: 'settings' });
+  assert.equal(hrefFor('settings'), '#/settings');
 });
 
 test('parseHash: junk goes home', () => {
@@ -49,6 +51,7 @@ test('formatBytes', () => {
   assert.equal(formatBytes(500), '500 B');
   assert.equal(formatBytes(2048), '2 KB');
   assert.equal(formatBytes(2483112), '2.4 MB');
+  assert.equal(formatBytes(1.5 * 1024 ** 3), '1.5 GB');
 });
 
 test('indexLinecard maps blocks to categories from categories.yaml', () => {

@@ -48,6 +48,10 @@ test('full tap flow: block, table, datasheet, and back', async ({ page }) => {
   await expect(page).toHaveURL(/#\/part\/acme-alm1234$/);
   await expect(page.locator('#title')).toHaveText('ALM-1234');
 
+  // Fresh browser: nothing saved yet, so download it from the viewer.
+  await expect(page.getByRole('heading', { name: 'Not downloaded' })).toBeVisible();
+  await press(page, page.getByRole('button', { name: 'Download now' }));
+
   // The PDF loads and the first page is drawn.
   const pageLabel = page.locator('.viewer-label').first();
   const zoomLabel = page.locator('.viewer-label').nth(1);
@@ -75,6 +79,7 @@ test('full tap flow: block, table, datasheet, and back', async ({ page }) => {
 });
 
 test('only pages near the screen keep a canvas', async ({ page }) => {
+  await downloadAll(page);
   await page.goto('#/part/acme-alm1234');
   await expect(page.locator('.viewer-label').first()).toHaveText('1 / 7');
   for (let i = 0; i < 6; i++) await page.getByRole('button', { name: 'Next page' }).click();
@@ -83,9 +88,9 @@ test('only pages near the screen keep a canvas', async ({ page }) => {
   await expect(page.locator('.pdf-page[data-page="1"] canvas')).toHaveCount(0);
 });
 
-test('a part without a datasheet shows "Not downloaded"', async ({ page }) => {
+test('a part without a datasheet file says so and links to the maker', async ({ page }) => {
   await page.goto('#/part/kestrel-kln4020');
-  await expect(page.getByRole('heading', { name: 'Not downloaded' })).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'No datasheet in the app' })).toBeVisible();
   await expect(page.getByRole('link', { name: /Kestrel Semiconductor website/ })).toHaveAttribute(
     'href',
     'https://kestrel.example/pdf/KLN-4020.pdf',
@@ -104,6 +109,7 @@ test('two-finger pinch zooms the datasheet', async ({ page, browserName, context
   // pinch events can only be tested on a real Apple device.
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });
+  await downloadAll(page);
   await page.goto('#/part/acme-amx0750');
   const zoomLabel = page.locator('.viewer-label').nth(1);
   await expect(zoomLabel).toHaveText('100%');
@@ -127,6 +133,38 @@ test('two-finger pinch zooms the datasheet', async ({ page, browserName, context
   await touch('touchEnd', []);
   await expect(zoomLabel).toHaveText('250%'); // fingers went from 120 px to 300 px apart
 });
+
+test('Settings: Download all saves every datasheet', async ({ page }) => {
+  await page.goto('#/settings');
+  await expect(page.locator('.big-stat')).toContainText('0 of 5');
+  await press(page, page.getByRole('button', { name: 'Download all' }));
+  await expect(page.locator('.download-progress')).toContainText('Download complete');
+  await expect(page.locator('.download-progress')).toContainText('5 / 5 files');
+  await expect(page.locator('.big-stat')).toContainText('5 of 5');
+  await expect(page.getByText(/Last synced/)).toBeVisible();
+  await expect(page.getByRole('button', { name: 'All datasheets saved' })).toBeDisabled();
+});
+
+test('parts table: download one category and see its status', async ({ page }) => {
+  await page.goto('#/category/filter');
+  const row = (mpn) => page.locator('.part-row', { hasText: mpn }).locator('td.status');
+  await expect(row('AFB-2450')).toHaveText('Not saved');
+  await expect(row('AFH-1000')).toHaveText('–'); // no datasheet file
+  await press(page, page.getByRole('button', { name: /Download this category \(2\)/ }));
+  await expect(row('AFB-2450')).toHaveText('Saved');
+  await expect(row('KSF-1575')).toHaveText('Saved');
+  await expect(page.getByRole('button', { name: 'All datasheets saved' })).toBeDisabled();
+
+  // Other categories were not downloaded.
+  await page.goto('#/settings');
+  await expect(page.locator('.big-stat')).toContainText('2 of 5');
+});
+
+async function downloadAll(page) {
+  await page.goto('#/settings');
+  await page.getByRole('button', { name: 'Download all' }).click();
+  await expect(page.locator('.big-stat')).toContainText('5 of 5');
+}
 
 /** True if the page's canvas has any non-white pixels (it really drew). */
 async function canvasHasInk(page, pageNumber) {

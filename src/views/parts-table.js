@@ -1,7 +1,12 @@
-// Parts table for one category: every line card part with its key specs.
+// Parts table for one category: every line card part with its key specs,
+// plus whether its datasheet is on this device.
 
 import { specHeader, specValue, MISSING } from '../format.js';
+import { downloads, getSavedHashes, itemsForParts } from '../offline/downloads.js';
 import { hrefFor } from '../router.js';
+import { downloadParts } from '../ui/download-actions.js';
+import { button, el } from '../ui/dom.js';
+import { showError } from '../ui/errors.js';
 
 export function renderPartsTable(container, ctx, route) {
   const category = ctx.categories.get(route.id);
@@ -13,20 +18,45 @@ export function renderPartsTable(container, ctx, route) {
   }
 
   const parts = ctx.partsByCategory.get(category.id);
-  const scroller = document.createElement('div');
-  scroller.className = 'table-scroll';
+  const statusCells = new Map(); // sha -> [cell, ...]
+  const table = el('table', { class: 'parts-table' }, makeHead(category), makeBody(category, parts, statusCells));
+  const count = el('p', { class: 'table-count' }, `${parts.length} part${parts.length === 1 ? '' : 's'}`);
+  const downloadButton = button('Download this category', () => downloadParts(parts));
+  const toolbar = el('div', { class: 'table-toolbar' }, count, downloadButton);
+  container.append(toolbar, el('div', { class: 'table-scroll' }, table));
 
-  const table = document.createElement('table');
-  table.className = 'parts-table';
-  table.append(makeHead(category), makeBody(category, parts));
-  scroller.append(table);
+  const items = itemsForParts(parts);
+  let destroyed = false;
+  const update = async () => {
+    try {
+      const saved = await getSavedHashes();
+      if (destroyed) return;
+      for (const [sha, cells] of statusCells) {
+        for (const cell of cells) setStatus(cell, saved.has(sha) ? 'saved' : 'missing');
+      }
+      const missing = new Set(items.filter((i) => !saved.has(i.sha)).map((i) => i.sha)).size;
+      downloadButton.disabled = missing === 0;
+      downloadButton.textContent =
+        missing === 0
+          ? 'All datasheets saved'
+          : downloads.running
+            ? `Downloading… (${missing} left)`
+            : `Download this category (${missing})`;
+    } catch (error) {
+      showError(error, `Couldn't check which datasheets are saved`);
+    }
+  };
+  update();
+  for (const type of ['saved', 'finished', 'progress']) downloads.addEventListener(type, update);
 
-  const count = document.createElement('p');
-  count.className = 'table-count';
-  count.textContent = `${parts.length} part${parts.length === 1 ? '' : 's'}`;
-
-  container.append(count, scroller);
-  return { title: category.name, back };
+  return {
+    title: category.name,
+    back,
+    destroy() {
+      destroyed = true;
+      for (const type of ['saved', 'finished', 'progress']) downloads.removeEventListener(type, update);
+    },
+  };
 }
 
 function makeHead(category) {
@@ -36,6 +66,7 @@ function makeHead(category) {
   // scrolling sideways; the long description goes last.
   const columns = [
     ['Part number', ''],
+    ['Datasheet', ''],
     ['Manufacturer', ''],
     ...category.specs.map((spec) => [specHeader(spec), spec.type === 'number' ? 'num' : '']),
     ['Description', ''],
@@ -50,7 +81,7 @@ function makeHead(category) {
   return thead;
 }
 
-function makeBody(category, parts) {
+function makeBody(category, parts, statusCells) {
   const tbody = document.createElement('tbody');
   for (const part of parts) {
     const href = hrefFor('part', part.id);
@@ -67,6 +98,16 @@ function makeBody(category, parts) {
     mpnCell.append(link);
     row.append(mpnCell);
 
+    const status = addCell(row, '', 'status');
+    const sha = part.datasheet?.sha256;
+    if (sha) {
+      if (!statusCells.has(sha)) statusCells.set(sha, []);
+      statusCells.get(sha).push(status);
+      setStatus(status, 'checking');
+    } else {
+      setStatus(status, 'none');
+    }
+
     addCell(row, part.manufacturer);
     for (const spec of category.specs) {
       addCell(row, specValue(spec, part.specs[spec.key]), spec.type === 'number' ? 'num' : '');
@@ -81,8 +122,22 @@ function makeBody(category, parts) {
   return tbody;
 }
 
+const STATUS = {
+  checking: ['…', ''],
+  saved: ['Saved', 'is-saved'],
+  missing: ['Not saved', 'is-missing'],
+  none: [MISSING, 'is-none'],
+};
+
+function setStatus(cell, status) {
+  const [text, className] = STATUS[status];
+  cell.textContent = text;
+  cell.className = `status ${className}`.trim();
+}
+
 function addCell(row, text, className = '') {
   const cell = row.insertCell();
   cell.textContent = text;
   if (className) cell.className = className;
+  return cell;
 }
