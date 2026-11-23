@@ -188,3 +188,35 @@ test('an interrupted Download all resumes without duplicates or damaged files', 
   expect(check).toEqual([true, true, true, true, true]);
   await good.goOffline();
 });
+
+test('phase 3 done-when: Send datasheet attaches the PDF while offline', async ({ page, context }) => {
+  // Stand-in for the share sheet (the real one is an OS window).
+  await context.addInitScript(() => {
+    window.__shares = [];
+    navigator.canShare = (data) => Array.isArray(data?.files);
+    navigator.share = async (data) => {
+      const file = data.files[0];
+      const digest = await crypto.subtle.digest('SHA-256', await file.arrayBuffer());
+      const sha = Array.from(new Uint8Array(digest), (b) => b.toString(16).padStart(2, '0')).join('');
+      window.__shares.push({ name: file.name, type: file.type, sha });
+    };
+  });
+  const server = await startServer();
+  await openApp(page, `${server.url}#/`);
+  await downloadAll(page, server.url);
+  await page.close();
+  await server.goOffline();
+
+  const reopened = await context.newPage();
+  await reopened.goto(`${server.url}#/part/acme-afb2450`);
+  await expect(reopened.locator('.pdf-page[data-page="1"] canvas')).toHaveCount(1);
+  await reopened.getByRole('button', { name: 'Send datasheet' }).click();
+  await expect.poll(() => reopened.evaluate(() => window.__shares.length)).toBe(1);
+  const [share] = await reopened.evaluate(() => window.__shares);
+  expect(share.name).toBe('Acme RF AFB-2450 datasheet.pdf');
+  expect(share.type).toBe('application/pdf');
+  const linecard = JSON.parse(
+    (await import('node:fs')).readFileSync(new URL('../../public/linecard.json', import.meta.url)),
+  );
+  expect(share.sha).toBe(linecard.parts.find((p) => p.id === 'acme-afb2450').datasheet.sha256);
+});
