@@ -6,6 +6,7 @@ import { startRouter } from './router.js';
 import { registerServiceWorker } from './offline/register-sw.js';
 import { installDownloadChip } from './ui/download-chip.js';
 import { installErrorHandling, showError } from './ui/errors.js';
+import { captureInstallPrompt, showInstallHintOnce } from './ui/install.js';
 import { renderDiagram } from './views/diagram.js';
 import { renderPartsTable } from './views/parts-table.js';
 import { renderSettings } from './views/settings.js';
@@ -78,6 +79,8 @@ async function start() {
   installDownloadChip(document.getElementById('download-chip'));
   // Before loading data, so offline support turns on even if loading fails.
   registerServiceWorker(document.getElementById('banners'));
+  captureInstallPrompt();
+  showInstallHintOnce(document.getElementById('banners'));
   let ctx;
   try {
     ctx = await loadLinecard();

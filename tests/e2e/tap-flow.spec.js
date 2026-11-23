@@ -160,6 +160,27 @@ test('parts table: download one category and see its status', async ({ page }) =
   await expect(page.locator('.big-stat')).toContainText('2 of 5');
 });
 
+test('storage full: clear message and the app keeps working', async ({ page, browserName, context }) => {
+  test.skip(browserName !== 'chromium', 'storage quota simulation is Chromium-only');
+  await page.goto('#/settings');
+  const cdp = await context.newCDPSession(page);
+  await cdp.send('Storage.overrideQuotaForOrigin', {
+    origin: new URL(page.url()).origin,
+    quotaSize: 12 * 1024, // 12 KB: room for some of the 23 KB of samples
+  });
+  await page.reload();
+
+  // The space check warns first; say "download anyway".
+  page.once('dialog', (dialog) => dialog.accept());
+  await page.getByRole('button', { name: 'Download all' }).click();
+  await expect(page.locator('.download-progress')).toContainText('Stopped: storage full');
+  await expect(page.getByText(/ran out of storage space/)).toBeVisible();
+  await expect(page.getByRole('button', { name: 'Retry failed' })).toBeVisible();
+  // The app still works.
+  await page.goto('#/category/lna');
+  await expect(page.locator('.part-row')).toHaveCount(4);
+});
+
 async function downloadAll(page) {
   await page.goto('#/settings');
   await page.getByRole('button', { name: 'Download all' }).click();

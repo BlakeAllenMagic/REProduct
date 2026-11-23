@@ -8,6 +8,14 @@ import { hrefFor } from '../router.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
 import { showError } from '../ui/errors.js';
+import {
+  canPromptInstall,
+  installInstructions,
+  isInstalled,
+  onInstallChange,
+  platform,
+  promptInstall,
+} from '../ui/install.js';
 
 export function renderSettings(container, ctx) {
   const screen = new SettingsScreen(container, ctx);
@@ -40,6 +48,7 @@ class SettingsScreen {
     downloads.addEventListener('progress', this.onProgress);
     downloads.addEventListener('finished', this.onFinished);
     downloads.addEventListener('saved', this.onSaved);
+    this.stopInstallWatch = onInstallChange(() => this.renderInstall());
 
     this.sections = {
       datasheets: el('section', { class: 'card', 'aria-labelledby': 'h-datasheets' }),
@@ -65,6 +74,7 @@ class SettingsScreen {
       this.renderDatasheets();
       this.renderDownloads(downloads.state);
       this.renderStorage(estimate, persisted);
+      this.renderInstall();
       this.renderAbout(shellVersion);
     } catch (error) {
       showError(error, `Couldn't read this device's storage`);
@@ -189,6 +199,32 @@ class SettingsScreen {
     this.sections.storage.replaceChildren(el('h2', { id: 'h-storage' }, 'Storage'), ...lines);
   }
 
+  renderInstall() {
+    const section = this.sections.install;
+    section.hidden = false;
+    const children = [el('h2', { id: 'h-install' }, 'Install')];
+    if (isInstalled()) {
+      children.push(el('p', {}, 'Running as an installed app.'));
+    } else {
+      children.push(
+        el('p', {}, 'Not installed. Installing gives the app its own window and keeps it working offline.'),
+      );
+      if (canPromptInstall()) children.push(button('Install app', () => promptInstall(), { primary: true }));
+      const howTo = installInstructions();
+      if (howTo) children.push(el('p', { class: 'muted' }, howTo));
+      if (platform() === 'ipad') {
+        children.push(
+          el(
+            'p',
+            { class: 'error-text' },
+            'Datasheets downloaded in this Safari tab will not be in the installed app. Install first, then download.',
+          ),
+        );
+      }
+    }
+    section.replaceChildren(...children);
+  }
+
   renderAbout(shellVersion) {
     const version = this.ctx.linecard.dataVersion;
     const date = new Date(version);
@@ -209,6 +245,7 @@ class SettingsScreen {
     downloads.removeEventListener('progress', this.onProgress);
     downloads.removeEventListener('finished', this.onFinished);
     downloads.removeEventListener('saved', this.onSaved);
+    this.stopInstallWatch();
     clearTimeout(this.refreshTimer);
   }
 }
