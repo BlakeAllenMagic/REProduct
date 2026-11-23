@@ -199,7 +199,7 @@ Do one phase at a time, and don't start the next until the current one's "done w
 | 4 | `sync_datasheets.py`, GitHub Action, R2 upload, in-app update flow | Changing a sample PDF upstream leads to exactly one re-download on the test device |
 | 5 | Search by part number, sort and filter, compare, branding, more diagrams | As agreed per feature |
 
-**Current phase: 2**
+**Current phase: 3**
 
 ## Coding conventions
 
@@ -225,6 +225,7 @@ Do one phase at a time, and don't start the next until the current one's "done w
 - [ ] Installed to the Home Screen, datasheets downloaded inside the installed app
 - [ ] Airplane mode, force-quit, reopen: full flow works
 - [ ] Send datasheet while offline composes an email with the PDF attached
+- [ ] In Mail, the share's title shows up as the email subject (if not, note it; the rep types a subject)
 - [ ] Portrait and landscape layouts
 - [ ] A long real datasheet (50+ pages): scroll through it, no blank pages
 - [ ] Mac Safari (if available): Add to Dock, same flow, trackpad pinch
