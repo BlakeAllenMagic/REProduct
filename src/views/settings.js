@@ -2,6 +2,7 @@
 
 import { formatBytes } from '../format.js';
 import { downloads, getSavedHashes, itemsForParts } from '../offline/downloads.js';
+import { getShellVersion } from '../offline/register-sw.js';
 import { getEstimate, getLastSynced, isPersisted } from '../offline/storage.js';
 import { hrefFor } from '../router.js';
 import { downloadParts } from '../ui/download-actions.js';
@@ -53,17 +54,18 @@ class SettingsScreen {
   /** Re-read everything (saved files, storage) and redraw. */
   async refresh() {
     try {
-      const [saved, estimate, persisted] = await Promise.all([
+      const [saved, estimate, persisted, shellVersion] = await Promise.all([
         getSavedHashes(),
         getEstimate(),
         isPersisted(),
+        getShellVersion(),
       ]);
       if (this.destroyed) return;
       this.saved = saved;
       this.renderDatasheets();
       this.renderDownloads(downloads.state);
       this.renderStorage(estimate, persisted);
-      this.renderAbout();
+      this.renderAbout(shellVersion);
     } catch (error) {
       showError(error, `Couldn't read this device's storage`);
     }
@@ -187,11 +189,16 @@ class SettingsScreen {
     this.sections.storage.replaceChildren(el('h2', { id: 'h-storage' }, 'Storage'), ...lines);
   }
 
-  renderAbout() {
+  renderAbout(shellVersion) {
     const version = this.ctx.linecard.dataVersion;
     const date = new Date(version);
+    let appLine;
+    if (import.meta.env.DEV) appLine = 'Development build: offline mode is off (it runs in the built app only).';
+    else if (shellVersion) appLine = `App version ${shellVersion}, saved for offline use.`;
+    else appLine = 'App not saved for offline use yet. Reload once while online.';
     this.sections.about.replaceChildren(
       el('h2', { id: 'h-about' }, 'About'),
+      el('p', {}, appLine),
       el('p', {}, `Line card data: ${Number.isNaN(date.getTime()) ? version : date.toLocaleString()}`),
       el('p', {}, `${this.ctx.linecard.parts.length} parts in ${this.ctx.categories.size} categories`),
     );

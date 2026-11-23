@@ -206,3 +206,11 @@ test('savedHashes reads hashes back out of cache keys', async () => {
   cache.store.set('https://app.example/other.txt', 'y');
   assert.deepEqual([...(await savedHashes(cache))], [SHAS[0]]);
 });
+
+test('the service worker uses the same cache names as the app', async () => {
+  const { readFileSync } = await import('node:fs');
+  const { DATASHEET_CACHE, SHELL_CACHE_PREFIX } = await import('../src/offline/caches.js');
+  const sw = readFileSync(new URL('../src/sw.js', import.meta.url), 'utf8');
+  assert.match(sw, new RegExp(`const DATASHEET_CACHE = '${DATASHEET_CACHE}';`));
+  assert.match(sw, new RegExp(`const SHELL_CACHE_PREFIX = '${SHELL_CACHE_PREFIX}';`));
+});

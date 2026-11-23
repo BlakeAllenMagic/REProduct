@@ -181,3 +181,26 @@
 .parts-table td.status.is-missing {
   color: var(--text-muted);
 }
+
+/* ---- "Update ready" bar ---- */
+
+.banners {
+  position: sticky;
+  top: calc(var(--topbar-h) + var(--safe-top));
+  z-index: 9;
+}
+
+.update-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 12px;
+  padding: 8px calc(12px + var(--safe-right)) 8px calc(16px + var(--safe-left));
+  background: var(--accent-soft);
+  border-bottom: 1px solid var(--border);
+}
+
+.update-bar span {
+  flex: 1;
+  min-width: 200px;
+}

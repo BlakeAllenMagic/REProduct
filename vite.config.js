@@ -1,6 +1,7 @@
 import { createReadStream, existsSync, statSync } from 'node:fs';
 import { resolve } from 'node:path';
 import { defineConfig } from 'vite';
+import { serviceWorker } from './tools/vite-sw-plugin.js';
 
 const DEV_DATASHEETS = resolve(import.meta.dirname, 'dev-datasheets');
 const HASHED_PDF = /^\/datasheets\/([0-9a-f]{64})\.pdf$/;
@@ -40,7 +41,7 @@ function devDatasheets() {
 export default defineConfig({
   // Relative asset paths, so the built app works from any folder or host.
   base: './',
-  plugins: [devDatasheets()],
+  plugins: [devDatasheets(), serviceWorker()],
   build: {
     target: 'safari18',
   },
