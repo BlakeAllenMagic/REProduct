@@ -8,6 +8,7 @@ import { hrefFor } from '../router.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
 import { showError } from '../ui/errors.js';
+import { canShareFile, describeShareError, emailLink, makeDatasheetFile, sendDatasheet } from '../share/send.js';
 
 const ZOOM_STEP = 1.25;
 
@@ -25,6 +26,7 @@ export function renderViewer(container, ctx, route) {
   };
 
   const viewer = new Viewer(container, part);
+  result.actions = viewer.sendButtons();
   result.destroy = () => viewer.destroy();
   // Load in the background; the screen (title, back button) shows right away.
   viewer.open();
@@ -45,6 +47,8 @@ class Viewer {
       this.showNoDatasheet();
       return;
     }
+    this.unavailable = false;
+    this.updateSendButtons();
     this.showMessage('Opening datasheet…', '');
     try {
       // Always read from the datasheet cache on this device (CLAUDE.md),
@@ -55,7 +59,13 @@ class Viewer {
         this.showNotDownloaded();
         return;
       }
-      const data = new Uint8Array(await response.arrayBuffer());
+      // Keep the PDF as a File, ready for "Send datasheet" (see src/share/send.js).
+      // Built from the Blob before PDF.js gets the bytes: PDF.js moves the
+      // buffer it's given into its worker, which leaves the original empty.
+      const blob = await response.blob();
+      this.file = makeDatasheetFile(this.part, blob);
+      this.updateSendButtons();
+      const data = new Uint8Array(await blob.arrayBuffer());
       if (this.destroyed) return;
 
       this.loadingTask = pdfjs.getDocument({ data });
@@ -64,6 +74,8 @@ class Viewer {
       await this.showDocument(pdf);
     } catch (error) {
       if (this.destroyed) return;
+      this.unavailable = !this.file;
+      this.updateSendButtons();
       showError(error, `Couldn't open the ${this.part.mpn} datasheet`);
       this.showMessage(`Couldn't open the datasheet`, describe(error), true);
     }
@@ -155,8 +167,47 @@ class Viewer {
     };
   }
 
+  /**
+   * Top-bar buttons:
+   * - "Send datasheet": shares the PDF itself, once it's loaded and the
+   *   browser can share files.
+   * - "Email link": a prefilled email with the manufacturer's link. Useful
+   *   for big files, and the fallback when the PDF can't be attached.
+   */
+  sendButtons() {
+    const hasLink = Boolean(this.part.datasheet?.sourceUrl);
+    this.sendButton = button('Send datasheet', () => this.send(), {
+      primary: true,
+      disabled: true,
+      hidden: true,
+    });
+    this.linkButton = button('Email link', () => emailLink(this.part), { hidden: !hasLink });
+    this.updateSendButtons();
+    return [this.linkButton, this.sendButton];
+  }
+
+  updateSendButtons() {
+    if (!this.sendButton) return;
+    const hasFile = Boolean(this.part.datasheet?.sha256);
+    const ready = canShareFile(this.file);
+    // Show "Send datasheet" for any part with a file; enable it once the PDF
+    // is loaded. If this browser can't share files at all, hide it and leave
+    // "Email link".
+    this.sendButton.hidden = !hasFile || this.unavailable || (this.file && !ready);
+    this.sendButton.disabled = !ready;
+  }
+
+  send() {
+    // No await before sendDatasheet(): it must run inside the tap.
+    sendDatasheet(this.part, this.file).catch((error) => {
+      showError(new Error(describeShareError(error)), `Couldn't send the ${this.part.mpn} datasheet`);
+    });
+  }
+
   /** The datasheet exists but isn't on this device yet. */
   showNotDownloaded(problem = '') {
+    this.unavailable = true;
+    this.updateSendButtons();
     const online = navigator.onLine;
     const box = el(
       'div',

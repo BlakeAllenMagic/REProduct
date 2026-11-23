@@ -139,6 +139,11 @@ a {
   -webkit-user-select: none;
 }
 
+/* .btn sets display, which would otherwise override the hidden attribute. */
+.btn[hidden] {
+  display: none;
+}
+
 .btn:active:not(:disabled) {
   background: var(--pressed);
 }
