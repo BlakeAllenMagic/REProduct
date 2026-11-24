@@ -50,9 +50,11 @@ export default defineConfig({
       reuseExistingServer: !process.env.CI,
     },
     {
-      // Built into its own folder so it never clashes with your own `npm run build`.
+      // Built into its own folder so it never clashes with your own `npm run build`,
+      // and pointed at local sample datasheets instead of the real datasheet site.
       command: `npx vite build --outDir dist-e2e --emptyOutDir && npx vite preview --outDir dist-e2e --port ${BUILT_PORT} --strictPort`,
       url: `http://localhost:${BUILT_PORT}/`,
+      env: { VITE_DATASHEET_BASE: './datasheets/' }, // works on Windows too
       reuseExistingServer: !process.env.CI,
       timeout: 120_000,
     },

@@ -126,7 +126,10 @@ async function shellResponse(key, request) {
  */
 async function datasheetResponse(request) {
   const cache = await caches.open(DATASHEET_CACHE);
-  const cached = await cache.match(request, MATCH_OPTIONS);
+  // Saved under a fixed key on this device, whichever site it came from
+  // (must match datasheetKey() in src/offline/caches.js).
+  const sha = /([0-9a-f]{64})\.pdf$/.exec(new URL(request.url).pathname)[1];
+  const cached = await cache.match(scoped(`datasheets/${sha}.pdf`), MATCH_OPTIONS);
   if (cached) return cached;
   try {
     return await fetch(request);

@@ -10,7 +10,7 @@
 //
 // Events (it's an EventTarget):
 //   'progress'  detail: current state (see #snapshot)
-//   'saved'     detail: { sha } after each file lands in the cache
+//   'saved'     detail: { sha, item } after each file lands in the cache
 //   'finished'  detail: final state, plus { cancelled, quotaExceeded }
 
 import { savedHashes } from './caches.js';
@@ -25,7 +25,8 @@ export class DownloadManager extends EventTarget {
    * @param {object} deps
    * @param {(url: string, init: object) => Promise<Response>} deps.fetch
    * @param {() => Promise<Cache>} deps.openCache
-   * @param {(sha: string) => string} deps.urlFor
+   * @param {(sha: string) => string} deps.urlFor where to download a file from
+   * @param {(sha: string) => string} [deps.keyFor] its key in the cache (default: urlFor)
    * @param {(buffer: ArrayBuffer) => Promise<string>} deps.sha256
    * @param {(ms: number, signal: AbortSignal) => Promise<void>} deps.sleep
    * @param {() => Promise<unknown>} deps.onFirstSave called once, after the first file is saved
@@ -132,7 +133,7 @@ export class DownloadManager extends EventTarget {
 
   /** Download again the files that failed in the last run. */
   retryFailed() {
-    const items = this.state.failed.map(({ sha, label, bytes }) => ({ sha, label, bytes }));
+    const items = this.state.failed.map(({ error, ...item }) => item);
     return this.download(items);
   }
 
@@ -153,7 +154,7 @@ export class DownloadManager extends EventTarget {
         const size = await this.#downloadOne(cache, item);
         this.state.done += 1;
         this.state.bytesDone += size;
-        this.dispatchEvent(new CustomEvent('saved', { detail: { sha: item.sha } }));
+        this.dispatchEvent(new CustomEvent('saved', { detail: { sha: item.sha, item } }));
         if (!this.firstSaveDone) {
           this.firstSaveDone = true;
           this.deps.onFirstSave?.();
@@ -188,7 +189,7 @@ export class DownloadManager extends EventTarget {
         if (actual !== item.sha) throw new Error('Download was damaged (checksum mismatch)');
 
         await cache.put(
-          url,
+          this.deps.keyFor ? this.deps.keyFor(item.sha) : url,
           new Response(buffer, {
             headers: {
               'Content-Type': 'application/pdf',

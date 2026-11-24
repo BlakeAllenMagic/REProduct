@@ -1,10 +1,17 @@
 // Settings the rep (or a later phase) may want to change, kept in one place.
 
+// Vite fills in import.meta.env; plain Node (unit tests) has none.
+const env = import.meta.env ?? {};
+
 export const config = {
-  // Where datasheet PDFs are fetched from. A part's file is
-  // `${datasheetBase}${sha256}.pdf`. In development the Vite server maps
-  // /datasheets/ to the dev-datasheets/ folder. Phase 4 points this at R2.
-  datasheetBase: './datasheets/',
+  // Where datasheet PDFs are downloaded from. A part's file is
+  // `${datasheetBase}${sha256}.pdf`.
+  //   npm run dev:    ./datasheets/ (the dev server serves dev-datasheets/)
+  //   built app:      the datasheet Pages site, filled by the weekly sync job
+  //   built-app tests: set VITE_DATASHEET_BASE to use a local copy
+  datasheetBase:
+    env.VITE_DATASHEET_BASE ??
+    (env.DEV ? './datasheets/' : 'https://rf-datasheets.pages.dev/datasheets/'),
 
   // The app's data file, relative to the page.
   linecardUrl: './linecard.json',

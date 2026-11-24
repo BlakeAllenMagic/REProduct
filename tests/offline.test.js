@@ -214,3 +214,20 @@ test('the service worker uses the same cache names as the app', async () => {
   assert.match(sw, new RegExp(`const DATASHEET_CACHE = '${DATASHEET_CACHE}';`));
   assert.match(sw, new RegExp(`const SHELL_CACHE_PREFIX = '${SHELL_CACHE_PREFIX}';`));
 });
+
+test('files are saved under keyFor, and saved events say which parts they belong to', async () => {
+  const cache = new FakeCache();
+  const manager = new DownloadManager({
+    fetch: fakeNetwork().fetch,
+    openCache: async () => cache,
+    urlFor: (s) => `https://datasheets.example/datasheets/${s}.pdf`,
+    keyFor: (s) => `https://app.example/datasheets/${s}.pdf`,
+    sha256: sha256Hex,
+    sleep: async () => {},
+  });
+  const saved = [];
+  manager.addEventListener('saved', (e) => saved.push(e.detail.item.partIds));
+  await manager.download([{ sha: SHAS[0], bytes: 8, label: 'A', partIds: ['p1', 'p2'] }]);
+  assert.deepEqual([...cache.store.keys()], [`https://app.example/datasheets/${SHAS[0]}.pdf`]);
+  assert.deepEqual(saved, [['p1', 'p2']]);
+});
