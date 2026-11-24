@@ -48,8 +48,12 @@ Do not add Android or Windows workarounds yet. Use standard web APIs so those pl
 
 ### Data source of truth
 
-- `data/categories.yaml` defines each category: id, display name, which diagram blocks map to it, and its spec columns (key, label, unit, sort direction, number or text).
-- `data/parts/<category>.csv` has one CSV per category, because each category has different spec columns. The rep can edit these in Numbers or Excel.
+- **The parts list is a Google Sheet, with one tab per category.** The rep edits it like any spreadsheet. It is shared as "Anyone with the link can view", and its link is the GitHub secret `GOOGLE_SHEET_URL` (never in the repo).
+  - A tab matches a category by its name or id (ignoring capitals). Tabs starting with `_` are notes and are ignored; any other unknown tab is reported as a problem.
+  - Row 1 holds the headings: friendly ("Part number", "NF (dB)") or the short keys ("mpn", "nf_db"). Text columns should be formatted as Plain text so codes like `0603` keep their leading zero.
+  - `tools/export_sheet_template.py` writes a starter sheet (Excel file) from the current data.
+- `data/categories.yaml` defines each category: id, display name, which diagram blocks map to it, and its spec columns (key, label, unit, sort direction, number or text). It stays in the repo: a new product type means a new category here first, then a new tab in the sheet.
+- `tools/import_sheet.py` downloads the sheet (every tab, as one Excel file), converts each tab to `data/parts/<category>.csv`, and validates it. Those CSVs are a generated snapshot: never edit them by hand. If validation fails, nothing is published, and the problems are written to `public/import-status.json`, which the app shows under Settings > Parts sheet (e.g. "Filters tab, row 7: ...").
 - `tools/build_linecard.py` validates the CSVs against `categories.yaml` and generates `public/linecard.json`. Validation fails loudly on unknown columns, missing required fields, duplicate part numbers, or bad units.
 
 ### linecard.json (generated, never hand-edited)
@@ -146,7 +150,7 @@ Use two separate caches with different lifecycles:
 
 ## Datasheet update pipeline (build time, not in the app)
 
-- `tools/sync_datasheets.py` is run on a schedule by a GitHub Action, weekly by default, with manual dispatch also allowed.
+- One GitHub Action ("Update line card") runs every 2 hours and on manual dispatch. It first imports the Google Sheet; if the sheet changed and is valid (or on the weekly run, Mondays), it runs `tools/sync_datasheets.py`. If the sheet is unchanged on a 2-hourly run, it stops after the import.
 - For each part, download `sourceUrl` and compute its SHA-256. The datasheet site is uploaded as a complete set each run (a Pages deployment replaces the whole site), with every current PDF under `datasheets/<sha256>.pdf`. Wrangler skips files Cloudflare already has, so only new or changed PDFs are actually transferred.
 - If a manufacturer download fails, copy that part's previous PDF from the live datasheet site by its hash, so it stays in the new upload. A failed download must never remove a datasheet from the site.
 - Write the new hash, size, and date into the build data, then regenerate `linecard.json` and bump `dataVersion`.
@@ -249,4 +253,4 @@ Do one phase at a time, and don't start the next until the current one's "done w
 - Analytics or tracking of customer views
 - Native App Store apps
 - Android or Windows specific work
-- Editing parts inside the app (the CSVs are the source of truth)
+- Editing parts inside the app (the Google Sheet is the source of truth)
