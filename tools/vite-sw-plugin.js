@@ -55,6 +55,10 @@ export function serviceWorker({ source = 'src/sw.js', output = 'sw.js' } = {}) {
         );
       }
       const version = versionHash.digest('hex').slice(0, 10);
+      // The page is saved under "./", its real address. Hosts like Cloudflare
+      // Pages redirect /index.html to /, and a redirected page can't be used
+      // to answer a page load (the browser shows ERR_FAILED).
+      const precache = files.map((path) => (path === 'index.html' ? './' : path));
 
       const template = readFileSync(resolve(root, source), 'utf8');
       if (!template.includes("'__SHELL_VERSION__'") || !template.includes('__PRECACHE__;')) {
@@ -62,7 +66,7 @@ export function serviceWorker({ source = 'src/sw.js', output = 'sw.js' } = {}) {
       }
       const sw = template
         .replace("'__SHELL_VERSION__'", JSON.stringify(version))
-        .replace('__PRECACHE__;', `${JSON.stringify(files, null, 2)};`);
+        .replace('__PRECACHE__;', `${JSON.stringify(precache, null, 2)};`);
       writeFileSync(join(outDir, output), sw);
 
       console.log(`\nsw.js: shell-${version}, ${files.length} files, ${(total / 1024).toFixed(0)} KB`);

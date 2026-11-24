@@ -41,15 +41,38 @@ const scoped = (path) => new URL(path, self.registration.scope).href;
 // ---------------------------------------------------------------------------
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(SHELL_CACHE).then((cache) =>
-      // cache: 'reload' skips the browser's normal HTTP cache, so we never
-      // save a stale copy of a file.
-      cache.addAll(PRECACHE.map((path) => new Request(scoped(path), { cache: 'reload' }))),
-    ),
+    (async () => {
+      const cache = await caches.open(SHELL_CACHE);
+      await Promise.all(PRECACHE.map((path) => saveShellFile(cache, path)));
+    })(),
   );
   // No skipWaiting() here: a new version waits until the user taps
   // "Reload" in the update bar, so it can't swap code mid-demo.
 });
+
+/**
+ * Download one app file and save it.
+ *
+ * cache: 'reload' skips the browser's normal HTTP cache, so we never save a
+ * stale copy. A response that arrived by redirect is saved as a clean copy:
+ * browsers refuse a redirected response as the answer to a page load
+ * (ERR_FAILED). Cloudflare Pages redirects /index.html to /, which once broke
+ * the live app this way; the page itself is now saved as "./" (see
+ * tools/vite-sw-plugin.js), and this guards any other file.
+ */
+async function saveShellFile(cache, path) {
+  const url = scoped(path);
+  let response = await fetch(new Request(url, { cache: 'reload' }));
+  if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+  if (response.redirected) {
+    response = new Response(await response.blob(), {
+      status: response.status,
+      statusText: response.statusText,
+      headers: response.headers,
+    });
+  }
+  await cache.put(url, response);
+}
 
 // ---------------------------------------------------------------------------
 // Activate: this version is now in charge. Delete old shell caches.
@@ -102,9 +125,9 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
-  // Page loads: always the saved index.html (the app has one page).
+  // Page loads: always the saved app page, saved as "./" (the app has one page).
   if (request.mode === 'navigate') {
-    event.respondWith(shellResponse(scoped('index.html'), request));
+    event.respondWith(shellResponse(scoped('./'), request));
     return;
   }
 

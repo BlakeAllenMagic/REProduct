@@ -31,6 +31,13 @@ async function startServer({ holdBackAfter = Infinity, holdMs = 0, port = 0 } = 
     const path = decodeURIComponent(new URL(req.url, 'http://x').pathname);
     const pdf = /^\/datasheets\/([0-9a-f]{64})\.pdf$/.exec(path);
     if (pdf) pdfLog.push(pdf[1]);
+    // Like Cloudflare Pages: /index.html redirects to / (and x.html to x).
+    // The app has to cope with this; it once broke page loads (ERR_FAILED).
+    if (path.endsWith('.html')) {
+      const target = path === '/index.html' ? '/' : path.slice(0, -'.html'.length);
+      res.writeHead(308, { Location: target }).end();
+      return;
+    }
     if (path === '/linecard.json' && published.linecard) {
       res.writeHead(200, { 'Content-Type': 'application/json' }).end(published.linecard);
       return;
@@ -108,7 +115,8 @@ test('service worker is active and the shell cache holds the app files', async (
     return { names, keys };
   });
   expect(caches.names.some((n) => n.startsWith('shell-'))).toBe(true);
-  for (const file of ['/index.html', '/linecard.json', '/manifest.webmanifest', '/icons/icon-192.png']) {
+  // The page is saved as "/" (not /index.html, which Cloudflare redirects).
+  for (const file of ['/', '/linecard.json', '/manifest.webmanifest', '/icons/icon-192.png']) {
     expect(caches.keys).toContain(file);
   }
   expect(caches.keys.some((k) => /\/assets\/pdf\.worker.*\.mjs$/.test(k))).toBe(true);
