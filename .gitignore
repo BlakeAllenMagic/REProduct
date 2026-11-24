@@ -17,3 +17,6 @@ dist/
 test-results/
 playwright-report/
 dist-e2e/
+
+# Datasheet site assembled by tools/sync_datasheets.py
+build/

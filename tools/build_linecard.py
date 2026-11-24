@@ -359,7 +359,8 @@ def _build_part(
             report.error(where, f"{col} is required")
             ok = False
     url = cells["datasheet_url"]
-    if url and not url.startswith("https://"):
+    # http:// is allowed only for this machine, which the sync tests use.
+    if url and not url.startswith(("https://", "http://127.0.0.1", "http://localhost")):
         report.error(where, f"datasheet_url must start with https:// (got {url!r})")
         ok = False
 
