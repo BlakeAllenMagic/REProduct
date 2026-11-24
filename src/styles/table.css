@@ -94,3 +94,43 @@
 .part-row:active > * {
   background: var(--pressed);
 }
+
+/* ---- Sortable headers ---- */
+
+.parts-table thead th.sortable {
+  padding: 0;
+}
+
+.sort-button {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  width: 100%;
+  min-height: var(--tap);
+  padding: 6px 14px;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  font: inherit;
+  text-align: left;
+  white-space: nowrap;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+
+.parts-table th.num .sort-button {
+  justify-content: flex-end;
+}
+
+.sort-button:active {
+  background: var(--pressed);
+}
+
+.parts-table th.is-sorted {
+  color: var(--accent);
+}
+
+.sort-arrow {
+  min-width: 0.8em;
+  font-size: 11px;
+}

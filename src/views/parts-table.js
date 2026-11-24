@@ -5,9 +5,14 @@ import { specHeader, specValue, MISSING } from '../format.js';
 import { downloads, getSavedHashes, itemsForParts } from '../offline/downloads.js';
 import { isRecentlyUpdated } from '../offline/update-plan.js';
 import { hrefFor } from '../router.js';
+import { columnsFor, nextSort, sortParts } from '../table-sort.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
 import { showError } from '../ui/errors.js';
+
+// Sort order per category, kept while the app is open, so opening a
+// datasheet and coming back keeps the table as it was.
+const sortByCategory = new Map(); // category id -> { key, dir }
 
 export function renderPartsTable(container, ctx, route) {
   const category = ctx.categories.get(route.id);
@@ -20,7 +25,33 @@ export function renderPartsTable(container, ctx, route) {
 
   const parts = ctx.partsByCategory.get(category.id);
   const statusCells = new Map(); // sha -> [cell, ...]
-  const table = el('table', { class: 'parts-table' }, makeHead(category), makeBody(category, parts, statusCells));
+  const columns = columnsFor(category);
+  const rows = new Map(); // part id -> <tr>
+  const headers = new Map(); // column key -> { th, arrow }
+  const tbody = makeBody(category, parts, statusCells, rows);
+
+  // Put the rows in the current sort order and mark the sorted header.
+  const applySort = () => {
+    const state = sortByCategory.get(category.id) ?? null;
+    const column = state && columns.find((c) => c.key === state.key);
+    const ordered = column ? sortParts(parts, column, state.dir) : parts;
+    for (const part of ordered) tbody.append(rows.get(part.id)); // moves the existing row
+    for (const [key, { th, arrow }] of headers) {
+      const active = column?.key === key;
+      th.setAttribute('aria-sort', active ? (state.dir === 'asc' ? 'ascending' : 'descending') : 'none');
+      th.classList.toggle('is-sorted', active);
+      arrow.textContent = active ? (state.dir === 'asc' ? '▲' : '▼') : '';
+    }
+  };
+  const onSort = (column) => {
+    const next = nextSort(sortByCategory.get(category.id), column);
+    if (next) sortByCategory.set(category.id, next);
+    else sortByCategory.delete(category.id);
+    applySort();
+  };
+
+  const table = el('table', { class: 'parts-table' }, makeHead(columns, headers, onSort), tbody);
+  applySort();
   const count = el('p', { class: 'table-count' }, `${parts.length} part${parts.length === 1 ? '' : 's'}`);
   const downloadButton = button('Download this category', () => downloadParts(parts));
   const toolbar = el('div', { class: 'table-toolbar' }, count, downloadButton);
@@ -60,34 +91,35 @@ export function renderPartsTable(container, ctx, route) {
   };
 }
 
-function makeHead(category) {
+function makeHead(columns, headers, onSort) {
   const thead = document.createElement('thead');
   const row = thead.insertRow();
   // Specs come right after the part number, so they're visible without
-  // scrolling sideways; the long description goes last.
-  const columns = [
-    ['Part number', ''],
-    ['Datasheet', ''],
-    ['Manufacturer', ''],
-    ...category.specs.map((spec) => [specHeader(spec), spec.type === 'number' ? 'num' : '']),
-    ['Description', ''],
-  ];
-  for (const [text, className] of columns) {
-    const th = document.createElement('th');
-    th.scope = 'col';
-    th.textContent = text;
-    if (className) th.className = className;
-    row.append(th);
-  }
+  // scrolling sideways; the long description goes last. Every column but
+  // "Datasheet" sorts when its header is tapped.
+  const sortable = (column) => {
+    const label = column.spec ? specHeader(column.spec) : column.label;
+    const arrow = el('span', { class: 'sort-arrow', 'aria-hidden': 'true' });
+    const th = el(
+      'th',
+      { scope: 'col', class: `sortable${column.type === 'number' ? ' num' : ''}`, 'aria-sort': 'none' },
+      el('button', { type: 'button', class: 'sort-button', title: `Sort by ${label}`, onclick: () => onSort(column) }, label, arrow),
+    );
+    headers.set(column.key, { th, arrow });
+    return th;
+  };
+  const [mpn, ...rest] = columns;
+  row.append(sortable(mpn), el('th', { scope: 'col' }, 'Datasheet'), ...rest.map(sortable));
   return thead;
 }
 
-function makeBody(category, parts, statusCells) {
+function makeBody(category, parts, statusCells, rows) {
   const tbody = document.createElement('tbody');
   for (const part of parts) {
     const href = hrefFor('part', part.id);
     const row = tbody.insertRow();
     row.className = 'part-row';
+    rows.set(part.id, row);
 
     // The part number is a real link (keyboard and screen readers); the
     // whole row is also tappable, because a 44 pt row is the natural target.

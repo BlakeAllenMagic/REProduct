@@ -221,3 +221,8 @@ a {
   margin: 8px 0;
   color: var(--text-muted);
 }
+
+/* The search button is disabled for a moment while the app loads. */
+.btn-icon:disabled {
+  color: var(--disabled);
+}

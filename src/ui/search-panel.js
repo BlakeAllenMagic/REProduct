@@ -112,4 +112,6 @@ export function installSearch(openButton, ctx) {
   };
 
   openButton.addEventListener('click', open);
+  // The button starts disabled in index.html, until the parts data is loaded.
+  openButton.disabled = false;
 }

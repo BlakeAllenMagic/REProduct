@@ -86,3 +86,57 @@ test.describe('search', () => {
     await expect(saved('ALM-2280')).toHaveCount(0); // no datasheet file
   });
 });
+
+test.describe('sort', () => {
+  // Waits until the table is on screen, then reads the part numbers in order.
+  const order = async (page) => {
+    await expect(page.locator('.part-row').first()).toBeVisible();
+    return page.locator('.part-row th[scope="row"] a').allTextContents();
+  };
+  const header = (page, name) => page.locator('th.sortable', { hasText: name }).locator('.sort-button');
+
+  test('a spec header sorts best first, then reversed, then back to normal', async ({ page }) => {
+    await page.goto('#/category/filter');
+    const normal = await order(page);
+    expect(normal).toEqual(['AFB-2450', 'AFH-1000', 'KSF-1575', 'NFL-6000']);
+
+    await press(page, header(page, 'IL (dB)')); // insertion loss: lower is better
+    expect(await order(page)).toEqual(['AFH-1000', 'NFL-6000', 'KSF-1575', 'AFB-2450']); // 0.6, 0.8, 0.9, 1.2
+    await expect(page.locator('th.sortable', { hasText: 'IL (dB)' })).toHaveAttribute('aria-sort', 'ascending');
+    await expect(header(page, 'IL (dB)').locator('.sort-arrow')).toHaveText('▲');
+
+    await press(page, header(page, 'IL (dB)'));
+    expect(await order(page)).toEqual(['AFB-2450', 'KSF-1575', 'NFL-6000', 'AFH-1000']);
+    await expect(page.locator('th.sortable', { hasText: 'IL (dB)' })).toHaveAttribute('aria-sort', 'descending');
+
+    await press(page, header(page, 'IL (dB)'));
+    expect(await order(page)).toEqual(normal);
+    await expect(page.locator('th.sortable', { hasText: 'IL (dB)' })).toHaveAttribute('aria-sort', 'none');
+  });
+
+  test('"higher is better" specs start highest first; missing values go last', async ({ page }) => {
+    await page.goto('#/category/lna');
+    await press(page, header(page, 'OP1dB (dBm)')); // desc in categories.yaml; KLN-4020 has none
+    expect(await order(page)).toEqual(['ALM-1234', 'ALM-2280', 'NLA-0310', 'KLN-4020']); // 20, 16, 8, –
+    await press(page, header(page, 'OP1dB (dBm)'));
+    expect((await order(page)).at(-1)).toBe('KLN-4020'); // still last when reversed
+  });
+
+  test('the sort is kept after opening a datasheet and coming back', async ({ page }) => {
+    await page.goto('#/category/lna');
+    await press(page, header(page, 'NF (dB)'));
+    const sorted = await order(page);
+    expect(sorted[0]).toBe('ALM-1234'); // 0.6 dB
+    await press(page, page.locator('.part-row', { hasText: 'NLA-0310' }).locator('td').first());
+    await expect(page).toHaveURL(/#\/part\//);
+    await press(page, page.locator('#back'));
+    expect(await order(page)).toEqual(sorted);
+    await expect(page.locator('th.sortable', { hasText: 'NF (dB)' })).toHaveAttribute('aria-sort', 'ascending');
+  });
+
+  test('sort buttons are at least 44 points tall', async ({ page }) => {
+    await page.goto('#/category/mixer');
+    const box = await header(page, 'Conv Loss (dB)').boundingBox();
+    expect(box.height).toBeGreaterThanOrEqual(44);
+  });
+});
