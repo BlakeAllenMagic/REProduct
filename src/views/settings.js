@@ -56,6 +56,7 @@ class SettingsScreen {
     this.sections = {
       datasheets: el('section', { class: 'card', 'aria-labelledby': 'h-datasheets' }),
       progress: el('div', { class: 'download-progress', 'aria-live': 'polite' }),
+      sheet: el('section', { class: 'card', 'aria-labelledby': 'h-sheet' }),
       storage: el('section', { class: 'card', 'aria-labelledby': 'h-storage' }),
       install: el('section', { class: 'card', 'aria-labelledby': 'h-install', hidden: true }),
       about: el('section', { class: 'card', 'aria-labelledby': 'h-about' }),
@@ -66,16 +67,18 @@ class SettingsScreen {
   /** Re-read everything (saved files, storage) and redraw. */
   async refresh() {
     try {
-      const [saved, estimate, persisted, shellVersion] = await Promise.all([
+      const [saved, estimate, persisted, shellVersion, sheetStatus] = await Promise.all([
         getSavedHashes(),
         getEstimate(),
         isPersisted(),
         getShellVersion(),
+        loadSheetStatus(),
       ]);
       if (this.destroyed) return;
       this.saved = saved;
       this.renderDatasheets();
       this.renderDownloads(downloads.state);
+      this.renderSheet(sheetStatus);
       this.renderStorage(estimate, persisted);
       this.renderInstall();
       this.renderAbout(shellVersion);
@@ -206,6 +209,49 @@ class SettingsScreen {
     box.replaceChildren(...children);
   }
 
+  /**
+   * The Google Sheet import, from public/import-status.json (written by
+   * tools/import_sheet.py): when the parts list last changed, or the
+   * problems that stop the sheet from being imported.
+   */
+  renderSheet(status) {
+    const children = [
+      el('h2', { id: 'h-sheet' }, 'Parts sheet'),
+      el('p', { class: 'muted' }, 'The parts list is edited in the Google Sheet. Changes appear here within about 2 hours.'),
+    ];
+    const when = (iso) => (iso ? new Date(iso).toLocaleString() : null);
+    if (!status) {
+      children.push(el('p', { class: 'muted' }, 'Import status not available.'));
+    } else if (status.ok) {
+      children.push(
+        el(
+          'p',
+          { class: 'sheet-ok' },
+          status.importedAt ? `Up to date. Last change imported ${when(status.importedAt)}.` : 'Up to date.',
+        ),
+      );
+    } else {
+      const count = status.problems.length;
+      children.push(
+        el(
+          'p',
+          { class: 'error-text' },
+          el('strong', {}, `The sheet has ${count} problem${count === 1 ? '' : 's'} to fix. `),
+          'Until they are fixed, the app keeps showing the last good version of the parts list',
+          status.importedAt ? ` (from ${when(status.importedAt)}).` : '.',
+        ),
+        el('ul', { class: 'error-list sheet-problems' }, status.problems.map((p) => el('li', {}, p))),
+      );
+    }
+    if (status?.warnings?.length) {
+      children.push(
+        el('p', {}, el('strong', {}, 'Worth checking:')),
+        el('ul', { class: 'sheet-warnings' }, status.warnings.map((w) => el('li', {}, w))),
+      );
+    }
+    this.sections.sheet.replaceChildren(...children);
+  }
+
   renderStorage(estimate, persisted) {
     const lines = [];
     if (estimate) {
@@ -277,6 +323,18 @@ class SettingsScreen {
     this.stopInstallWatch();
     window.removeEventListener('linecard:storage-changed', this.onStorageChanged);
     clearTimeout(this.refreshTimer);
+  }
+}
+
+/** public/import-status.json, or null if it can't be read. */
+async function loadSheetStatus() {
+  try {
+    const response = await fetch('./import-status.json', { cache: 'no-cache' });
+    if (!response.ok) return null;
+    const status = await response.json();
+    return Array.isArray(status?.problems) ? status : null;
+  } catch {
+    return null; // offline before the first install, for example
   }
 }
 

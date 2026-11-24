@@ -234,3 +234,15 @@
   border-bottom: 1px solid #f0dca0;
   font-size: 14px;
 }
+
+/* ---- Parts sheet ---- */
+
+.sheet-ok {
+  color: #1b7a3d;
+  font-weight: 600;
+}
+
+.sheet-problems li,
+.sheet-warnings li {
+  margin: 6px 0;
+}

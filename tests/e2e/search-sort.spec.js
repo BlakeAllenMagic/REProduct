@@ -140,3 +140,41 @@ test.describe('sort', () => {
     expect(box.height).toBeGreaterThanOrEqual(44);
   });
 });
+
+// Not search or sort, but the same "everyday screens" file: the Parts sheet
+// card in Settings, driven by public/import-status.json.
+test.describe('parts sheet status', () => {
+  const serveStatus = (page, status) =>
+    page.route('**/import-status.json', (route) => route.fulfill({ json: status }));
+
+  test('shows when the sheet is up to date', async ({ page }) => {
+    await serveStatus(page, { ok: true, problems: [], warnings: [], importedAt: '2026-11-24T10:00:00Z' });
+    await page.goto('#/settings');
+    await expect(page.locator('.sheet-ok')).toContainText('Up to date. Last change imported');
+  });
+
+  test('lists the problems to fix, in the sheet\'s words', async ({ page }) => {
+    await serveStatus(page, {
+      ok: false,
+      problems: ["Low Noise Amplifiers tab, row 2: NF (dB): '0.6 GHz' has unit GHz, expected dB"],
+      warnings: ["Filters tab, row 3: Package: '603' looks like Excel removed a leading zero"],
+      importedAt: '2026-11-24T10:00:00Z',
+    });
+    await page.goto('#/settings');
+    await expect(page.locator('.card', { hasText: 'Parts sheet' }).locator('.error-text')).toContainText(
+      'The sheet has 1 problem to fix.',
+    );
+    await expect(page.locator('.sheet-problems li')).toHaveText([
+      "Low Noise Amplifiers tab, row 2: NF (dB): '0.6 GHz' has unit GHz, expected dB",
+    ]);
+    await expect(page.locator('.sheet-warnings li')).toHaveCount(1);
+  });
+
+  test('copes with a missing status file', async ({ page }) => {
+    await page.route('**/import-status.json', (route) => route.fulfill({ status: 404, body: 'nope' }));
+    await page.goto('#/settings');
+    await expect(page.locator('.card', { hasText: 'Parts sheet' })).toContainText('Import status not available.');
+    // The browser itself logs the 404 this test causes on purpose; nothing else may appear.
+    test.info().problems = test.info().problems.filter((p) => !/404|Failed to load resource/.test(p));
+  });
+});
