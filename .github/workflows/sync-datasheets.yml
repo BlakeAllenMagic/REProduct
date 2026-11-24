@@ -1,20 +1,27 @@
-# Downloads every datasheet from the manufacturers, uploads the complete set
-# to the datasheet site (rf-datasheets.pages.dev), then commits the new hashes
-# so the app picks them up. See "Datasheet update pipeline" in CLAUDE.md.
+# Keeps the app's line card up to date. See "Data source of truth" and
+# "Datasheet update pipeline" in CLAUDE.md.
 #
-# Run it by hand: GitHub > Actions > Sync datasheets > Run workflow.
+#   Every 2 hours: read the Google Sheet (the parts list). If it changed and is
+#     valid, download datasheets for new or changed parts, upload them, and
+#     update the app. If it has problems, publish only the problem list, which
+#     the app shows under Settings > Parts sheet. If unchanged, stop there.
+#   Mondays: also check every datasheet with the manufacturers, even if the
+#     sheet didn't change.
+#
+# Run it by hand: GitHub > Actions > Update line card > Run workflow
+# (a manual run always does the full datasheet check).
 
-name: Sync datasheets
+name: Update line card
 
 on:
   schedule:
-    - cron: '17 6 * * 1' # Mondays 06:17 UTC
+    - cron: '17 */2 * * *' # every 2 hours: check the Google Sheet
+    - cron: '47 5 * * 1' # Mondays 05:47 UTC: also check every datasheet
   workflow_dispatch: # the "Run workflow" button
   push:
     branches: [main]
     paths:
-      - 'data/parts/**'
-      - 'data/categories.yaml'
+      - 'data/categories.yaml' # a new or changed product type
 
 # Never two runs at once: they'd race to upload and commit.
 concurrency:
@@ -22,10 +29,10 @@ concurrency:
   cancel-in-progress: false
 
 permissions:
-  contents: write # to commit data/datasheets.json and public/linecard.json
+  contents: write # to commit the parts snapshot, hashes and import status
 
 jobs:
-  sync:
+  update:
     runs-on: ubuntu-latest
     timeout-minutes: 60
     steps:
@@ -43,10 +50,37 @@ jobs:
       - name: Test the data tools
         run: python -m unittest discover tools/tests
 
+      # Writes data/parts/*.csv if the sheet changed and is valid, and
+      # public/import-status.json if its problems (or lack of them) changed.
+      # Fails only if the sheet can't be read at all (e.g. no longer shared).
+      - name: Import the Google Sheet
+        id: import
+        env:
+          GOOGLE_SHEET_URL: ${{ secrets.GOOGLE_SHEET_URL }}
+        run: |
+          if [ -z "$GOOGLE_SHEET_URL" ]; then
+            echo "No GOOGLE_SHEET_URL secret yet: using the parts snapshot in the repo."
+            echo "result=nosheet" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          python tools/import_sheet.py --sheet "$GOOGLE_SHEET_URL"
+
+      - name: Decide whether to check datasheets
+        id: decide
+        run: |
+          if [ "${{ steps.import.outputs.result }}" = "changed" ] \
+            || [ "${{ github.event_name }}" != "schedule" ] \
+            || [ "${{ github.event.schedule }}" = "47 5 * * 1" ]; then
+            echo "sync=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Sheet unchanged or has problems, and not the weekly run: no datasheet check."
+          fi
+
       # Writes the complete site into build/datasheet-site. Exits with an
       # error (and the job stops here, before uploading) if a datasheet that
       # is online today couldn't be included.
       - name: Download datasheets and build the site
+        if: steps.decide.outputs.sync == 'true'
         run: >
           python tools/sync_datasheets.py
           --site-url https://rf-datasheets.pages.dev
@@ -59,6 +93,7 @@ jobs:
       # the project (wrangler-action did, changing package.json, which then
       # blocked the commit step).
       - name: Upload the datasheet site
+        if: steps.decide.outputs.sync == 'true'
         env:
           CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
@@ -67,16 +102,25 @@ jobs:
           --project-name=rf-datasheets --branch=main --commit-dirty=true
 
       # Cloudflare publishes the app again when this lands on main.
-      - name: Commit the new hashes
+      - name: Commit the changes
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/datasheets.json public/linecard.json
+          # Add each file only if it exists: one missing path would make a
+          # single `git add` stage nothing at all.
+          for path in data/parts data/datasheets.json public/linecard.json public/import-status.json; do
+            if [ -e "$path" ]; then git add "$path"; fi
+          done
           if git diff --cached --quiet; then
-            echo "No data changes to commit."
+            echo "No changes to commit."
             exit 0
           fi
-          git commit -m "Sync datasheets"
+          case "${{ steps.import.outputs.result }}" in
+            changed) message="Update line card from the Google Sheet" ;;
+            problems) message="Parts sheet has problems (shown in Settings)" ;;
+            *) message="Sync datasheets" ;;
+          esac
+          git commit -m "$message"
           # Someone may have pushed while this ran; put this commit on top.
           # --autostash sets aside any stray changes from earlier steps.
           git status --short
