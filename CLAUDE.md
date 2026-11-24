@@ -202,7 +202,7 @@ Do one phase at a time, and don't start the next until the current one's "done w
 | 4 | `sync_datasheets.py`, GitHub Action, upload to the datasheet Pages site, in-app update flow | Changing a sample PDF upstream leads to exactly one re-download on the test device |
 | 5 | Search by part number, sort and filter, compare, branding, more diagrams | As agreed per feature |
 
-**Current phase: 4**
+**Current phase: 5**
 
 ## Coding conventions
 
