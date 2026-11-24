@@ -237,6 +237,7 @@ Do one phase at a time, and don't start the next until the current one's "done w
 - Make small, reviewable changes. After each step, tell me how to test it.
 - If a requirement here conflicts with what I ask for in a prompt, point out the conflict instead of quietly choosing one.
 - If you're unsure about a browser API's support in Safari, say so and suggest a quick test rather than guessing.
+- Push straight to `main`. Cloudflare Pages publishes every push to `main` to the live app, so run `npm test` and `npm run test:e2e` before each push and don't push if anything fails. Before pushing a change to how datasheets or caches are stored (service worker, cache names, download manager), say what changes so I can stop it.
 
 ## Out of scope for now
 
