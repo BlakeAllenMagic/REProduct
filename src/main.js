@@ -4,6 +4,7 @@ import { config } from './config.js';
 import { indexLinecard } from './data.js';
 import { startRouter } from './router.js';
 import { registerServiceWorker } from './offline/register-sw.js';
+import { installUpdates } from './offline/updates.js';
 import { installDownloadChip } from './ui/download-chip.js';
 import { installErrorHandling, showError } from './ui/errors.js';
 import { captureInstallPrompt, showInstallHintOnce } from './ui/install.js';
@@ -89,6 +90,8 @@ async function start() {
     return;
   }
   startRouter((route) => show(ctx, route));
+  // Quietly fetch updated datasheets when online (src/offline/updates.js).
+  installUpdates(ctx, document.getElementById('banners'));
 }
 
 start();

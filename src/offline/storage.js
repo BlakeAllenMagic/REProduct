@@ -71,3 +71,48 @@ export function setLastSynced(date = new Date()) {
     // Not worth failing a download over.
   }
 }
+
+// ---------------------------------------------------------------------------
+// Update-check bookkeeping (see src/offline/updates.js).
+// ---------------------------------------------------------------------------
+
+const LAST_CHECKED_KEY = 'linecard.lastChecked';
+const KEEP_EVERYTHING_KEY = 'linecard.keepEverything';
+
+/** Last time the app checked for updated datasheets, or null. */
+export function getLastChecked() {
+  try {
+    const value = localStorage.getItem(LAST_CHECKED_KEY);
+    return value ? new Date(value) : null;
+  } catch {
+    return null;
+  }
+}
+
+export function setLastChecked(date = new Date()) {
+  try {
+    localStorage.setItem(LAST_CHECKED_KEY, date.toISOString());
+  } catch {
+    // ignore
+  }
+}
+
+/**
+ * True once this device has had every datasheet. From then on, updates also
+ * download datasheets for newly added parts, not just changed ones.
+ */
+export function getKeepEverything() {
+  try {
+    return localStorage.getItem(KEEP_EVERYTHING_KEY) === '1';
+  } catch {
+    return false;
+  }
+}
+
+export function setKeepEverything() {
+  try {
+    localStorage.setItem(KEEP_EVERYTHING_KEY, '1');
+  } catch {
+    // ignore
+  }
+}

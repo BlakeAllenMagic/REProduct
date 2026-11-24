@@ -5,7 +5,7 @@ import { config } from '../config.js';
 import { DATASHEET_CACHE, datasheetKey, datasheetUrl, savedHashes } from './caches.js';
 import { DownloadManager, sha256Hex, sleep } from './download-manager.js';
 import { rememberSaved } from './saved-parts.js';
-import { requestPersist, setLastSynced } from './storage.js';
+import { requestPersist } from './storage.js';
 
 // Downloaded from the datasheet site (config.datasheetBase), but always saved
 // under the same key on this device, whichever site it came from.
@@ -21,7 +21,7 @@ export const downloads = new DownloadManager({
   sha256: sha256Hex,
   sleep,
   onFirstSave: () => requestPersist(),
-  onSyncComplete: () => setLastSynced(),
+  // "Last synced" is set by updates.js, when every datasheet is on the device.
 });
 
 // Remember which parts each saved file belongs to (see saved-parts.js).
@@ -59,4 +59,14 @@ export async function getSavedFile(sha) {
 /** The saved PDF for a part's current datasheet, or undefined. */
 export function getSavedDatasheet(part) {
   return getSavedFile(part.datasheet?.sha256);
+}
+
+/**
+ * Delete saved PDFs by hash. Only updates.js calls this, and only for old
+ * versions that nothing needs any more.
+ */
+export async function deleteSavedFiles(shas) {
+  if (!shas.length || !('caches' in window)) return;
+  const cache = await openCache();
+  for (const sha of shas) await cache.delete(keyFor(sha));
 }

@@ -3,7 +3,8 @@
 import { formatBytes } from '../format.js';
 import { downloads, getSavedHashes, itemsForParts } from '../offline/downloads.js';
 import { getShellVersion } from '../offline/register-sw.js';
-import { getEstimate, getLastSynced, isPersisted } from '../offline/storage.js';
+import { getEstimate, getLastChecked, getLastSynced, isPersisted } from '../offline/storage.js';
+import { checkForUpdates } from '../offline/updates.js';
 import { hrefFor } from '../router.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
@@ -49,6 +50,8 @@ class SettingsScreen {
     downloads.addEventListener('finished', this.onFinished);
     downloads.addEventListener('saved', this.onSaved);
     this.stopInstallWatch = onInstallChange(() => this.renderInstall());
+    this.onStorageChanged = () => this.refresh();
+    window.addEventListener('linecard:storage-changed', this.onStorageChanged);
 
     this.sections = {
       datasheets: el('section', { class: 'card', 'aria-labelledby': 'h-datasheets' }),
@@ -127,8 +130,34 @@ class SettingsScreen {
         primary: true,
         disabled: allSaved || downloads.running,
       }),
+      this.renderUpdateCheck(),
       el('ul', { class: 'category-list' }, rows),
       this.sections.progress,
+    );
+  }
+
+  /** "Check for updates" button, last-checked time and the last result. */
+  renderUpdateCheck() {
+    const lastChecked = getLastChecked();
+    const result = el('span', { class: 'muted', 'aria-live': 'polite' }, this.updateMessage ?? '');
+    const check = button('Check for updates', async () => {
+      check.disabled = true;
+      result.textContent = 'Checking…';
+      const outcome = await checkForUpdates({ fetchLinecard: true });
+      this.updateMessage = {
+        offline: 'Offline. Updates are checked automatically when you are back online.',
+        'up-to-date': 'Everything is up to date.',
+        downloading: `Downloading ${outcome.count} updated datasheet${outcome.count === 1 ? '' : 's'}.`,
+        error: 'The check failed (see the message at the top).',
+      }[outcome.status];
+      if (!this.destroyed) this.refresh();
+    });
+    return el(
+      'div',
+      { class: 'update-check' },
+      check,
+      el('span', { class: 'muted' }, lastChecked ? `Last checked ${lastChecked.toLocaleString()}.` : 'Not checked yet.'),
+      result,
     );
   }
 
@@ -246,6 +275,7 @@ class SettingsScreen {
     downloads.removeEventListener('finished', this.onFinished);
     downloads.removeEventListener('saved', this.onSaved);
     this.stopInstallWatch();
+    window.removeEventListener('linecard:storage-changed', this.onStorageChanged);
     clearTimeout(this.refreshTimer);
   }
 }

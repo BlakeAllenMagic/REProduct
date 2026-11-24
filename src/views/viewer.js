@@ -1,6 +1,7 @@
 // Datasheet viewer: one part's PDF, rendered in-app with PDF.js.
 
-import { downloads, getSavedDatasheet } from '../offline/downloads.js';
+import { downloads, getSavedDatasheet, getSavedFile } from '../offline/downloads.js';
+import { readSavedParts } from '../offline/saved-parts.js';
 import { DocumentView, ZOOM_LIMITS } from '../pdf/document-view.js';
 import { attachPinch } from '../pdf/pinch.js';
 import { loadPdfjs } from '../pdf/pdfjs.js';
@@ -53,7 +54,16 @@ class Viewer {
     try {
       // Always read from the datasheet cache on this device (CLAUDE.md),
       // never straight from the network. Same code online and offline.
-      const [pdfjs, response] = await Promise.all([loadPdfjs(), getSavedDatasheet(this.part)]);
+      let [pdfjs, response] = await Promise.all([loadPdfjs(), getSavedDatasheet(this.part)]);
+      if (this.destroyed) return;
+      // The newest version isn't here yet, but an older one is: show that
+      // (an update never leaves a part with nothing to show).
+      this.previousVersion = false;
+      const older = readSavedParts()[this.part.id];
+      if (!response && older && older !== datasheet.sha256) {
+        response = await getSavedFile(older);
+        this.previousVersion = Boolean(response);
+      }
       if (this.destroyed) return;
       if (!response) {
         this.showNotDownloaded();
@@ -90,6 +100,15 @@ class Viewer {
 
     const frame = document.createElement('div');
     frame.className = 'viewer';
+    if (this.previousVersion) {
+      frame.append(
+        el(
+          'p',
+          { class: 'viewer-note', role: 'note' },
+          'Showing the previous version of this datasheet. The new version downloads automatically when online.',
+        ),
+      );
+    }
     frame.append(toolbar.element, scroller);
     this.container.replaceChildren(frame);
 

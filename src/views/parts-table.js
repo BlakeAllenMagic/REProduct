@@ -3,6 +3,7 @@
 
 import { specHeader, specValue, MISSING } from '../format.js';
 import { downloads, getSavedHashes, itemsForParts } from '../offline/downloads.js';
+import { isRecentlyUpdated } from '../offline/update-plan.js';
 import { hrefFor } from '../router.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
@@ -96,6 +97,11 @@ function makeBody(category, parts, statusCells) {
     link.href = href;
     link.textContent = part.mpn;
     mpnCell.append(link);
+    if (isRecentlyUpdated(part)) {
+      mpnCell.append(
+        el('span', { class: 'badge-updated', title: `Datasheet updated ${part.datasheet.updated}` }, 'Updated'),
+      );
+    }
     row.append(mpnCell);
 
     const status = addCell(row, '', 'status');
