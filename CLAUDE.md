@@ -147,7 +147,8 @@ Use two separate caches with different lifecycles:
 ## Datasheet update pipeline (build time, not in the app)
 
 - `tools/sync_datasheets.py` is run on a schedule by a GitHub Action, weekly by default, with manual dispatch also allowed.
-- For each part, download `sourceUrl`, compute its SHA-256, and upload to storage under `datasheets/<sha256>.pdf` if that file is new.
+- For each part, download `sourceUrl` and compute its SHA-256. The datasheet site is uploaded as a complete set each run (a Pages deployment replaces the whole site), with every current PDF under `datasheets/<sha256>.pdf`. Wrangler skips files Cloudflare already has, so only new or changed PDFs are actually transferred.
+- If a manufacturer download fails, copy that part's previous PDF from the live datasheet site by its hash, so it stays in the new upload. A failed download must never remove a datasheet from the site.
 - Write the new hash, size, and date into the build data, then regenerate `linecard.json` and bump `dataVersion`.
 - Some manufacturer sites block scripts or require a login. Log those failures, keep the previous version, and list them in a summary report. Never fail the whole run because of one part.
 - Send a real browser User-Agent, rate limit requests, and check that each response is actually a PDF (magic bytes `%PDF`) and not an HTML error page.
@@ -155,8 +156,10 @@ Use two separate caches with different lifecycles:
 
 ## Hosting
 
-- **App:** Cloudflare Pages, free tier
-- **Datasheets:** Cloudflare R2 bucket on a custom subdomain, with CORS allowing the app's origin
+- **App:** Cloudflare Pages, free tier, connected to GitHub. Every push to `main` publishes it.
+- **Datasheets:** a second Cloudflare Pages project, free tier, used only for the PDFs (e.g. `rf-datasheets.pages.dev`). It is a Direct Upload project, not connected to Git: the weekly GitHub Action uploads to it with Wrangler. A `_headers` file in the upload sets CORS so the app's origin may download the PDFs.
+  - Chosen over R2 because it needs no payment card and no domain for a single user. Free-plan limits: 20,000 files per site and 25 MiB per file. A datasheet over 25 MiB is not uploaded; the app falls back to the manufacturer link for it, and the sync report lists it.
+  - Revisit R2 (with a custom domain) if the line card outgrows these limits.
 - Do not commit PDFs to git. 1.5 GB or more doesn't belong in a repo. Keep `datasheets/` in `.gitignore`. For local development, use a small sample set in `dev-datasheets/`.
 
 ## Project structure
@@ -196,7 +199,7 @@ Do one phase at a time, and don't start the next until the current one's "done w
 | 1 | SVG diagram, parts table, PDF.js viewer, local sample PDFs | Full tap flow works in Chrome or Edge on Windows, and the tap-flow tests pass in Chromium and WebKit |
 | 2 | Manifest, service worker, app shell cache, download manager, Settings screen | Installed from Chrome or Edge on Windows, all sample PDFs downloaded, full flow works offline after closing and reopening the app |
 | 3 | Send datasheet (Web Share plus mailto fallback) | On Windows, the share sheet attaches the PDF while offline, and the mailto fallback opens a prefilled email |
-| 4 | `sync_datasheets.py`, GitHub Action, R2 upload, in-app update flow | Changing a sample PDF upstream leads to exactly one re-download on the test device |
+| 4 | `sync_datasheets.py`, GitHub Action, upload to the datasheet Pages site, in-app update flow | Changing a sample PDF upstream leads to exactly one re-download on the test device |
 | 5 | Search by part number, sort and filter, compare, branding, more diagrams | As agreed per feature |
 
 **Current phase: 3**
@@ -207,7 +210,7 @@ Do one phase at a time, and don't start the next until the current one's "done w
 - Small, single-purpose modules. Keep service worker logic in `sw.js` and cache helpers in `src/offline/`.
 - All async errors are caught and shown in the UI, never swallowed silently.
 - Python tools use the standard library first. If a third-party package is needed, list it in `tools/requirements.txt`. Use type hints and argparse.
-- No secrets in the repo. R2 credentials come from GitHub Action secrets only.
+- No secrets in the repo. The Cloudflare API token and account ID come from GitHub Action secrets only.
 
 ## Testing checklist (run before calling a phase done)
 
