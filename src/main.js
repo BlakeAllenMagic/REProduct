@@ -8,6 +8,7 @@ import { installUpdates } from './offline/updates.js';
 import { installDownloadChip } from './ui/download-chip.js';
 import { installErrorHandling, showError } from './ui/errors.js';
 import { captureInstallPrompt, showInstallHintOnce } from './ui/install.js';
+import { installSearch } from './ui/search-panel.js';
 import { renderDiagram } from './views/diagram.js';
 import { renderPartsTable } from './views/parts-table.js';
 import { renderSettings } from './views/settings.js';
@@ -89,6 +90,7 @@ async function start() {
     showError(error);
     return;
   }
+  installSearch(document.getElementById('search-button'), ctx);
   startRouter((route) => show(ctx, route));
   // Quietly fetch updated datasheets when online (src/offline/updates.js).
   installUpdates(ctx, document.getElementById('banners'));

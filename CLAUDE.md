@@ -230,6 +230,7 @@ Do one phase at a time, and don't start the next until the current one's "done w
 - [ ] Send datasheet while offline composes an email with the PDF attached
 - [ ] In Mail, the share's title shows up as the email subject (if not, note it; the rep types a subject)
 - [ ] Portrait and landscape layouts
+- [ ] Search: tapping the magnifier opens the on-screen keyboard right away
 - [ ] A long real datasheet (50+ pages): scroll through it, no blank pages
 - [ ] Mac Safari (if available): Add to Dock, same flow, trackpad pinch
 
