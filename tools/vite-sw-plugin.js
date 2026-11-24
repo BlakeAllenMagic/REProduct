@@ -31,7 +31,15 @@ export function serviceWorker({ source = 'src/sw.js', output = 'sw.js' } = {}) {
     closeBundle() {
       const files = listFiles(outDir)
         .map((file) => relative(outDir, file).split(sep).join('/'))
-        .filter((path) => path !== output && !path.endsWith('.map') && !path.startsWith('datasheets/'))
+        // Not part of the offline app: source maps, datasheets, and the sample
+        // "manufacturer" PDFs that only the sync job downloads.
+        .filter(
+          (path) =>
+            path !== output &&
+            !path.endsWith('.map') &&
+            !path.startsWith('datasheets/') &&
+            !path.startsWith('sample-upstream/'),
+        )
         .sort();
 
       let total = 0;

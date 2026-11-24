@@ -99,7 +99,7 @@ test('Email link opens a prefilled email with the manufacturer link', async ({ p
   const [href] = await page.evaluate(() => window.__mailto);
   const { subject, body } = mailtoParts(href);
   expect(subject).toBe('ALM-1234 datasheet (Acme RF)');
-  expect(body).toContain('https://manufacturer.example/ALM-1234.pdf');
+  expect(body).toContain('https://reproduct.pages.dev/sample-upstream/ALM-1234.pdf');
   expect(await page.evaluate(() => window.__shares.length)).toBe(0);
 });
 
@@ -109,7 +109,7 @@ test('a browser that cannot share files only offers Email link', async ({ page }
   await expect(page.getByRole('button', { name: 'Send datasheet' })).toBeHidden();
   await page.getByRole('button', { name: 'Email link' }).click();
   const [href] = await page.evaluate(() => window.__mailto);
-  expect(mailtoParts(href).body).toContain('https://manufacturer.example/ALM-1234.pdf');
+  expect(mailtoParts(href).body).toContain('https://reproduct.pages.dev/sample-upstream/ALM-1234.pdf');
 });
 
 test('not downloaded: Send is hidden, Email link still works', async ({ page }) => {

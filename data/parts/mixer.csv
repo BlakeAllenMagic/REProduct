@@ -1,4 +1,4 @@
 manufacturer,mpn,description,datasheet_url,rf_min_ghz,rf_max_ghz,lo_min_ghz,lo_max_ghz,if_max_ghz,conv_loss_db,iip3_dbm,lo_drive_dbm,package
-Acme RF,AMX-0750,Passive double-balanced mixer,https://manufacturer.example/AMX-0750.pdf,0.7,5,0.7,5,1.5,7.2,22,15,3x3 mm QFN
+Acme RF,AMX-0750,Passive double-balanced mixer,https://reproduct.pages.dev/sample-upstream/AMX-0750.pdf,0.7,5,0.7,5,1.5,7.2,22,15,3x3 mm QFN
 Northwind Microwave,NMX-2600,6 to 26 GHz double-balanced mixer,https://northwind.example/datasheets/NMX-2600.pdf,6,26,6,26,6,8.5,18,13,Bare die
 Kestrel Semiconductor,KMX-1100,Mixer with integrated LO buffer,https://kestrel.example/pdf/KMX-1100.pdf,0.4,3,0.4,3,0.5,7.8,25,0,4x4 mm QFN

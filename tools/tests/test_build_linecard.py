@@ -170,7 +170,7 @@ class BrokenCsvTests(BuildTestCase):
         self.assert_fails("nf_db: 'low' is not a number")
 
     def test_http_url_rejected(self) -> None:
-        self.edit("parts/lna.csv", "https://manufacturer.example/ALM-1234", "http://manufacturer.example/ALM-1234")
+        self.edit("parts/lna.csv", "https://reproduct.pages.dev/sample-upstream/ALM-1234", "http://reproduct.pages.dev/sample-upstream/ALM-1234")
         self.assert_fails("datasheet_url must start with https://")
 
     def test_csv_without_category(self) -> None:

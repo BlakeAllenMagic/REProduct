@@ -1,15 +1,28 @@
 #!/usr/bin/env python3
-"""Generate fake sample datasheets for local development.
+"""Generate fake sample datasheets for development and for testing updates.
 
-Writes a few simple multi-page PDFs into dev-datasheets/<sha256>.pdf, records
-them in data/datasheets.json (the same file tools/sync_datasheets.py will write
-in phase 4), then rebuilds public/linecard.json.
+Writes each sample PDF twice:
+  public/sample-upstream/<MPN>.pdf  the "manufacturer's website" copy. The app
+                                    site serves it, and the sample parts' CSV
+                                    links point to it, so the weekly sync job
+                                    downloads it like a real datasheet.
+  dev-datasheets/<sha256>.pdf       for `npm run dev`, which serves this
+                                    folder as the datasheet site.
 
-The PDFs are clearly marked as samples. They contain no timestamps or random
-IDs, so running this again produces byte-identical files and the same hashes.
+The PDFs are clearly marked as samples and contain no timestamps, so running
+this again produces byte-identical files and the same hashes.
+
+  --revise MPN      publish a new revision of one sample (its bytes and hash
+                    change), to test the update flow. Revisions are remembered
+                    in data/sample-revisions.json.
+  --update-records  also write data/datasheets.json and rebuild linecard.json.
+                    Normally the sync job does that, AFTER uploading the PDFs,
+                    so the app never points at a file that isn't online yet.
+                    Only for local development without the sync job.
 
 Usage:
   python3 tools/make_sample_datasheets.py
+  python3 tools/make_sample_datasheets.py --revise AFB-2450
 """
 
 from __future__ import annotations
@@ -18,6 +31,7 @@ import argparse
 import hashlib
 import json
 import math
+import re
 import sys
 import zlib
 from pathlib import Path
@@ -165,12 +179,12 @@ def format_value(spec: dict[str, Any], value: Any) -> str:
     return f"{text} {spec['unit']}" if spec.get("unit") else text
 
 
-def page_overview(part: dict[str, Any], category: dict[str, Any], updated: str) -> Page:
+def page_overview(part: dict[str, Any], category: dict[str, Any], updated: str, revision: int = 0) -> Page:
     page = Page()
     y = PAGE_H - 100
     page.text(MARGIN, y, part["mpn"], 30, bold=True)
     page.text(MARGIN, y - 24, part["description"], 14, color=(0.3, 0.3, 0.3))
-    page.text(MARGIN, y - 42, f"{category['name']}  |  Rev. {updated}", 10, color=(0.4, 0.4, 0.4))
+    page.text(MARGIN, y - 42, f"{category['name']}  |  Rev. {updated}" + (f"  |  Sample revision {revision}" if revision else ""), 10, color=(0.4, 0.4, 0.4))
     page.rect(MARGIN, y - 82, PAGE_W - 2 * MARGIN, 26, (0.99, 0.92, 0.91))
     page.text(MARGIN + 10, y - 73, "Sample file generated for testing the RF Line Card app.", 10, color=RED)
 
@@ -272,8 +286,10 @@ def page_application(part: dict[str, Any], index: int) -> Page:
     return page
 
 
-def make_datasheet(part: dict[str, Any], category: dict[str, Any], updated: str, extra: int) -> bytes:
-    pages = [page_overview(part, category, updated), page_performance(part, category)]
+def make_datasheet(
+    part: dict[str, Any], category: dict[str, Any], updated: str, extra: int, revision: int = 0
+) -> bytes:
+    pages = [page_overview(part, category, updated, revision), page_performance(part, category)]
     pages += [page_application(part, i + 1) for i in range(extra)]
     pages.append(page_package(part, updated))
     for number, page in enumerate(pages, start=1):
@@ -284,42 +300,69 @@ def make_datasheet(part: dict[str, Any], category: dict[str, Any], updated: str,
 # ---------------------------------------------------------------------------
 
 
+def safe_name(mpn: str) -> str:
+    return re.sub(r"[^A-Za-z0-9._-]", "-", mpn)
+
+
 def main(argv: list[str] | None = None) -> int:
     repo = Path(__file__).resolve().parent.parent
-    parser = argparse.ArgumentParser(description="Generate sample datasheets for development.")
+    parser = argparse.ArgumentParser(description="Generate sample datasheets for development and update tests.")
     parser.add_argument("--data", type=Path, default=repo / "data")
     parser.add_argument("--out-dir", type=Path, default=repo / "dev-datasheets")
+    parser.add_argument("--upstream-dir", type=Path, default=repo / "public" / "sample-upstream")
+    parser.add_argument("--revise", action="append", default=[], metavar="MPN",
+                        help="publish a new revision of this sample part (repeatable)")
+    parser.add_argument("--update-records", action="store_true",
+                        help="also write data/datasheets.json and rebuild linecard.json")
     args = parser.parse_args(argv)
 
-    linecard, report = build_linecard.build(args.data, "sample-generation")
+    linecard, _report = build_linecard.build(args.data, "sample-generation")
     if linecard is None:
         print("Fix the data errors first (run tools/build_linecard.py).", file=sys.stderr)
         return 1
     parts = {p["id"]: p for p in linecard["parts"]}
     categories = {c["id"]: c for c in linecard["categories"]}
+    by_mpn = {p["mpn"].casefold(): p["id"] for p in linecard["parts"] if p["id"] in SAMPLES}
+
+    revisions_path = args.data / "sample-revisions.json"
+    revisions: dict[str, int] = (
+        json.loads(revisions_path.read_text(encoding="utf-8")) if revisions_path.exists() else {}
+    )
+    for mpn in args.revise:
+        part_id = by_mpn.get(mpn.casefold())
+        if part_id is None:
+            names = ", ".join(sorted(parts[i]["mpn"] for i in by_mpn.values()))
+            print(f"--revise {mpn}: not one of the sample parts ({names})", file=sys.stderr)
+            return 1
+        revisions[part_id] = revisions.get(part_id, 0) + 1
+        print(f"{parts[part_id]['mpn']}: now sample revision {revisions[part_id]}")
+    if args.revise:
+        revisions_path.write_text(json.dumps(revisions, indent=2, sort_keys=True) + "\n", encoding="utf-8")
 
     records_path = args.data / "datasheets.json"
     records = json.loads(records_path.read_text(encoding="utf-8")) if records_path.exists() else {}
     args.out_dir.mkdir(parents=True, exist_ok=True)
-    keep: set[str] = set()
+    args.upstream_dir.mkdir(parents=True, exist_ok=True)
 
     for part_id, (updated, extra) in SAMPLES.items():
         part = parts.get(part_id)
         if part is None:
             print(f"Skipping {part_id}: not in the line card", file=sys.stderr)
             continue
-        pdf = make_datasheet(part, categories[part["category"]], updated, extra)
+        revision = revisions.get(part_id, 0)
+        pdf = make_datasheet(part, categories[part["category"]], updated, extra, revision)
         sha = hashlib.sha256(pdf).hexdigest()
+        (args.upstream_dir / f"{safe_name(part['mpn'])}.pdf").write_bytes(pdf)
+        # Older versions stay in dev-datasheets/, so the dev server can still
+        # serve whichever version linecard.json currently lists.
         (args.out_dir / f"{sha}.pdf").write_bytes(pdf)
-        keep.add(f"{sha}.pdf")
         records[part_id] = {"sha256": sha, "bytes": len(pdf), "updated": updated}
-        print(f"{part['mpn']:10} {len(pdf):6} bytes  {sha[:12]}...")
+        print(f"{part['mpn']:10} {len(pdf):6} bytes  {sha[:12]}...  revision {revision}")
 
-    # Remove sample files from earlier runs that no record points to any more.
-    for old in args.out_dir.glob("*.pdf"):
-        if old.name not in keep:
-            old.unlink()
-
+    print(f"Wrote {build_linecard.display(args.upstream_dir)}/ and {build_linecard.display(args.out_dir)}/")
+    if not args.update_records:
+        print("Records not changed: the sync job picks up new revisions (GitHub > Actions > Sync datasheets).")
+        return 0
     records_path.write_text(json.dumps(records, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"Updated {build_linecard.display(records_path)}. Rebuilding linecard.json:")
     return build_linecard.main([])

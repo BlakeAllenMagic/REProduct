@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-18T16:58:16Z",
+  "dataVersion": "2026-11-24T15:37:13Z",
   "categories": [
     {
       "id": "lna",
@@ -188,7 +188,7 @@
         "package": "2x2 mm DFN"
       },
       "datasheet": {
-        "sourceUrl": "https://manufacturer.example/ALM-1234.pdf",
+        "sourceUrl": "https://reproduct.pages.dev/sample-upstream/ALM-1234.pdf",
         "file": "datasheets/6ca5121a9f73429fd633a98634bb3f28fffc785b601c3b2fc499eb0481f741d3.pdf",
         "sha256": "6ca5121a9f73429fd633a98634bb3f28fffc785b601c3b2fc499eb0481f741d3",
         "bytes": 6947,
@@ -256,7 +256,7 @@
         "package": "1.5x1.5 mm DFN"
       },
       "datasheet": {
-        "sourceUrl": "https://northwind.example/datasheets/NLA-0310.pdf",
+        "sourceUrl": "https://reproduct.pages.dev/sample-upstream/NLA-0310.pdf",
         "file": "datasheets/1d7b770c450832a132065d5990b52e11224aef12ddb4e30103738c9f8f8bc81c.pdf",
         "sha256": "1d7b770c450832a132065d5990b52e11224aef12ddb4e30103738c9f8f8bc81c",
         "bytes": 3848,
@@ -281,7 +281,7 @@
         "package": "3x3 mm QFN"
       },
       "datasheet": {
-        "sourceUrl": "https://manufacturer.example/AMX-0750.pdf",
+        "sourceUrl": "https://reproduct.pages.dev/sample-upstream/AMX-0750.pdf",
         "file": "datasheets/45a3017a7e57c6e904b1ee3da45b31fed2d8a49b37b4da9b3455a7c80e528650.pdf",
         "sha256": "45a3017a7e57c6e904b1ee3da45b31fed2d8a49b37b4da9b3455a7c80e528650",
         "bytes": 4640,
@@ -354,7 +354,7 @@
         "package": "1008"
       },
       "datasheet": {
-        "sourceUrl": "https://manufacturer.example/AFB-2450.pdf",
+        "sourceUrl": "https://reproduct.pages.dev/sample-upstream/AFB-2450.pdf",
         "file": "datasheets/b3a5b773c08255e914d95f6244af8baa3d4ae066264f62c355bf560de66ac70a.pdf",
         "sha256": "b3a5b773c08255e914d95f6244af8baa3d4ae066264f62c355bf560de66ac70a",
         "bytes": 3796,
@@ -400,7 +400,7 @@
         "package": "1.4x1.1 mm"
       },
       "datasheet": {
-        "sourceUrl": "https://kestrel.example/pdf/KSF-1575.pdf",
+        "sourceUrl": "https://reproduct.pages.dev/sample-upstream/KSF-1575.pdf",
         "file": "datasheets/482ce1acdb0487bf59e8601da6b67bceef3d66092362507f5b441349b8f99089.pdf",
         "sha256": "482ce1acdb0487bf59e8601da6b67bceef3d66092362507f5b441349b8f99089",
         "bytes": 4640,
