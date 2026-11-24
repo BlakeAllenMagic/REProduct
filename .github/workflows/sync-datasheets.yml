@@ -1,0 +1,78 @@
+# Downloads every datasheet from the manufacturers, uploads the complete set
+# to the datasheet site (rf-datasheets.pages.dev), then commits the new hashes
+# so the app picks them up. See "Datasheet update pipeline" in CLAUDE.md.
+#
+# Run it by hand: GitHub > Actions > Sync datasheets > Run workflow.
+
+name: Sync datasheets
+
+on:
+  schedule:
+    - cron: '17 6 * * 1' # Mondays 06:17 UTC
+  workflow_dispatch: # the "Run workflow" button
+  push:
+    branches: [main]
+    paths:
+      - 'data/parts/**'
+      - 'data/categories.yaml'
+
+# Never two runs at once: they'd race to upload and commit.
+concurrency:
+  group: sync-datasheets
+  cancel-in-progress: false
+
+permissions:
+  contents: write # to commit data/datasheets.json and public/linecard.json
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Check out
+        uses: actions/checkout@v6
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+
+      - name: Install the data tools' requirements
+        run: pip install -r tools/requirements.txt
+
+      - name: Test the data tools
+        run: python -m unittest discover tools/tests
+
+      # Writes the complete site into build/datasheet-site. Exits with an
+      # error (and the job stops here, before uploading) if a datasheet that
+      # is online today couldn't be included.
+      - name: Download datasheets and build the site
+        run: >
+          python tools/sync_datasheets.py
+          --site-url https://rf-datasheets.pages.dev
+          --out build/datasheet-site
+          --report build/sync-report.md
+
+      # The PDFs go online BEFORE the app is told about them (next step), so
+      # the app never points at a file that isn't uploaded yet.
+      - name: Upload the datasheet site
+        uses: cloudflare/wrangler-action@v4
+        with:
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy build/datasheet-site --project-name=rf-datasheets --branch=main --commit-dirty=true
+
+      # Cloudflare publishes the app again when this lands on main.
+      - name: Commit the new hashes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/datasheets.json public/linecard.json
+          if git diff --cached --quiet; then
+            echo "No data changes to commit."
+            exit 0
+          fi
+          git commit -m "Sync datasheets"
+          # Someone may have pushed while this ran; put this commit on top.
+          git pull --rebase origin main
+          git push origin HEAD:main
