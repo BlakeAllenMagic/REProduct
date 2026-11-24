@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-24T15:37:13Z",
+  "dataVersion": "2026-11-24T16:48:03Z",
   "categories": [
     {
       "id": "lna",
@@ -355,10 +355,10 @@
       },
       "datasheet": {
         "sourceUrl": "https://reproduct.pages.dev/sample-upstream/AFB-2450.pdf",
-        "file": "datasheets/b3a5b773c08255e914d95f6244af8baa3d4ae066264f62c355bf560de66ac70a.pdf",
-        "sha256": "b3a5b773c08255e914d95f6244af8baa3d4ae066264f62c355bf560de66ac70a",
-        "bytes": 3796,
-        "updated": "2026-03-30"
+        "file": "datasheets/1e9ba73555c01a6fe6e1b341eac44990d5bd854042b50608826b101b2f03e7d6.pdf",
+        "sha256": "1e9ba73555c01a6fe6e1b341eac44990d5bd854042b50608826b101b2f03e7d6",
+        "bytes": 3809,
+        "updated": "2026-11-24"
       }
     },
     {

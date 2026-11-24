@@ -1,9 +1,9 @@
 {
   "acme-afb2450": {
-    "bytes": 3796,
-    "etag": "\"9e4b6bbbfb16e736c4c4e149e5fe9a36\"",
-    "sha256": "b3a5b773c08255e914d95f6244af8baa3d4ae066264f62c355bf560de66ac70a",
-    "updated": "2026-03-30"
+    "bytes": 3809,
+    "etag": "\"49d98a52ee04b8df46cab09f46b86ff4\"",
+    "sha256": "1e9ba73555c01a6fe6e1b341eac44990d5bd854042b50608826b101b2f03e7d6",
+    "updated": "2026-11-24"
   },
   "acme-alm1234": {
     "bytes": 6947,
