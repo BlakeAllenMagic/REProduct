@@ -31,6 +31,13 @@ sys.path.insert(0, str(REPO / "tools"))
 import sync_datasheets  # noqa: E402
 
 SAMPLES = ["ALM-1234", "NLA-0310", "AMX-0750", "AFB-2450", "KSF-1575"]
+SAMPLE_IDS = {
+    "ALM-1234": "acme-alm1234",
+    "NLA-0310": "northwind-nla0310",
+    "AMX-0750": "acme-amx0750",
+    "AFB-2450": "acme-afb2450",
+    "KSF-1575": "kestrel-ksf1575",
+}
 
 
 class FakeServer:
@@ -97,16 +104,25 @@ class SyncTestCase(unittest.TestCase):
                 text = text.replace(host, f"{self.maker.url}/gone/")
             csv.write_text(text, encoding="utf-8")
 
-        # The links changed, so rebuild the starting line card to match
-        # (as if the CSVs had always pointed here).
+        self.pdfs = {m: (REPO / "public" / "sample-upstream" / f"{m}.pdf").read_bytes() for m in SAMPLES}
+        for mpn, body in self.pdfs.items():
+            self.serve(mpn, body)
+
+        # Starting point: the records match what the fake manufacturer serves,
+        # whatever sample revision the repo is at (--revise changes the repo's
+        # sample PDFs on purpose, before the sync job has run).
+        records = {
+            SAMPLE_IDS[mpn]: {"sha256": hashlib.sha256(body).hexdigest(), "bytes": len(body), "updated": "2026-01-01"}
+            for mpn, body in self.pdfs.items()
+        }
+        (self.data / "datasheets.json").write_text(json.dumps(records, indent=2), encoding="utf-8")
+
+        # The links and records changed, so rebuild the starting line card to
+        # match (as if the CSVs had always pointed here).
         import build_linecard  # noqa: E402
         with redirect_stdout(io.StringIO()):
             build_linecard.main(["--data", str(self.data), "--out", str(self.linecard),
                                  "--data-version", "2000-01-01T00:00:00Z"])
-
-        self.pdfs = {m: (REPO / "public" / "sample-upstream" / f"{m}.pdf").read_bytes() for m in SAMPLES}
-        for mpn, body in self.pdfs.items():
-            self.serve(mpn, body)
 
     def serve(self, mpn: str, body: bytes, status: int = 200, delay: float = 0, content_type: str = "application/pdf"):
         etag = f'"{hashlib.sha256(body).hexdigest()[:16]}"'
