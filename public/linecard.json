@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-26T22:13:39Z",
+  "dataVersion": "2026-11-26T22:32:49Z",
   "categories": [
     {
       "id": "amplifier",
@@ -42284,10 +42284,10 @@
       "productUrl": "https://psemi.com/products/power-management/led-boost-arc1c0608-arc1c0605/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/23100_%2023103ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/c8a7327e565016e288332c1afb8aaeeee59aa41cdb913e14cbdd873c8ebb8eea.pdf",
+        "sha256": "c8a7327e565016e288332c1afb8aaeeee59aa41cdb913e14cbdd873c8ebb8eea",
+        "bytes": 2921554,
+        "updated": "2026-11-26"
       }
     },
     {
@@ -42340,10 +42340,10 @@
       "productUrl": "https://psemi.com/products/power-management/led-boost-arc3c0845-arc3c0845w/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/ARC3C0845ARC3C0845Wpb.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/2105bab20b7e6c16802e936ec6547f4a6b071c0eecfbfb4223e2bbe2fdfcb31f.pdf",
+        "sha256": "2105bab20b7e6c16802e936ec6547f4a6b071c0eecfbfb4223e2bbe2fdfcb31f",
+        "bytes": 744762,
+        "updated": "2026-11-26"
       }
     },
     {
@@ -42508,10 +42508,10 @@
       "productUrl": "https://psemi.com/products/power-management/led-boost-pe23108/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe23108pb.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/e721c43b8e0baac5399e13ec33a3a1fc618a72da817c50581d5f4921a3529d4c.pdf",
+        "sha256": "e721c43b8e0baac5399e13ec33a3a1fc618a72da817c50581d5f4921a3529d4c",
+        "bytes": 423296,
+        "updated": "2026-11-26"
       }
     },
     {
@@ -42539,10 +42539,10 @@
       "productUrl": "https://psemi.com/products/power-management/flexibk-pe24108/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe24108pb.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/cfbb202b0180771151f30e23ffb2c24201269fb2789b73edd47cd934625e7976.pdf",
+        "sha256": "cfbb202b0180771151f30e23ffb2c24201269fb2789b73edd47cd934625e7976",
+        "bytes": 648277,
+        "updated": "2026-11-26"
       }
     },
     {
@@ -42657,10 +42657,10 @@
       "productUrl": "https://psemi.com/products/power-management/flexicp-pe25203/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe25203pb.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/bcd57794d4b677e47b3bf45025c87e2204ccb5d1e24c6e1189c661bc26e86e2c.pdf",
+        "sha256": "bcd57794d4b677e47b3bf45025c87e2204ccb5d1e24c6e1189c661bc26e86e2c",
+        "bytes": 918080,
+        "updated": "2026-11-26"
       }
     },
     {
@@ -42685,10 +42685,10 @@
       "productUrl": "https://psemi.com/products/power-management/flexicp-pe25204/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe25204pb.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/f1865dbe023e8eb1882806871703d0bfb932564cdad9ad98573ef5367557f12d.pdf",
+        "sha256": "f1865dbe023e8eb1882806871703d0bfb932564cdad9ad98573ef5367557f12d",
+        "bytes": 956073,
+        "updated": "2026-11-26"
       }
     },
     {
@@ -42713,10 +42713,10 @@
       "productUrl": "https://psemi.com/products/power-management/flexicp-pe25208/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe25208pb.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/4782e38561912d5471432e7ac98bc4dab568479a79498298c51298b2ad181e89.pdf",
+        "sha256": "4782e38561912d5471432e7ac98bc4dab568479a79498298c51298b2ad181e89",
+        "bytes": 930869,
+        "updated": "2026-11-26"
       }
     },
     {
@@ -42741,10 +42741,10 @@
       "productUrl": "https://psemi.com/products/power-management/flexicp-pe25213/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe25213ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/268adf04b452a7abf0de61e24bcdb69f9464ceaeb2c8124ac61f28571e6a0995.pdf",
+        "sha256": "268adf04b452a7abf0de61e24bcdb69f9464ceaeb2c8124ac61f28571e6a0995",
+        "bytes": 8799527,
+        "updated": "2026-11-26"
       }
     },
     {
