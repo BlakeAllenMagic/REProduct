@@ -118,6 +118,32 @@ test('two-finger pinch on a table resizes its text', async ({ page, browserName,
   await expect(value).toHaveText('150%'); // fingers went from 100 px to 150 px apart
 });
 
+test('page zoomed in from the diagram: pinches on a table zoom the page, not the table', async ({ page, browserName, context }) => {
+  test.skip(browserName !== 'chromium', 'page zoom and multi-touch simulation are Chromium-only');
+  await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto('#/');
+  const cdp = await context.newCDPSession(page);
+  await cdp.send('Emulation.setPageScaleFactor', { pageScaleFactor: 2 }); // like pinching the diagram
+  await page.goto('#/category/filter');
+  const scroller = page.locator('.table-scroll');
+  await expect(scroller).toHaveClass(/page-zoomed/);
+  const value = page.getByRole('button', { name: 'Reset table text size' });
+
+  const box = await scroller.boundingBox();
+  const y = box.y + 40;
+  const cx = box.x + box.width / 2;
+  const touch = (type, points) =>
+    cdp.send('Input.dispatchTouchEvent', { type, touchPoints: points.map(([x, py], id) => ({ x, y: py, id })) });
+  await touch('touchStart', [[cx - 50, y], [cx + 50, y]]);
+  for (let d = 60; d <= 75; d += 5) await touch('touchMove', [[cx - d, y], [cx + d, y]]);
+  await touch('touchEnd', []);
+  await expect(value).toHaveText('100%'); // the table text didn't change
+
+  // Back at normal page zoom, pinches resize the table again.
+  await cdp.send('Emulation.setPageScaleFactor', { pageScaleFactor: 1 });
+  await expect(scroller).not.toHaveClass(/page-zoomed/);
+});
+
 test('full tap flow: block, table, datasheet, and back', async ({ page }) => {
   await page.goto('#/');
 

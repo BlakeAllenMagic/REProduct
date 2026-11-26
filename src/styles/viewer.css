@@ -63,6 +63,11 @@
   padding-bottom: var(--safe-bottom);
 }
 
+/* The page is zoomed in: let pinches zoom the page (back out), not the PDF. */
+.pdf-scroll.page-zoomed {
+  touch-action: auto;
+}
+
 .pdf-pages {
   display: flex;
   flex-direction: column;

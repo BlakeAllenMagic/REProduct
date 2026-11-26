@@ -8,9 +8,11 @@
 //
 // onChange(scale, clientX, clientY) fires during the pinch (scale is relative
 // to the start), onEnd(scale, clientX, clientY) once at the end.
+// Optional isEnabled(): checked when a pinch starts; if it returns false the
+// pinch is left to the browser (no preventDefault), e.g. to zoom the page out.
 // Returns a function that removes all listeners.
 
-export function attachPinch(element, { onChange, onEnd }) {
+export function attachPinch(element, { onChange, onEnd, isEnabled = () => true }) {
   const removers = [];
   const on = (type, handler, options) => {
     element.addEventListener(type, handler, options);
@@ -23,17 +25,20 @@ export function attachPinch(element, { onChange, onEnd }) {
     let anchor = { x: 0, y: 0 };
     let scale = 1;
     on('gesturestart', (event) => {
+      if (!isEnabled()) return; // let Safari zoom the page
       event.preventDefault(); // stop Safari zooming the whole page
       gestureActive = true;
       scale = 1;
       anchor = centerOf(element, event);
     });
     on('gesturechange', (event) => {
+      if (!gestureActive) return;
       event.preventDefault();
       scale = event.scale;
       onChange(scale, anchor.x, anchor.y);
     });
     on('gestureend', (event) => {
+      if (!gestureActive) return;
       event.preventDefault();
       gestureActive = false;
       onEnd(scale, anchor.x, anchor.y);
@@ -52,7 +57,7 @@ export function attachPinch(element, { onChange, onEnd }) {
     on('pointerdown', (event) => {
       if (event.pointerType !== 'touch') return;
       pointers.set(event.pointerId, { x: event.clientX, y: event.clientY });
-      if (pointers.size === 2) {
+      if (pointers.size === 2 && isEnabled()) {
         gestureActive = true;
         start = { distance: distance(), ...midpoint(), scale: 1 };
       }
@@ -83,6 +88,7 @@ export function attachPinch(element, { onChange, onEnd }) {
     'wheel',
     (event) => {
       if (!event.ctrlKey || gestureActive) return;
+      if (!wheel && !isEnabled()) return;
       event.preventDefault(); // otherwise the browser zooms the whole page
       wheel ??= { scale: 1, x: event.clientX, y: event.clientY, timer: 0 };
       wheel.scale *= Math.exp(-event.deltaY / 100);

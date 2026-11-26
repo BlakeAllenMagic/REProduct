@@ -10,6 +10,7 @@ import { columnsFor, nextSort, sortParts } from '../table-sort.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
 import { showError } from '../ui/errors.js';
+import { isPageZoomed, watchPageZoom } from '../ui/page-zoom.js';
 import { applyTextSize, readTextSize, setTextSize, TEXT_SIZE } from '../ui/text-size.js';
 
 // Sort order per category, kept while the app is open, so opening a
@@ -60,7 +61,11 @@ export function renderPartsTable(container, ctx, route) {
   const toolbar = el('div', { class: 'table-toolbar' }, count, sizer.element, downloadButton);
   const scroller = el('div', { class: 'table-scroll' }, table);
   container.append(toolbar, scroller);
-  const detachPinch = attachPinch(scroller, sizer.pinch);
+  // If the page itself is zoomed in (e.g. pinched on the diagram before
+  // opening this table), pinches go to the browser so it can zoom back out;
+  // only at normal page zoom do they resize the table text.
+  const stopWatchingZoom = watchPageZoom(scroller);
+  const detachPinch = attachPinch(scroller, { ...sizer.pinch, isEnabled: () => !isPageZoomed() });
 
   const items = itemsForParts(parts);
   let destroyed = false;
@@ -94,6 +99,7 @@ export function renderPartsTable(container, ctx, route) {
     destroy() {
       destroyed = true;
       detachPinch();
+      stopWatchingZoom();
       for (const type of ['saved', 'finished', 'progress']) downloads.removeEventListener(type, update);
     },
   };

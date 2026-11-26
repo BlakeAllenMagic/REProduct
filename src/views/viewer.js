@@ -10,6 +10,7 @@ import { hrefFor } from '../router.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
 import { showError } from '../ui/errors.js';
+import { isPageZoomed, watchPageZoom } from '../ui/page-zoom.js';
 import { canShareFile, describeShareError, emailLink, makeDatasheetFile, sendDatasheet } from '../share/send.js';
 
 const ZOOM_STEP = 1.25;
@@ -126,9 +127,12 @@ class Viewer {
     scroller.focus({ preventScroll: true });
 
     this.cleanups.push(
+      // While the page itself is zoomed in, pinches zoom the page (back out).
+      watchPageZoom(scroller),
       attachPinch(scroller, {
         onChange: (scale, x, y) => this.doc.previewZoom(scale, x, y),
         onEnd: (scale, x, y) => this.doc.setZoom(this.doc.zoom * scale, x, y),
+        isEnabled: () => !isPageZoomed(),
       }),
     );
   }
