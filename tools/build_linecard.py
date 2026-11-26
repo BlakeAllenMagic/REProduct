@@ -417,6 +417,23 @@ def _build_part(
 # ---------------------------------------------------------------------------
 
 
+def load_found_links(path: Path, report: Report) -> dict[str, str]:
+    """Part id -> datasheet link found by find_datasheet_links.py. Missing file = none."""
+    if not path.exists():
+        return {}
+    try:
+        raw = json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError) as error:
+        report.error(display(path), f"can't read it: {error}")
+        return {}
+    links: dict[str, str] = {}
+    for part_id, entry in raw.items() if isinstance(raw, dict) else []:
+        url = entry.get("url") if isinstance(entry, dict) else None
+        if isinstance(url, str) and url.startswith("https://"):
+            links[part_id] = url
+    return links
+
+
 def load_datasheet_records(path: Path, report: Report) -> dict[str, dict[str, Any]]:
     """Read the hash records written by sync_datasheets.py. Missing file = none yet."""
     where = display(path)
@@ -486,6 +503,13 @@ def build(data_dir: Path, data_version: str) -> tuple[dict[str, Any] | None, Rep
         parts += read_parts(
             parts_dir / f"{category['id']}.csv", category, report, seen_mpns, seen_ids
         )
+
+    # A blank Datasheet link in the Sheet may be filled from a distributor
+    # (tools/find_datasheet_links.py). The Sheet's own link always wins.
+    found = load_found_links(data_dir / "datasheet-links.json", report)
+    for part in parts:
+        if not part["datasheet"]["sourceUrl"] and found.get(part["id"]):
+            part["datasheet"]["sourceUrl"] = found[part["id"]]
 
     records = load_datasheet_records(data_dir / "datasheets.json", report)
     for part in parts:

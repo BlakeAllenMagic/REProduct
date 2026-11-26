@@ -157,6 +157,7 @@ Use two separate caches with different lifecycles:
 - If a manufacturer download fails, copy that part's previous PDF from the live datasheet site by its hash, so it stays in the new upload. A failed download must never remove a datasheet from the site.
 - Write the new hash, size, and date into the build data, then regenerate `linecard.json` and bump `dataVersion`.
 - Some manufacturer sites block scripts or require a login. Log those failures, keep the previous version, and list them in a summary report. Never fail the whole run because of one part.
+- Blank Datasheet links can be filled from Mouser: `tools/find_datasheet_links.py` runs in the same workflow when the `MOUSER_API_KEY` secret is set, looks up parts with no link in the Sheet (a capped number of requests per run, rechecked monthly), and saves the results in `data/datasheet-links.json`. `build_linecard.py` uses a found link only where the Sheet has none: the Sheet always wins. Results are accepted only when the manufacturer and part number match exactly.
 - Send a real browser User-Agent, rate limit requests, and check that each response is actually a PDF (magic bytes `%PDF`) and not an HTML error page.
 - Browsers can't fetch manufacturer PDFs directly because of CORS. That is why this happens at build time.
 

@@ -7,6 +7,9 @@
 #     the app shows under Settings > Parts sheet. If unchanged, stop there.
 #   Mondays: also check every datasheet with the manufacturers, even if the
 #     sheet didn't change.
+#   Each run: if the MOUSER_API_KEY secret is set, look up datasheet links on
+#     Mouser for parts with a blank Datasheet link (a few at a time; see
+#     tools/find_datasheet_links.py). New links trigger the datasheet check.
 #
 # Run it by hand: GitHub > Actions > Update line card > Run workflow
 # (a manual run always does the full datasheet check).
@@ -18,6 +21,11 @@ on:
     - cron: '17 */2 * * *' # every 2 hours: check the Google Sheet
     - cron: '47 5 * * 1' # Mondays 05:47 UTC: also check every datasheet
   workflow_dispatch: # the "Run workflow" button
+    inputs:
+      mouser_limit:
+        description: 'Look up at most this many parts on Mouser (blank = the normal amount)'
+        required: false
+        default: ''
   push:
     branches: [main]
     paths:
@@ -65,10 +73,26 @@ jobs:
           fi
           python tools/import_sheet.py --sheet "$GOOGLE_SHEET_URL"
 
+      # Only for parts with no Datasheet link in the sheet. Writes
+      # data/datasheet-links.json. Mouser refusing (limit, bad key) is a
+      # warning, never a failed run.
+      - name: Find datasheet links on Mouser
+        id: mouser
+        env:
+          MOUSER_API_KEY: ${{ secrets.MOUSER_API_KEY }}
+          MOUSER_LIMIT: ${{ github.event.inputs.mouser_limit }}
+        run: |
+          if [ -n "$MOUSER_LIMIT" ]; then
+            python tools/find_datasheet_links.py --limit "$MOUSER_LIMIT"
+          else
+            python tools/find_datasheet_links.py
+          fi
+
       - name: Decide whether to check datasheets
         id: decide
         run: |
           if [ "${{ steps.import.outputs.result }}" = "changed" ] \
+            || [ "${{ steps.mouser.outputs.links }}" = "changed" ] \
             || [ "${{ github.event_name }}" != "schedule" ] \
             || [ "${{ github.event.schedule }}" = "47 5 * * 1" ]; then
             echo "sync=true" >> "$GITHUB_OUTPUT"
@@ -108,7 +132,7 @@ jobs:
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           # Add each file only if it exists: one missing path would make a
           # single `git add` stage nothing at all.
-          for path in data/parts data/datasheets.json public/linecard.json public/import-status.json; do
+          for path in data/parts data/datasheets.json data/datasheet-links.json public/linecard.json public/import-status.json; do
             if [ -e "$path" ]; then git add "$path"; fi
           done
           if git diff --cached --quiet; then

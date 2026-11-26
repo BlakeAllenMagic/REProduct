@@ -222,6 +222,20 @@ class LinkTests(BuildTestCase):
         self.edit("parts/lna.csv", "https://manufacturer.example/products/alm-2280", "http://manufacturer.example/products/alm-2280")
         self.assert_fails("product_url must start with https://")
 
+    def test_found_link_fills_a_blank_but_never_replaces_the_sheet_link(self) -> None:
+        # Blank ALM-2280's link in the sheet; ALM-1234 keeps its own.
+        self.edit("parts/lna.csv", "https://manufacturer.example/ALM-2280.pdf", "")
+        (self.data / "datasheet-links.json").write_text(json.dumps({
+            "acme-alm2280": {"url": "https://distributor.example/ALM-2280.pdf", "checked": "2026-11-26"},
+            "acme-alm1234": {"url": "https://distributor.example/ALM-1234.pdf", "checked": "2026-11-26"},
+            "acme-afh1000": {"url": None, "checked": "2026-11-26"},
+        }), encoding="utf-8")
+        code, _, err = self.run_tool()
+        self.assertEqual(code, 0, err)
+        card = json.loads(self.out.read_text(encoding="utf-8"))
+        self.assertEqual(self.part(card, "acme-alm2280")["datasheet"]["sourceUrl"], "https://distributor.example/ALM-2280.pdf")
+        self.assertNotIn("distributor", self.part(card, "acme-alm1234")["datasheet"]["sourceUrl"])
+
     def test_older_csvs_without_the_product_page_column_still_work(self) -> None:
         path = self.data / "parts" / "mixer.csv"
         rows = [line.split(",") for line in path.read_text(encoding="utf-8").splitlines()]
