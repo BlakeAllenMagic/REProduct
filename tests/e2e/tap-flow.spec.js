@@ -223,6 +223,23 @@ test('table filters: choices, at most, covers, kept after opening a part, clear 
   await expect(page.getByText('No parts match these filters.')).toBeVisible();
 });
 
+test('phone: each filter row stays on one line', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 780 });
+  await page.goto('#/category/filter');
+  await page.getByRole('button', { name: 'Filter', exact: true }).click();
+  const panel = page.getByRole('region', { name: 'Filters' });
+  for (const [first, second] of [
+    ['IL (dB), at least', 'IL (dB), at most'],
+    ['Pass covers (GHz)', 'Pass covers, up to (GHz, optional)'],
+  ]) {
+    const a = await panel.getByLabel(first, { exact: true }).boundingBox();
+    const b = await panel.getByLabel(second, { exact: true }).boundingBox();
+    expect(Math.abs(a.y - b.y), `${first} / ${second} on one line`).toBeLessThan(2);
+    expect(b.x + b.width).toBeLessThanOrEqual(360);
+    expect(b.width).toBeGreaterThanOrEqual(56); // still easy to tap and type in
+  }
+});
+
 test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });
