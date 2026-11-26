@@ -4,7 +4,7 @@
 // CSS variable --table-scale on <html>; table.css multiplies its font sizes
 // and spacing by it. Row heights never drop below the 44 pt tap target.
 
-export const TEXT_SIZE = { min: 0.8, max: 2, step: 0.1, default: 1 };
+export const TEXT_SIZE = { min: 0.6, max: 1.2, step: 0.1, default: 1 };
 const STORAGE_KEY = 'linecard.tableScale';
 
 /** Keep a size within limits, rounded to whole percent. */

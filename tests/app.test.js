@@ -72,3 +72,16 @@ test('indexLinecard maps blocks to categories from categories.yaml', () => {
 test('indexLinecard rejects malformed data', () => {
   assert.throws(() => indexLinecard({}), /missing/);
 });
+
+test('parts with no link get a search of their maker\'s site', async () => {
+  const { manufacturerSites, searchLinkFor } = await import('../src/data.js');
+  const sites = manufacturerSites([
+    { manufacturer: 'Marki Microwave', productUrl: null },
+    { manufacturer: 'Marki Microwave', productUrl: 'https://www.markimicrowave.com/products/x/' },
+  ]);
+  assert.equal(sites.get('Marki Microwave'), 'markimicrowave.com');
+  const link = new URL(searchLinkFor({ manufacturer: 'Marki Microwave', mpn: 'A-3567UC' }, sites));
+  assert.equal(link.searchParams.get('q'), 'site:markimicrowave.com A-3567UC');
+  const unknown = new URL(searchLinkFor({ manufacturer: 'Other Co', mpn: 'X-1' }, sites));
+  assert.equal(unknown.searchParams.get('q'), 'Other Co X-1 datasheet');
+});

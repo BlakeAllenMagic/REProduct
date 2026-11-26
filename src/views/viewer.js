@@ -1,6 +1,6 @@
 // Datasheet viewer: one part's PDF, rendered in-app with PDF.js.
 
-import { linkForEmail, linkForPage } from '../data.js';
+import { linkForEmail, linkForPage, searchLinkFor } from '../data.js';
 import { downloads, getSavedDatasheet, getSavedFile } from '../offline/downloads.js';
 import { readSavedParts } from '../offline/saved-parts.js';
 import { DocumentView, ZOOM_LIMITS } from '../pdf/document-view.js';
@@ -28,7 +28,7 @@ export function renderViewer(container, ctx, route) {
     back: { href: hrefFor('category', part.category), label: category?.name ?? 'Back' },
   };
 
-  const viewer = new Viewer(container, part);
+  const viewer = new Viewer(container, part, ctx.manufacturerSites);
   result.actions = viewer.sendButtons();
   result.destroy = () => viewer.destroy();
   // Load in the background; the screen (title, back button) shows right away.
@@ -37,9 +37,10 @@ export function renderViewer(container, ctx, route) {
 }
 
 class Viewer {
-  constructor(container, part) {
+  constructor(container, part, sites) {
     this.container = container;
     this.part = part;
+    this.sites = sites;
     this.destroyed = false;
     this.cleanups = [];
   }
@@ -263,17 +264,19 @@ class Viewer {
   }
 
   manufacturerLink() {
+    // No link of its own (e.g. Marki's connectorized parts): search the
+    // manufacturer's site for the part number instead.
     const source = linkForPage(this.part);
-    if (!source) return null;
+    const href = source ?? searchLinkFor(this.part, this.sites);
+    const label = source
+      ? `Open on the ${this.part.manufacturer} website`
+      : `Find it on the ${this.part.manufacturer} website`;
+    const note = source ? 'Needs an internet connection.' : 'Opens a web search. Needs an internet connection.';
     return el(
       'div',
       {},
-      el(
-        'a',
-        { class: 'btn', href: source, target: '_blank', rel: 'noopener' },
-        `Open on the ${this.part.manufacturer} website`,
-      ),
-      el('p', { class: 'message-note' }, 'Needs an internet connection.'),
+      el('a', { class: 'btn', href, target: '_blank', rel: 'noopener' }, label),
+      el('p', { class: 'message-note' }, note),
     );
   }
 

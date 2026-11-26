@@ -82,15 +82,16 @@ test('table text size: A+ / A−, remembered, rows stay tappable', async ({ page
   await expect(value).toHaveText('100%');
   const before = await fontSize();
 
-  for (let i = 0; i < 3; i++) await press(page, page.getByRole('button', { name: 'Bigger table text' }));
-  await expect(value).toHaveText('130%');
-  expect(await fontSize()).toBeCloseTo(before * 1.3, 0);
+  for (let i = 0; i < 2; i++) await press(page, page.getByRole('button', { name: 'Bigger table text' }));
+  await expect(value).toHaveText('120%');
+  await expect(page.getByRole('button', { name: 'Bigger table text' })).toBeDisabled(); // the cap
+  expect(await fontSize()).toBeCloseTo(before * 1.2, 0);
   await page.reload();
-  await expect(value).toHaveText('130%');
+  await expect(value).toHaveText('120%');
 
   // Smallest size: text shrinks, rows don't drop below the 44 pt tap target.
-  for (let i = 0; i < 5; i++) await page.getByRole('button', { name: 'Smaller table text' }).click();
-  await expect(value).toHaveText('80%');
+  for (let i = 0; i < 6; i++) await page.getByRole('button', { name: 'Smaller table text' }).click();
+  await expect(value).toHaveText('60%');
   await expect(page.getByRole('button', { name: 'Smaller table text' })).toBeDisabled();
   const rowHeight = (await page.locator('.part-row').first().boundingBox()).height;
   expect(rowHeight).toBeGreaterThanOrEqual(44);
@@ -113,9 +114,9 @@ test('two-finger pinch on a table resizes its text', async ({ page, browserName,
   const touch = (type, points) =>
     cdp.send('Input.dispatchTouchEvent', { type, touchPoints: points.map(([x, py], id) => ({ x, y: py, id })) });
   await touch('touchStart', [[cx - 50, y], [cx + 50, y]]);
-  for (let d = 60; d <= 75; d += 5) await touch('touchMove', [[cx - d, y], [cx + d, y]]);
+  for (let d = 45; d >= 35; d -= 5) await touch('touchMove', [[cx - d, y], [cx + d, y]]);
   await touch('touchEnd', []);
-  await expect(value).toHaveText('150%'); // fingers went from 100 px to 150 px apart
+  await expect(value).toHaveText('70%'); // fingers went from 100 px to 70 px apart
 });
 
 test('page zoomed in from the diagram: pinches on a table zoom the page, not the table', async ({ page, browserName, context }) => {
