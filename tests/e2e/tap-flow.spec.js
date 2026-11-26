@@ -116,6 +116,30 @@ test('phone width: table rows may shrink to 32 pt; iPad width keeps 44 pt', asyn
   expect(await rowHeightAt60(820)).toBeGreaterThanOrEqual(44);
 });
 
+test('top bar on a phone: shorter, and nothing overlaps or gets cut off', async ({ page }) => {
+  const check = async (width, hash) => {
+    await page.setViewportSize({ width, height: 700 });
+    await page.goto(hash);
+    await expect(page.locator('#title')).not.toHaveText('RF Line Card');
+    await page.waitForTimeout(100); // let the fit run (one animation frame)
+    const box = (sel) => page.locator(sel).boundingBox();
+    const [back, title, actions] = [await box('#back'), await box('#title'), await box('.topbar-actions')];
+    expect(back.x + back.width, `${hash} @${width}: back/title`).toBeLessThanOrEqual(title.x + 1);
+    expect(title.x + title.width, `${hash} @${width}: title/actions`).toBeLessThanOrEqual(actions.x + 1);
+    const cut = await page.evaluate(() =>
+      ['#title', '#back'].some((s) => {
+        const e = document.querySelector(s);
+        return e.scrollWidth > e.clientWidth + 1;
+      }),
+    );
+    expect(cut, `${hash} @${width}: text cut off`).toBe(false);
+    return (await box('.topbar')).height;
+  };
+  expect(await check(320, '#/category/lna')).toBeLessThanOrEqual(46); // 44 pt bar (+ border)
+  await check(320, '#/part/acme-alm1234'); // "Email link" in the bar too
+  expect(await check(1024, '#/category/lna')).toBeGreaterThanOrEqual(56); // iPad: unchanged
+});
+
 test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });

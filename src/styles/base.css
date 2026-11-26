@@ -81,7 +81,8 @@ a {
   padding: 0 10px 0 4px;
   border-radius: var(--radius);
   text-decoration: none;
-  font-size: 17px;
+  /* --topbar-font is set by src/ui/fit-topbar.js so nothing overlaps. */
+  font-size: var(--topbar-font, 17px);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -93,9 +94,9 @@ a {
 }
 
 .topbar-back span[aria-hidden] {
-  font-size: 28px;
+  font-size: 1.65em;
   line-height: 1;
-  margin-top: -3px;
+  margin-top: -0.18em;
 }
 
 .topbar-back:active {
@@ -105,7 +106,7 @@ a {
 .topbar-title {
   grid-column: 2;
   margin: 0;
-  font-size: 17px;
+  font-size: var(--topbar-font, 17px);
   font-weight: 600;
   text-align: center;
   white-space: nowrap;
@@ -225,4 +226,56 @@ a {
 /* The search button is disabled for a moment while the app loads. */
 .btn-icon:disabled {
   color: var(--disabled);
+}
+
+/* Top bar: text buttons ("Email link", "Send datasheet") follow the fitted size. */
+.topbar-actions .view-actions .btn {
+  font-size: var(--topbar-font, 17px);
+}
+
+/* Not enough room for a centred title: it sits between the two sides. */
+.topbar.topbar-tight {
+  grid-template-columns: auto minmax(0, 1fr) auto;
+}
+
+/* Even the smallest text doesn't fit: the back label and title wrap onto two
+   lines instead of being cut. */
+.topbar.topbar-wrap {
+  grid-template-columns: fit-content(40%) minmax(0, 1fr) auto;
+}
+
+.topbar.topbar-wrap .topbar-title,
+.topbar.topbar-wrap .topbar-back {
+  white-space: normal;
+  overflow: visible;
+  line-height: 1.15;
+  overflow-wrap: anywhere;
+}
+
+/* Phone screens only (narrower than any iPad, or a phone held sideways:
+   shorter than any iPad): a shorter top bar.
+   Its buttons may shrink to 32 pt, the agreed phone exception (CLAUDE.md). */
+@media (max-width: 700px), (max-height: 500px) {
+  :root {
+    --topbar-h: 44px;
+  }
+
+  .topbar {
+    gap: 4px;
+    padding-left: calc(6px + var(--safe-left));
+    padding-right: calc(6px + var(--safe-right));
+  }
+
+  .topbar .btn,
+  .topbar-back {
+    min-height: 32px;
+  }
+
+  .topbar .btn-icon {
+    min-width: 36px;
+  }
+
+  .topbar .view-actions .btn {
+    padding: 0 8px;
+  }
 }

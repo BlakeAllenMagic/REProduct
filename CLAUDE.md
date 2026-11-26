@@ -42,7 +42,7 @@ Do not add Android or Windows workarounds yet. Use standard web APIs so those pl
 - **No server at runtime.** The app is static files. The only "backend" is a scheduled build job (see Datasheet update pipeline).
 - **Minimal dependencies.** Vanilla JS with ES modules, plain CSS, and an SVG diagram. Vite is allowed as the dev server and bundler. Do not use a UI framework unless I approve one. PDF.js is the only expected runtime library.
 - **Never lose downloaded data.** A failed update must not delete or corrupt datasheets that are already cached.
-- **Touch first.** Tap targets are at least 44x44 pt, nothing depends on hover, and it works in both portrait and landscape on iPad. One agreed exception: on phone-width screens (under 700 px wide, narrower than any iPad), parts table rows may shrink to 32 pt.
+- **Touch first.** Tap targets are at least 44x44 pt, nothing depends on hover, and it works in both portrait and landscape on iPad. One agreed exception: on phone screens (under 700 px wide or under 500 px tall, which no iPad is), parts table rows and top bar buttons may shrink to 32 pt (the top bar is 44 pt tall there).
 
 ## Architecture
 

@@ -7,6 +7,7 @@ import { registerServiceWorker } from './offline/register-sw.js';
 import { installUpdates } from './offline/updates.js';
 import { installDownloadChip } from './ui/download-chip.js';
 import { installErrorHandling, showError } from './ui/errors.js';
+import { installTopbarFit } from './ui/fit-topbar.js';
 import { captureInstallPrompt, showInstallHintOnce } from './ui/install.js';
 import { installSearch } from './ui/search-panel.js';
 import { renderDiagram } from './views/diagram.js';
@@ -78,6 +79,7 @@ async function show(ctx, route) {
 
 async function start() {
   installErrorHandling(document.getElementById('errors'));
+  installTopbarFit(document.querySelector('.topbar'));
   installDownloadChip(document.getElementById('download-chip'));
   // Before loading data, so offline support turns on even if loading fails.
   registerServiceWorker(document.getElementById('banners'));
