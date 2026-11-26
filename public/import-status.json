@@ -1,31 +1,6 @@
 {
-  "ok": false,
-  "problems": [
-    "Tab \"Low Noise Amplifiers\" doesn't match a product type in the app (Amplifiers, Attenuators, Baluns and Pulse Inverters, Bias Tees and DC Blocks, Couplers, Diplexers and Multiplexers, Equalizers, Filters, Limiters, Mixers, Multipliers, Oscillators, Power Dividers, Switches, Detectors, Isolators, Terminations, Adapters and Accessories, Waveguide Parts). Rename it, or start its name with \"_\" if it's a notes tab.",
-    "Mixers tab: column \"RF Min (GHz)\" isn't a known column. Known columns: Part number, Manufacturer, Description, Datasheet link, Product page, Family, Package, RF/LO Min (GHz), RF/LO Max (GHz), IF Min (GHz), IF Max (GHz), Conv Loss (dB), IIP3 (dBm), LO Drive (dBm), Image Rej (dBc), L-R Isolation (dB), Case, ECCN, Notes.",
-    "Mixers tab: column \"RF Max (GHz)\" isn't a known column. Known columns: Part number, Manufacturer, Description, Datasheet link, Product page, Family, Package, RF/LO Min (GHz), RF/LO Max (GHz), IF Min (GHz), IF Max (GHz), Conv Loss (dB), IIP3 (dBm), LO Drive (dBm), Image Rej (dBc), L-R Isolation (dB), Case, ECCN, Notes.",
-    "Mixers tab: column \"LO Min (GHz)\" isn't a known column. Known columns: Part number, Manufacturer, Description, Datasheet link, Product page, Family, Package, RF/LO Min (GHz), RF/LO Max (GHz), IF Min (GHz), IF Max (GHz), Conv Loss (dB), IIP3 (dBm), LO Drive (dBm), Image Rej (dBc), L-R Isolation (dB), Case, ECCN, Notes.",
-    "Mixers tab: column \"LO Max (GHz)\" isn't a known column. Known columns: Part number, Manufacturer, Description, Datasheet link, Product page, Family, Package, RF/LO Min (GHz), RF/LO Max (GHz), IF Min (GHz), IF Max (GHz), Conv Loss (dB), IIP3 (dBm), LO Drive (dBm), Image Rej (dBc), L-R Isolation (dB), Case, ECCN, Notes.",
-    "Filters tab: column \"Type\" isn't a known column. Known columns: Part number, Manufacturer, Description, Datasheet link, Product page, Family, Package, Pass Min (GHz), Pass Max (GHz), Fc (GHz), IL (dB), Return Loss (dB), 30 dB Low (GHz), 3 dB Low (GHz), 1 dB Low (GHz), 1 dB High (GHz), 3 dB High (GHz), 30 dB High (GHz), Tune Min (GHz), Tune Max (GHz), Rejection (dB), OIP3 (dBm), Bands, Channel BW (GHz), Isolation (dB), Case, ECCN.",
-    "Filters tab: column \"Tech\" isn't a known column. Known columns: Part number, Manufacturer, Description, Datasheet link, Product page, Family, Package, Pass Min (GHz), Pass Max (GHz), Fc (GHz), IL (dB), Return Loss (dB), 30 dB Low (GHz), 3 dB Low (GHz), 1 dB Low (GHz), 1 dB High (GHz), 3 dB High (GHz), 30 dB High (GHz), Tune Min (GHz), Tune Max (GHz), Rejection (dB), OIP3 (dBm), Bands, Channel BW (GHz), Isolation (dB), Case, ECCN.",
-    "No tab for Amplifiers. Add a tab named \"Amplifiers\".",
-    "No tab for Attenuators. Add a tab named \"Attenuators\".",
-    "No tab for Baluns and Pulse Inverters. Add a tab named \"Baluns and Pulse Inverters\".",
-    "No tab for Bias Tees and DC Blocks. Add a tab named \"Bias Tees and DC Blocks\".",
-    "No tab for Couplers. Add a tab named \"Couplers\".",
-    "No tab for Diplexers and Multiplexers. Add a tab named \"Diplexers and Multiplexers\".",
-    "No tab for Equalizers. Add a tab named \"Equalizers\".",
-    "No tab for Limiters. Add a tab named \"Limiters\".",
-    "No tab for Multipliers. Add a tab named \"Multipliers\".",
-    "No tab for Oscillators. Add a tab named \"Oscillators\".",
-    "No tab for Power Dividers. Add a tab named \"Power Dividers\".",
-    "No tab for Switches. Add a tab named \"Switches\".",
-    "No tab for Detectors. Add a tab named \"Detectors\".",
-    "No tab for Isolators. Add a tab named \"Isolators\".",
-    "No tab for Terminations. Add a tab named \"Terminations\".",
-    "No tab for Adapters and Accessories. Add a tab named \"Adapters and Accessories\".",
-    "No tab for Waveguide Parts. Add a tab named \"Waveguide Parts\"."
-  ],
+  "ok": true,
+  "problems": [],
   "warnings": [],
   "importedAt": null
 }
