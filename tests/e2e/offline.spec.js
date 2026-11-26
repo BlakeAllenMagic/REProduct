@@ -244,7 +244,7 @@ test('phase 3 done-when: Send datasheet attaches the PDF while offline', async (
   expect(share.name).toBe('Acme RF AFB-2450 datasheet.pdf');
   expect(share.type).toBe('application/pdf');
   const linecard = JSON.parse(
-    (await import('node:fs')).readFileSync(new URL('../../public/linecard.json', import.meta.url)),
+    (await import('node:fs')).readFileSync(new URL('../fixtures/linecard.json', import.meta.url)),
   );
   expect(share.sha).toBe(linecard.parts.find((p) => p.id === 'acme-afb2450').datasheet.sha256);
 });

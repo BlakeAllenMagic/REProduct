@@ -20,6 +20,8 @@ from contextlib import redirect_stderr, redirect_stdout
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
+# Sample data for tests, independent of the real parts list (tests/fixtures/README.md).
+FIXTURES = REPO / "tests" / "fixtures"
 sys.path.insert(0, str(REPO / "tools"))
 
 import build_linecard  # noqa: E402
@@ -33,7 +35,7 @@ class BuildTestCase(unittest.TestCase):
         self.tmp = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, self.tmp)
         self.data = self.tmp / "data"
-        shutil.copytree(REPO / "data", self.data)
+        shutil.copytree(FIXTURES / "data", self.data)
         self.out = self.tmp / "linecard.json"
 
     def run_tool(self, *extra: str) -> tuple[int, str, str]:

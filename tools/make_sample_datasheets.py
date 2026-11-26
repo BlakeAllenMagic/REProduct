@@ -2,10 +2,9 @@
 """Generate fake sample datasheets for development and for testing updates.
 
 Writes each sample PDF twice:
-  public/sample-upstream/<MPN>.pdf  the "manufacturer's website" copy. The app
-                                    site serves it, and the sample parts' CSV
-                                    links point to it, so the weekly sync job
-                                    downloads it like a real datasheet.
+  tests/fixtures/sample-upstream/<MPN>.pdf  the "manufacturer's website" copy
+                                    the sync tests download. (Sample parts live in
+                                    tests/fixtures/, not in the real parts list.)
   dev-datasheets/<sha256>.pdf       for `npm run dev`, which serves this
                                     folder as the datasheet site.
 
@@ -307,9 +306,9 @@ def safe_name(mpn: str) -> str:
 def main(argv: list[str] | None = None) -> int:
     repo = Path(__file__).resolve().parent.parent
     parser = argparse.ArgumentParser(description="Generate sample datasheets for development and update tests.")
-    parser.add_argument("--data", type=Path, default=repo / "data")
+    parser.add_argument("--data", type=Path, default=repo / "tests" / "fixtures" / "data")
     parser.add_argument("--out-dir", type=Path, default=repo / "dev-datasheets")
-    parser.add_argument("--upstream-dir", type=Path, default=repo / "public" / "sample-upstream")
+    parser.add_argument("--upstream-dir", type=Path, default=repo / "tests" / "fixtures" / "sample-upstream")
     parser.add_argument("--revise", action="append", default=[], metavar="MPN",
                         help="publish a new revision of this sample part (repeatable)")
     parser.add_argument("--update-records", action="store_true",
@@ -365,7 +364,10 @@ def main(argv: list[str] | None = None) -> int:
         return 0
     records_path.write_text(json.dumps(records, indent=2, sort_keys=True) + "\n", encoding="utf-8")
     print(f"Updated {build_linecard.display(records_path)}. Rebuilding linecard.json:")
-    return build_linecard.main([])
+    return build_linecard.main(
+        ["--data", str(args.data), "--out", str(args.data.parent / "linecard.json"),
+         "--data-version", "2026-11-18T00:00:00Z"]
+    )
 
 
 if __name__ == "__main__":

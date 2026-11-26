@@ -6,7 +6,7 @@ import { readFileSync } from 'node:fs';
 
 import { normalize, searchParts } from '../src/search.js';
 
-const { parts } = JSON.parse(readFileSync(new URL('../public/linecard.json', import.meta.url)));
+const { parts } = JSON.parse(readFileSync(new URL('./fixtures/linecard.json', import.meta.url)));
 const mpns = (query) => searchParts(parts, query).map((p) => p.mpn);
 
 test('normalize ignores capitals and separators', () => {

@@ -26,6 +26,8 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parents[2]
+# Sample data for tests, independent of the real parts list (tests/fixtures/README.md).
+FIXTURES = REPO / "tests" / "fixtures"
 sys.path.insert(0, str(REPO / "tools"))
 
 import sync_datasheets  # noqa: E402
@@ -85,9 +87,9 @@ class SyncTestCase(unittest.TestCase):
         self.tmp = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, self.tmp)
         self.data = self.tmp / "data"
-        shutil.copytree(REPO / "data", self.data)
+        shutil.copytree(FIXTURES / "data", self.data)
         self.linecard = self.tmp / "linecard.json"
-        shutil.copy(REPO / "public" / "linecard.json", self.linecard)
+        shutil.copy(FIXTURES / "linecard.json", self.linecard)
         self.out = self.tmp / "site"
 
         self.maker = FakeServer()
@@ -104,7 +106,7 @@ class SyncTestCase(unittest.TestCase):
                 text = text.replace(host, f"{self.maker.url}/gone/")
             csv.write_text(text, encoding="utf-8")
 
-        self.pdfs = {m: (REPO / "public" / "sample-upstream" / f"{m}.pdf").read_bytes() for m in SAMPLES}
+        self.pdfs = {m: (FIXTURES / "sample-upstream" / f"{m}.pdf").read_bytes() for m in SAMPLES}
         for mpn, body in self.pdfs.items():
             self.serve(mpn, body)
 

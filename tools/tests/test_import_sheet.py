@@ -22,6 +22,8 @@ from pathlib import Path
 from openpyxl import Workbook
 
 REPO = Path(__file__).resolve().parents[2]
+# Sample data for tests, independent of the real parts list (tests/fixtures/README.md).
+FIXTURES = REPO / "tests" / "fixtures"
 sys.path.insert(0, str(REPO / "tools"))
 
 import export_sheet_template  # noqa: E402
@@ -33,7 +35,7 @@ class ImportTestCase(unittest.TestCase):
         self.tmp = Path(tempfile.mkdtemp())
         self.addCleanup(shutil.rmtree, self.tmp)
         self.data = self.tmp / "data"
-        shutil.copytree(REPO / "data", self.data)
+        shutil.copytree(FIXTURES / "data", self.data)
         self.status = self.tmp / "import-status.json"
         self.xlsx = self.tmp / "sheet.xlsx"
         # Start from the starter sheet made from the current data.

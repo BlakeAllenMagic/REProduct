@@ -9,7 +9,7 @@ import { parseHash, hrefFor } from '../src/router.js';
 import { specHeader, specValue, formatBytes, MISSING } from '../src/format.js';
 import { indexLinecard } from '../src/data.js';
 
-const linecard = JSON.parse(readFileSync(new URL('../public/linecard.json', import.meta.url)));
+const linecard = JSON.parse(readFileSync(new URL('./fixtures/linecard.json', import.meta.url)));
 
 test('parseHash: known routes', () => {
   assert.deepEqual(parseHash('#/'), { name: 'home' });

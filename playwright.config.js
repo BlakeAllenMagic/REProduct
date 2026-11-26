@@ -16,6 +16,8 @@ import { defineConfig, devices } from '@playwright/test';
 const DEV_PORT = 5174; // separate from the normal dev server (5173)
 const BUILT_PORT = 4174; // separate from the normal preview server (4173)
 const OFFLINE = /offline\.spec\.js/;
+// Tests use the sample parts, never the real parts list (tests/fixtures/README.md).
+const FIXTURE_LINECARD = 'tests/fixtures/linecard.json';
 
 export default defineConfig({
   testDir: 'tests/e2e',
@@ -47,6 +49,7 @@ export default defineConfig({
     {
       command: `npx vite --port ${DEV_PORT} --strictPort`,
       url: `http://localhost:${DEV_PORT}/`,
+      env: { LINECARD_FILE: FIXTURE_LINECARD },
       reuseExistingServer: !process.env.CI,
     },
     {
@@ -54,7 +57,7 @@ export default defineConfig({
       // and pointed at local sample datasheets instead of the real datasheet site.
       command: `npx vite build --outDir dist-e2e --emptyOutDir && npx vite preview --outDir dist-e2e --port ${BUILT_PORT} --strictPort`,
       url: `http://localhost:${BUILT_PORT}/`,
-      env: { VITE_DATASHEET_BASE: './datasheets/' }, // works on Windows too
+      env: { VITE_DATASHEET_BASE: './datasheets/', LINECARD_FILE: FIXTURE_LINECARD }, // works on Windows too
       reuseExistingServer: !process.env.CI,
       timeout: 120_000,
     },

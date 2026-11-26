@@ -1,0 +1,57 @@
+# Categories on the line card.
+#
+# Each category has one CSV in data/parts/<id>.csv. That CSV's header must be:
+#   manufacturer,mpn,description,datasheet_url, then one column per spec key below.
+#
+# Fields:
+#   id        short lowercase name, also the CSV file name
+#   name      shown in the app
+#   blocks    ids of diagram blocks that open this category
+#   specs     the spec columns, in the order the parts table shows them
+#     key       CSV column name (never shown to customers, safe to keep stable)
+#     label     column heading in the app
+#     type      number or text
+#     unit      number columns only. CSV cells may be "0.6" or "0.6 dB", never another unit
+#     sort      optional: asc (lower is better) or desc (higher is better)
+#     required  optional: true means every part must have a value
+#
+# After editing, run: python3 tools/build_linecard.py
+
+categories:
+  - id: lna
+    name: Low Noise Amplifiers
+    blocks: [lna]
+    specs:
+      - { key: freq_min_ghz, label: Freq Min, unit: GHz, type: number, required: true }
+      - { key: freq_max_ghz, label: Freq Max, unit: GHz, type: number, required: true }
+      - { key: nf_db,        label: NF,       unit: dB,  type: number, sort: asc, required: true }
+      - { key: gain_db,      label: Gain,     unit: dB,  type: number, sort: desc }
+      - { key: op1db_dbm,    label: OP1dB,    unit: dBm, type: number, sort: desc }
+      - { key: supply_v,     label: Supply,   unit: V,   type: number }
+      - { key: package,      label: Package,  type: text }
+
+  - id: mixer
+    name: Mixers
+    blocks: [mixer]
+    specs:
+      - { key: rf_min_ghz,   label: RF Min,    unit: GHz, type: number, required: true }
+      - { key: rf_max_ghz,   label: RF Max,    unit: GHz, type: number, required: true }
+      - { key: lo_min_ghz,   label: LO Min,    unit: GHz, type: number }
+      - { key: lo_max_ghz,   label: LO Max,    unit: GHz, type: number }
+      - { key: if_max_ghz,   label: IF Max,    unit: GHz, type: number }
+      - { key: conv_loss_db, label: Conv Loss, unit: dB,  type: number, sort: asc }
+      - { key: iip3_dbm,     label: IIP3,      unit: dBm, type: number, sort: desc }
+      - { key: lo_drive_dbm, label: LO Drive,  unit: dBm, type: number, sort: asc }
+      - { key: package,      label: Package,   type: text }
+
+  - id: filter
+    name: Filters
+    blocks: [rf_filter, if_filter]
+    specs:
+      - { key: filter_type,       label: Type,      type: text, required: true }
+      - { key: pass_min_ghz,      label: Pass Min,  unit: GHz, type: number, required: true }
+      - { key: pass_max_ghz,      label: Pass Max,  unit: GHz, type: number, required: true }
+      - { key: insertion_loss_db, label: IL,        unit: dB,  type: number, sort: asc }
+      - { key: rejection_db,      label: Rejection, unit: dB,  type: number, sort: desc }
+      - { key: technology,        label: Tech,      type: text }
+      - { key: package,           label: Package,   type: text }

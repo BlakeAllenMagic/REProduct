@@ -1,0 +1,32 @@
+{
+  "acme-afb2450": {
+    "bytes": 3809,
+    "etag": "\"49d98a52ee04b8df46cab09f46b86ff4\"",
+    "sha256": "1e9ba73555c01a6fe6e1b341eac44990d5bd854042b50608826b101b2f03e7d6",
+    "updated": "2026-11-24"
+  },
+  "acme-alm1234": {
+    "bytes": 6947,
+    "etag": "\"175a194d8d29a38d9e37d25415acfccf\"",
+    "sha256": "6ca5121a9f73429fd633a98634bb3f28fffc785b601c3b2fc499eb0481f741d3",
+    "updated": "2026-10-02"
+  },
+  "acme-amx0750": {
+    "bytes": 4640,
+    "etag": "\"7d10b6e1a652f25d710af71ba52a6897\"",
+    "sha256": "45a3017a7e57c6e904b1ee3da45b31fed2d8a49b37b4da9b3455a7c80e528650",
+    "updated": "2025-06-18"
+  },
+  "kestrel-ksf1575": {
+    "bytes": 4640,
+    "etag": "\"7e17cb38b97a960be3bd58e043d66e85\"",
+    "sha256": "482ce1acdb0487bf59e8601da6b67bceef3d66092362507f5b441349b8f99089",
+    "updated": "2026-11-12"
+  },
+  "northwind-nla0310": {
+    "bytes": 3848,
+    "etag": "\"d026d67e68691b0a02a1ac835d7cefd1\"",
+    "sha256": "1d7b770c450832a132065d5990b52e11224aef12ddb4e30103738c9f8f8bc81c",
+    "updated": "2026-11-10"
+  }
+}

@@ -9,7 +9,7 @@
 import { test, expect } from '@playwright/test';
 import { readFileSync } from 'node:fs';
 
-const linecard = JSON.parse(readFileSync(new URL('../../public/linecard.json', import.meta.url)));
+const linecard = JSON.parse(readFileSync(new URL('../fixtures/linecard.json', import.meta.url)));
 const partById = (id) => linecard.parts.find((p) => p.id === id);
 
 /** Installs the stand-ins. canShareFiles=false acts like a browser that can't share files. */

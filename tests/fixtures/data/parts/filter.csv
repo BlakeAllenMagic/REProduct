@@ -1,0 +1,5 @@
+manufacturer,mpn,description,datasheet_url,filter_type,pass_min_ghz,pass_max_ghz,insertion_loss_db,rejection_db,technology,package
+Acme RF,AFB-2450,2.4 GHz ISM bandpass filter,https://reproduct.pages.dev/sample-upstream/AFB-2450.pdf,bandpass,2.4,2.5,1.2,40,Ceramic,1008
+Acme RF,AFH-1000,1 GHz highpass filter,https://manufacturer.example/AFH-1000.pdf,highpass,1,8,0.6,30,LTCC,0603
+Northwind Microwave,NFL-6000,DC to 6 GHz lowpass filter,https://northwind.example/datasheets/NFL-6000.pdf,lowpass,0,6,0.8,35,LTCC,0805
+Kestrel Semiconductor,KSF-1575,GPS L1 SAW filter,https://reproduct.pages.dev/sample-upstream/KSF-1575.pdf,bandpass,1.565,1.586,0.9,45,SAW,1.4x1.1 mm
