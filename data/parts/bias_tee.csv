@@ -1,0 +1,40 @@
+manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,insertion_loss_db,dc_voltage_v,dc_current_a,dc_isolation_db,rise_time_ps,group_delay_ps,case,eccn
+Marki Microwave,BT-0018,"Bias tees, 4e-05 to 18 GHz",,,Bias tees,Connectorized,4e-05,18,0.6,30,0.5,,,,,EAR99
+Marki Microwave,BTN1-0018,"Bias tees, 0.0005 to 18 GHz",,,Bias tees,Connectorized,0.0005,18,0.7,50,1,,,,,EAR99
+Marki Microwave,BTN2-0018,"Bias tees, 0.003 to 18 GHz",,,Bias tees,Connectorized,0.003,18,0.7,50,2,,,,,EAR99
+Marki Microwave,BT-0025,"Bias tees, 4e-05 to 25 GHz",,,Bias tees,Connectorized,4e-05,25,0.8,30,0.5,,,,,EAR99
+Marki Microwave,BT-0026,"Bias tees, 0.01 to 26.5 GHz",,,Bias tees,Connectorized,0.01,26.5,0.8,30,0.5,,,,,EAR99
+Marki Microwave,BT1-0026,"Bias tees, 0.0002 to 26.5 GHz",,,Bias tees,Connectorized,0.0002,26.5,1,50,1,,,,,EAR99
+Marki Microwave,BT2-0026,"Bias tees, 0.0002 to 26.5 GHz",,,Bias tees,Connectorized,0.0002,26.5,1,50,2,,,,,EAR99
+Marki Microwave,BTN1-0026,"Bias tees, 0.0005 to 26.5 GHz",,,Bias tees,Connectorized,0.0005,26.5,1,50,1,,,,,EAR99
+Marki Microwave,BTN2-0026,"Bias tees, 0.003 to 26.5 GHz",,,Bias tees,Connectorized,0.003,26.5,1,50,2,,,,,EAR99
+Marki Microwave,BT-0040,"Bias tees, 4e-06 to 40 GHz",,,Bias tees,Connectorized,4e-06,40,1.5,30,0.5,,,,,EAR99
+Marki Microwave,BTN-0040,"Bias tees, 4e-05 to 40 GHz",,,Bias tees,Connectorized,4e-05,40,1.5,30,0.5,,,,,EAR99
+Marki Microwave,BT1-0040,"Bias tees, 0.0002 to 40 GHz",,,Bias tees,Connectorized,0.0002,40,1.5,50,1,,,,,EAR99
+Marki Microwave,BT2-0040,"Bias tees, 0.0002 to 40 GHz",,,Bias tees,Connectorized,0.0002,40,1.5,50,2,,,,,EAR99
+Marki Microwave,BTN1-0040,"Bias tees, 0.0005 to 40 GHz",,,Bias tees,Connectorized,0.0005,40,1.5,50,1,,,,,EAR99
+Marki Microwave,BTN2-0040,"Bias tees, 0.003 to 40 GHz",,,Bias tees,Connectorized,0.003,40,1.5,50,2,,,,,EAR99
+Marki Microwave,BT-0050,"Bias tees, 0.0002 to 50 GHz",,,Bias tees,Connectorized,0.0002,50,1.8,30,0.5,,,,,EAR99
+Marki Microwave,BTN-0050,"Bias tees, 0.0002 to 50 GHz",,,Bias tees,Connectorized,0.0002,50,1.8,30,0.5,,,,,EAR99
+Marki Microwave,BT1-0050,"Bias tees, 0.0002 to 50 GHz",,,Bias tees,Connectorized,0.0002,50,1.5,50,1,,,,,EAR99
+Marki Microwave,BT2-0050,"Bias tees, 0.0002 to 50 GHz",,,Bias tees,Connectorized,0.0002,50,1.5,50,2,,,,,EAR99
+Marki Microwave,BTN1-0050,"Bias tees, 0.0005 to 50 GHz",,,Bias tees,Connectorized,0.0005,50,1.5,50,1,,,,,EAR99
+Marki Microwave,BTN2-0050,"Bias tees, 0.003 to 50 GHz",,,Bias tees,Connectorized,0.003,50,1.5,50,2,,,,,EAR99
+Marki Microwave,BT-0065,"Bias tees, 4e-06 to 65 GHz",,,Bias tees,Connectorized,4e-06,65,1.8,30,0.5,,,,,EAR99
+Marki Microwave,BTN-0065,"Bias tees, 4e-05 to 65 GHz",,,Bias tees,Connectorized,4e-05,65,2,30,0.5,,,,,EAR99
+Marki Microwave,DCZ(M-F)29(M-F)29,"DC blocks, Broadband, 4e-06 to 40 GHz",,,Broadband,Connectorized,4e-06,40,0.7,16,,,6,75,,EAR99
+Marki Microwave,DCZ(M-F)24(M-F)24,"DC blocks, Broadband, 4e-06 to 50 GHz",,,Broadband,Connectorized,4e-06,50,0.7,16,,,6,75,,EAR99
+Marki Microwave,BT-0010SMG-1,"Bias tees, 0.02 to 10 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/bt-0010smg-1/datasheet/,Bias tees,Surface mount,0.02,10,0.5,30,0.5,40,,,SMG,EAR99
+Marki Microwave,BT-0010SMG-2,"Bias tees, 0.02 to 10 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/bt-0010smg-1/datasheet/,Bias tees,Surface mount,0.02,10,0.5,30,0.5,40,,,SMG,EAR99
+Marki Microwave,BTL-0012SMG-1,"Bias tees, 0.0005 to 12 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/btl-0012smg-1/datasheet/,Bias tees,Surface mount,0.0005,12,0.5,30,0.5,35,,,SMG,EAR99
+Marki Microwave,BTL-0012SMG-2,"Bias tees, 0.0005 to 12 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/btl-0012smg-1/datasheet/,Bias tees,Surface mount,0.0005,12,0.5,30,0.5,35,,,SMG,EAR99
+Marki Microwave,BTL-0026SMG-1,"Bias tees, 0.0005 to 26 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/btl-0026smg-1/datasheet/,Bias tees,Surface mount,0.0005,26,1,30,0.5,35,,,SMG,EAR99
+Marki Microwave,BTL-0026SMG-2,"Bias tees, 0.0005 to 26 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/btl-0026smg-1/datasheet/,Bias tees,Surface mount,0.0005,26,1,30,0.5,35,,,SMG,EAR99
+Marki Microwave,BTM-0026PSM-1,"Bias tees, 0.01 to 26 GHz",,https://markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/btm-0026psm-1/datasheet/,Bias tees,Surface mount,0.01,26,0.43,16,0.32,25,,,SMG,EAR99
+Marki Microwave,BTM-0026PSM-2,"Bias tees, 0.01 to 26 GHz",,https://markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/btm-0026psm-1/datasheet/,Bias tees,Surface mount,0.01,26,0.43,16,0.32,25,,,SMG,EAR99
+Marki Microwave,BT-0026SMG-1,"Bias tees, 0.02 to 26 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/bt-0026smg-1/datasheet/,Bias tees,Surface mount,0.02,26,1,35,0.5,40,,,SMG,EAR99
+Marki Microwave,BT-0026SMG-2,"Bias tees, 0.02 to 26 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/bt-0026smg-1/datasheet/,Bias tees,Surface mount,0.02,26,1,35,0.5,40,,,SMG,EAR99
+Marki Microwave,BTL-0035SMG-1,"Bias tees, 0.0005 to 35 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/btl-0035smg-1/datasheet/,Bias tees,Surface mount,0.0005,35,1,30,0.5,35,,,SMG,EAR99
+Marki Microwave,BTL-0035SMG-2,"Bias tees, 0.0005 to 35 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/btl-0035smg-1/datasheet/,Bias tees,Surface mount,0.0005,35,1,30,0.5,35,,,SMG,EAR99
+Marki Microwave,BT-0035SMG-1,"Bias tees, 0.02 to 35 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/bt-0035smg-1/datasheet/,Bias tees,Surface mount,0.02,35,1,30,0.5,35,,,SMG,EAR99
+Marki Microwave,BT-0035SMG-2,"Bias tees, 0.02 to 35 GHz",,https://www.markimicrowave.com/products/surface-mount/bias-tees-dc-blocks/bt-0035smg-1/datasheet/,Bias tees,Surface mount,0.02,35,1,30,0.5,35,,,SMG,EAR99

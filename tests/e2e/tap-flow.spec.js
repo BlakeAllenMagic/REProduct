@@ -35,6 +35,19 @@ test('diagram shows part counts and disables empty blocks', async ({ page }) => 
   }
 });
 
+test('"All product types" lists every category with its count', async ({ page }) => {
+  await page.goto('#/');
+  const grid = page.getByRole('region', { name: 'All product types' });
+  await expect(grid.locator('.product-type')).toHaveCount(3);
+  const filters = grid.getByRole('link', { name: 'Filters: 4 parts' });
+  await expect(filters).toBeVisible();
+  const box = await filters.boundingBox();
+  expect(box.height).toBeGreaterThanOrEqual(44); // tap target
+  await press(page, filters);
+  await expect(page).toHaveURL(/#\/category\/filter$/);
+  await expect(page.locator('.part-row')).toHaveCount(4);
+});
+
 test('full tap flow: block, table, datasheet, and back', async ({ page }) => {
   await page.goto('#/');
 

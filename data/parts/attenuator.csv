@@ -1,0 +1,133 @@
+manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,attenuation_db,attenuation_range,accuracy_db,return_loss_db,waveguide_band,flange,note,case,eccn
+Marki Microwave,ATN03-0040BH,"Attenuators, Precision-Grade, DC to 40 GHz",,,Precision-Grade,Connectorized,0,40,3,,0.5,29,,,,,EAR99
+Marki Microwave,ATN06-0040BH,"Attenuators, Precision-Grade, DC to 40 GHz",,,Precision-Grade,Connectorized,0,40,6,,0.9,30,,,,,EAR99
+Marki Microwave,ATN10-0040BH,"Attenuators, Precision-Grade, DC to 40 GHz",,,Precision-Grade,Connectorized,0,40,10,,0.5,29,,,,,EAR99
+Marki Microwave,ATN15-0040BH,"Attenuators, Precision-Grade, DC to 40 GHz",,,Precision-Grade,Connectorized,0,40,15,,0.5,27,,,,,EAR99
+Marki Microwave,ATN20-0040BH,"Attenuators, Precision-Grade, DC to 40 GHz",,,Precision-Grade,Connectorized,0,40,20,,0.8,27,,,,,EAR99
+Marki Microwave,ATN06-0067-2HV,"Attenuators, Precision-Grade, DC to 67 GHz",,,Precision-Grade,Connectorized,0,67,6.4,,,23,,,,,EAR99
+Marki Microwave,ATN06-0067-3HV,"Attenuators, Precision-Grade, DC to 67 GHz",,,Precision-Grade,Connectorized,0,67,6.4,,,23,,,,,EAR99
+Marki Microwave,ATN10-0067-2HV,"Attenuators, Precision-Grade, DC to 67 GHz",,,Precision-Grade,Connectorized,0,67,10.5,,,22,,,,,EAR99
+Marki Microwave,ATN10-0067-3HV,"Attenuators, Precision-Grade, DC to 67 GHz",,,Precision-Grade,Connectorized,0,67,10.5,,,22,,,,,EAR99
+Marki Microwave,ATN06-00110-2W,"Attenuators, Precision-Grade, DC to 110 GHz",,,Precision-Grade,Connectorized,0,110,6.5,,,20,,,,,EAR99
+Marki Microwave,ATN06-00110-3W,"Attenuators, Precision-Grade, DC to 110 GHz",,,Precision-Grade,Connectorized,0,110,6.5,,,20,,,,,EAR99
+Marki Microwave,ATN10-00110-2W,"Attenuators, Precision-Grade, DC to 110 GHz",,,Precision-Grade,Connectorized,0,110,10.5,,,20,,,,,EAR99
+Marki Microwave,ATN10-00110-3W,"Attenuators, Precision-Grade, DC to 110 GHz",,,Precision-Grade,Connectorized,0,110,10.5,,,20,,,,,EAR99
+Marki Microwave,ATN35-15LS00WG,"Level set attenuators, 50 to 75 GHz",,,Level set attenuators,Waveguide,50,75,,0-35,,15,,UG-385/U,,,EAR99
+Marki Microwave,ATN35-12LS00WG,"Level set attenuators, 60 to 90 GHz",,,Level set attenuators,Waveguide,60,90,,0-35,,15,,UG-387/U,,,EAR99
+Marki Microwave,ATN35-10LS00WG,"Level set attenuators, 75 to 110 GHz",,,Level set attenuators,Waveguide,75,110,,0-35,,15,,UG-387/U,,,EAR99
+Marki Microwave,ATN00-15FH00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,0,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN00-15FL00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,0,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN03-15FH00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,3,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN03-15FL00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,3,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN06-15FH00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,6,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN06-15FL00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,6,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN10-15FH00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,10,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN10-15FL00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,10,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN15-15FH00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,15,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN15-15FL00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,15,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN20-15FH00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,20,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN20-15FL00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,20,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN25-15FH00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,25,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN25-15FL00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,25,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN30-15FH00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,30,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN30-15FL00WG,"Fixed attenuators, 50 to 75 GHz",,,Fixed attenuators,Waveguide,50,75,30,,,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,ATN00-12FH00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,0,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN00-12FL00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,0,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN03-12FH00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,3,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN03-12FL00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,3,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN06-12FH00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,6,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN06-12FL00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,6,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN10-12FH00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,10,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN10-12FL00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,10,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN15-12FH00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,15,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN15-12FL00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,15,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN20-12FH00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,20,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN20-12FL00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,20,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN25-12FH00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,25,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN25-12FL00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,25,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN30-12FH00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,30,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN30-12FL00WG,"Fixed attenuators, 60 to 90 GHz",,,Fixed attenuators,Waveguide,60,90,30,,,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,ATN00-10FH00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,0,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN00-10FL00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,0,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN03-10FH00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,3,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN03-10FL00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,3,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN06-10FH00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,6,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN06-10FL00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,6,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN10-10FH00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,10,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN10-10FL00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,10,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN15-10FH00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,15,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN15-10FL00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,15,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN20-10FH00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,20,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN20-10FL00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,20,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN25-10FH00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,25,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN25-10FL00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,25,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN30-10FH00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,30,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN30-10FL00WG,"Fixed attenuators, 75 to 110 GHz",,,Fixed attenuators,Waveguide,75,110,30,,,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,ATN00-0040PSM,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn00-0040psm/datasheet/,Attenuators,Surface mount,0,40,0,,,27,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN01-0040PSM,"Attenuators, DC to 40 GHz",,https://markimicrowave.com/products/surface-mount/attenuators/atn01-0040psm/datasheet/,Attenuators,Surface mount,0,40,1,,,27,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN02-0040PSM,"Attenuators, DC to 40 GHz",,https://markimicrowave.com/products/surface-mount/attenuators/atn02-0040psm/datasheet/,Attenuators,Surface mount,0,40,2,,,26,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN03-0040PSM,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn03-0040psm/datasheet/,Attenuators,Surface mount,0,40,3,,,25,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN04-0040PSM,"Attenuators, DC to 40 GHz",,https://markimicrowave.com/products/surface-mount/attenuators/atn04-0040psm/datasheet/,Attenuators,Surface mount,0,40,4,,,21,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN05-0040PSM,"Attenuators, DC to 40 GHz",,https://markimicrowave.com/products/surface-mount/attenuators/atn05-0040psm/datasheet/,Attenuators,Surface mount,0,40,5,,,20,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN06-0040PSM,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn06-0040psm/datasheet/,Attenuators,Surface mount,0,40,6,,,22,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN07-0040PSM,"Attenuators, DC to 40 GHz",,https://markimicrowave.com/products/surface-mount/attenuators/atn07-0040psm/datasheet/,Attenuators,Surface mount,0,40,7,,,21,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN08-0040PSM,"Attenuators, DC to 40 GHz",,https://markimicrowave.com/products/surface-mount/attenuators/atn08-0040psm/datasheet/,Attenuators,Surface mount,0,40,8,,,21,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN09-0040PSM,"Attenuators, DC to 40 GHz",,https://markimicrowave.com/products/surface-mount/attenuators/atn09-0040psm/datasheet/,Attenuators,Surface mount,0,40,9,,,20,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN10-0040PSM,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn10-0040psm/datasheet/,Attenuators,Surface mount,0,40,10,,,25,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN15-0040PSM,"Attenuators, DC to 40 GHz",,https://markimicrowave.com/products/surface-mount/attenuators/atn15-0040psm/datasheet/,Attenuators,Surface mount,0,40,15,,,22,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN20-0040PSM,"Attenuators, DC to 40 GHz",,https://markimicrowave.com/products/surface-mount/attenuators/atn20-0040psm/datasheet/,Attenuators,Surface mount,0,40,20,,,22,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATD00-0040PSM,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atd00-0040psm/datasheet/,Attenuators,Surface mount,0,40,0,,,17,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATD01-0040PSM,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atd01-0040psm/datasheet/,Attenuators,Surface mount,0,40,1,,,23,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATD03-0040PSM,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atd03-0040psm/datasheet/,Attenuators,Surface mount,0,40,3,,,22,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATD06-0040PSM,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atd06-0040psm/datasheet/,Attenuators,Surface mount,0,40,6,,,23,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATD10-0040PSM,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atd10-0040psm/datasheet/,Attenuators,Surface mount,0,40,10,,,27,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATD20-0040PSM,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atd20-0040psm/datasheet/,Attenuators,Surface mount,0,40,20,,,23,,,,1.3x2mm DFN,EAR99
+Marki Microwave,ATN00-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn00-0070csp1/datasheet/,Attenuators,Surface mount,0,70,0.3,,,20,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN00-0070CSP2,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn00-0070csp2/datasheet/,Attenuators,Surface mount,0,70,0,,,26,,,,2.5mm CSP2,EAR99
+Marki Microwave,ATN01-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn01-0070csp1/datasheet/,Attenuators,Surface mount,0,70,1.3,,,23,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN02-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn02-0070csp1/datasheet/,Attenuators,Surface mount,0,70,2.1,,,25,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN03-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn00-0070csp1/datasheet/,Attenuators,Surface mount,0,70,3.2,,,22,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN04-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn04-0070csp1/datasheet/,Attenuators,Surface mount,0,70,4.1,,,22,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN05-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn05-0070csp1/datasheet/,Attenuators,Surface mount,0,70,5.2,,,24,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN06-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn00-0070csp1/datasheet/,Attenuators,Surface mount,0,70,6,,,22,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN07-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn07-0070csp1/datasheet/,Attenuators,Surface mount,0,70,7.1,,,21,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN08-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn08-0070csp1/datasheet/,Attenuators,Surface mount,0,70,8.2,,,22,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN09-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn09-0070csp1/datasheet/,Attenuators,Surface mount,0,70,9.1,,,20,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN10-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn00-0070csp1/datasheet/,Attenuators,Surface mount,0,70,10.2,,,23,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN15-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn15-0070csp1/datasheet/,Attenuators,Surface mount,0,70,15.3,,,17,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN20-0070CSP1,"Attenuators, DC to 70 GHz",,https://www.markimicrowave.com/products/surface-mount/attenuators/atn20-0070csp1/datasheet/,Attenuators,Surface mount,0,70,20.4,,,17,,,,1.5mm CSP1,EAR99
+Marki Microwave,ATN03-0040CH,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn03-0040ch/datasheet/,Attenuators,Bare die,0,40,3,,,25,,,Positive Slope,,EAR99
+Marki Microwave,ATN06-0040CH,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn06-0040ch/datasheet/,Attenuators,Bare die,0,40,6,,,23,,,Positive Slope,,EAR99
+Marki Microwave,ATN10-0040CH,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn10-0040ch/datasheet/,Attenuators,Bare die,0,40,10,,,23,,,Positive Slope,,EAR99
+Marki Microwave,ATN15-0040CH,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn15-0040ch/datasheet/,Attenuators,Bare die,0,40,15,,,27,,,Positive Slope,,EAR99
+Marki Microwave,ATN20-0040CH,"Attenuators, DC to 40 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn20-0040ch/datasheet/,Attenuators,Bare die,0,40,20,,,27,,,Positive Slope,,EAR99
+Marki Microwave,ATN00-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn00-0067ch/datasheet/,Attenuators,Bare die,0,67,0,,,33,,,,,EAR99
+Marki Microwave,ATN01-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn01-0067ch/datasheet/,Attenuators,Bare die,0,67,1,,,33,,,,,EAR99
+Marki Microwave,ATN02-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn02-0067ch/datasheet/,Attenuators,Bare die,0,67,2,,,35,,,,,EAR99
+Marki Microwave,ATN03-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn03-0067ch/datasheet/,Attenuators,Bare die,0,67,3,,,37,,,,,EAR99
+Marki Microwave,ATN04-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn04-0067ch/datasheet/,Attenuators,Bare die,0,67,4,,,36,,,,,EAR99
+Marki Microwave,ATN05-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn05-0067ch/datasheet/,Attenuators,Bare die,0,67,5,,,37,,,,,EAR99
+Marki Microwave,ATN06-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn06-0067ch/datasheet/,Attenuators,Bare die,0,67,6,,,38,,,,,EAR99
+Marki Microwave,ATN07-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn07-0067ch/datasheet/,Attenuators,Bare die,0,67,7,,,44,,,,,EAR99
+Marki Microwave,ATN08-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn08-0067ch/datasheet/,Attenuators,Bare die,0,67,8,,,42,,,,,EAR99
+Marki Microwave,ATN09-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn09-0067ch/datasheet/,Attenuators,Bare die,0,67,9,,,38,,,,,EAR99
+Marki Microwave,ATN10-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn10-0067ch/datasheet/,Attenuators,Bare die,0,67,10,,,38,,,,,EAR99
+Marki Microwave,ATN13-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn13-0067ch/datasheet/,Attenuators,Bare die,0,67,13,,,32,,,,,EAR99
+Marki Microwave,ATN15-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn15-0067ch/datasheet/,Attenuators,Bare die,0,67,15,,,34,,,,,EAR99
+Marki Microwave,ATN17-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn17-0067ch/datasheet/,Attenuators,Bare die,0,67,17,,,30,,,,,EAR99
+Marki Microwave,ATN20-0067CH,"Attenuators, DC to 67 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn20-0067ch/datasheet/,Attenuators,Bare die,0,67,20,,,35,,,,,EAR99
+Marki Microwave,ATN00-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn00-0110ch/datasheet/,Attenuators,Bare die,0,110,0,,,32,,,,,EAR99
+Marki Microwave,ATN01-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn01-0110ch/datasheet/,Attenuators,Bare die,0,110,1,,,33,,,,,EAR99
+Marki Microwave,ATN02-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn02-0110ch/datasheet/,Attenuators,Bare die,0,110,2,,,34,,,,,EAR99
+Marki Microwave,ATN03-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn03-0110ch/datasheet/,Attenuators,Bare die,0,110,3,,,33,,,,,EAR99
+Marki Microwave,ATN04-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn04-0110ch/datasheet/,Attenuators,Bare die,0,110,4,,,33,,,,,EAR99
+Marki Microwave,ATN05-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn05-0110ch/datasheet/,Attenuators,Bare die,0,110,5,,,32,,,,,EAR99
+Marki Microwave,ATN06-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn06-0110ch/datasheet/,Attenuators,Bare die,0,110,6,,,32,,,,,EAR99
+Marki Microwave,ATN07-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn07-0110ch/datasheet/,Attenuators,Bare die,0,110,7,,,39,,,,,EAR99
+Marki Microwave,ATN08-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn08-0110ch/datasheet/,Attenuators,Bare die,0,110,8,,,39,,,,,EAR99
+Marki Microwave,ATN09-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn09-0110ch/datasheet/,Attenuators,Bare die,0,110,9,,,30,,,,,EAR99
+Marki Microwave,ATN10-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn10-0110ch/datasheet/,Attenuators,Bare die,0,110,10,,,30,,,,,EAR99
+Marki Microwave,ATN13-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn13-00110ch/datasheet/,Attenuators,Bare die,0,110,13,,,25,,,,,EAR99
+Marki Microwave,ATN15-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn15-00110ch/datasheet/,Attenuators,Bare die,0,110,15,,,26,,,,,EAR99
+Marki Microwave,ATN17-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn17-00110ch/datasheet/,Attenuators,Bare die,0,110,17,,,29,,,,,EAR99
+Marki Microwave,ATN20-00110CH,"Attenuators, DC to 110 GHz",,https://www.markimicrowave.com/products/bare-die/attenuators/atn20-00110ch/datasheet/,Attenuators,Bare die,0,110,20,,,23,,,,,EAR99

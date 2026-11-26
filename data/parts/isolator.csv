@@ -1,0 +1,7 @@
+manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,isolation_db,insertion_loss_db,return_loss_db,waveguide_band,flange,eccn
+Marki Microwave,ISO27-28F00WG,"Isolators, 26.5 to 40 GHz",,,Isolators,Waveguide,26.5,40,27,1,17.7,WR-28,UG-599/U,EAR99
+Marki Microwave,ISO27-22F00WG,"Isolators, 33 to 50 GHz",,,Isolators,Waveguide,33,50,27,1.3,17.7,WR-22,UG-383/U,EAR99
+Marki Microwave,ISO27-19F00WG,"Isolators, 40 to 60 GHz",,,Isolators,Waveguide,40,60,27,1.5,17.7,WR-19,UG-383/U,EAR99
+Marki Microwave,ISO27-15F00WG,"Isolators, 50 to 75 GHz",,,Isolators,Waveguide,50,75,27,1.6,15.5,WR-15,UG-385/U,EAR99
+Marki Microwave,ISO27-12F00WG,"Isolators, 60 to 90 GHz",,,Isolators,Waveguide,60,90,27,1.7,15.5,WR-12,UG-387/U,EAR99
+Marki Microwave,ISO27-10F00WG,"Isolators, 75 to 110 GHz",,,Isolators,Waveguide,75,110,27,2,15.5,WR-10,UG-387/U,EAR99

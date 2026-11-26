@@ -69,7 +69,9 @@ export function renderPartsTable(container, ctx, route) {
       const missing = new Set(items.filter((i) => !saved.has(i.sha)).map((i) => i.sha)).size;
       downloadButton.disabled = missing === 0;
       downloadButton.textContent =
-        missing === 0
+        items.length === 0
+          ? 'No datasheets to download'
+          : missing === 0
           ? 'All datasheets saved'
           : downloads.running
             ? `Downloading… (${missing} left)`

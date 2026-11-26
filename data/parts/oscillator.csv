@@ -1,0 +1,4 @@
+manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_ghz,output_power_dbm,pn_1k_dbc_hz,pn_10k_dbc_hz,pn_100k_dbc_hz,pn_1m_dbc_hz,eccn
+Marki Microwave,SLCO-0800000,"Sapphire loaded cavity oscillators, 8 GHz",,,Sapphire loaded cavity oscillators,Connectorized,8,12,-132,-155,-167,-171,3A001.b.10
+Marki Microwave,SLCO-1000000,"Sapphire loaded cavity oscillators, 10 GHz",,,Sapphire loaded cavity oscillators,Connectorized,10,12,-125,-150,-165,-170,3A001.b.10
+Marki Microwave,SLCO-1024000,"Sapphire loaded cavity oscillators, 10.24 GHz",,,Sapphire loaded cavity oscillators,Connectorized,10.24,12,-125,-150,-165,-170,3A001.b.10

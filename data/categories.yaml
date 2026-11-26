@@ -1,57 +1,348 @@
-# Categories on the line card.
+# Categories (product types) on the line card.
 #
-# Each category has one CSV in data/parts/<id>.csv. That CSV's header must be:
-#   manufacturer,mpn,description,datasheet_url, then one column per spec key below.
+# Generated for Marki Microwave's line by tools/marki/extract_catalogs.py, then kept by hand.
+# Each category is one tab in the parts sheet (Google Sheet); the import writes data/parts/<id>.csv.
 #
 # Fields:
 #   id        short lowercase name, also the CSV file name
-#   name      shown in the app
+#   name      shown in the app, and the sheet tab's name
 #   blocks    ids of diagram blocks that open this category
 #   specs     the spec columns, in the order the parts table shows them
 #     key       CSV column name (never shown to customers, safe to keep stable)
 #     label     column heading in the app
 #     type      number or text
-#     unit      number columns only. CSV cells may be "0.6" or "0.6 dB", never another unit
+#     unit      number columns only. Cells may be "0.6" or "0.6 dB", never another unit
 #     sort      optional: asc (lower is better) or desc (higher is better)
 #     required  optional: true means every part must have a value
 #
 # After editing, run: python3 tools/build_linecard.py
 
 categories:
-  - id: lna
-    name: Low Noise Amplifiers
-    blocks: [lna]
+  - id: amplifier
+    name: "Amplifiers"
+    blocks: [lna, if_amp]
     specs:
-      - { key: freq_min_ghz, label: Freq Min, unit: GHz, type: number, required: true }
-      - { key: freq_max_ghz, label: Freq Max, unit: GHz, type: number, required: true }
-      - { key: nf_db,        label: NF,       unit: dB,  type: number, sort: asc, required: true }
-      - { key: gain_db,      label: Gain,     unit: dB,  type: number, sort: desc }
-      - { key: op1db_dbm,    label: OP1dB,    unit: dBm, type: number, sort: desc }
-      - { key: supply_v,     label: Supply,   unit: V,   type: number }
-      - { key: package,      label: Package,  type: text }
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: gain_db, label: "Gain", unit: "dB", type: number, sort: desc }
+      - { key: nf_db, label: "NF", unit: "dB", type: number, sort: asc }
+      - { key: op1db_dbm, label: "OP1dB", unit: "dBm", type: number, sort: desc }
+      - { key: psat_dbm, label: "Psat", unit: "dBm", type: number, sort: desc }
+      - { key: oip3_dbm, label: "OIP3", unit: "dBm", type: number, sort: desc }
+      - { key: voltage, label: "Supply (V)", type: text }
+      - { key: current, label: "Current (mA)", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
 
-  - id: mixer
-    name: Mixers
-    blocks: [mixer]
+  - id: attenuator
+    name: "Attenuators"
+    blocks: []
     specs:
-      - { key: rf_min_ghz,   label: RF Min,    unit: GHz, type: number, required: true }
-      - { key: rf_max_ghz,   label: RF Max,    unit: GHz, type: number, required: true }
-      - { key: lo_min_ghz,   label: LO Min,    unit: GHz, type: number }
-      - { key: lo_max_ghz,   label: LO Max,    unit: GHz, type: number }
-      - { key: if_max_ghz,   label: IF Max,    unit: GHz, type: number }
-      - { key: conv_loss_db, label: Conv Loss, unit: dB,  type: number, sort: asc }
-      - { key: iip3_dbm,     label: IIP3,      unit: dBm, type: number, sort: desc }
-      - { key: lo_drive_dbm, label: LO Drive,  unit: dBm, type: number, sort: asc }
-      - { key: package,      label: Package,   type: text }
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: attenuation_db, label: "Attenuation", unit: "dB", type: number }
+      - { key: attenuation_range, label: "Atten Range (dB)", type: text }
+      - { key: accuracy_db, label: "Accuracy", unit: "dB", type: number, sort: asc }
+      - { key: return_loss_db, label: "Return Loss", unit: "dB", type: number, sort: desc }
+      - { key: waveguide_band, label: "Waveguide Band", type: text }
+      - { key: flange, label: "Flange", type: text }
+      - { key: note, label: "Note", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: balun
+    name: "Baluns and Pulse Inverters"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: ratio, label: "Ratio", type: text }
+      - { key: loss_db, label: "Loss", unit: "dB", type: number, sort: asc }
+      - { key: gain_db, label: "Gain", unit: "dB", type: number, sort: desc }
+      - { key: amp_bal_db, label: "Amp Bal", unit: "dB", type: number, sort: asc }
+      - { key: phase_bal_deg, label: "Phase Bal", unit: "°", type: number, sort: asc }
+      - { key: isolation_db, label: "Isolation", unit: "dB", type: number, sort: desc }
+      - { key: cmrr_db, label: "CMRR", unit: "dB", type: number, sort: desc }
+      - { key: hd2_dbc, label: "HD2", unit: "dBc", type: number, sort: asc }
+      - { key: hd3_dbc, label: "HD3", unit: "dBc", type: number, sort: asc }
+      - { key: rise_fall_ps, label: "Rise/Fall", unit: "ps", type: number, sort: asc }
+      - { key: voltage, label: "Supply (V)", type: text }
+      - { key: current, label: "Current (mA)", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: bias_tee
+    name: "Bias Tees and DC Blocks"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: insertion_loss_db, label: "Loss", unit: "dB", type: number, sort: asc }
+      - { key: dc_voltage_v, label: "DC Voltage", unit: "V", type: number }
+      - { key: dc_current_a, label: "DC Current", unit: "A", type: number }
+      - { key: dc_isolation_db, label: "DC Port Isolation", unit: "dB", type: number, sort: desc }
+      - { key: rise_time_ps, label: "Rise Time", unit: "ps", type: number, sort: asc }
+      - { key: group_delay_ps, label: "Group Delay", unit: "ps", type: number, sort: asc }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: coupler
+    name: "Couplers"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: coupling_db, label: "Coupling", unit: "dB", type: number }
+      - { key: directivity_db, label: "Directivity", unit: "dB", type: number, sort: desc }
+      - { key: flatness_db, label: "Flatness", unit: "dB", type: number, sort: asc }
+      - { key: vswr, label: "VSWR", type: number, sort: asc }
+      - { key: insertion_loss_db, label: "Loss", unit: "dB", type: number, sort: asc }
+      - { key: pickoff_loss_db, label: "Pick-Off Loss", unit: "dB", type: number, sort: asc }
+      - { key: amp_bal_db, label: "Amp Bal", unit: "dB", type: number, sort: asc }
+      - { key: phase_bal_deg, label: "Phase Bal", unit: "°", type: number, sort: asc }
+      - { key: isolation_db, label: "Isolation", unit: "dB", type: number, sort: desc }
+      - { key: return_loss_db, label: "Return Loss", unit: "dB", type: number, sort: desc }
+      - { key: power_w, label: "Avg Power", unit: "W", type: number, sort: desc }
+      - { key: waveguide_band, label: "Waveguide Band", type: text }
+      - { key: flange, label: "Flange", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+      - { key: notes, label: "Notes", type: text }
+
+  - id: diplexer
+    name: "Diplexers and Multiplexers"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: kind, label: "Type", type: text }
+      - { key: low_min_ghz, label: "Low Band Min", unit: "GHz", type: number }
+      - { key: low_max_ghz, label: "Low Band Max", unit: "GHz", type: number }
+      - { key: high_min_ghz, label: "High Band Min", unit: "GHz", type: number }
+      - { key: high_max_ghz, label: "High Band Max", unit: "GHz", type: number }
+      - { key: isolation_db, label: "Isolation", unit: "dB", type: number, sort: desc }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+      - { key: notes, label: "Notes", type: text }
+
+  - id: equalizer
+    name: "Equalizers"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: low_freq_atten_db, label: "Low Freq Atten", unit: "dB", type: number }
+      - { key: return_loss_db, label: "Return Loss", unit: "dB", type: number, sort: desc }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+      - { key: notes, label: "Notes", type: text }
 
   - id: filter
-    name: Filters
+    name: "Filters"
     blocks: [rf_filter, if_filter]
     specs:
-      - { key: filter_type,       label: Type,      type: text, required: true }
-      - { key: pass_min_ghz,      label: Pass Min,  unit: GHz, type: number, required: true }
-      - { key: pass_max_ghz,      label: Pass Max,  unit: GHz, type: number, required: true }
-      - { key: insertion_loss_db, label: IL,        unit: dB,  type: number, sort: asc }
-      - { key: rejection_db,      label: Rejection, unit: dB,  type: number, sort: desc }
-      - { key: technology,        label: Tech,      type: text }
-      - { key: package,           label: Package,   type: text }
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: pass_min_ghz, label: "Pass Min", unit: "GHz", type: number }
+      - { key: pass_max_ghz, label: "Pass Max", unit: "GHz", type: number }
+      - { key: fc_ghz, label: "Fc", unit: "GHz", type: number }
+      - { key: insertion_loss_db, label: "IL", unit: "dB", type: number, sort: asc }
+      - { key: return_loss_db, label: "Return Loss", unit: "dB", type: number, sort: desc }
+      - { key: f30_low_ghz, label: "30 dB Low", unit: "GHz", type: number }
+      - { key: f3_low_ghz, label: "3 dB Low", unit: "GHz", type: number }
+      - { key: f1_low_ghz, label: "1 dB Low", unit: "GHz", type: number }
+      - { key: f1_high_ghz, label: "1 dB High", unit: "GHz", type: number }
+      - { key: f3_high_ghz, label: "3 dB High", unit: "GHz", type: number }
+      - { key: f30_high_ghz, label: "30 dB High", unit: "GHz", type: number }
+      - { key: tune_min_ghz, label: "Tune Min", unit: "GHz", type: number }
+      - { key: tune_max_ghz, label: "Tune Max", unit: "GHz", type: number }
+      - { key: rejection_db, label: "Rejection", unit: "dB", type: number, sort: desc }
+      - { key: oip3_dbm, label: "OIP3", unit: "dBm", type: number, sort: desc }
+      - { key: bands, label: "Bands", type: number }
+      - { key: channel_bw_ghz, label: "Channel BW", unit: "GHz", type: number }
+      - { key: isolation_db, label: "Isolation", unit: "dB", type: number, sort: desc }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: limiter
+    name: "Limiters"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: insertion_loss_db, label: "Loss", unit: "dB", type: number, sort: asc }
+      - { key: flat_leakage, label: "Flat Leakage (dBm)", type: text }
+      - { key: cw_power_w, label: "CW Power", unit: "W", type: number, sort: desc }
+      - { key: peak_power_w, label: "Peak Power", unit: "W", type: number, sort: desc }
+      - { key: p1db_dbm, label: "P1dB", unit: "dBm", type: number, sort: desc }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: mixer
+    name: "Mixers"
+    blocks: [mixer]
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: rf_lo_min_ghz, label: "RF/LO Min", unit: "GHz", type: number }
+      - { key: rf_lo_max_ghz, label: "RF/LO Max", unit: "GHz", type: number }
+      - { key: if_min_ghz, label: "IF Min", unit: "GHz", type: number }
+      - { key: if_max_ghz, label: "IF Max", unit: "GHz", type: number }
+      - { key: conv_loss_db, label: "Conv Loss", unit: "dB", type: number, sort: asc }
+      - { key: iip3_dbm, label: "IIP3", unit: "dBm", type: number, sort: desc }
+      - { key: lo_drive_dbm, label: "LO Drive", unit: "dBm", type: number }
+      - { key: image_rej_dbc, label: "Image Rej", unit: "dBc", type: number, sort: desc }
+      - { key: lr_isolation_db, label: "L-R Isolation", unit: "dB", type: number, sort: desc }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+      - { key: notes, label: "Notes", type: text }
+
+  - id: multiplier
+    name: "Multipliers"
+    blocks: [lo]
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: kind, label: "Type", type: text }
+      - { key: input_min_ghz, label: "Input Min", unit: "GHz", type: number }
+      - { key: input_max_ghz, label: "Input Max", unit: "GHz", type: number }
+      - { key: output_min_ghz, label: "Output Min", unit: "GHz", type: number }
+      - { key: output_max_ghz, label: "Output Max", unit: "GHz", type: number }
+      - { key: conv_loss_db, label: "Conv Loss", unit: "dB", type: number, sort: asc }
+      - { key: f1_supp_dbc, label: "1F Supp", unit: "dBc", type: number, sort: desc }
+      - { key: f3_supp_dbc, label: "3F Supp", unit: "dBc", type: number, sort: desc }
+      - { key: output_dbm, label: "Output Power", unit: "dBm", type: number, sort: desc }
+      - { key: bias, label: "Bias", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+      - { key: notes, label: "Notes", type: text }
+
+  - id: oscillator
+    name: "Oscillators"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_ghz, label: "Freq", unit: "GHz", type: number }
+      - { key: output_power_dbm, label: "Output Power", unit: "dBm", type: number, sort: desc }
+      - { key: pn_1k_dbc_hz, label: "PN @ 1 kHz", unit: "dBc/Hz", type: number, sort: asc }
+      - { key: pn_10k_dbc_hz, label: "PN @ 10 kHz", unit: "dBc/Hz", type: number, sort: asc }
+      - { key: pn_100k_dbc_hz, label: "PN @ 100 kHz", unit: "dBc/Hz", type: number, sort: asc }
+      - { key: pn_1m_dbc_hz, label: "PN @ 1 MHz", unit: "dBc/Hz", type: number, sort: asc }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: power_divider
+    name: "Power Dividers"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: kind, label: "Type", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: insertion_loss_db, label: "Loss", unit: "dB", type: number, sort: asc }
+      - { key: amp_bal_db, label: "Amp Bal", unit: "dB", type: number, sort: asc }
+      - { key: phase_bal_deg, label: "Phase Bal", unit: "°", type: number, sort: asc }
+      - { key: isolation_db, label: "Isolation", unit: "dB", type: number, sort: desc }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: switch
+    name: "Switches"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: insertion_loss_db, label: "IL", unit: "dB", type: number, sort: asc }
+      - { key: isolation_db, label: "Isolation", unit: "dB", type: number, sort: desc }
+      - { key: rise_fall_ns, label: "Rise/Fall", unit: "ns", type: number, sort: asc }
+      - { key: power_w, label: "Power", unit: "W", type: number, sort: desc }
+      - { key: iip3_dbm, label: "IIP3", unit: "dBm", type: number, sort: desc }
+      - { key: case, label: "Case", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: detector
+    name: "Detectors"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: sensitivity_v_mw, label: "Sensitivity", unit: "V/mW", type: number, sort: desc }
+      - { key: operating_range, label: "Range (dBm)", type: text }
+      - { key: flange, label: "Flange", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+      - { key: notes, label: "Notes", type: text }
+
+  - id: isolator
+    name: "Isolators"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: isolation_db, label: "Isolation", unit: "dB", type: number, sort: desc }
+      - { key: insertion_loss_db, label: "IL", unit: "dB", type: number, sort: asc }
+      - { key: return_loss_db, label: "Return Loss", unit: "dB", type: number, sort: desc }
+      - { key: waveguide_band, label: "Waveguide Band", type: text }
+      - { key: flange, label: "Flange", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: termination
+    name: "Terminations"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: impedance_ohm, label: "Impedance", unit: "Ω", type: number }
+      - { key: return_loss_db, label: "Return Loss", unit: "dB", type: number, sort: desc }
+      - { key: power_w, label: "Power", unit: "W", type: number, sort: desc }
+      - { key: waveguide_band, label: "Waveguide Band", type: text }
+      - { key: flange, label: "Flange", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+      - { key: notes, label: "Notes", type: text }
+
+  - id: adapter
+    name: "Adapters and Accessories"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: vswr, label: "VSWR", type: number, sort: asc }
+      - { key: details, label: "Details", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: waveguide
+    name: "Waveguide Parts"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: angle, label: "Angle", type: text }
+      - { key: length_in, label: "Length", unit: "in", type: number }
+      - { key: flange, label: "Flange", type: text }
+      - { key: eccn, label: "ECCN", type: text }

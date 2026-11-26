@@ -1,0 +1,53 @@
+manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,ratio,loss_db,gain_db,amp_bal_db,phase_bal_deg,isolation_db,cmrr_db,hd2_dbc,hd3_dbc,rise_fall_ps,voltage,current,case,eccn
+Marki Microwave,BAL-0003,"Baluns, Passive, 0.0002 to 3 GHz",,,Passive,Connectorized,0.0002,3,1:2,4,,0.05,1,8,,,,,,,,EAR99
+Marki Microwave,BALH-0003,"Baluns, Passive, 0.0002 to 3 GHz",,,Passive,Connectorized,0.0002,3,1:1,1.5,,0.1,1,7,,,,,,,,EAR99
+Marki Microwave,BAL-0006,"Baluns, Passive, 0.0002 to 6 GHz",,,Passive,Connectorized,0.0002,6,1:2,4.5,,0.05,1,9,,,,,,,,EAR99
+Marki Microwave,BALH-0006,"Baluns, Passive, 0.0002 to 6 GHz",,,Passive,Connectorized,0.0002,6,1:1,2.5,,0.1,1,8,,,,,,,,EAR99
+Marki Microwave,BAL-0010,"Baluns, Passive, 0.0002 to 10 GHz",,,Passive,Connectorized,0.0002,10,1:2,5,,0.2,2,9,,,,,,,,EAR99
+Marki Microwave,BALH-0010,"Baluns, Passive, 0.0002 to 10 GHz",,,Passive,Connectorized,0.0002,10,1:1,2.5,,0.2,2,8,,,,,,,,EAR99
+Marki Microwave,BAL-0106,"Baluns, Passive, 1.2 to 6 GHz",,,Passive,Connectorized,1.2,6,1:2,0.6,,0.1,2,6,,,,,,,,EAR99
+Marki Microwave,BAL-0212,"Baluns, Passive, 2.6 to 12 GHz",,,Passive,Connectorized,2.6,12,1:2,1,,0.1,2,6,,,,,,,,EAR99
+Marki Microwave,BAL-0520,"Baluns, Passive, 5 to 20 GHz",,,Passive,Connectorized,5,20,1:2,1.5,,0.2,3,6,,,,,,,,EAR99
+Marki Microwave,EBAL-0026,"Baluns, Passive, 0.01 to 26 GHz",,,Passive,Connectorized,0.01,26,1:2,3,,1,1,3,,,,,,,,EAR99
+Marki Microwave,BAL-0026,"Baluns, Passive, 0.0003 to 26.5 GHz",,,Passive,Connectorized,0.0003,26.5,1:2,2.5,,0.5,3,24,,,,,,,,EAR99
+Marki Microwave,BAL-0036,"Baluns, Passive, 0.0003 to 36 GHz",,,Passive,Connectorized,0.0003,36,1:2,3,,0.5,3,24,,,,,,,,EAR99
+Marki Microwave,EBAL-0040,"Baluns, Passive, 0.01 to 40 GHz",,,Passive,Connectorized,0.01,40,1:2,3,,0.1,2,5,,,,,,,,EAR99
+Marki Microwave,BAL-0050,"Baluns, Passive, 0.0003 to 50 GHz",,,Passive,Connectorized,0.0003,50,1:2,7,,0.7,4,25,,,,,,,,EAR99
+Marki Microwave,EBAL-0050,"Baluns, Passive, 0.01 to 50 GHz",,,Passive,Connectorized,0.01,50,1:2,4,,0.2,3,5,,,,,,,,EAR99
+Marki Microwave,BAL-0067,"Baluns, Passive, 0.0003 to 67 GHz",,,Passive,Connectorized,0.0003,67,1:2,8.5,,0.7,4,25,,,,,,,,EAR99
+Marki Microwave,EBAL-0067,"Baluns, Passive, 0.01 to 67 GHz",,,Passive,Connectorized,0.01,67,1:2,4,,0.2,2,5,,,,,,,,EAR99
+Marki Microwave,INV-0026,"Pulse inverters, Broadband, Fast Rise Time, 0.0001 to 26.5 GHz",,,"Broadband, Fast Rise Time",Connectorized,0.0001,26.5,,2,,,,,,,,13,,,,EAR99
+Marki Microwave,INV-0040,"Pulse inverters, Broadband, Fast Rise Time, 0.0001 to 40 GHz",,,"Broadband, Fast Rise Time",Connectorized,0.0001,40,,2.5,,,,,,,,13,,,,EAR99
+Marki Microwave,INV-0065,"Pulse inverters, Broadband, Fast Rise Time, 0.0001 to 65 GHz",,,"Broadband, Fast Rise Time",Connectorized,0.0001,65,,5,,,,,,,,12,,,,EAR99
+Marki Microwave,ABSD-11278PSM,"Baluns, Active, DC to 12 GHz",,https://markimicrowave.com/products/surface-mount/baluns/absd-11278psm/datasheet/,Active,Surface mount,0,12,,,-6.3,,,,,-65,-85,,5V,49,3mm QFN,EAR99
+Marki Microwave,ABDS-10170PSM,"Baluns, Active, DC to 30 GHz",,https://markimicrowave.com/products/surface-mount/baluns/abds-1017https://markimicrowave.com/products/surface-mount/baluns/abds-10170psm/datasheet/,Active,Surface mount,0,30,,,2.5,,,,,-48,-44,,+4V and -4V,+67 and -67,3mm QFN,EAR99
+Marki Microwave,ABSD-10168PSM,"Baluns, Active, DC to 30 GHz",,https://markimicrowave.com/products/surface-mount/baluns/absd-10168psm/datasheet/,Active,Surface mount,0,30,,,3.5,,,,,-39,-45,,+4V and -4V,+72 and -72,3mm QFN,EAR99
+Marki Microwave,ABSD-10169PSM,"Baluns, Active, DC to 30 GHz",,https://markimicrowave.com/products/surface-mount/baluns/absd-10169psm/datasheet/,Active,Surface mount,0,30,,,9,,,,,-52,-37,,+5V and -5V,+137 and -116,3mm QFN,EAR99
+Marki Microwave,BAL-0003SMG,"Baluns, Passive, 0.0005 to 3 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/bal-0003smg/datasheet/,Passive,Surface mount,0.0005,3,2:1,3.8,,0.1,3,9,45,,,,,,SMG,EAR99
+Marki Microwave,BALH-0003SMG,"Baluns, Passive, 0.0005 to 3 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/balh-0003smg/datasheet/,Passive,Surface mount,0.0005,3,1:1,1.9,,0.2,2,7,35,,,,,,SMG,EAR99
+Marki Microwave,BAL-0006SMG,"Baluns, Passive, 0.0005 to 6 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/bal-0006smg/datasheet/,Passive,Surface mount,0.0005,6,2:1,3.8,,0.1,3,8,45,,,,,,SMG,EAR99
+Marki Microwave,BALH-0006SMG,"Baluns, Passive, 0.0005 to 6 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/balh-0006smg/datasheet/,Passive,Surface mount,0.0005,6,1:1,1.9,,0.2,2,6,32,,,,,,SMG,EAR99
+Marki Microwave,BAL-0009SMG,"Baluns, Passive, 0.0005 to 9 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/bal-0009smg/datasheet/,Passive,Surface mount,0.0005,9,2:1,3.8,,0.1,0.9,8,45,,,,,,SMG,EAR99
+Marki Microwave,BALH-0009SMG,"Baluns, Passive, 0.0005 to 9 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/balh-0009smg/datasheet/,Passive,Surface mount,0.0005,9,1:1,1.9,,0.2,2,7,32,,,,,,SMG,EAR99
+Marki Microwave,BAL-0012SSG,"Baluns, Passive, 0.01 to 12 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/bal-0012ssg/datasheet/,Passive,Surface mount,0.01,12,2:1,5,,0.6,5,8,26,,,,,,SSG,EAR99
+Marki Microwave,BALH-0012SSG,"Baluns, Passive, 0.01 to 12 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/balh-0012ssg/datasheet/,Passive,Surface mount,0.01,12,1:1,2,,0.6,5,6,25,,,,,,SSG,EAR99
+Marki Microwave,BAL-0020SLG,"Baluns, Passive, 0.01 to 20 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/bal-0020slg/datasheet/,Passive,Surface mount,0.01,20,2:1,4.5,,0.4,5,12,35,,,,,,SLG,EAR99
+Marki Microwave,BAL-0032SSG,"Baluns, Passive, 0.01 to 32 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/bal-0032ssg/datasheet/,Passive,Surface mount,0.01,32,2:1,5,,0.5,5,8,25,,,,,,SSG,EAR99
+Marki Microwave,MBAL-0R106CSP2,"Baluns, Passive, 0.1 to 6 GHz",,https://markimicrowave.com/products/surface-mount/baluns/mbal-0r106csp2/datasheet/,Passive,Surface mount,0.1,6,2:1,3.3,,0.1,0.5,6,33,,,,,,2.5mm CSP2,EAR99
+Marki Microwave,MBALH-0R106CSP2,"Baluns, Passive, 0.1 to 6 GHz",,https://markimicrowave.com/products/surface-mount/baluns/mbalh-0r106csp2/datasheet/,Passive,Surface mount,0.1,6,1:1,3.5,,0.2,0.4,9,35,,,,,,2.5mm CSP2,EAR99
+Marki Microwave,MBAL-0R520CSP2,"Baluns, Passive, 0.5 to 20 GHz",,https://markimicrowave.com/products/surface-mount/baluns/mbal-0r520csp2/datasheet/,Passive,Surface mount,0.5,20,2:1,3,,0.2,2.3,7,31,,,,,,2.5mm CSP2,EAR99
+Marki Microwave,MBALH-0R520CSP2,"Baluns, Passive, 0.5 to 20 GHz",,https://markimicrowave.com/products/surface-mount/baluns/mbalh-0r520csp2/datasheet/,Passive,Surface mount,0.5,20,1:1,3.6,,0.3,2,9,32,,,,,,2.5mm CSP2,EAR99
+Marki Microwave,MBAL-0104SM,"Baluns, Passive, 1 to 4 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/mbal-0104sm/datasheet/,Passive,Surface mount,1,4,2:1,2.5,,0,2,8,33,,,,,,4mm QFN,EAR99
+Marki Microwave,MBAL-0208SMG,"Baluns, Passive, 2 to 8 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/mbal-0208smg/datasheet/,Passive,Surface mount,2,8,2:1,1.9,,0.1,2.4,18,32,,,,,,2.69x2.9mm DFN,EAR99
+Marki Microwave,MBAL-0214PSM,"Baluns, Passive, 2 to 14 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/mbal-0214psm/datasheet/,Passive,Surface mount,2,14,2:1,2.1,,0.3,1.9,11,32,,,,,,1.3x2mm DFN,EAR99
+Marki Microwave,MBAL-0220CSP2(-1),"Baluns, Passive, 2 to 20 GHz",,https://markimicrowave.com/products/surface-mount/baluns/mbal-0220csp2-1/datasheet/,Passive,Surface mount,2,20,2:1,1.9,,0.3,3,5.3,27,,,,,,2.5mm CSP2,EAR99
+Marki Microwave,MBAL-0220SM,"Baluns, Passive, 2 to 20 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/mbal-0220sm/datasheet/,Passive,Surface mount,2,20,2:1,6,,0.25,3,10,30,,,,,,4mm QFN,EAR99
+Marki Microwave,MBAL-0220PSM,"Baluns, Passive, 2 to 20 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/mbal-0220psm/datasheet/,Passive,Surface mount,2,20,2:1,2.7,,0.1,0.7,17,38,,,,,,3mm QFN,EAR99
+Marki Microwave,MBAL-0250CSP2,"Baluns, Passive, 2 to 50 GHz",,https://markimicrowave.com/products/surface-mount/baluns/mbal-0250csp2/datasheet/,Passive,Surface mount,2,50,2:1,5.3,,0.3,2.1,7,35,,,,,,2.5mm CSP2,EAR99
+Marki Microwave,MBAL-0260CSP2,"Baluns, Passive, 2 to 60 GHz",,https://markimicrowave.com/products/surface-mount/baluns/mbal-0260csp2/datasheet/,Passive,Surface mount,2,60,2:1,6.3,,0.4,0.4,8,33,,,,,,2.5mm CSP2,EAR99
+Marki Microwave,MBAL-0416SMG,"Baluns, Passive, 4 to 16 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/mbal-0416smg/datasheet/,Passive,Surface mount,4,16,2:1,1.7,,0.2,3,18,29,,,,,,2.69x2.9mm DFN,EAR99
+Marki Microwave,MBAL-0422PSM,"Baluns, Passive, 4 to 22 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/mbal-0422psm/datasheet/,Passive,Surface mount,4,22,2:1,1.7,,0.2,2.5,13,31,,,,,,1.3x2mm DFN,EAR99
+Marki Microwave,MBAL-0620SMG,"Baluns, Passive, 6 to 20 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/mbal-0620smg/datasheet/,Passive,Surface mount,6,20,2:1,1.7,,0.2,3.2,18,28,,,,,,2.69x2.9mm DFN,EAR99
+Marki Microwave,MBAL-0624PSM,"Baluns, Passive, 6 to 24 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/mbal-0624psm/datasheet/,Passive,Surface mount,6,24,2:1,1.7,,0.2,3.5,19,28,,,,,,1.3x2mm DFN,EAR99
+Marki Microwave,MBAL-1445SM,"Baluns, Passive, 14 to 45 GHz",,https://www.markimicrowave.com/products/surface-mount/baluns/mbal-1445sm/datasheet/,Passive,Surface mount,14,45,2:1,4.5,,0.2,2.5,18,33,,,,,,4mm QFN,EAR99
+Marki Microwave,MBAL-1440CH,"Baluns, Passive, 14 to 40 GHz",,https://www.markimicrowave.com/products/bare-die/baluns/mbal-1440ch/datasheet/,Passive,Bare die,14,40,2:1,3,,0.2,1.1,13,,,,,,,,EAR99

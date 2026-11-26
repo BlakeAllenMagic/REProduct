@@ -1,0 +1,19 @@
+manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,insertion_loss_db,flat_leakage,cw_power_w,peak_power_w,p1db_dbm,case,eccn
+Marki Microwave,HLM-100001BH,"Limiters, DC to 10 GHz",,,Limiters,Connectorized,0,10,1,+10 @ 5 GHz,4,,10,,EAR99
+Marki Microwave,HLM-20BH,"Limiters, DC to 20 GHz",,,Limiters,Connectorized,0,20,1,+15 @ 10 GHz,4,,15,,EAR99
+Marki Microwave,HLM-8011U,"Limiters, DC to 30 GHz",,,Limiters,Connectorized,0,30,0.8,+7 @ 30 GHz,1,4.5,10,,EAR99
+Marki Microwave,HLM-40U,"Limiters, DC to 40 GHz",,,Limiters,Connectorized,0,40,1,+16 @ 20 GHz,4,20,15,,EAR99
+Marki Microwave,HLM-40ABH,"Limiters, DC to 40 GHz",,,Limiters,Connectorized,0,40,0.7,+9 @ 30 GHz,2,,10,,EAR99
+Marki Microwave,HLM-67ABH,"Limiters, DC to 67 GHz",,,Limiters,Connectorized,0,67,1.1,+8 @ 40 GHz,1,,8,,EAR99
+Marki Microwave,DLM-10SM,"Limiters, DC to 10 GHz",,https://markimicrowave.com/products/surface-mount/limiters/dlm-10sm/datasheet/,Limiters,Surface mount,0,10,0.75,Adjustable,0.5,,10,3mm QFN,EAR99
+Marki Microwave,HLM-100001PSM,"Limiters, DC to 10 GHz",,https://markimicrowave.com/products/surface-mount/limiters/hlm-100001psm/datasheet/,Limiters,Surface mount,0,10,0.9,+8.5@10GHz,10,,11,3mm QFN,EAR99
+Marki Microwave,HLM-11239PSM,"Limiters, DC to 18 GHz",,https://markimicrowave.com/products/surface-mount/limiters/hlm-11239psm/datasheet/,Limiters,Surface mount,0,18,1,+16@10GHz,4,10,17,3mm QFN,EAR99
+Marki Microwave,HLM-20PSM,"Limiters, DC to 20 GHz",,https://markimicrowave.com/products/surface-mount/limiters/hlm-20psm/datasheet/,Limiters,Surface mount,0,20,0.5,+13@20GHz,5,50,15,4mm QFN,EAR99
+Marki Microwave,HLM-40PSM,"Limiters, DC to 40 GHz",,https://markimicrowave.com/products/surface-mount/limiters/hlm-40psm/datasheet/,Limiters,Surface mount,0,40,0.5,+15@20GHz,2.5,9.5,14,4mm QFN,EAR99
+Marki Microwave,HLM-8010CSP1,"Limiters, DC to 40 GHz",,https://markimicrowave.com/products/surface-mount/limiters/hlm-8010csp1/datasheet/,Limiters,Surface mount,0,40,0.5,+11@20GHz,1.9,3.2,11,1.5mm CSP1,EAR99
+Marki Microwave,HLM-70CSP2,"Limiters, DC to 70 GHz",,https://markimicrowave.com/products/surface-mount/limiters/hlm-70csp2/datasheet/,Limiters,Surface mount,0,70,0.5,+13@40GHz,1,,15,2.5mm CSP2,EAR99
+Marki Microwave,HLM-11234CH,"Limiters, DC to 8 GHz",,https://www.markimicrowave.com/products/bare-die/limiters/hlm-11234ch/datasheet/,Limiters,Bare die,0,8,0.4,+16@4GHz,25,100,16,,EAR99
+Marki Microwave,HLM-100001CH,"Limiters, DC to 10 GHz",,https://www.markimicrowave.com/products/bare-die/limiters/hlm-100001ch/datasheet/,Limiters,Bare die,0,10,0.8,+8.5@10GHz,10,,11,,EAR99
+Marki Microwave,HLM-8011CH,"Limiters, DC to 30 GHz",,https://www.markimicrowave.com/products/bare-die/limiters/hlm-8011ch/datasheet/,Limiters,Bare die,0,30,0.4,+7@30GHz,1,4.5,10,,EAR99
+Marki Microwave,HLM-40CH,"Limiters, DC to 40 GHz",,https://www.markimicrowave.com/products/bare-die/limiters/hlm-40ch/datasheet/,Limiters,Bare die,0,40,0.5,+16@20GHz,4,20,15,,EAR99
+Marki Microwave,HLM-70CH,"Limiters, DC to 70 GHz",,https://markimicrowave.com/products/bare-die/limiters/hlm-70ach/datasheet/,Limiters,Bare die,0,70,0.8,+9@40GHz,4,20,9,,EAR99

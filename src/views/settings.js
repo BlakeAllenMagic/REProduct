@@ -129,7 +129,7 @@ class SettingsScreen {
           : 'Not fully synced yet on this device.',
         noDatasheet ? ` ${noDatasheet} parts have no datasheet in the app yet.` : '',
       ),
-      button(allSaved ? 'All datasheets saved' : 'Download all', () => downloadParts(this.ctx.linecard.parts), {
+      button(unique.size === 0 ? 'No datasheets to download' : allSaved ? 'All datasheets saved' : 'Download all', () => downloadParts(this.ctx.linecard.parts), {
         primary: true,
         disabled: allSaved || downloads.running,
       }),

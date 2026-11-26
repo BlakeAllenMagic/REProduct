@@ -1,0 +1,5 @@
+manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,vswr,details,eccn
+Marki Microwave,RA40(FM),"Adapters, High Performance, DC to 40 GHz",,,High Performance,Connectorized,0,40,1.4,2.92M to 2.92F,EAR99
+Marki Microwave,RA50FM,"Adapters, High Performance, DC to 50 GHz",,,High Performance,Connectorized,0,50,1.4,2.92M to 2.92F,EAR99
+Marki Microwave,RA50MM,"Adapters, High Performance, DC to 50 GHz",,,High Performance,Connectorized,0,50,1.4,2.92M to 2.92F,EAR99
+Marki Microwave,TW-1,Thumbwheel,,,Thumbwheel,Connectorized,,,,"quick, secure, wrenchless connection for SMA, 2.92mm and 2.4mm",EAR99

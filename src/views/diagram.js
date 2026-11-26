@@ -1,8 +1,10 @@
-// Home screen: the receiver block diagram.
+// Home screen: the receiver block diagram, then every product type.
 //
 // The SVG is inserted inline (not as an <img>) so CSS can style it and each
 // block can receive taps. For every block, categories.yaml (via linecard.json)
 // decides which category it opens; blocks without parts are disabled.
+// Most product types have no block (couplers, attenuators...), so a grid of
+// buttons below the diagram lists them all.
 
 import receiverSvg from '../diagram/receiver.svg?raw';
 import { hrefFor } from '../router.js';
@@ -24,7 +26,52 @@ export function renderDiagram(container, ctx) {
     setUpBlock(block, ctx);
   }
 
+  container.append(productTypes(ctx));
   return { title: 'RF Line Card' };
+}
+
+/** "All product types": one button per category, in categories.yaml order, with its part count. */
+function productTypes(ctx) {
+  const section = document.createElement('section');
+  section.className = 'product-types';
+  section.setAttribute('aria-labelledby', 'product-types-title');
+
+  const heading = document.createElement('h2');
+  heading.id = 'product-types-title';
+  heading.textContent = 'All product types';
+
+  const list = document.createElement('ul');
+  list.className = 'product-type-grid';
+  for (const category of ctx.categories.values()) {
+    const count = ctx.partsByCategory.get(category.id).length;
+    const item = document.createElement('li');
+    const name = document.createElement('span');
+    name.className = 'product-type-name';
+    name.textContent = category.name;
+    const badge = document.createElement('span');
+    badge.className = 'product-type-count';
+    badge.textContent = String(count);
+
+    if (count === 0) {
+      // Not a link: nothing to open. Shown so the list matches the sheet's tabs.
+      const box = document.createElement('span');
+      box.className = 'product-type is-empty';
+      box.setAttribute('aria-label', `${category.name}: no parts yet`);
+      box.append(name, badge);
+      item.append(box);
+    } else {
+      const link = document.createElement('a');
+      link.className = 'product-type';
+      link.href = hrefFor('category', category.id);
+      link.setAttribute('aria-label', `${category.name}: ${count} parts`);
+      link.append(name, badge);
+      item.append(link);
+    }
+    list.append(item);
+  }
+
+  section.append(heading, list);
+  return section;
 }
 
 function setUpBlock(block, ctx) {
@@ -70,7 +117,7 @@ function makeBadge(block, count) {
   const circle = document.createElementNS(SVG_NS, 'circle');
   circle.setAttribute('cx', x);
   circle.setAttribute('cy', y);
-  circle.setAttribute('r', 16);
+  circle.setAttribute('r', count >= 100 ? 20 : 16); // room for "445"
 
   const text = document.createElementNS(SVG_NS, 'text');
   text.setAttribute('x', x);
