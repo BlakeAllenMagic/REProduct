@@ -40,7 +40,8 @@ export function renderDiagram(container, ctx, route = {}) {
   }
 
   container.append(productTypes(ctx));
-  return { title: 'RF Line Card', logo: true }; // the home screen shows the firm's logo
+  // The top bar shows the firm's logo followed by "Line Card" (see main.js).
+  return { title: 'G2CMI Line Card', logo: { alt: 'G2CMI', text: 'Line Card' } };
 }
 
 /** Receiver | Transmitter switch. Links, so Back and swipe-back move between them. */

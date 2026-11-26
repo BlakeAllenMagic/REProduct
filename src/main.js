@@ -66,14 +66,15 @@ async function show(ctx, route) {
     if (result?.logo) {
       // Home screen: the rep firm's logo instead of the title text. The image
       // ships with the app (public/brand/), so it's cached for offline use.
+      // Reads as "G2CMI Line Card", with the logo standing in for "G2CMI".
       els.title.replaceChildren(
-        el('img', { class: 'topbar-logo', src: 'brand/logo.png', alt: 'G2CMI', width: 360, height: 176 }),
-        el('span', { class: 'visually-hidden' }, ` ${result.title}`),
+        el('img', { class: 'topbar-logo', src: 'brand/logo.png', alt: result.logo.alt, width: 360, height: 176 }),
+        el('span', { class: 'topbar-logo-text' }, ` ${result.logo.text}`),
       );
     } else {
       els.title.textContent = result?.title ?? 'RF Line Card';
     }
-    document.title = result?.title ? `${result.title} · RF Line Card` : 'RF Line Card';
+    document.title = result?.logo ? result.title : result?.title ? `${result.title} · RF Line Card` : 'RF Line Card';
     if (result?.back) {
       els.back.href = result.back.href;
       els.backLabel.textContent = result.back.label;

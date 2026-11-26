@@ -247,6 +247,9 @@ test('home screen shows the logo in the top bar; other screens show their title'
   expect(await logo.evaluate((img) => img.complete && img.naturalWidth > 0)).toBe(true);
   const box = await logo.boundingBox();
   expect(box.height).toBeLessThanOrEqual(40);
+  await expect(page.locator('#title')).toHaveText('Line Card'); // the logo stands in for "G2CMI"
+  await expect(page.getByRole('heading', { level: 1 })).toHaveAccessibleName('G2CMI Line Card');
+  await expect(page).toHaveTitle('G2CMI Line Card');
   await page.goto('#/category/filter');
   await expect(page.locator('#title')).toHaveText('Filters');
   await expect(page.locator('#title img')).toHaveCount(0);

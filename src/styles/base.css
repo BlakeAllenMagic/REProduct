@@ -282,11 +282,18 @@ a {
 
 /* The rep firm's logo in the home screen's top bar. Height-limited so it
    fits the 56 pt bar (44 pt on phones); width follows the image. */
+.topbar-title:has(.topbar-logo) {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45em;
+}
+
 .topbar-logo {
   display: block;
+  flex: none;
   height: 40px;
   width: auto;
-  margin: 0 auto;
 }
 
 @media (max-width: 700px), (max-height: 500px) {
