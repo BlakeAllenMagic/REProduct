@@ -1,5 +1,6 @@
 // Datasheet viewer: one part's PDF, rendered in-app with PDF.js.
 
+import { linkForEmail, linkForPage } from '../data.js';
 import { downloads, getSavedDatasheet, getSavedFile } from '../offline/downloads.js';
 import { readSavedParts } from '../offline/saved-parts.js';
 import { DocumentView, ZOOM_LIMITS } from '../pdf/document-view.js';
@@ -194,7 +195,7 @@ class Viewer {
    *   for big files, and the fallback when the PDF can't be attached.
    */
   sendButtons() {
-    const hasLink = Boolean(this.part.datasheet?.sourceUrl);
+    const hasLink = Boolean(linkForEmail(this.part));
     this.sendButton = button('Send datasheet', () => this.send(), {
       primary: true,
       disabled: true,
@@ -258,7 +259,7 @@ class Viewer {
   }
 
   manufacturerLink() {
-    const source = this.part.datasheet?.sourceUrl;
+    const source = linkForPage(this.part);
     if (!source) return null;
     return el(
       'div',

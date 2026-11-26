@@ -187,6 +187,7 @@
         "supply_v": 5,
         "package": "2x2 mm DFN"
       },
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": "https://reproduct.pages.dev/sample-upstream/ALM-1234.pdf",
         "file": "datasheets/6ca5121a9f73429fd633a98634bb3f28fffc785b601c3b2fc499eb0481f741d3.pdf",
@@ -210,6 +211,7 @@
         "supply_v": 5,
         "package": "3x3 mm QFN"
       },
+      "productUrl": "https://manufacturer.example/products/alm-2280",
       "datasheet": {
         "sourceUrl": "https://manufacturer.example/ALM-2280.pdf",
         "file": null,
@@ -232,6 +234,7 @@
         "supply_v": 3.3,
         "package": "Bare die"
       },
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": "https://kestrel.example/pdf/KLN-4020.pdf",
         "file": null,
@@ -255,6 +258,7 @@
         "supply_v": 1.8,
         "package": "1.5x1.5 mm DFN"
       },
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": "https://reproduct.pages.dev/sample-upstream/NLA-0310.pdf",
         "file": "datasheets/1d7b770c450832a132065d5990b52e11224aef12ddb4e30103738c9f8f8bc81c.pdf",
@@ -280,6 +284,7 @@
         "lo_drive_dbm": 15,
         "package": "3x3 mm QFN"
       },
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": "https://reproduct.pages.dev/sample-upstream/AMX-0750.pdf",
         "file": "datasheets/45a3017a7e57c6e904b1ee3da45b31fed2d8a49b37b4da9b3455a7c80e528650.pdf",
@@ -305,6 +310,7 @@
         "lo_drive_dbm": 0,
         "package": "4x4 mm QFN"
       },
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": "https://kestrel.example/pdf/KMX-1100.pdf",
         "file": null,
@@ -330,6 +336,7 @@
         "lo_drive_dbm": 13,
         "package": "Bare die"
       },
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": "https://northwind.example/datasheets/NMX-2600.pdf",
         "file": null,
@@ -353,6 +360,7 @@
         "technology": "Ceramic",
         "package": "1008"
       },
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": "https://reproduct.pages.dev/sample-upstream/AFB-2450.pdf",
         "file": "datasheets/1e9ba73555c01a6fe6e1b341eac44990d5bd854042b50608826b101b2f03e7d6.pdf",
@@ -376,6 +384,7 @@
         "technology": "LTCC",
         "package": "0603"
       },
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": "https://manufacturer.example/AFH-1000.pdf",
         "file": null,
@@ -399,6 +408,7 @@
         "technology": "SAW",
         "package": "1.4x1.1 mm"
       },
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": "https://reproduct.pages.dev/sample-upstream/KSF-1575.pdf",
         "file": "datasheets/482ce1acdb0487bf59e8601da6b67bceef3d66092362507f5b441349b8f99089.pdf",
@@ -422,6 +432,7 @@
         "technology": "LTCC",
         "package": "0805"
       },
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": "https://northwind.example/datasheets/NFL-6000.pdf",
         "file": null,

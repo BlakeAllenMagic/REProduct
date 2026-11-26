@@ -50,3 +50,10 @@ test('file names are safe on every system', () => {
     'X-Y Corp AB-12--- datasheet.pdf',
   );
 });
+
+test('with no datasheet link, the email link falls back to the product page', () => {
+  const pageOnly = { ...part, productUrl: 'https://maker.example/p/x', datasheet: { sourceUrl: null } };
+  assert.match(emailFor(pageOnly, config.email, 'link').text, /https:\/\/maker\.example\/p\/x/);
+  const both = { ...part, productUrl: 'https://maker.example/p/x' };
+  assert.match(emailFor(both, config.email, 'link').text, /ALM-1234\.pdf/); // the PDF wins for email
+});

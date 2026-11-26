@@ -35,3 +35,17 @@ export function indexLinecard(linecard) {
 
   return { linecard, categories, parts, partsByCategory, categoryForBlock };
 }
+
+/**
+ * Links to a part on the manufacturer's site (CLAUDE.md: the datasheet link
+ * is optional; a product page may be given instead, or as well).
+ *   linkForPage:  for "Open on the website": the product page first
+ *   linkForEmail: for emails: the direct PDF first, it's what the customer wants
+ */
+export function linkForPage(part) {
+  return part.productUrl || part.datasheet?.sourceUrl || null;
+}
+
+export function linkForEmail(part) {
+  return part.datasheet?.sourceUrl || part.productUrl || null;
+}

@@ -199,6 +199,38 @@ class BrokenCsvTests(BuildTestCase):
         self.assertIn("2 errors", err)
 
 
+class LinkTests(BuildTestCase):
+    """The datasheet link is optional; a product page can be given instead."""
+
+    def part(self, card: dict, part_id: str) -> dict:
+        return next(p for p in card["parts"] if p["id"] == part_id)
+
+    def test_datasheet_link_may_be_empty(self) -> None:
+        self.edit("parts/lna.csv", "https://kestrel.example/pdf/KLN-4020.pdf", "")
+        code, _, err = self.run_tool()
+        self.assertEqual(code, 0, err)
+        card = json.loads(self.out.read_text(encoding="utf-8"))
+        self.assertIsNone(self.part(card, "kestrel-kln4020")["datasheet"]["sourceUrl"])
+
+    def test_product_page_is_published(self) -> None:
+        self.run_tool()
+        card = json.loads(self.out.read_text(encoding="utf-8"))
+        self.assertEqual(self.part(card, "acme-alm2280")["productUrl"], "https://manufacturer.example/products/alm-2280")
+        self.assertIsNone(self.part(card, "acme-alm1234")["productUrl"])
+
+    def test_product_page_must_be_https(self) -> None:
+        self.edit("parts/lna.csv", "https://manufacturer.example/products/alm-2280", "http://manufacturer.example/products/alm-2280")
+        self.assert_fails("product_url must start with https://")
+
+    def test_older_csvs_without_the_product_page_column_still_work(self) -> None:
+        path = self.data / "parts" / "mixer.csv"
+        rows = [line.split(",") for line in path.read_text(encoding="utf-8").splitlines()]
+        i = rows[0].index("product_url")
+        path.write_text("\n".join(",".join(r[:i] + r[i + 1:]) for r in rows) + "\n", encoding="utf-8")
+        code, _, err = self.run_tool()
+        self.assertEqual(code, 0, err)
+
+
 class BrokenYamlTests(BuildTestCase):
     def test_bad_spec_type(self) -> None:
         self.edit("categories.yaml", "label: NF,       unit: dB,  type: number", "label: NF,       unit: dB,  type: float")

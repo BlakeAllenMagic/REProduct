@@ -1,5 +1,5 @@
-manufacturer,mpn,description,datasheet_url,freq_min_ghz,freq_max_ghz,nf_db,gain_db,op1db_dbm,supply_v,package
-Acme RF,ALM-1234,"0.5 to 6 GHz LNA, 0.6 dB NF",https://reproduct.pages.dev/sample-upstream/ALM-1234.pdf,0.5,6,0.6,18,20,5,2x2 mm DFN
-Acme RF,ALM-2280,2 to 18 GHz wideband LNA,https://manufacturer.example/ALM-2280.pdf,2,18,1.8,22,16,5,3x3 mm QFN
-Northwind Microwave,NLA-0310,Low current GNSS LNA,https://reproduct.pages.dev/sample-upstream/NLA-0310.pdf,1.1,1.7,0.75,17,8,1.8,1.5x1.5 mm DFN
-Kestrel Semiconductor,KLN-4020,24 to 30 GHz LNA for 5G FR2,https://kestrel.example/pdf/KLN-4020.pdf,24,30,2.4,21,,3.3,Bare die
+manufacturer,mpn,description,datasheet_url,product_url,freq_min_ghz,freq_max_ghz,nf_db,gain_db,op1db_dbm,supply_v,package
+Acme RF,ALM-1234,"0.5 to 6 GHz LNA, 0.6 dB NF",https://reproduct.pages.dev/sample-upstream/ALM-1234.pdf,,0.5,6,0.6,18,20,5,2x2 mm DFN
+Acme RF,ALM-2280,2 to 18 GHz wideband LNA,https://manufacturer.example/ALM-2280.pdf,https://manufacturer.example/products/alm-2280,2,18,1.8,22,16,5,3x3 mm QFN
+Northwind Microwave,NLA-0310,Low current GNSS LNA,https://reproduct.pages.dev/sample-upstream/NLA-0310.pdf,,1.1,1.7,0.75,17,8,1.8,1.5x1.5 mm DFN
+Kestrel Semiconductor,KLN-4020,24 to 30 GHz LNA for 5G FR2,https://kestrel.example/pdf/KLN-4020.pdf,,24,30,2.4,21,,3.3,Bare die

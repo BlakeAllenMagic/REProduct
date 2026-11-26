@@ -168,7 +168,7 @@ def convert_tab(
         else:
             columns[key] = index
 
-    required = {"mpn", "manufacturer", "datasheet_url"} | {s["key"] for s in category["specs"] if s.get("required")}
+    required = set(build_linecard.REQUIRED_FIXED) | {s["key"] for s in category["specs"] if s.get("required")}
     for key in keys:
         if key in required and key not in columns:
             problems.append(f'{title} tab: the "{friendly[key]}" column is missing.')

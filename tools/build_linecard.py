@@ -37,8 +37,12 @@ try:
 except ImportError:  # pragma: no cover
     sys.exit("PyYAML is not installed. Run: pip install -r tools/requirements.txt")
 
-FIXED_COLUMNS = ["manufacturer", "mpn", "description", "datasheet_url"]
-REQUIRED_FIXED = {"manufacturer", "mpn", "datasheet_url"}
+FIXED_COLUMNS = ["manufacturer", "mpn", "description", "datasheet_url", "product_url"]
+# Every part needs these. A datasheet link is optional: many manufacturers
+# don't publish direct PDF links, and the app then offers the product page.
+REQUIRED_FIXED = {"manufacturer", "mpn"}
+# Columns a CSV may leave out entirely (older CSVs don't have them).
+OPTIONAL_COLUMNS = {"product_url"}
 
 CATEGORY_FIELDS = {"id", "name", "blocks", "specs"}
 SPEC_FIELDS = {"key", "label", "unit", "type", "sort", "required"}
@@ -297,7 +301,7 @@ def read_parts(
             report.error(f"{where}:1", f"unknown column {col!r}")
             header_ok = False
     for col in expected:
-        if col not in header:
+        if col not in header and col not in OPTIONAL_COLUMNS:
             report.error(f"{where}:1", f"missing column {col!r}")
             header_ok = False
     duplicates = sorted({c for c in header if c and header.count(c) > 1})
@@ -316,6 +320,8 @@ def read_parts(
             report.error(row_where, "more cells than header columns")
             continue
         cells = {col: (row[i].strip() if i < len(row) else "") for i, col in enumerate(header)}
+        for col in OPTIONAL_COLUMNS:
+            cells.setdefault(col, "")  # column left out of the CSV
 
         # Check for duplicates before the per-cell checks, so a duplicate is
         # still reported even when the first copy has other errors.
@@ -359,10 +365,12 @@ def _build_part(
             report.error(where, f"{col} is required")
             ok = False
     url = cells["datasheet_url"]
+    product_url = cells.get("product_url", "")
     # http:// is allowed only for this machine, which the sync tests use.
-    if url and not url.startswith(("https://", "http://127.0.0.1", "http://localhost")):
-        report.error(where, f"datasheet_url must start with https:// (got {url!r})")
-        ok = False
+    for col, link in (("datasheet_url", url), ("product_url", product_url)):
+        if link and not link.startswith(("https://", "http://127.0.0.1", "http://localhost")):
+            report.error(where, f"{col} must start with https:// (got {link!r})")
+            ok = False
 
     text_columns = ["manufacturer", "mpn", "description"] + [
         k for k, s in specs.items() if s["type"] == "text"
@@ -399,7 +407,8 @@ def _build_part(
         "mpn": cells["mpn"],
         "description": cells["description"],
         "specs": values,
-        "datasheet": {"sourceUrl": url},
+        "productUrl": product_url or None,
+        "datasheet": {"sourceUrl": url or None},
     }
 
 

@@ -30,6 +30,14 @@ import export_sheet_template  # noqa: E402
 import import_sheet  # noqa: E402
 
 
+def col(sheet, heading: str) -> int:
+    """The column number of a heading in row 1, so tests don't break when columns move."""
+    for cell in sheet[1]:
+        if cell.value == heading:
+            return cell.column
+    raise KeyError(heading)
+
+
 class ImportTestCase(unittest.TestCase):
     def setUp(self) -> None:
         self.tmp = Path(tempfile.mkdtemp())
@@ -75,7 +83,7 @@ class GoodSheets(ImportTestCase):
         self.assertTrue(self.status_json()["ok"])
 
     def test_an_edit_is_imported(self) -> None:
-        self.edit(lambda b: b["Filters"].cell(row=2, column=3, value="Edited description"))
+        self.edit(lambda b: b["Filters"].cell(row=2, column=col(b["Filters"], "Description"), value="Edited description"))
         code, out, err = self.run_import()
         self.assertEqual(code, 0, err)
         self.assertIn("Sheet changed", out)
@@ -103,7 +111,7 @@ class GoodSheets(ImportTestCase):
         self.assertIn("Sheet unchanged", out)
 
     def test_numbers_come_out_without_trailing_zeros(self) -> None:
-        self.edit(lambda b: b["Filters"].cell(row=2, column=7, value=6.0))  # Pass Max
+        self.edit(lambda b: b["Filters"].cell(row=2, column=col(b["Filters"], "Pass Max (GHz)"), value=6.0))
         self.run_import()
         self.assertIn(",2.4,6,", self.csv("filter"))
         self.assertNotIn("6.0", self.csv("filter"))
@@ -112,7 +120,7 @@ class GoodSheets(ImportTestCase):
         def change(book):
             sheet = book["Filters"]
             sheet.insert_rows(3)  # a blank row 3
-            sheet.cell(row=5, column=8, value="1.2 GHz")  # IL in sheet row 5
+            sheet.cell(row=5, column=col(sheet, "IL (dB)"), value="1.2 GHz")  # sheet row 5
         self.edit(change)
         code, out, err = self.run_import()
         self.assertIn("Filters tab, row 5: IL (dB): '1.2 GHz' has unit GHz, expected dB", out)
@@ -122,6 +130,16 @@ class GoodSheets(ImportTestCase):
         first = self.status.stat().st_mtime_ns
         self.run_import()
         self.assertEqual(self.status.stat().st_mtime_ns, first)
+
+
+class OptionalLinks(ImportTestCase):
+    def test_a_sheet_without_datasheet_links_imports(self) -> None:
+        self.edit(lambda b: b["Mixers"].delete_cols(col(b["Mixers"], "Datasheet link")))
+        code, out, err = self.run_import()
+        self.assertEqual(code, 0, err)
+        self.assertIn("Sheet changed", out)
+        self.assertTrue(self.status_json()["ok"])
+        self.assertNotIn("https://", self.csv("mixer").split("\n", 1)[1].split(",")[3])
 
 
 class ProblemSheets(ImportTestCase):
@@ -137,7 +155,7 @@ class ProblemSheets(ImportTestCase):
         self.assertEqual(after, before, "a sheet with problems must not change the parts")
 
     def test_wrong_unit_uses_sheet_words(self) -> None:
-        self.edit(lambda b: b["Low Noise Amplifiers"].cell(row=2, column=7, value="0.6 GHz"))  # NF
+        self.edit(lambda b: b["Low Noise Amplifiers"].cell(row=2, column=col(b["Low Noise Amplifiers"], "NF (dB)"), value="0.6 GHz"))
         self.assert_problem("Low Noise Amplifiers tab, row 2: NF (dB): '0.6 GHz' has unit GHz, expected dB")
 
     def test_missing_part_number(self) -> None:
@@ -159,8 +177,8 @@ class ProblemSheets(ImportTestCase):
         self.assert_problem('Filters tab: column "Color" isn\'t a known column')
 
     def test_missing_required_column(self) -> None:
-        self.edit(lambda b: b["Filters"].delete_cols(4))  # Datasheet link
-        self.assert_problem('Filters tab: the "Datasheet link" column is missing')
+        self.edit(lambda b: b["Filters"].delete_cols(col(b["Filters"], "Manufacturer")))
+        self.assert_problem('Filters tab: the "Manufacturer" column is missing')
 
     def test_value_turned_into_a_date(self) -> None:
         self.edit(lambda b: b["Mixers"].cell(row=2, column=1, value=datetime(2026, 3, 10)))
@@ -172,10 +190,10 @@ class ProblemSheets(ImportTestCase):
         self.assert_problem("duplicate part Acme RF AMX-0750")
 
     def test_fixing_the_problem_clears_it(self) -> None:
-        self.edit(lambda b: b["Low Noise Amplifiers"].cell(row=2, column=7, value="0.6 GHz"))
+        self.edit(lambda b: b["Low Noise Amplifiers"].cell(row=2, column=col(b["Low Noise Amplifiers"], "NF (dB)"), value="0.6 GHz"))
         self.run_import()
         self.assertFalse(self.status_json()["ok"])
-        self.edit(lambda b: b["Low Noise Amplifiers"].cell(row=2, column=7, value=0.6))
+        self.edit(lambda b: b["Low Noise Amplifiers"].cell(row=2, column=col(b["Low Noise Amplifiers"], "NF (dB)"), value=0.6))
         self.run_import()
         self.assertTrue(self.status_json()["ok"])
         self.assertEqual(self.status_json()["problems"], [])

@@ -97,6 +97,15 @@ test('a part without a datasheet file says so and links to the maker', async ({ 
   );
 });
 
+test('the website link prefers the product page when there is one', async ({ page }) => {
+  await page.goto('#/part/acme-alm2280'); // fixture part: product page, no datasheet file
+  await expect(page.getByRole('heading', { name: 'No datasheet in the app' })).toBeVisible();
+  await expect(page.getByRole('link', { name: /Acme RF website/ })).toHaveAttribute(
+    'href',
+    'https://manufacturer.example/products/alm-2280',
+  );
+});
+
 test('unknown links show a clear message', async ({ page }) => {
   await page.goto('#/category/nope');
   await expect(page.getByRole('heading', { name: 'Category not found' })).toBeVisible();

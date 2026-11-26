@@ -21,6 +21,7 @@ FIXED_HEADINGS = {
     "manufacturer": "Manufacturer",
     "description": "Description",
     "datasheet_url": "Datasheet link",
+    "product_url": "Product page",
 }
 
 NOTES_PREFIX = "_"

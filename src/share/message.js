@@ -1,3 +1,5 @@
+import { linkForEmail } from '../data.js';
+
 // Email text for "Send datasheet": fills the templates in src/config.js and
 // builds mailto links. Pure functions, no browser APIs, so they're unit tested.
 
@@ -13,7 +15,8 @@ function valuesFor(part) {
     mpn: part.mpn,
     manufacturer: part.manufacturer,
     description: part.description || part.mpn,
-    datasheetUrl: part.datasheet?.sourceUrl ?? '',
+    // The direct PDF if there is one, else the product page (src/data.js).
+    datasheetUrl: linkForEmail(part) ?? '',
   };
 }
 
