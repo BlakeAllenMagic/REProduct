@@ -3,8 +3,8 @@
 //
 // filtersFor() looks at the table's columns and the parts, and describes one
 // filter per column:
-//   range    a min/max pair (Freq Min + Freq Max...): "covers 10 GHz", or
-//            "covers 10 to 18 GHz"
+//   range    a min/max pair with the same unit (Freq Min + Freq Max, Vin Min +
+//            Vin Max...): "covers 10 GHz", "covers 10 to 18 GHz", "covers 12 V"
 //   number   at least / at most
 //   choice   tap one or more of a few values (Family, Package...): "any of"
 //   contains free text, for text columns with many different values
@@ -25,15 +25,17 @@ export function filtersFor(columns, parts) {
   const inRange = new Set();
 
   for (const spec of specs) {
-    const match = spec.key.match(/^(.*)_min_ghz$/);
+    // freq_min_ghz + freq_max_ghz, vin_min_v + vin_max_v, ...
+    const match = spec.key.match(/^(.*)_min_([a-z]+)$/);
     if (!match) continue;
-    const maxKey = `${match[1]}_max_ghz`;
+    const maxKey = `${match[1]}_max_${match[2]}`;
     if (!keys.has(maxKey)) continue;
     inRange.add(spec.key).add(maxKey);
     ranges.push({
       id: `range:${match[1]}`,
       kind: 'range',
       label: spec.label.replace(/\s*Min$/, ''), // "Freq Min" -> "Freq"
+      unit: spec.unit ?? '',
       minKey: spec.key,
       maxKey,
     });

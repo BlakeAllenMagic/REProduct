@@ -33,10 +33,10 @@ export function createFilterPanel({ filters, state, onChange }) {
         control = el(
           'div',
           { class: 'filter-inline' },
-          numberBox(`${label} (GHz)`, value.from, (v) => set({ ...state[filter.id], from: v })),
+          numberBox(`${label} (${filter.unit})`, value.from, (v) => set({ ...state[filter.id], from: v })),
           el('span', {}, 'to'),
-          numberBox(`${label}, up to (GHz, optional)`, value.to, (v) => set({ ...state[filter.id], to: v })),
-          el('span', { class: 'filter-unit' }, 'GHz'),
+          numberBox(`${label}, up to (${filter.unit}, optional)`, value.to, (v) => set({ ...state[filter.id], to: v })),
+          el('span', { class: 'filter-unit' }, filter.unit),
         );
         break;
       }

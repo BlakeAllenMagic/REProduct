@@ -346,3 +346,81 @@ categories:
       - { key: length_in, label: "Length", unit: "in", type: number }
       - { key: flange, label: "Flange", type: text }
       - { key: eccn, label: "ECCN", type: text }
+
+  # ---- Power (the Power diagram tab). Added by hand, not by the Marki extractor. ----
+
+  - id: power_transistor
+    name: "Power Transistors"
+    blocks: [pw_fet]
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: technology, label: "Technology", type: text }
+      - { key: vds_max_v, label: "Vds Max", unit: "V", type: number, sort: desc }
+      - { key: rds_on_mohm, label: "Rds(on)", unit: "mΩ", type: number, sort: asc }
+      - { key: id_max_a, label: "Id Max", unit: "A", type: number, sort: desc }
+      - { key: qg_nc, label: "Qg", unit: "nC", type: number, sort: asc }
+      - { key: grade, label: "Grade", type: text }
+      - { key: status, label: "Status", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: dc_dc
+    name: "DC-DC Converters"
+    blocks: [pw_dcdc]
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: topology, label: "Topology", type: text }
+      - { key: vin_min_v, label: "Vin Min", unit: "V", type: number }
+      - { key: vin_max_v, label: "Vin Max", unit: "V", type: number }
+      - { key: vout_min_v, label: "Vout Min", unit: "V", type: number }
+      - { key: vout_max_v, label: "Vout Max", unit: "V", type: number }
+      - { key: iout_max_a, label: "Iout Max", unit: "A", type: number, sort: desc }
+      - { key: efficiency_pct, label: "Efficiency", unit: "%", type: number, sort: desc }
+      - { key: fsw_khz, label: "Switching Freq (kHz)", type: text }
+      - { key: grade, label: "Grade", type: text }
+      - { key: status, label: "Status", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: ldo
+    name: "LDOs and Load Switches"
+    blocks: [pw_load_switch, pw_ldo]
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: kind, label: "Type", type: text }
+      - { key: vin_min_v, label: "Vin Min", unit: "V", type: number }
+      - { key: vin_max_v, label: "Vin Max", unit: "V", type: number }
+      - { key: vout_min_v, label: "Vout Min", unit: "V", type: number }
+      - { key: vout_max_v, label: "Vout Max", unit: "V", type: number }
+      - { key: iout_max_a, label: "Iout Max", unit: "A", type: number, sort: desc }
+      - { key: dropout_mv, label: "Dropout", unit: "mV", type: number, sort: asc }
+      - { key: noise_uvrms, label: "Noise", unit: "µVrms", type: number, sort: asc }
+      - { key: rds_on_mohm, label: "Rds(on)", unit: "mΩ", type: number, sort: asc }
+      - { key: grade, label: "Grade", type: text }
+      - { key: status, label: "Status", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: gate_driver
+    name: "Gate Drivers"
+    blocks: [pw_gate_driver]
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: supply_min_v, label: "Supply Min", unit: "V", type: number }
+      - { key: supply_max_v, label: "Supply Max", unit: "V", type: number }
+      - { key: peak_source_a, label: "Peak Source", unit: "A", type: number, sort: desc }
+      - { key: peak_sink_a, label: "Peak Sink", unit: "A", type: number, sort: desc }
+      - { key: prop_delay_ns, label: "Prop Delay", unit: "ns", type: number, sort: asc }
+      - { key: channels, label: "Channels", type: number }
+      - { key: grade, label: "Grade", type: text }
+      - { key: status, label: "Status", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }

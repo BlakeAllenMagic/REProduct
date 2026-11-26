@@ -255,6 +255,18 @@ test('home screen shows the logo in the top bar; other screens show their title'
   await expect(page.locator('#title img')).toHaveCount(0);
 });
 
+test('Power tab: its own diagram; blocks without parts are greyed out', async ({ page }) => {
+  await page.goto('#/');
+  await press(page, page.getByRole('tab', { name: 'Power' }));
+  await expect(page).toHaveURL(/#\/power$/);
+  await expect(page.getByRole('tab', { name: 'Power' })).toHaveAttribute('aria-selected', 'true');
+  for (const block of ['pw_load_switch', 'pw_dcdc', 'pw_ldo', 'pw_gate_driver', 'pw_fet']) {
+    // The fixture line card has no power parts, so every block is disabled.
+    await expect(page.locator(`[data-block="${block}"]`)).toHaveClass(/is-disabled/);
+  }
+  await expect(page.locator('[data-block="lna"]')).toHaveCount(0);
+});
+
 test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });

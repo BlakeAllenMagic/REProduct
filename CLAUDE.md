@@ -52,6 +52,7 @@ Do not add Android or Windows workarounds yet. Use standard web APIs so those pl
   - A tab matches a category by its name or id (ignoring capitals). Tabs starting with `_` are notes and are ignored; any other unknown tab is reported as a problem.
   - Row 1 holds the headings: friendly ("Part number", "NF (dB)") or the short keys ("mpn", "nf_db"). Text columns should be formatted as Plain text so codes like `0603` keep their leading zero.
   - `tools/export_sheet_template.py` writes a starter sheet (Excel file) from the current data.
+  - `tools/power/psemi.py` reads pSemi's published power products (its public website data, 10 s between requests per its robots.txt) into rows for the power tabs; obsolete parts are left out. The power product types were added to `categories.yaml` by hand, so a re-run of the Marki extractor must keep them.
   - `tools/marki/extract_catalogs.py` reads Marki Microwave's catalog PDFs and writes `categories.yaml`, the CSVs and an Excel sheet (with a `_Review` tab of rows to check). It's a one-off helper for loading a manufacturer's line, run by hand; the Google Sheet stays the source of truth afterwards. Catalog values are typical values.
 - The home screen shows the diagram, then an "All product types" grid, since most product types have no diagram block.
 - `data/categories.yaml` defines each category: id, display name, which diagram blocks map to it, and its spec columns (key, label, unit, sort direction, number or text). It stays in the repo: a new product type means a new category here first, then a new tab in the sheet.
@@ -97,7 +98,7 @@ Datasheet files are content addressed: the filename is the SHA-256 of the PDF. W
 
 ### Block diagram
 
-- Two hand-built SVGs, `src/diagram/receiver.svg` and `src/diagram/transmitter.svg`, shown as Receiver / Transmitter tabs (`#/receiver`, `#/transmitter`; plain `#/` shows the last one used on the device). Each clickable block has `data-block="<block id>"`. Block ids are unique across both drawings (`rx_`, `tx_`, `lo_` prefixes for new ones).
+- Three hand-built SVGs, `src/diagram/receiver.svg`, `src/diagram/transmitter.svg` and `src/diagram/power.svg`, shown as Receiver / Transmitter / Power tabs (`#/receiver`, `#/transmitter`, `#/power`; plain `#/` shows the last one used on the device). Each clickable block has `data-block="<block id>"`. Block ids are unique across all drawings (`rx_`, `tx_`, `lo_`, `pw_` prefixes for new ones).
 - `categories.yaml` decides which category each block opens, through each category's `blocks` list. The SVG holds no category ids, so remapping a block never means editing the drawing.
 - A category can appear in more than one block (for example, amplifiers at RF and IF).
 - Each block shows a part count badge, and blocks with zero parts look visibly disabled.

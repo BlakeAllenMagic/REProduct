@@ -61,3 +61,23 @@ test('typed numbers: decimal comma, blanks and junk', () => {
   assert.equal(parseNumber(''), null);
   assert.equal(parseNumber('abc'), null);
 });
+
+test('ranges work for any unit: "Vin covers 12 V"', () => {
+  const cols = [
+    { key: 'spec:vin_min_v', spec: { key: 'vin_min_v', label: 'Vin Min', unit: 'V', type: 'number' } },
+    { key: 'spec:vin_max_v', spec: { key: 'vin_max_v', label: 'Vin Max', unit: 'V', type: 'number' } },
+    { key: 'spec:iout_max_a', spec: { key: 'iout_max_a', label: 'Iout Max', unit: 'A', type: 'number' } },
+  ];
+  const ps = [
+    { mpn: 'BUCK-3V', specs: { vin_min_v: 3, vin_max_v: 3.6, iout_max_a: 20 } },
+    { mpn: 'CP-48V', specs: { vin_min_v: 18, vin_max_v: 60, iout_max_a: 6 } },
+    { mpn: 'MOD-12V', specs: { vin_min_v: 6, vin_max_v: 14.4, iout_max_a: 4 } },
+  ];
+  const fs = filtersFor(cols, ps);
+  assert.deepEqual(fs.map((f) => f.id), ['range:vin', 'number:iout_max_a']); // Iout Max has no Min: a number filter
+  assert.equal(fs[0].label, 'Vin');
+  assert.equal(fs[0].unit, 'V');
+  const pickV = (state) => ps.filter((p) => matches(p, fs, state)).map((p) => p.mpn);
+  assert.deepEqual(pickV({ 'range:vin': { from: '12' } }), ['MOD-12V']);
+  assert.deepEqual(pickV({ 'range:vin': { from: '24', to: '48' } }), ['CP-48V']);
+});

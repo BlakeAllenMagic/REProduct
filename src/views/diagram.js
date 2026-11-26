@@ -8,10 +8,11 @@
 
 import receiverSvg from '../diagram/receiver.svg?raw';
 import transmitterSvg from '../diagram/transmitter.svg?raw';
+import powerSvg from '../diagram/power.svg?raw';
 import { DIAGRAMS, hrefFor } from '../router.js';
 
-const DRAWINGS = { receiver: receiverSvg, transmitter: transmitterSvg };
-const TAB_NAMES = { receiver: 'Receiver', transmitter: 'Transmitter' };
+const DRAWINGS = { receiver: receiverSvg, transmitter: transmitterSvg, power: powerSvg };
+const TAB_NAMES = { receiver: 'Receiver', transmitter: 'Transmitter', power: 'Power' };
 const STORAGE_KEY = 'linecard.diagram';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';

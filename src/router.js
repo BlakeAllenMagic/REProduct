@@ -1,10 +1,10 @@
-// Hash-based routing: #/  #/receiver  #/transmitter  #/category/<id>  #/part/<id>
+// Hash-based routing: #/  #/receiver  #/transmitter  #/power  #/category/<id>  #/part/<id>
 //
 // Why the hash: the part after # never goes to a server, so a static host
 // needs no rewrite rules, reloads keep your place, and the browser's Back
 // button and Safari's swipe-back gesture work for free.
 
-export const DIAGRAMS = ['receiver', 'transmitter'];
+export const DIAGRAMS = ['receiver', 'transmitter', 'power'];
 
 /** Turn a location hash into a route object. Unknown hashes go home. */
 export function parseHash(hash) {

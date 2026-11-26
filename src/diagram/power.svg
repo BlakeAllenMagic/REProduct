@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 276" class="diagram-svg" role="group" aria-label="Power block diagram">
+  <!--
+    Power chain. Each tappable block is a <g data-block="...">.
+    Which category a block opens is decided by categories.yaml (blocks list),
+    never here. Part-count badges, disabled states and accessibility
+    attributes are added by src/views/diagram.js.
+    Layout: 7 columns at x = 72 + 128*col, rows at y = 56 + 128*row, blocks 92 x 72.
+  -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" class="diagram-arrowhead" />
+    </marker>
+  </defs>
+
+  <text x="20" y="36" class="diagram-title">Power</text>
+
+  <g class="diagram-wires">
+    <path d="M20 92 H198" marker-end="url(#arrow)" />
+    <path d="M292 92 H326" marker-end="url(#arrow)" />
+    <path d="M420 92 H454" marker-end="url(#arrow)" />
+    <path d="M548 92 H624" marker-end="url(#arrow)" />
+    <path d="M20 220 H198" marker-end="url(#arrow)" />
+    <path d="M292 220 H326" marker-end="url(#arrow)" />
+    <path d="M420 220 H496" marker-end="url(#arrow)" />
+  </g>
+  <text x="20" y="78" class="diagram-note" text-anchor="start">Supply in</text>
+  <text x="634" y="97" class="diagram-note" text-anchor="start">Clean rail to RF / ADC</text>
+  <text x="20" y="206" class="diagram-note" text-anchor="start">PWM / controller</text>
+  <text x="506" y="225" class="diagram-note" text-anchor="start">Power out</text>
+
+  <g data-block="pw_load_switch" class="block">
+    <rect x="200" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M228 83 H238 L256 73 M258 73 H264 M258 93 H264" />
+    <circle class="block-symbol" cx="238" cy="83" r="2" />
+    <circle class="block-symbol" cx="258" cy="93" r="2" />
+    <text x="246" y="119" class="block-label">Load Switch</text>
+  </g>
+  <g data-block="pw_dcdc" class="block">
+    <rect x="328" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M354 79 h12 M354 86 h3 m2 0 h3 m2 0 h2 M370 83 h8 M375 80 l3 3 l-3 3 M382 79 h12 M382 86 h3 m2 0 h3 m2 0 h2" />
+    <text x="374" y="119" class="block-label">DC-DC</text>
+  </g>
+  <g data-block="pw_ldo" class="block">
+    <rect x="456" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M492 74 h20 v16 h-20 Z M482 82 h10 M512 82 h10 M502 90 v7 M497 97 h10" />
+    <text x="502" y="119" class="block-label">LDO</text>
+  </g>
+  <g data-block="pw_gate_driver" class="block">
+    <rect x="200" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M226 217 h5 v-12 h5 v12 h5 M243 198 L264 211 L243 224 Z" />
+    <text x="246" y="247" class="block-label">Gate Driver</text>
+  </g>
+  <g data-block="pw_fet" class="block">
+    <rect x="328" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M356 219 H366 V201 M370 199 V223 M370 203 H384 V195 M370 219 H384 V227 M370 211 H384 V219" />
+    <text x="374" y="247" class="block-label">Power FET</text>
+  </g>
+</svg>
