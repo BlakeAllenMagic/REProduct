@@ -1,4 +1,4 @@
-// Home screen: the receiver block diagram, then every product type.
+// Home screen: the receiver or transmitter block diagram (tabs), then every product type.
 //
 // The SVG is inserted inline (not as an <img>) so CSS can style it and each
 // block can receive taps. For every block, categories.yaml (via linecard.json)
@@ -7,14 +7,27 @@
 // buttons below the diagram lists them all.
 
 import receiverSvg from '../diagram/receiver.svg?raw';
-import { hrefFor } from '../router.js';
+import transmitterSvg from '../diagram/transmitter.svg?raw';
+import { DIAGRAMS, hrefFor } from '../router.js';
+
+const DRAWINGS = { receiver: receiverSvg, transmitter: transmitterSvg };
+const TAB_NAMES = { receiver: 'Receiver', transmitter: 'Transmitter' };
+const STORAGE_KEY = 'linecard.diagram';
 
 const SVG_NS = 'http://www.w3.org/2000/svg';
 
-export function renderDiagram(container, ctx) {
+export function renderDiagram(container, ctx, route = {}) {
+  // #/transmitter or #/receiver picks one; plain #/ (e.g. "‹ Diagram" from a
+  // parts table) shows the one used last on this device.
+  const which = DIAGRAMS.includes(route.diagram) ? route.diagram : lastDiagram();
+  rememberDiagram(which);
+
+  container.append(diagramTabs(which));
   const wrap = document.createElement('div');
   wrap.className = 'diagram';
-  wrap.innerHTML = receiverSvg;
+  wrap.id = 'diagram-panel';
+  wrap.setAttribute('role', 'tabpanel');
+  wrap.innerHTML = DRAWINGS[which];
   container.append(wrap);
 
   const help = document.createElement('p');
@@ -28,6 +41,52 @@ export function renderDiagram(container, ctx) {
 
   container.append(productTypes(ctx));
   return { title: 'RF Line Card' };
+}
+
+/** Receiver | Transmitter switch. Links, so Back and swipe-back move between them. */
+function diagramTabs(current) {
+  const tabs = document.createElement('div');
+  tabs.className = 'diagram-tabs';
+  tabs.setAttribute('role', 'tablist');
+  tabs.setAttribute('aria-label', 'Diagram');
+  for (const name of DIAGRAMS) {
+    const tab = document.createElement('a');
+    tab.className = 'diagram-tab';
+    tab.href = hrefFor('home', name);
+    tab.textContent = TAB_NAMES[name];
+    tab.setAttribute('role', 'tab');
+    tab.setAttribute('aria-controls', 'diagram-panel');
+    tab.setAttribute('aria-selected', String(name === current));
+    // Replace rather than add a history entry: switching tabs back and forth
+    // shouldn't make Back step through every switch.
+    tab.addEventListener('click', (event) => {
+      event.preventDefault();
+      location.replace(tab.href);
+    });
+    tabs.append(tab);
+  }
+  return tabs;
+}
+
+/**
+ * The last diagram shown, kept in this device's localStorage. A convenience
+ * only: if storage is blocked (private mode), it just starts on Receiver.
+ */
+function lastDiagram() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY);
+    return DIAGRAMS.includes(saved) ? saved : DIAGRAMS[0];
+  } catch {
+    return DIAGRAMS[0];
+  }
+}
+
+function rememberDiagram(name) {
+  try {
+    localStorage.setItem(STORAGE_KEY, name);
+  } catch {
+    // Not saved; nothing else depends on it.
+  }
 }
 
 /** "All product types": one button per category, in categories.yaml order, with its part count. */

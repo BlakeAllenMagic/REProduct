@@ -97,11 +97,11 @@ Datasheet files are content addressed: the filename is the SHA-256 of the PDF. W
 
 ### Block diagram
 
-- A hand-built SVG in `src/diagram/receiver.svg`. Each clickable block has `data-block="<block id>"`.
+- Two hand-built SVGs, `src/diagram/receiver.svg` and `src/diagram/transmitter.svg`, shown as Receiver / Transmitter tabs (`#/receiver`, `#/transmitter`; plain `#/` shows the last one used on the device). Each clickable block has `data-block="<block id>"`. Block ids are unique across both drawings (`rx_`, `tx_`, `lo_` prefixes for new ones).
 - `categories.yaml` decides which category each block opens, through each category's `blocks` list. The SVG holds no category ids, so remapping a block never means editing the drawing.
 - A category can appear in more than one block (for example, amplifiers at RF and IF).
 - Each block shows a part count badge, and blocks with zero parts look visibly disabled.
-- Later: transmitter and transceiver diagrams that use the same mechanism.
+- Waveguide parts, adapters, terminations, DC blocks and diplexers aren't signal-path stages; they're reached from the "All product types" grid.
 
 ## Offline strategy (most important section)
 

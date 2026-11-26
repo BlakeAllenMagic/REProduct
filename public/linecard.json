@@ -1,12 +1,17 @@
 {
-  "dataVersion": "2026-11-26T19:02:20Z",
+  "dataVersion": "2026-11-26T19:31:55Z",
   "categories": [
     {
       "id": "amplifier",
       "name": "Amplifiers",
       "blocks": [
         "lna",
-        "if_amp"
+        "if_amp",
+        "lo_amp",
+        "tx_lo_amp",
+        "tx_if_amp",
+        "tx_driver",
+        "tx_pa"
       ],
       "specs": [
         {
@@ -91,7 +96,10 @@
     {
       "id": "attenuator",
       "name": "Attenuators",
-      "blocks": [],
+      "blocks": [
+        "rx_atten",
+        "tx_atten"
+      ],
       "specs": [
         {
           "key": "family",
@@ -170,7 +178,10 @@
     {
       "id": "balun",
       "name": "Baluns and Pulse Inverters",
-      "blocks": [],
+      "blocks": [
+        "rx_balun",
+        "tx_balun"
+      ],
       "specs": [
         {
           "key": "family",
@@ -287,7 +298,9 @@
     {
       "id": "bias_tee",
       "name": "Bias Tees and DC Blocks",
-      "blocks": [],
+      "blocks": [
+        "rx_bias_tee"
+      ],
       "specs": [
         {
           "key": "family",
@@ -366,7 +379,9 @@
     {
       "id": "coupler",
       "name": "Couplers",
-      "blocks": [],
+      "blocks": [
+        "tx_coupler"
+      ],
       "specs": [
         {
           "key": "family",
@@ -563,7 +578,9 @@
     {
       "id": "equalizer",
       "name": "Equalizers",
-      "blocks": [],
+      "blocks": [
+        "tx_equalizer"
+      ],
       "specs": [
         {
           "key": "family",
@@ -622,7 +639,9 @@
       "name": "Filters",
       "blocks": [
         "rf_filter",
-        "if_filter"
+        "if_filter",
+        "tx_if_filter",
+        "tx_rf_filter"
       ],
       "specs": [
         {
@@ -762,7 +781,9 @@
     {
       "id": "limiter",
       "name": "Limiters",
-      "blocks": [],
+      "blocks": [
+        "rx_limiter"
+      ],
       "specs": [
         {
           "key": "family",
@@ -835,7 +856,8 @@
       "id": "mixer",
       "name": "Mixers",
       "blocks": [
-        "mixer"
+        "mixer",
+        "tx_mixer"
       ],
       "specs": [
         {
@@ -927,7 +949,8 @@
       "id": "multiplier",
       "name": "Multipliers",
       "blocks": [
-        "lo"
+        "lo_mult",
+        "tx_lo_mult"
       ],
       "specs": [
         {
@@ -1022,7 +1045,10 @@
     {
       "id": "oscillator",
       "name": "Oscillators",
-      "blocks": [],
+      "blocks": [
+        "lo_osc",
+        "tx_lo_osc"
+      ],
       "specs": [
         {
           "key": "family",
@@ -1085,7 +1111,10 @@
     {
       "id": "power_divider",
       "name": "Power Dividers",
-      "blocks": [],
+      "blocks": [
+        "lo_split",
+        "tx_lo_split"
+      ],
       "specs": [
         {
           "key": "family",
@@ -1157,7 +1186,10 @@
     {
       "id": "switch",
       "name": "Switches",
-      "blocks": [],
+      "blocks": [
+        "rx_switch",
+        "tx_switch"
+      ],
       "specs": [
         {
           "key": "family",
@@ -1231,7 +1263,9 @@
     {
       "id": "detector",
       "name": "Detectors",
-      "blocks": [],
+      "blocks": [
+        "tx_detector"
+      ],
       "specs": [
         {
           "key": "family",
@@ -1287,7 +1321,9 @@
     {
       "id": "isolator",
       "name": "Isolators",
-      "blocks": [],
+      "blocks": [
+        "tx_isolator"
+      ],
       "specs": [
         {
           "key": "family",

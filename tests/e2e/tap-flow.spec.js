@@ -29,10 +29,36 @@ test('diagram shows part counts and disables empty blocks', async ({ page }) => 
   await expect(badge('mixer')).toHaveText('3');
   await expect(badge('rf_filter')).toHaveText('4');
   await expect(badge('if_filter')).toHaveText('4');
-  for (const block of ['lo', 'if_amp', 'adc']) {
+  // Fixture categories only map lna, mixer and the filters; every other receiver block is empty.
+  for (const block of ['lo_osc', 'lo_mult', 'rx_limiter', 'rx_atten', 'if_amp', 'adc']) {
     await expect(page.locator(`[data-block="${block}"]`)).toHaveClass(/is-disabled/);
     await expect(badge(block)).toHaveCount(0);
   }
+});
+
+test('Receiver/Transmitter tabs: switch, open a TX block, come back to the same tab', async ({ page }) => {
+  await page.goto('#/');
+  const tab = (name) => page.getByRole('tab', { name });
+  await expect(tab('Receiver')).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('[data-block="tx_mixer"]')).toHaveCount(0);
+
+  await press(page, tab('Transmitter'));
+  await expect(page).toHaveURL(/#\/transmitter$/);
+  await expect(tab('Transmitter')).toHaveAttribute('aria-selected', 'true');
+  await expect(page.locator('[data-block="tx_mixer"] .block-badge text')).toHaveText('3');
+  await expect(page.locator('[data-block="dac"]')).toHaveClass(/is-disabled/);
+  const box = await tab('Transmitter').boundingBox();
+  expect(box.height).toBeGreaterThanOrEqual(44);
+
+  await press(page, page.locator('[data-block="tx_mixer"]'));
+  await expect(page).toHaveURL(/#\/category\/mixer$/);
+  await press(page, page.locator('#back')); // "‹ Diagram" goes to #/, which shows the last tab
+  await expect(tab('Transmitter')).toHaveAttribute('aria-selected', 'true');
+  await page.reload();
+  await expect(tab('Transmitter')).toHaveAttribute('aria-selected', 'true');
+
+  await press(page, tab('Receiver'));
+  await expect(page.locator('[data-block="lna"]')).toBeVisible();
 });
 
 test('"All product types" lists every category with its count', async ({ page }) => {

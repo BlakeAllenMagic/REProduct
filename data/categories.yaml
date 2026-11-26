@@ -20,7 +20,7 @@
 categories:
   - id: amplifier
     name: "Amplifiers"
-    blocks: [lna, if_amp]
+    blocks: [lna, if_amp, lo_amp, tx_lo_amp, tx_if_amp, tx_driver, tx_pa]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -38,7 +38,7 @@ categories:
 
   - id: attenuator
     name: "Attenuators"
-    blocks: []
+    blocks: [rx_atten, tx_atten]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -56,7 +56,7 @@ categories:
 
   - id: balun
     name: "Baluns and Pulse Inverters"
-    blocks: []
+    blocks: [rx_balun, tx_balun]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -79,7 +79,7 @@ categories:
 
   - id: bias_tee
     name: "Bias Tees and DC Blocks"
-    blocks: []
+    blocks: [rx_bias_tee]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -96,7 +96,7 @@ categories:
 
   - id: coupler
     name: "Couplers"
-    blocks: []
+    blocks: [tx_coupler]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -137,7 +137,7 @@ categories:
 
   - id: equalizer
     name: "Equalizers"
-    blocks: []
+    blocks: [tx_equalizer]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -151,7 +151,7 @@ categories:
 
   - id: filter
     name: "Filters"
-    blocks: [rf_filter, if_filter]
+    blocks: [rf_filter, if_filter, tx_if_filter, tx_rf_filter]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -178,7 +178,7 @@ categories:
 
   - id: limiter
     name: "Limiters"
-    blocks: []
+    blocks: [rx_limiter]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -194,7 +194,7 @@ categories:
 
   - id: mixer
     name: "Mixers"
-    blocks: [mixer]
+    blocks: [mixer, tx_mixer]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -213,7 +213,7 @@ categories:
 
   - id: multiplier
     name: "Multipliers"
-    blocks: [lo]
+    blocks: [lo_mult, tx_lo_mult]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -233,7 +233,7 @@ categories:
 
   - id: oscillator
     name: "Oscillators"
-    blocks: []
+    blocks: [lo_osc, tx_lo_osc]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -247,7 +247,7 @@ categories:
 
   - id: power_divider
     name: "Power Dividers"
-    blocks: []
+    blocks: [lo_split, tx_lo_split]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -263,7 +263,7 @@ categories:
 
   - id: switch
     name: "Switches"
-    blocks: []
+    blocks: [rx_switch, tx_switch]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -279,7 +279,7 @@ categories:
 
   - id: detector
     name: "Detectors"
-    blocks: []
+    blocks: [tx_detector]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -293,7 +293,7 @@ categories:
 
   - id: isolator
     name: "Isolators"
-    blocks: []
+    blocks: [tx_isolator]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }

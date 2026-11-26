@@ -58,7 +58,8 @@
       "id": "mixer",
       "name": "Mixers",
       "blocks": [
-        "mixer"
+        "mixer",
+        "tx_mixer"
       ],
       "specs": [
         {

@@ -32,7 +32,7 @@ categories:
 
   - id: mixer
     name: Mixers
-    blocks: [mixer]
+    blocks: [mixer, tx_mixer]
     specs:
       - { key: rf_min_ghz,   label: RF Min,    unit: GHz, type: number, required: true }
       - { key: rf_max_ghz,   label: RF Max,    unit: GHz, type: number, required: true }

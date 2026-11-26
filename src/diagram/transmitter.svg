@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 532" class="diagram-svg" role="group" aria-label="Transmitter block diagram">
+  <!--
+    Transmitter chain. Each tappable block is a <g data-block="...">.
+    Which category a block opens is decided by categories.yaml (blocks list),
+    never here. Part-count badges, disabled states and accessibility
+    attributes are added by src/views/diagram.js.
+    Layout: 7 columns at x = 72 + 128*col, rows at y = 56 + 128*row, blocks 92 x 72.
+  -->
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0 L10 5 L0 10 Z" class="diagram-arrowhead" />
+    </marker>
+  </defs>
+
+  <text x="20" y="36" class="diagram-title">Transmitter</text>
+  <g class="diagram-antenna">
+    <path d="M850 298 L878 298 L864 320 Z" />
+    <line x1="864" y1="320" x2="864" y2="348" />
+  </g>
+  <g class="diagram-wires">
+    <path d="M292 92 H326" marker-end="url(#arrow)" />
+    <path d="M420 92 H454" marker-end="url(#arrow)" />
+    <path d="M548 92 H582" marker-end="url(#arrow)" />
+    <path d="M630 128 V182" marker-end="url(#arrow)" />
+    <path d="M676 92 H736" marker-end="url(#arrow)" />
+    <path d="M8 220 H70" marker-end="url(#arrow)" />
+    <path d="M164 220 H198" marker-end="url(#arrow)" />
+    <path d="M292 220 H326" marker-end="url(#arrow)" />
+    <path d="M420 220 H454" marker-end="url(#arrow)" />
+    <path d="M548 220 H582" marker-end="url(#arrow)" />
+    <path d="M676 220 H710" marker-end="url(#arrow)" />
+    <path d="M804 220 H838" marker-end="url(#arrow)" />
+    <path d="M932 220 H968 V284 H36 V348 H70" marker-end="url(#arrow)" />
+    <path d="M164 348 H198" marker-end="url(#arrow)" />
+    <path d="M292 348 H326" marker-end="url(#arrow)" />
+    <path d="M420 348 H454" marker-end="url(#arrow)" />
+    <path d="M548 348 H582" marker-end="url(#arrow)" />
+    <path d="M676 348 H710" marker-end="url(#arrow)" />
+    <path d="M804 348 H864" />
+    <path d="M630 384 V438" marker-end="url(#arrow)" />
+  </g>
+  <text x="186" y="97" class="diagram-note" text-anchor="end">LO chain</text>
+  <text x="708" y="82" class="diagram-note" text-anchor="middle">to RX</text>
+  <text x="28" y="206" class="diagram-note" text-anchor="middle">DSP</text>
+  <text x="572" y="470" class="diagram-note" text-anchor="end">Power monitor</text>
+
+  <g data-block="tx_lo_osc" class="block">
+    <rect x="200" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <circle class="block-symbol" cx="246" cy="83" r="14" />
+    <path class="block-symbol" d="M237 83 q4.5 -9 9 0 t9 0" />
+    <text x="246" y="119" class="block-label">Oscillator</text>
+  </g>
+  <g data-block="tx_lo_mult" class="block">
+    <rect x="328" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <text x="374" y="90" class="block-glyph">×N</text>
+    <text x="374" y="119" class="block-label">Multiplier</text>
+  </g>
+  <g data-block="tx_lo_amp" class="block">
+    <rect x="456" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M489 68 L518 83 L489 98 Z" />
+    <text x="502" y="119" class="block-label">LO Amp</text>
+  </g>
+  <g data-block="tx_lo_split" class="block">
+    <rect x="584" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M612 83 H626 L646 71 M626 83 L646 95" />
+    <text x="630" y="119" class="block-label">Divider</text>
+  </g>
+  <g data-block="dac" class="block">
+    <rect x="72" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M98 196 H138 V226 H98 Z M98 226 L138 196" />
+    <text x="118" y="247" class="block-label">DAC</text>
+  </g>
+  <g data-block="tx_balun" class="block">
+    <rect x="200" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M228 211 H240 M240 199 V223 M250 199 V223 M250 203 H264 M250 219 H264" />
+    <text x="246" y="247" class="block-label">Balun</text>
+  </g>
+  <g data-block="tx_if_filter" class="block">
+    <rect x="328" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M356 203 q4.5 -7 9 0 t9 0 t9 0 t9 0" />
+    <path class="block-symbol" d="M356 213 q4.5 -7 9 0 t9 0 t9 0 t9 0" />
+    <path class="block-symbol" d="M356 223 q4.5 -7 9 0 t9 0 t9 0 t9 0" />
+    <text x="374" y="247" class="block-label">IF Filter</text>
+  </g>
+  <g data-block="tx_if_amp" class="block">
+    <rect x="456" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M489 196 L518 211 L489 226 Z" />
+    <text x="502" y="247" class="block-label">IF Amp</text>
+  </g>
+  <g data-block="tx_mixer" class="block">
+    <rect x="584" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <circle class="block-symbol" cx="630" cy="211" r="14" />
+    <path class="block-symbol" d="M620 201 L640 221 M640 201 L620 221" />
+    <text x="630" y="247" class="block-label">Mixer</text>
+  </g>
+  <g data-block="tx_rf_filter" class="block">
+    <rect x="712" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M740 203 q4.5 -7 9 0 t9 0 t9 0 t9 0" />
+    <path class="block-symbol" d="M740 213 q4.5 -7 9 0 t9 0 t9 0 t9 0" />
+    <path class="block-symbol" d="M740 223 q4.5 -7 9 0 t9 0 t9 0 t9 0" />
+    <text x="758" y="247" class="block-label">RF Filter</text>
+  </g>
+  <g data-block="tx_equalizer" class="block">
+    <rect x="840" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M870 197 V223 H902 M874 218 L900 200" />
+    <text x="886" y="247" class="block-label">Equalizer</text>
+  </g>
+  <g data-block="tx_atten" class="block">
+    <rect x="72" y="312" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M100 339 H106 l3 -7 l6 14 l6 -14 l6 14 l3 -7 H136" />
+    <text x="118" y="375" class="block-label">Attenuator</text>
+  </g>
+  <g data-block="tx_driver" class="block">
+    <rect x="200" y="312" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M233 324 L262 339 L233 354 Z" />
+    <text x="246" y="375" class="block-label">Driver</text>
+  </g>
+  <g data-block="tx_pa" class="block">
+    <rect x="328" y="312" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M361 324 L390 339 L361 354 Z" />
+    <text x="374" y="375" class="block-label">PA</text>
+  </g>
+  <g data-block="tx_isolator" class="block">
+    <rect x="456" y="312" width="92" height="72" rx="10" class="block-bg" />
+    <circle class="block-symbol" cx="502" cy="339" r="14" />
+    <path class="block-symbol" d="M495 343 A8 8 0 1 1 509 343 M509 343 l-1 -6 M509 343 l-6 -1" />
+    <text x="502" y="375" class="block-label">Isolator</text>
+  </g>
+  <g data-block="tx_coupler" class="block">
+    <rect x="584" y="312" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M612 333 H648 M618 345 H642" />
+    <text x="630" y="375" class="block-label">Coupler</text>
+  </g>
+  <g data-block="tx_switch" class="block">
+    <rect x="712" y="312" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M740 339 H750 L768 329 M770 329 H776 M770 349 H776" />
+    <circle class="block-symbol" cx="750" cy="339" r="2" />
+    <circle class="block-symbol" cx="770" cy="349" r="2" />
+    <text x="758" y="375" class="block-label">Switch</text>
+  </g>
+  <g data-block="tx_detector" class="block">
+    <rect x="584" y="440" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M612 467 H624 M624 458 L636 467 L624 476 Z M636 458 V476 M636 467 H648" />
+    <text x="630" y="503" class="block-label">Detector</text>
+  </g>
+</svg>

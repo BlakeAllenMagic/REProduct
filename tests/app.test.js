@@ -18,10 +18,15 @@ test('parseHash: known routes', () => {
   assert.deepEqual(parseHash('#/part/acme-alm1234'), { name: 'part', id: 'acme-alm1234' });
   assert.deepEqual(parseHash('#/settings'), { name: 'settings' });
   assert.equal(hrefFor('settings'), '#/settings');
+  assert.deepEqual(parseHash('#/transmitter'), { name: 'home', diagram: 'transmitter' });
+  assert.deepEqual(parseHash('#/receiver'), { name: 'home', diagram: 'receiver' });
+  assert.equal(hrefFor('home', 'transmitter'), '#/transmitter');
+  assert.equal(hrefFor('home'), '#/');
 });
 
 test('parseHash: junk goes home', () => {
   assert.deepEqual(parseHash('#/category'), { name: 'home' });
+  assert.deepEqual(parseHash('#/transmitter/x'), { name: 'home' });
   assert.deepEqual(parseHash('#/nope/x'), { name: 'home' });
   assert.deepEqual(parseHash('#/part/a/b'), { name: 'home' });
 });
