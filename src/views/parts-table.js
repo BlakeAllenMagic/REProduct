@@ -6,9 +6,11 @@ import { downloads, getSavedHashes, itemsForParts } from '../offline/downloads.j
 import { isRecentlyUpdated } from '../offline/update-plan.js';
 import { attachPinch } from '../pdf/pinch.js';
 import { hrefFor } from '../router.js';
+import { activeCount, filtersFor, matches } from '../table-filter.js';
 import { columnsFor, nextSort, sortParts } from '../table-sort.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
+import { createFilterPanel } from '../ui/filter-panel.js';
 import { showError } from '../ui/errors.js';
 import { isPageZoomed, watchPageZoom } from '../ui/page-zoom.js';
 import { applyTextSize, readTextSize, setTextSize, TEXT_SIZE } from '../ui/text-size.js';
@@ -16,6 +18,8 @@ import { applyTextSize, readTextSize, setTextSize, TEXT_SIZE } from '../ui/text-
 // Sort order per category, kept while the app is open, so opening a
 // datasheet and coming back keeps the table as it was.
 const sortByCategory = new Map(); // category id -> { key, dir }
+// Filters per category, kept the same way (reset when the app is closed).
+const filterByCategory = new Map(); // category id -> { state, open }
 
 export function renderPartsTable(container, ctx, route) {
   const category = ctx.categories.get(route.id);
@@ -55,12 +59,59 @@ export function renderPartsTable(container, ctx, route) {
 
   const table = el('table', { class: 'parts-table' }, makeHead(columns, headers, onSort), tbody);
   applySort();
-  const count = el('p', { class: 'table-count' }, `${parts.length} part${parts.length === 1 ? '' : 's'}`);
+  const count = el('p', { class: 'table-count', 'aria-live': 'polite' });
   const downloadButton = button('Download this category', () => downloadParts(parts));
   const sizer = textSizeControls(table);
-  const toolbar = el('div', { class: 'table-toolbar' }, count, sizer.element, downloadButton);
+
+  // ---- Filters ----
+  const filters = filtersFor(columns, parts);
+  if (!filterByCategory.has(category.id)) filterByCategory.set(category.id, { state: {}, open: false });
+  const saved = filterByCategory.get(category.id);
+  const noMatch = el('p', { class: 'filter-empty', hidden: true }, 'No parts match these filters.');
+  const filterButton = button('Filter', () => togglePanel(), {
+    'aria-expanded': 'false',
+    'aria-controls': 'filter-panel',
+    hidden: filters.length === 0,
+  });
+  const panelSlot = el('div', { id: 'filter-panel', hidden: true });
+  const applyFilters = () => {
+    let shown = 0;
+    for (const part of parts) {
+      const visible = matches(part, filters, saved.state);
+      rows.get(part.id).hidden = !visible;
+      if (visible) shown += 1;
+    }
+    const on = activeCount(filters, saved.state);
+    const noun = `part${parts.length === 1 ? '' : 's'}`;
+    count.textContent = on ? `${shown} of ${parts.length} ${noun}` : `${parts.length} ${noun}`;
+    filterButton.textContent = on ? `Filter (${on})` : 'Filter';
+    filterButton.classList.toggle('is-on', on > 0);
+    noMatch.hidden = shown > 0;
+  };
+  const buildPanel = () => {
+    panelSlot.replaceChildren(
+      createFilterPanel({
+        filters,
+        state: saved.state,
+        onChange: (how) => {
+          if (how?.rebuild) buildPanel(); // "Clear all": fresh, empty controls
+          applyFilters();
+        },
+      }),
+    );
+  };
+  const togglePanel = (open = !saved.open) => {
+    saved.open = open;
+    panelSlot.hidden = !open;
+    filterButton.setAttribute('aria-expanded', String(open));
+    if (open && !panelSlot.firstChild) buildPanel();
+  };
+  togglePanel(saved.open);
+  applyFilters();
+
+  const toolbar = el('div', { class: 'table-toolbar' }, count, filterButton, sizer.element, downloadButton);
   const scroller = el('div', { class: 'table-scroll' }, table);
-  container.append(toolbar, scroller);
+  container.append(toolbar, panelSlot, noMatch, scroller);
   // If the page itself is zoomed in (e.g. pinched on the diagram before
   // opening this table), pinches go to the browser so it can zoom back out;
   // only at normal page zoom do they resize the table text.

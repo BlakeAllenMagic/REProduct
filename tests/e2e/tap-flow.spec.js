@@ -191,6 +191,38 @@ test('a part page lists its specs, with or without a datasheet', async ({ page }
   await expect(panel).toBeHidden();
 });
 
+test('table filters: choices, at most, covers, kept after opening a part, clear all', async ({ page }) => {
+  await page.goto('#/category/filter');
+  const count = page.locator('.table-count');
+  const rows = page.locator('.part-row:visible');
+  await expect(count).toHaveText('4 parts');
+  await press(page, page.getByRole('button', { name: 'Filter', exact: true }));
+  const panel = page.getByRole('region', { name: 'Filters' });
+  await expect(panel).toBeVisible();
+
+  await press(page, panel.getByRole('button', { name: 'bandpass' }));
+  await expect(count).toHaveText('2 of 4 parts');
+  await panel.getByLabel('IL (dB), at most').fill('1');
+  await expect(count).toHaveText('1 of 4 parts');
+  await expect(rows).toHaveCount(1);
+  await expect(rows.first()).toContainText('KSF-1575');
+  await expect(page.getByRole('button', { name: 'Filter (2)' })).toBeVisible();
+
+  // Opening a part and coming back keeps the filters (and the open panel).
+  await press(page, rows.first().locator('td').first());
+  await expect(page).toHaveURL(/#\/part\//);
+  await press(page, page.locator('#back'));
+  await expect(count).toHaveText('1 of 4 parts');
+  await expect(panel.getByLabel('IL (dB), at most')).toHaveValue('1');
+
+  await press(page, panel.getByRole('button', { name: 'Clear all' }));
+  await expect(count).toHaveText('4 parts');
+  await panel.getByLabel('Pass covers (GHz)').fill('5');
+  await expect(count).toHaveText('2 of 4 parts'); // AFH-1000 (1 to 8) and NFL-6000 (0 to 6)
+  await panel.getByLabel('Pass covers (GHz)').fill('50');
+  await expect(page.getByText('No parts match these filters.')).toBeVisible();
+});
+
 test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });

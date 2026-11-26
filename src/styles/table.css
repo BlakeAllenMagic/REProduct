@@ -189,3 +189,99 @@
     min-height: 32px;
   }
 }
+
+/* ---- Filter panel (src/ui/filter-panel.js) ---- */
+
+.filter-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 12px 24px;
+  max-width: 1400px;
+  margin: 0 auto 12px;
+  padding: 14px 16px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.filter-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-label {
+  color: var(--text-muted);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.filter-inline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  color: var(--text-muted);
+}
+
+.filter-number,
+.filter-text {
+  min-height: var(--tap);
+  padding: 0 10px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--bg);
+  color: var(--text);
+  font: inherit;
+  font-size: 16px; /* 16 px or more: iPad Safari doesn't zoom in when typing */
+}
+
+.filter-number {
+  width: 6em;
+}
+
+.filter-text {
+  width: 100%;
+}
+
+.filter-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.filter-chip {
+  border-radius: 999px;
+}
+
+.filter-chip[aria-pressed='true'],
+.table-toolbar .btn.is-on {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.filter-actions {
+  grid-column: 1 / -1;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.filter-empty {
+  max-width: 1400px;
+  margin: 0 auto 12px;
+  color: var(--text-muted);
+}
+
+@media (max-width: 700px), (max-height: 500px) {
+  .filter-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .filter-number,
+  .filter-text,
+  .filter-chip {
+    min-height: 32px;
+  }
+}
