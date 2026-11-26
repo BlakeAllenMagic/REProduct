@@ -240,6 +240,18 @@ test('phone: each filter row stays on one line', async ({ page }) => {
   }
 });
 
+test('home screen shows the logo in the top bar; other screens show their title', async ({ page }) => {
+  await page.goto('#/');
+  const logo = page.locator('#title img.topbar-logo');
+  await expect(logo).toBeVisible();
+  expect(await logo.evaluate((img) => img.complete && img.naturalWidth > 0)).toBe(true);
+  const box = await logo.boundingBox();
+  expect(box.height).toBeLessThanOrEqual(40);
+  await page.goto('#/category/filter');
+  await expect(page.locator('#title')).toHaveText('Filters');
+  await expect(page.locator('#title img')).toHaveCount(0);
+});
+
 test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });

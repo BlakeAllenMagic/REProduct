@@ -40,7 +40,7 @@ export function renderDiagram(container, ctx, route = {}) {
   }
 
   container.append(productTypes(ctx));
-  return { title: 'RF Line Card' };
+  return { title: 'RF Line Card', logo: true }; // the home screen shows the firm's logo
 }
 
 /** Receiver | Transmitter switch. Links, so Back and swipe-back move between them. */

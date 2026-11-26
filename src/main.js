@@ -6,6 +6,7 @@ import { startRouter } from './router.js';
 import { registerServiceWorker } from './offline/register-sw.js';
 import { installUpdates } from './offline/updates.js';
 import { installDownloadChip } from './ui/download-chip.js';
+import { el } from './ui/dom.js';
 import { installErrorHandling, showError } from './ui/errors.js';
 import { installTopbarFit } from './ui/fit-topbar.js';
 import { captureInstallPrompt, showInstallHintOnce } from './ui/install.js';
@@ -62,7 +63,16 @@ async function show(ctx, route) {
       return;
     }
     current = result;
-    els.title.textContent = result?.title ?? 'RF Line Card';
+    if (result?.logo) {
+      // Home screen: the rep firm's logo instead of the title text. The image
+      // ships with the app (public/brand/), so it's cached for offline use.
+      els.title.replaceChildren(
+        el('img', { class: 'topbar-logo', src: 'brand/logo.png', alt: 'G2CMI', width: 360, height: 176 }),
+        el('span', { class: 'visually-hidden' }, ` ${result.title}`),
+      );
+    } else {
+      els.title.textContent = result?.title ?? 'RF Line Card';
+    }
     document.title = result?.title ? `${result.title} · RF Line Card` : 'RF Line Card';
     if (result?.back) {
       els.back.href = result.back.href;

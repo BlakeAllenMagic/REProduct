@@ -116,7 +116,7 @@ test('service worker is active and the shell cache holds the app files', async (
   });
   expect(caches.names.some((n) => n.startsWith('shell-'))).toBe(true);
   // The page is saved as "/" (not /index.html, which Cloudflare redirects).
-  for (const file of ['/', '/linecard.json', '/manifest.webmanifest', '/icons/icon-192.png']) {
+  for (const file of ['/', '/linecard.json', '/manifest.webmanifest', '/icons/icon-192.png', '/brand/logo.png']) {
     expect(caches.keys).toContain(file);
   }
   expect(caches.keys.some((k) => /\/assets\/pdf\.worker.*\.mjs$/.test(k))).toBe(true);

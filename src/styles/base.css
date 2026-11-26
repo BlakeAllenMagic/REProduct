@@ -279,3 +279,29 @@ a {
     padding: 0 8px;
   }
 }
+
+/* The rep firm's logo in the home screen's top bar. Height-limited so it
+   fits the 56 pt bar (44 pt on phones); width follows the image. */
+.topbar-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+  margin: 0 auto;
+}
+
+@media (max-width: 700px), (max-height: 500px) {
+  .topbar-logo {
+    height: 32px;
+  }
+}
+
+/* Read by screen readers, not shown. */
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
