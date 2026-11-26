@@ -74,6 +74,50 @@ test('"All product types" lists every category with its count', async ({ page })
   await expect(page.locator('.part-row')).toHaveCount(4);
 });
 
+test('table text size: A+ / A−, remembered, rows stay tappable', async ({ page }) => {
+  await page.goto('#/category/filter');
+  const cell = page.locator('.part-row').first().locator('td').nth(1);
+  const fontSize = async () => parseFloat(await cell.evaluate((td) => getComputedStyle(td).fontSize));
+  const value = page.getByRole('button', { name: 'Reset table text size' });
+  await expect(value).toHaveText('100%');
+  const before = await fontSize();
+
+  for (let i = 0; i < 3; i++) await press(page, page.getByRole('button', { name: 'Bigger table text' }));
+  await expect(value).toHaveText('130%');
+  expect(await fontSize()).toBeCloseTo(before * 1.3, 0);
+  await page.reload();
+  await expect(value).toHaveText('130%');
+
+  // Smallest size: text shrinks, rows don't drop below the 44 pt tap target.
+  for (let i = 0; i < 5; i++) await page.getByRole('button', { name: 'Smaller table text' }).click();
+  await expect(value).toHaveText('80%');
+  await expect(page.getByRole('button', { name: 'Smaller table text' })).toBeDisabled();
+  const rowHeight = (await page.locator('.part-row').first().boundingBox()).height;
+  expect(rowHeight).toBeGreaterThanOrEqual(44);
+
+  await press(page, value);
+  await expect(value).toHaveText('100%');
+});
+
+test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {
+  test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
+  await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto('#/category/filter');
+  const value = page.getByRole('button', { name: 'Reset table text size' });
+  await expect(value).toHaveText('100%');
+  const box = await page.locator('.table-scroll').boundingBox();
+  const y = box.y + 80;
+  const cx = box.x + box.width / 2;
+
+  const cdp = await context.newCDPSession(page);
+  const touch = (type, points) =>
+    cdp.send('Input.dispatchTouchEvent', { type, touchPoints: points.map(([x, py], id) => ({ x, y: py, id })) });
+  await touch('touchStart', [[cx - 50, y], [cx + 50, y]]);
+  for (let d = 60; d <= 75; d += 5) await touch('touchMove', [[cx - d, y], [cx + d, y]]);
+  await touch('touchEnd', []);
+  await expect(value).toHaveText('150%'); // fingers went from 100 px to 150 px apart
+});
+
 test('full tap flow: block, table, datasheet, and back', async ({ page }) => {
   await page.goto('#/');
 

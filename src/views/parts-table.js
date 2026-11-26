@@ -4,11 +4,13 @@
 import { specHeader, specValue, MISSING } from '../format.js';
 import { downloads, getSavedHashes, itemsForParts } from '../offline/downloads.js';
 import { isRecentlyUpdated } from '../offline/update-plan.js';
+import { attachPinch } from '../pdf/pinch.js';
 import { hrefFor } from '../router.js';
 import { columnsFor, nextSort, sortParts } from '../table-sort.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
 import { showError } from '../ui/errors.js';
+import { applyTextSize, readTextSize, setTextSize, TEXT_SIZE } from '../ui/text-size.js';
 
 // Sort order per category, kept while the app is open, so opening a
 // datasheet and coming back keeps the table as it was.
@@ -54,8 +56,11 @@ export function renderPartsTable(container, ctx, route) {
   applySort();
   const count = el('p', { class: 'table-count' }, `${parts.length} part${parts.length === 1 ? '' : 's'}`);
   const downloadButton = button('Download this category', () => downloadParts(parts));
-  const toolbar = el('div', { class: 'table-toolbar' }, count, downloadButton);
-  container.append(toolbar, el('div', { class: 'table-scroll' }, table));
+  const sizer = textSizeControls(table);
+  const toolbar = el('div', { class: 'table-toolbar' }, count, sizer.element, downloadButton);
+  const scroller = el('div', { class: 'table-scroll' }, table);
+  container.append(toolbar, scroller);
+  const detachPinch = attachPinch(scroller, sizer.pinch);
 
   const items = itemsForParts(parts);
   let destroyed = false;
@@ -88,7 +93,49 @@ export function renderPartsTable(container, ctx, route) {
     back,
     destroy() {
       destroyed = true;
+      detachPinch();
       for (const type of ['saved', 'finished', 'progress']) downloads.removeEventListener(type, update);
+    },
+  };
+}
+
+/**
+ * A− / 100% / A+ buttons, and the pinch handlers, for the table text size.
+ * During a pinch the table is only scaled with a transform (cheap, smooth);
+ * on release the real size is set and the table re-lays out.
+ */
+function textSizeControls(table) {
+  let size = readTextSize();
+  applyTextSize(size);
+  const value = button('', () => commit(TEXT_SIZE.default), {
+    class: 'btn text-size-value',
+    'aria-label': 'Reset table text size',
+  });
+  const smaller = button('A−', () => commit(size - TEXT_SIZE.step), { 'aria-label': 'Smaller table text' });
+  const bigger = button('A+', () => commit(size + TEXT_SIZE.step), { 'aria-label': 'Bigger table text' });
+  const show = () => {
+    value.textContent = `${Math.round(size * 100)}%`;
+    smaller.disabled = size <= TEXT_SIZE.min;
+    bigger.disabled = size >= TEXT_SIZE.max;
+  };
+  const commit = (next) => {
+    table.classList.remove('is-pinching');
+    table.style.transform = '';
+    size = setTextSize(next);
+    show();
+  };
+  show();
+  return {
+    element: el('div', { class: 'text-size', role: 'group', 'aria-label': 'Table text size' }, smaller, value, bigger),
+    pinch: {
+      onChange(scale) {
+        const preview = Math.min(TEXT_SIZE.max, Math.max(TEXT_SIZE.min, size * scale)) / size;
+        table.classList.add('is-pinching');
+        table.style.transform = `scale(${preview})`;
+      },
+      onEnd(scale) {
+        commit(size * scale);
+      },
     },
   };
 }
