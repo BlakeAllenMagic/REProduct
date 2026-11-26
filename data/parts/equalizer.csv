@@ -1,22 +1,70 @@
 manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,low_freq_atten_db,return_loss_db,case,notes,eccn
-Marki Microwave,EQX-26,"Equalizers, Positive Slope, DC to 26 GHz",,,Positive Slope,Connectorized,0,26,,,,"Low Freq Atten: 3, 6; Return Loss: 21, 15",EAR99
-Marki Microwave,MEQX-26ABH,"Equalizers, Positive Slope, DC to 26.5 GHz",,,Positive Slope,Connectorized,0,26.5,,,,"Low Freq Atten: 3 , 6 , 10; Return Loss: 26, 26, 27",EAR99
-Marki Microwave,MEQX-26AS,"Equalizers, Positive Slope, DC to 26.5 GHz",,,Positive Slope,Connectorized,0,26.5,,,,"Low Freq Atten: 3, 6 , 10; Return Loss: 18, 20, 20",EAR99
-Marki Microwave,EQX-40,"Equalizers, Positive Slope, DC to 40 GHz",,,Positive Slope,Connectorized,0,40,,18,,"Low Freq Atten: 3, 6",EAR99
-Marki Microwave,MEQX-40ABH,"Equalizers, Positive Slope, DC to 40 GHz",,,Positive Slope,Connectorized,0,40,,,,"Low Freq Atten: 6 , 10; Return Loss: 24, 25",EAR99
+Marki Microwave,EQ3-26,"Equalizers, Positive Slope, DC to 26 GHz",,,Positive Slope,Connectorized,0,26,3,21,,,EAR99
+Marki Microwave,EQ6-26,"Equalizers, Positive Slope, DC to 26 GHz",,,Positive Slope,Connectorized,0,26,6,15,,,EAR99
+Marki Microwave,MEQ3-26ABH,"Equalizers, Positive Slope, DC to 26.5 GHz",,,Positive Slope,Connectorized,0,26.5,3,26,,,EAR99
+Marki Microwave,MEQ6-26ABH,"Equalizers, Positive Slope, DC to 26.5 GHz",,,Positive Slope,Connectorized,0,26.5,6,26,,,EAR99
+Marki Microwave,MEQ10-26ABH,"Equalizers, Positive Slope, DC to 26.5 GHz",,,Positive Slope,Connectorized,0,26.5,10,27,,,EAR99
+Marki Microwave,MEQ3-26AS,"Equalizers, Positive Slope, DC to 26.5 GHz",,,Positive Slope,Connectorized,0,26.5,3,18,,,EAR99
+Marki Microwave,MEQ6-26AS,"Equalizers, Positive Slope, DC to 26.5 GHz",,,Positive Slope,Connectorized,0,26.5,6,20,,,EAR99
+Marki Microwave,MEQ10-26AS,"Equalizers, Positive Slope, DC to 26.5 GHz",,,Positive Slope,Connectorized,0,26.5,10,20,,,EAR99
+Marki Microwave,EQ3-40,"Equalizers, Positive Slope, DC to 40 GHz",,,Positive Slope,Connectorized,0,40,3,18,,,EAR99
+Marki Microwave,EQ6-40,"Equalizers, Positive Slope, DC to 40 GHz",,,Positive Slope,Connectorized,0,40,6,18,,,EAR99
+Marki Microwave,MEQ6-40ABH,"Equalizers, Positive Slope, DC to 40 GHz",,,Positive Slope,Connectorized,0,40,6,24,,,EAR99
+Marki Microwave,MEQ10-40ABH,"Equalizers, Positive Slope, DC to 40 GHz",,,Positive Slope,Connectorized,0,40,10,25,,,EAR99
 Marki Microwave,MEQ10-50AU,"Equalizers, Positive Slope, DC to 50 GHz",,,Positive Slope,Connectorized,0,50,10,15,,,EAR99
-Marki Microwave,MEQX-60ABH,"Equalizers, Positive Slope, DC to 60 GHz",,,Positive Slope,Connectorized,0,60,,,,"Low Freq Atten: 4, 6 , 10; Return Loss: 25, 24, 22",EAR99
-Marki Microwave,MEQX-7ASM,"Equalizers, Positive Slope, DC to 7 GHz",,https://www.markimicrowave.com/products/surface-mount/equalizers/meq10-7asm/datasheet/,Positive Slope,Surface mount,0,7,,,3mm QFN,"Low Freq Atten: 3, 6, 10, 12.5; Return Loss: 29, 29, 27, 27",EAR99
-Marki Microwave,MEQX-14ASM,"Equalizers, Positive Slope, DC to 14 GHz",,https://markimicrowave.com/products/surface-mount/equalizers/meq14-14asm/datasheet/,Positive Slope,Surface mount,0,14,,,3mm QFN,"Low Freq Atten: 3, 6, 10, 14; Return Loss: 23, 28, 29, 29",EAR99
-Marki Microwave,MEQX-20ASM,"Equalizers, Positive Slope, DC to 20 GHz",,https://www.markimicrowave.com/products/surface-mount/equalizers/meq0-20asm/datasheet/,Positive Slope,Surface mount,0,20,,,3mm QFN,"Low Freq Atten: 0, 3, 5, 6, 7.5, 10, 11; Return Loss: 23, 19, 22, 23, 26, 20, 27",EAR99
-Marki Microwave,MEQX-20CSP1,"Equalizers, Positive Slope, DC to 20 GHz",,https://www.markimicrowave.com/products/surface-mount/equalizers/meq20-20csp1/datasheet/,Positive Slope,Surface mount,0,20,,,1.5mm CSP1,"Low Freq Atten: 3, 6, 9, 20; Return Loss: 25, 25, 25, 25",EAR99
-Marki Microwave,MEQX-26CSP1,"Equalizers, Positive Slope, DC to 26 GHz",,https://www.markimicrowave.com/products/surface-mount/equalizers/meq10-26csp1/datasheet/,Positive Slope,Surface mount,0,26,,,1.5mm CSP1,"Low Freq Atten: 6, 10; Return Loss: 23, 17",EAR99
-Marki Microwave,MEQX-40CSP1,"Equalizers, Positive Slope, DC to 40 GHz",,,Positive Slope,Surface mount,0,40,,,1.5mm CSP1,"Low Freq Atten: 3, 6, 9, 20; Return Loss: 26, 21, 23, 23",EAR99
-Marki Microwave,MEQX-45CSP1,"Equalizers, Positive Slope, DC to 45 GHz",,https://www.markimicrowave.com/products/surface-mount/equalizers/meq10-45csp1/datasheet/,Positive Slope,Surface mount,0,45,,,1.5mm CSP1,"Low Freq Atten: 6, 10; Return Loss: 17, 13",EAR99
-Marki Microwave,MEQX-67CSP1,"Equalizers, Positive Slope, DC to 67 GHz",,https://markimicrowave.com/products/surface-mount/equalizers/meq9-67csp1/datasheet/,Positive Slope,Surface mount,0,67,,,1.5mm CSP1,"Low Freq Atten: 6, 9; Return Loss: 25, 24",EAR99
-Marki Microwave,MEQX-7ACH,"Equalizers, Positive Slope, DC to 7 GHz",,https://www.markimicrowave.com/products/bare-die/equalizers/meq10-7ach/datasheet/,Positive Slope,Bare die,0,7,,,,"Low Freq Atten: 3, 6, 10, 12; Return Loss: 29, 29, 27, 29",EAR99
-Marki Microwave,MEQX-14ACH,"Equalizers, Positive Slope, DC to 14 GHz",,https://www.markimicrowave.com/products/bare-die/equalizers/meq10-14ach/datasheet/,Positive Slope,Bare die,0,14,,,,"Low Freq Atten: 3, 6, 10; Return Loss: 23, 22, 23",EAR99
-Marki Microwave,MEQX-20ACH,"Equalizers, Positive Slope, DC to 20 GHz",,https://www.markimicrowave.com/products/bare-die/equalizers/meq10-20ach/datasheet/,Positive Slope,Bare die,0,20,,,,"Low Freq Atten: 3, 5, 6, 7, 10, 11; Return Loss: 21, 22, 21, 23, 25, 23",EAR99
-Marki Microwave,MEQX-30ACH,"Equalizers, Positive Slope, DC to 30 GHz",,https://www.markimicrowave.com/products/bare-die/equalizers/meq10-30ach/datasheet/,Positive Slope,Bare die,0,30,,,,"Low Freq Atten: 3, 6, 10; Return Loss: 20, 20, 20",EAR99
-Marki Microwave,MEQX-60ACH,"Equalizers, Positive Slope, DC to 60 GHz",,https://www.markimicrowave.com/products/bare-die/equalizers/meq10-60ach/datasheet/,Positive Slope,Bare die,0,60,,,,"Low Freq Atten: 3, 6, 10; Return Loss: 15, 15, 15",EAR99
-Marki Microwave,MEQX-70ACH,"Equalizers, Positive Slope, DC to 70 GHz",,https://markimicrowave.com/products/bare-die/equalizers/meq0-70ach/datasheet/,Positive Slope,Bare die,0,70,,,,"Low Freq Atten: 0, 4, 6, 8, 10; Return Loss: 31, 31, 33, 29, 25",EAR99
+Marki Microwave,MEQ4-60ABH,"Equalizers, Positive Slope, DC to 60 GHz",,,Positive Slope,Connectorized,0,60,4,25,,,EAR99
+Marki Microwave,MEQ6-60ABH,"Equalizers, Positive Slope, DC to 60 GHz",,,Positive Slope,Connectorized,0,60,6,24,,,EAR99
+Marki Microwave,MEQ10-60ABH,"Equalizers, Positive Slope, DC to 60 GHz",,,Positive Slope,Connectorized,0,60,10,22,,,EAR99
+Marki Microwave,MEQ3-7ASM,"Equalizers, Positive Slope, DC to 7 GHz",,,Positive Slope,Surface mount,0,7,3,29,3mm QFN,,EAR99
+Marki Microwave,MEQ6-7ASM,"Equalizers, Positive Slope, DC to 7 GHz",,,Positive Slope,Surface mount,0,7,6,29,3mm QFN,,EAR99
+Marki Microwave,MEQ10-7ASM,"Equalizers, Positive Slope, DC to 7 GHz",,https://www.markimicrowave.com/products/surface-mount/equalizers/meq10-7asm/datasheet/,Positive Slope,Surface mount,0,7,10,27,3mm QFN,,EAR99
+Marki Microwave,MEQ12.5-7ASM,"Equalizers, Positive Slope, DC to 7 GHz",,,Positive Slope,Surface mount,0,7,12.5,27,3mm QFN,,EAR99
+Marki Microwave,MEQ3-14ASM,"Equalizers, Positive Slope, DC to 14 GHz",,,Positive Slope,Surface mount,0,14,3,23,3mm QFN,,EAR99
+Marki Microwave,MEQ6-14ASM,"Equalizers, Positive Slope, DC to 14 GHz",,,Positive Slope,Surface mount,0,14,6,28,3mm QFN,,EAR99
+Marki Microwave,MEQ10-14ASM,"Equalizers, Positive Slope, DC to 14 GHz",,,Positive Slope,Surface mount,0,14,10,29,3mm QFN,,EAR99
+Marki Microwave,MEQ14-14ASM,"Equalizers, Positive Slope, DC to 14 GHz",,https://markimicrowave.com/products/surface-mount/equalizers/meq14-14asm/datasheet/,Positive Slope,Surface mount,0,14,14,29,3mm QFN,,EAR99
+Marki Microwave,MEQ0-20ASM,"Equalizers, Positive Slope, DC to 20 GHz",,https://www.markimicrowave.com/products/surface-mount/equalizers/meq0-20asm/datasheet/,Positive Slope,Surface mount,0,20,0,23,3mm QFN,,EAR99
+Marki Microwave,MEQ3-20ASM,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Surface mount,0,20,3,19,3mm QFN,,EAR99
+Marki Microwave,MEQ5-20ASM,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Surface mount,0,20,5,22,3mm QFN,,EAR99
+Marki Microwave,MEQ6-20ASM,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Surface mount,0,20,6,23,3mm QFN,,EAR99
+Marki Microwave,MEQ7.5-20ASM,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Surface mount,0,20,7.5,26,3mm QFN,,EAR99
+Marki Microwave,MEQ10-20ASM,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Surface mount,0,20,10,20,3mm QFN,,EAR99
+Marki Microwave,MEQ11-20ASM,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Surface mount,0,20,11,27,3mm QFN,,EAR99
+Marki Microwave,MEQ3-20CSP1,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Surface mount,0,20,3,25,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ6-20CSP1,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Surface mount,0,20,6,25,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ9-20CSP1,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Surface mount,0,20,9,25,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ20-20CSP1,"Equalizers, Positive Slope, DC to 20 GHz",,https://www.markimicrowave.com/products/surface-mount/equalizers/meq20-20csp1/datasheet/,Positive Slope,Surface mount,0,20,20,25,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ6-26CSP1,"Equalizers, Positive Slope, DC to 26 GHz",,,Positive Slope,Surface mount,0,26,6,23,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ10-26CSP1,"Equalizers, Positive Slope, DC to 26 GHz",,https://www.markimicrowave.com/products/surface-mount/equalizers/meq10-26csp1/datasheet/,Positive Slope,Surface mount,0,26,10,17,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ3-40CSP1,"Equalizers, Positive Slope, DC to 40 GHz",,,Positive Slope,Surface mount,0,40,3,26,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ6-40CSP1,"Equalizers, Positive Slope, DC to 40 GHz",,,Positive Slope,Surface mount,0,40,6,21,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ9-40CSP1,"Equalizers, Positive Slope, DC to 40 GHz",,,Positive Slope,Surface mount,0,40,9,23,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ20-40CSP1,"Equalizers, Positive Slope, DC to 40 GHz",,,Positive Slope,Surface mount,0,40,20,23,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ6-45CSP1,"Equalizers, Positive Slope, DC to 45 GHz",,,Positive Slope,Surface mount,0,45,6,17,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ10-45CSP1,"Equalizers, Positive Slope, DC to 45 GHz",,https://www.markimicrowave.com/products/surface-mount/equalizers/meq10-45csp1/datasheet/,Positive Slope,Surface mount,0,45,10,13,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ6-67CSP1,"Equalizers, Positive Slope, DC to 67 GHz",,,Positive Slope,Surface mount,0,67,6,25,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ9-67CSP1,"Equalizers, Positive Slope, DC to 67 GHz",,https://markimicrowave.com/products/surface-mount/equalizers/meq9-67csp1/datasheet/,Positive Slope,Surface mount,0,67,9,24,1.5mm CSP1,,EAR99
+Marki Microwave,MEQ3-7ACH,"Equalizers, Positive Slope, DC to 7 GHz",,,Positive Slope,Bare die,0,7,3,29,,,EAR99
+Marki Microwave,MEQ6-7ACH,"Equalizers, Positive Slope, DC to 7 GHz",,,Positive Slope,Bare die,0,7,6,29,,,EAR99
+Marki Microwave,MEQ10-7ACH,"Equalizers, Positive Slope, DC to 7 GHz",,https://www.markimicrowave.com/products/bare-die/equalizers/meq10-7ach/datasheet/,Positive Slope,Bare die,0,7,10,27,,,EAR99
+Marki Microwave,MEQ12-7ACH,"Equalizers, Positive Slope, DC to 7 GHz",,,Positive Slope,Bare die,0,7,12,29,,,EAR99
+Marki Microwave,MEQ3-14ACH,"Equalizers, Positive Slope, DC to 14 GHz",,,Positive Slope,Bare die,0,14,3,23,,,EAR99
+Marki Microwave,MEQ6-14ACH,"Equalizers, Positive Slope, DC to 14 GHz",,,Positive Slope,Bare die,0,14,6,22,,,EAR99
+Marki Microwave,MEQ10-14ACH,"Equalizers, Positive Slope, DC to 14 GHz",,https://www.markimicrowave.com/products/bare-die/equalizers/meq10-14ach/datasheet/,Positive Slope,Bare die,0,14,10,23,,,EAR99
+Marki Microwave,MEQ3-20ACH,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Bare die,0,20,3,21,,,EAR99
+Marki Microwave,MEQ5-20ACH,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Bare die,0,20,5,22,,,EAR99
+Marki Microwave,MEQ6-20ACH,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Bare die,0,20,6,21,,,EAR99
+Marki Microwave,MEQ7-20ACH,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Bare die,0,20,7,23,,,EAR99
+Marki Microwave,MEQ10-20ACH,"Equalizers, Positive Slope, DC to 20 GHz",,https://www.markimicrowave.com/products/bare-die/equalizers/meq10-20ach/datasheet/,Positive Slope,Bare die,0,20,10,25,,,EAR99
+Marki Microwave,MEQ11-20ACH,"Equalizers, Positive Slope, DC to 20 GHz",,,Positive Slope,Bare die,0,20,11,23,,,EAR99
+Marki Microwave,MEQ3-30ACH,"Equalizers, Positive Slope, DC to 30 GHz",,,Positive Slope,Bare die,0,30,3,20,,,EAR99
+Marki Microwave,MEQ6-30ACH,"Equalizers, Positive Slope, DC to 30 GHz",,,Positive Slope,Bare die,0,30,6,20,,,EAR99
+Marki Microwave,MEQ10-30ACH,"Equalizers, Positive Slope, DC to 30 GHz",,https://www.markimicrowave.com/products/bare-die/equalizers/meq10-30ach/datasheet/,Positive Slope,Bare die,0,30,10,20,,,EAR99
+Marki Microwave,MEQ3-60ACH,"Equalizers, Positive Slope, DC to 60 GHz",,,Positive Slope,Bare die,0,60,3,15,,,EAR99
+Marki Microwave,MEQ6-60ACH,"Equalizers, Positive Slope, DC to 60 GHz",,,Positive Slope,Bare die,0,60,6,15,,,EAR99
+Marki Microwave,MEQ10-60ACH,"Equalizers, Positive Slope, DC to 60 GHz",,https://www.markimicrowave.com/products/bare-die/equalizers/meq10-60ach/datasheet/,Positive Slope,Bare die,0,60,10,15,,,EAR99
+Marki Microwave,MEQ0-70ACH,"Equalizers, Positive Slope, DC to 70 GHz",,https://markimicrowave.com/products/bare-die/equalizers/meq0-70ach/datasheet/,Positive Slope,Bare die,0,70,0,31,,,EAR99
+Marki Microwave,MEQ4-70ACH,"Equalizers, Positive Slope, DC to 70 GHz",,,Positive Slope,Bare die,0,70,4,31,,,EAR99
+Marki Microwave,MEQ6-70ACH,"Equalizers, Positive Slope, DC to 70 GHz",,,Positive Slope,Bare die,0,70,6,33,,,EAR99
+Marki Microwave,MEQ8-70ACH,"Equalizers, Positive Slope, DC to 70 GHz",,,Positive Slope,Bare die,0,70,8,29,,,EAR99
+Marki Microwave,MEQ10-70ACH,"Equalizers, Positive Slope, DC to 70 GHz",,,Positive Slope,Bare die,0,70,10,25,,,EAR99

@@ -171,6 +171,26 @@ test('phone: the diagram scrolls sideways so blocks stay about 44 pt, and still 
   expect(await diagram.evaluate((d) => d.scrollWidth > d.clientWidth + 1)).toBe(false);
 });
 
+test('a part page lists its specs, with or without a datasheet', async ({ page }) => {
+  // No datasheet file: the specs show under the message.
+  await page.goto('#/part/kestrel-kln4020');
+  await expect(page.getByRole('heading', { name: 'Specs' })).toBeVisible();
+  await expect(page.locator('.spec-list')).toContainText('NF (dB)');
+  await expect(page.locator('.spec-list')).toContainText('Kestrel Semiconductor');
+
+  // Datasheet open: the Specs button shows and hides the list above the PDF.
+  await page.goto('#/part/acme-alm1234');
+  await press(page, page.getByRole('button', { name: 'Download now' }));
+  await expect(page.locator('.viewer-label').first()).toHaveText('1 / 7');
+  const panel = page.locator('.viewer-specs');
+  await expect(panel).toBeHidden();
+  await press(page, page.getByRole('button', { name: 'Specs' }));
+  await expect(panel).toBeVisible();
+  await expect(panel).toContainText('NF (dB)');
+  await press(page, page.getByRole('button', { name: 'Specs' }));
+  await expect(panel).toBeHidden();
+});
+
 test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });

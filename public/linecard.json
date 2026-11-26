@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-26T20:06:11Z",
+  "dataVersion": "2026-11-26T21:11:53Z",
   "categories": [
     {
       "id": "amplifier",
@@ -14412,17 +14412,18 @@
       }
     },
     {
-      "id": "marki-eqx26",
+      "id": "marki-eq326",
       "category": "equalizer",
       "manufacturer": "Marki Microwave",
-      "mpn": "EQX-26",
+      "mpn": "EQ3-26",
       "description": "Equalizers, Positive Slope, DC to 26 GHz",
       "specs": {
         "family": "Positive Slope",
         "package": "Connectorized",
         "freq_min_ghz": 0,
         "freq_max_ghz": 26,
-        "notes": "Low Freq Atten: 3, 6; Return Loss: 21, 15",
+        "low_freq_atten_db": 3,
+        "return_loss_db": 21,
         "eccn": "EAR99"
       },
       "productUrl": null,
@@ -14435,21 +14436,362 @@
       }
     },
     {
-      "id": "marki-eqx40",
+      "id": "marki-eq340",
       "category": "equalizer",
       "manufacturer": "Marki Microwave",
-      "mpn": "EQX-40",
+      "mpn": "EQ3-40",
       "description": "Equalizers, Positive Slope, DC to 40 GHz",
       "specs": {
         "family": "Positive Slope",
         "package": "Connectorized",
         "freq_min_ghz": 0,
         "freq_max_ghz": 40,
+        "low_freq_atten_db": 3,
         "return_loss_db": 18,
-        "notes": "Low Freq Atten: 3, 6",
         "eccn": "EAR99"
       },
       "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-eq626",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "EQ6-26",
+      "description": "Equalizers, Positive Slope, DC to 26 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 26,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 15,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-eq640",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "EQ6-40",
+      "description": "Equalizers, Positive Slope, DC to 40 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 40,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 18,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq020asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ0-20ASM",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 0,
+        "return_loss_db": 23,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.markimicrowave.com/products/surface-mount/equalizers/meq0-20asm/datasheet/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq070ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ0-70ACH",
+      "description": "Equalizers, Positive Slope, DC to 70 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 70,
+        "low_freq_atten_db": 0,
+        "return_loss_db": 31,
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://markimicrowave.com/products/bare-die/equalizers/meq0-70ach/datasheet/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1014ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ10-14ACH",
+      "description": "Equalizers, Positive Slope, DC to 14 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 14,
+        "low_freq_atten_db": 10,
+        "return_loss_db": 23,
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.markimicrowave.com/products/bare-die/equalizers/meq10-14ach/datasheet/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1014asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ10-14ASM",
+      "description": "Equalizers, Positive Slope, DC to 14 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 14,
+        "low_freq_atten_db": 10,
+        "return_loss_db": 29,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1020ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ10-20ACH",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 10,
+        "return_loss_db": 25,
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.markimicrowave.com/products/bare-die/equalizers/meq10-20ach/datasheet/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1020asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ10-20ASM",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 10,
+        "return_loss_db": 20,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1026abh",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ10-26ABH",
+      "description": "Equalizers, Positive Slope, DC to 26.5 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 26.5,
+        "low_freq_atten_db": 10,
+        "return_loss_db": 27,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1026as",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ10-26AS",
+      "description": "Equalizers, Positive Slope, DC to 26.5 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 26.5,
+        "low_freq_atten_db": 10,
+        "return_loss_db": 20,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1026csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ10-26CSP1",
+      "description": "Equalizers, Positive Slope, DC to 26 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 26,
+        "low_freq_atten_db": 10,
+        "return_loss_db": 17,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.markimicrowave.com/products/surface-mount/equalizers/meq10-26csp1/datasheet/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1030ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ10-30ACH",
+      "description": "Equalizers, Positive Slope, DC to 30 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 30,
+        "low_freq_atten_db": 10,
+        "return_loss_db": 20,
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.markimicrowave.com/products/bare-die/equalizers/meq10-30ach/datasheet/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1040abh",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ10-40ABH",
+      "description": "Equalizers, Positive Slope, DC to 40 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 40,
+        "low_freq_atten_db": 10,
+        "return_loss_db": 25,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1045csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ10-45CSP1",
+      "description": "Equalizers, Positive Slope, DC to 45 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 45,
+        "low_freq_atten_db": 10,
+        "return_loss_db": 13,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.markimicrowave.com/products/surface-mount/equalizers/meq10-45csp1/datasheet/",
       "datasheet": {
         "sourceUrl": null,
         "file": null,
@@ -14483,299 +14825,18 @@
       }
     },
     {
-      "id": "marki-meqx14ach",
+      "id": "marki-meq1060abh",
       "category": "equalizer",
       "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-14ACH",
-      "description": "Equalizers, Positive Slope, DC to 14 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Bare die",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 14,
-        "notes": "Low Freq Atten: 3, 6, 10; Return Loss: 23, 22, 23",
-        "eccn": "EAR99"
-      },
-      "productUrl": "https://www.markimicrowave.com/products/bare-die/equalizers/meq10-14ach/datasheet/",
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx14asm",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-14ASM",
-      "description": "Equalizers, Positive Slope, DC to 14 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Surface mount",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 14,
-        "case": "3mm QFN",
-        "notes": "Low Freq Atten: 3, 6, 10, 14; Return Loss: 23, 28, 29, 29",
-        "eccn": "EAR99"
-      },
-      "productUrl": "https://markimicrowave.com/products/surface-mount/equalizers/meq14-14asm/datasheet/",
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx20ach",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-20ACH",
-      "description": "Equalizers, Positive Slope, DC to 20 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Bare die",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 20,
-        "notes": "Low Freq Atten: 3, 5, 6, 7, 10, 11; Return Loss: 21, 22, 21, 23, 25, 23",
-        "eccn": "EAR99"
-      },
-      "productUrl": "https://www.markimicrowave.com/products/bare-die/equalizers/meq10-20ach/datasheet/",
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx20asm",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-20ASM",
-      "description": "Equalizers, Positive Slope, DC to 20 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Surface mount",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 20,
-        "case": "3mm QFN",
-        "notes": "Low Freq Atten: 0, 3, 5, 6, 7.5, 10, 11; Return Loss: 23, 19, 22, 23, 26, 20, 27",
-        "eccn": "EAR99"
-      },
-      "productUrl": "https://www.markimicrowave.com/products/surface-mount/equalizers/meq0-20asm/datasheet/",
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx20csp1",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-20CSP1",
-      "description": "Equalizers, Positive Slope, DC to 20 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Surface mount",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 20,
-        "case": "1.5mm CSP1",
-        "notes": "Low Freq Atten: 3, 6, 9, 20; Return Loss: 25, 25, 25, 25",
-        "eccn": "EAR99"
-      },
-      "productUrl": "https://www.markimicrowave.com/products/surface-mount/equalizers/meq20-20csp1/datasheet/",
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx26abh",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-26ABH",
-      "description": "Equalizers, Positive Slope, DC to 26.5 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Connectorized",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 26.5,
-        "notes": "Low Freq Atten: 3 , 6 , 10; Return Loss: 26, 26, 27",
-        "eccn": "EAR99"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx26as",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-26AS",
-      "description": "Equalizers, Positive Slope, DC to 26.5 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Connectorized",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 26.5,
-        "notes": "Low Freq Atten: 3, 6 , 10; Return Loss: 18, 20, 20",
-        "eccn": "EAR99"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx26csp1",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-26CSP1",
-      "description": "Equalizers, Positive Slope, DC to 26 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Surface mount",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 26,
-        "case": "1.5mm CSP1",
-        "notes": "Low Freq Atten: 6, 10; Return Loss: 23, 17",
-        "eccn": "EAR99"
-      },
-      "productUrl": "https://www.markimicrowave.com/products/surface-mount/equalizers/meq10-26csp1/datasheet/",
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx30ach",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-30ACH",
-      "description": "Equalizers, Positive Slope, DC to 30 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Bare die",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 30,
-        "notes": "Low Freq Atten: 3, 6, 10; Return Loss: 20, 20, 20",
-        "eccn": "EAR99"
-      },
-      "productUrl": "https://www.markimicrowave.com/products/bare-die/equalizers/meq10-30ach/datasheet/",
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx40abh",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-40ABH",
-      "description": "Equalizers, Positive Slope, DC to 40 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Connectorized",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 40,
-        "notes": "Low Freq Atten: 6 , 10; Return Loss: 24, 25",
-        "eccn": "EAR99"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx40csp1",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-40CSP1",
-      "description": "Equalizers, Positive Slope, DC to 40 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Surface mount",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 40,
-        "case": "1.5mm CSP1",
-        "notes": "Low Freq Atten: 3, 6, 9, 20; Return Loss: 26, 21, 23, 23",
-        "eccn": "EAR99"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx45csp1",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-45CSP1",
-      "description": "Equalizers, Positive Slope, DC to 45 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Surface mount",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 45,
-        "case": "1.5mm CSP1",
-        "notes": "Low Freq Atten: 6, 10; Return Loss: 17, 13",
-        "eccn": "EAR99"
-      },
-      "productUrl": "https://www.markimicrowave.com/products/surface-mount/equalizers/meq10-45csp1/datasheet/",
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx60abh",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-60ABH",
+      "mpn": "MEQ10-60ABH",
       "description": "Equalizers, Positive Slope, DC to 60 GHz",
       "specs": {
         "family": "Positive Slope",
         "package": "Connectorized",
         "freq_min_ghz": 0,
         "freq_max_ghz": 60,
-        "notes": "Low Freq Atten: 4, 6 , 10; Return Loss: 25, 24, 22",
+        "low_freq_atten_db": 10,
+        "return_loss_db": 22,
         "eccn": "EAR99"
       },
       "productUrl": null,
@@ -14788,17 +14849,18 @@
       }
     },
     {
-      "id": "marki-meqx60ach",
+      "id": "marki-meq1060ach",
       "category": "equalizer",
       "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-60ACH",
+      "mpn": "MEQ10-60ACH",
       "description": "Equalizers, Positive Slope, DC to 60 GHz",
       "specs": {
         "family": "Positive Slope",
         "package": "Bare die",
         "freq_min_ghz": 0,
         "freq_max_ghz": 60,
-        "notes": "Low Freq Atten: 3, 6, 10; Return Loss: 15, 15, 15",
+        "low_freq_atten_db": 10,
+        "return_loss_db": 15,
         "eccn": "EAR99"
       },
       "productUrl": "https://www.markimicrowave.com/products/bare-die/equalizers/meq10-60ach/datasheet/",
@@ -14811,44 +14873,21 @@
       }
     },
     {
-      "id": "marki-meqx67csp1",
+      "id": "marki-meq1070ach",
       "category": "equalizer",
       "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-67CSP1",
-      "description": "Equalizers, Positive Slope, DC to 67 GHz",
-      "specs": {
-        "family": "Positive Slope",
-        "package": "Surface mount",
-        "freq_min_ghz": 0,
-        "freq_max_ghz": 67,
-        "case": "1.5mm CSP1",
-        "notes": "Low Freq Atten: 6, 9; Return Loss: 25, 24",
-        "eccn": "EAR99"
-      },
-      "productUrl": "https://markimicrowave.com/products/surface-mount/equalizers/meq9-67csp1/datasheet/",
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
-      }
-    },
-    {
-      "id": "marki-meqx70ach",
-      "category": "equalizer",
-      "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-70ACH",
+      "mpn": "MEQ10-70ACH",
       "description": "Equalizers, Positive Slope, DC to 70 GHz",
       "specs": {
         "family": "Positive Slope",
         "package": "Bare die",
         "freq_min_ghz": 0,
         "freq_max_ghz": 70,
-        "notes": "Low Freq Atten: 0, 4, 6, 8, 10; Return Loss: 31, 31, 33, 29, 25",
+        "low_freq_atten_db": 10,
+        "return_loss_db": 25,
         "eccn": "EAR99"
       },
-      "productUrl": "https://markimicrowave.com/products/bare-die/equalizers/meq0-70ach/datasheet/",
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": null,
         "file": null,
@@ -14858,17 +14897,18 @@
       }
     },
     {
-      "id": "marki-meqx7ach",
+      "id": "marki-meq107ach",
       "category": "equalizer",
       "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-7ACH",
+      "mpn": "MEQ10-7ACH",
       "description": "Equalizers, Positive Slope, DC to 7 GHz",
       "specs": {
         "family": "Positive Slope",
         "package": "Bare die",
         "freq_min_ghz": 0,
         "freq_max_ghz": 7,
-        "notes": "Low Freq Atten: 3, 6, 10, 12; Return Loss: 29, 29, 27, 29",
+        "low_freq_atten_db": 10,
+        "return_loss_db": 27,
         "eccn": "EAR99"
       },
       "productUrl": "https://www.markimicrowave.com/products/bare-die/equalizers/meq10-7ach/datasheet/",
@@ -14881,21 +14921,1173 @@
       }
     },
     {
-      "id": "marki-meqx7asm",
+      "id": "marki-meq107asm",
       "category": "equalizer",
       "manufacturer": "Marki Microwave",
-      "mpn": "MEQX-7ASM",
+      "mpn": "MEQ10-7ASM",
       "description": "Equalizers, Positive Slope, DC to 7 GHz",
       "specs": {
         "family": "Positive Slope",
         "package": "Surface mount",
         "freq_min_ghz": 0,
         "freq_max_ghz": 7,
+        "low_freq_atten_db": 10,
+        "return_loss_db": 27,
         "case": "3mm QFN",
-        "notes": "Low Freq Atten: 3, 6, 10, 12.5; Return Loss: 29, 29, 27, 27",
         "eccn": "EAR99"
       },
       "productUrl": "https://www.markimicrowave.com/products/surface-mount/equalizers/meq10-7asm/datasheet/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1120ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ11-20ACH",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 11,
+        "return_loss_db": 23,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1120asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ11-20ASM",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 11,
+        "return_loss_db": 27,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq127ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ12-7ACH",
+      "description": "Equalizers, Positive Slope, DC to 7 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 7,
+        "low_freq_atten_db": 12,
+        "return_loss_db": 29,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1257asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ12.5-7ASM",
+      "description": "Equalizers, Positive Slope, DC to 7 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 7,
+        "low_freq_atten_db": 12.5,
+        "return_loss_db": 27,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq1414asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ14-14ASM",
+      "description": "Equalizers, Positive Slope, DC to 14 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 14,
+        "low_freq_atten_db": 14,
+        "return_loss_db": 29,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://markimicrowave.com/products/surface-mount/equalizers/meq14-14asm/datasheet/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq2020csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ20-20CSP1",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 20,
+        "return_loss_db": 25,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.markimicrowave.com/products/surface-mount/equalizers/meq20-20csp1/datasheet/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq2040csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ20-40CSP1",
+      "description": "Equalizers, Positive Slope, DC to 40 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 40,
+        "low_freq_atten_db": 20,
+        "return_loss_db": 23,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq314ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-14ACH",
+      "description": "Equalizers, Positive Slope, DC to 14 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 14,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 23,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq314asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-14ASM",
+      "description": "Equalizers, Positive Slope, DC to 14 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 14,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 23,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq320ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-20ACH",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 21,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq320asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-20ASM",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 19,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq320csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-20CSP1",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 25,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq326abh",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-26ABH",
+      "description": "Equalizers, Positive Slope, DC to 26.5 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 26.5,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 26,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq326as",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-26AS",
+      "description": "Equalizers, Positive Slope, DC to 26.5 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 26.5,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 18,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq330ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-30ACH",
+      "description": "Equalizers, Positive Slope, DC to 30 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 30,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 20,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq340csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-40CSP1",
+      "description": "Equalizers, Positive Slope, DC to 40 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 40,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 26,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq360ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-60ACH",
+      "description": "Equalizers, Positive Slope, DC to 60 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 60,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 15,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq37ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-7ACH",
+      "description": "Equalizers, Positive Slope, DC to 7 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 7,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 29,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq37asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ3-7ASM",
+      "description": "Equalizers, Positive Slope, DC to 7 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 7,
+        "low_freq_atten_db": 3,
+        "return_loss_db": 29,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq460abh",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ4-60ABH",
+      "description": "Equalizers, Positive Slope, DC to 60 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 60,
+        "low_freq_atten_db": 4,
+        "return_loss_db": 25,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq470ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ4-70ACH",
+      "description": "Equalizers, Positive Slope, DC to 70 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 70,
+        "low_freq_atten_db": 4,
+        "return_loss_db": 31,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq520ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ5-20ACH",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 5,
+        "return_loss_db": 22,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq520asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ5-20ASM",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 5,
+        "return_loss_db": 22,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq614ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-14ACH",
+      "description": "Equalizers, Positive Slope, DC to 14 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 14,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 22,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq614asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-14ASM",
+      "description": "Equalizers, Positive Slope, DC to 14 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 14,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 28,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq620ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-20ACH",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 21,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq620asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-20ASM",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 23,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq620csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-20CSP1",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 25,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq626abh",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-26ABH",
+      "description": "Equalizers, Positive Slope, DC to 26.5 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 26.5,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 26,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq626as",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-26AS",
+      "description": "Equalizers, Positive Slope, DC to 26.5 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 26.5,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 20,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq626csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-26CSP1",
+      "description": "Equalizers, Positive Slope, DC to 26 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 26,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 23,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq630ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-30ACH",
+      "description": "Equalizers, Positive Slope, DC to 30 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 30,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 20,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq640abh",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-40ABH",
+      "description": "Equalizers, Positive Slope, DC to 40 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 40,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 24,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq640csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-40CSP1",
+      "description": "Equalizers, Positive Slope, DC to 40 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 40,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 21,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq645csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-45CSP1",
+      "description": "Equalizers, Positive Slope, DC to 45 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 45,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 17,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq660abh",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-60ABH",
+      "description": "Equalizers, Positive Slope, DC to 60 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Connectorized",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 60,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 24,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq660ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-60ACH",
+      "description": "Equalizers, Positive Slope, DC to 60 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 60,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 15,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq667csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-67CSP1",
+      "description": "Equalizers, Positive Slope, DC to 67 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 67,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 25,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq670ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-70ACH",
+      "description": "Equalizers, Positive Slope, DC to 70 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 70,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 33,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq67ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-7ACH",
+      "description": "Equalizers, Positive Slope, DC to 7 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 7,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 29,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq67asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ6-7ASM",
+      "description": "Equalizers, Positive Slope, DC to 7 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 7,
+        "low_freq_atten_db": 6,
+        "return_loss_db": 29,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq720ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ7-20ACH",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 7,
+        "return_loss_db": 23,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq7520asm",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ7.5-20ASM",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 7.5,
+        "return_loss_db": 26,
+        "case": "3mm QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq870ach",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ8-70ACH",
+      "description": "Equalizers, Positive Slope, DC to 70 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 70,
+        "low_freq_atten_db": 8,
+        "return_loss_db": 29,
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq920csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ9-20CSP1",
+      "description": "Equalizers, Positive Slope, DC to 20 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "low_freq_atten_db": 9,
+        "return_loss_db": 25,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq940csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ9-40CSP1",
+      "description": "Equalizers, Positive Slope, DC to 40 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 40,
+        "low_freq_atten_db": 9,
+        "return_loss_db": 23,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "marki-meq967csp1",
+      "category": "equalizer",
+      "manufacturer": "Marki Microwave",
+      "mpn": "MEQ9-67CSP1",
+      "description": "Equalizers, Positive Slope, DC to 67 GHz",
+      "specs": {
+        "family": "Positive Slope",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 67,
+        "low_freq_atten_db": 9,
+        "return_loss_db": 24,
+        "case": "1.5mm CSP1",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://markimicrowave.com/products/surface-mount/equalizers/meq9-67csp1/datasheet/",
       "datasheet": {
         "sourceUrl": null,
         "file": null,

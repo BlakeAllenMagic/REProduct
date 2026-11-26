@@ -37,6 +37,16 @@ PRODUCT_PAGE_PREFIXES = ("https://www.markimicrowave.com/", "https://markimicrow
 IGNORED_HEADINGS = {"Package", "ECCN"}  # handled by the common Case and ECCN columns
 
 
+def product_link(link: str | None, mpn: str, only_if_named: bool) -> str:
+    """The catalog's product page link. For parts split from one catalog row
+    (equalizer slopes), only the part the link names gets it."""
+    if not (link or "").startswith(PRODUCT_PAGE_PREFIXES):
+        return ""
+    if only_if_named and f"/{mpn.lower()}/" not in link.lower():
+        return ""
+    return link
+
+
 def all_specs(type_id: str) -> list[dict[str, Any]]:
     return rules.COMMON_FIRST + rules.TYPE_SPECS[type_id] + rules.COMMON_LAST
 
@@ -174,15 +184,21 @@ def extract(catalogs: list[Path]) -> tuple[dict[str, list[dict[str, str]]], list
                                    "check the exact orderable part numbers"])
                 if "/" in printed and "(" not in printed:
                     review.append([tab, printed, where, "Part number lists two versions; split it by hand if needed"])
-                for index, mpn in enumerate(variants):
+                expanded = []
+                for index, variant in enumerate(variants):
                     split = {h: rules.split_variant_value(v, len(variants))[index] for h, v in cells.items()}
+                    expanded += rules.expand_slopes(variant, split)
+                for mpn, split in expanded:
                     problems: list[str] = []
+                    sloped = mpn not in variants  # made from an equalizer's slope list
+                    if sloped and "." in mpn:
+                        problems.append("Part number made from a decimal slope; check Marki writes it this way")
                     record = fill_row(type_id, family, split, problems)
                     record.update({
                         "manufacturer": rules.MANUFACTURER,
                         "mpn": mpn,
                         "datasheet_url": "",
-                        "product_url": row["link"] if (row["link"] or "").startswith(PRODUCT_PAGE_PREFIXES) else "",
+                        "product_url": product_link(row["link"], mpn, sloped),
                         "family": family,
                         "package": package,
                     })

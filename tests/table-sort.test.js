@@ -64,3 +64,20 @@ test('columnsFor puts ECCN after every other column, description included', () =
   const keys = columnsFor(withEccn).map((c) => c.key);
   assert.deepEqual(keys, ['mpn', 'manufacturer', 'spec:gain_db', 'description', 'spec:eccn']);
 });
+
+test('columnsFor hides specs that fewer than 10% of the parts fill', () => {
+  const cat = {
+    specs: [
+      { key: 'common', label: 'Common', type: 'number' },
+      { key: 'rare', label: 'Rare', type: 'number' },
+      { key: 'empty', label: 'Empty', type: 'text' },
+    ],
+  };
+  const parts = Array.from({ length: 20 }, (_, i) => ({ specs: { common: i, rare: i < 2 ? 1 : null, empty: '' } }));
+  const keys = (ps) => columnsFor(cat, ps).map((c) => c.key);
+  assert.deepEqual(keys(parts), ['mpn', 'manufacturer', 'spec:common', 'spec:rare', 'description']); // 2 of 20 = 10%
+  parts[1].specs.rare = null; // 1 of 20
+  assert.deepEqual(keys(parts), ['mpn', 'manufacturer', 'spec:common', 'description']);
+  assert.deepEqual(keys(parts.slice(0, 3)), ['mpn', 'manufacturer', 'spec:common', 'spec:rare', 'description']); // 1 of 3
+  assert.equal(columnsFor(cat).length, 6); // without parts: every column
+});

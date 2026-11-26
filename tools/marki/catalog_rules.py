@@ -458,3 +458,41 @@ def sanity_problems(type_id: str, values: dict[str, Any]) -> list[str]:
             if v1 > v2:
                 problems.append(f"filter edges out of order: {k1} {v1} > {k2} {v2}")
     return problems
+
+
+# Equalizer rows print one part number with an "X" for the slope, and the
+# slopes as a list: "MEQX-7ASM", Low Freq Attenuation "3, 6, 10, 12.5". Marki's
+# own product links show X is the slope in dB (that row links to meq10-7asm).
+SLOPE_PART = re.compile(r"^(M?EQ)X(-.+)$")
+SLOPE_HEADINGS = ("Low Freq Attenuation (dB)", "Loss at DC (dB)")
+SLOPE_PAIRED = ("Typ Return Loss (dB)",)
+
+
+def _list(value: str) -> list[str]:
+    """'3*, 6 , 10' -> ['3', '6', '10'] (footnote marks removed)."""
+    return [clean_value(v) for v in value.split(",") if clean_value(v)]
+
+
+def expand_slopes(mpn: str, cells: dict[str, str]) -> list[tuple[str, dict[str, str]]]:
+    """'MEQX-7ASM' with slopes '3, 6' -> [('MEQ3-7ASM', {...3...}), ('MEQ6-7ASM', {...6...})].
+
+    Other part numbers, or rows without a slope list, come back unchanged.
+    Paired lists (return loss) are split in the same order when their length matches.
+    """
+    match = SLOPE_PART.match(mpn)
+    heading = next((h for h in SLOPE_HEADINGS if h in cells), None)
+    if not match or not heading:
+        return [(mpn, cells)]
+    slopes = _list(cells[heading])
+    if not slopes:
+        return [(mpn, cells)]
+    out = []
+    for i, slope in enumerate(slopes):
+        one = dict(cells)
+        one[heading] = slope
+        for paired in SLOPE_PAIRED:
+            values = _list(cells.get(paired, ""))
+            if len(values) == len(slopes):
+                one[paired] = values[i]
+        out.append((f"{match.group(1)}{slope}{match.group(2)}", one))
+    return out

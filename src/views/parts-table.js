@@ -28,7 +28,7 @@ export function renderPartsTable(container, ctx, route) {
 
   const parts = ctx.partsByCategory.get(category.id);
   const statusCells = new Map(); // sha -> [cell, ...]
-  const columns = columnsFor(category);
+  const columns = columnsFor(category, parts);
   const rows = new Map(); // part id -> <tr>
   const headers = new Map(); // column key -> { th, arrow }
   const tbody = makeBody(columns, parts, statusCells, rows);

@@ -10,6 +10,7 @@ import { hrefFor } from '../router.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
 import { showError } from '../ui/errors.js';
+import { specList } from '../ui/spec-list.js';
 import { isPageZoomed, watchPageZoom } from '../ui/page-zoom.js';
 import { canShareFile, describeShareError, emailLink, makeDatasheetFile, sendDatasheet } from '../share/send.js';
 
@@ -28,7 +29,7 @@ export function renderViewer(container, ctx, route) {
     back: { href: hrefFor('category', part.category), label: category?.name ?? 'Back' },
   };
 
-  const viewer = new Viewer(container, part, ctx.manufacturerSites);
+  const viewer = new Viewer(container, part, ctx.manufacturerSites, category);
   result.actions = viewer.sendButtons();
   result.destroy = () => viewer.destroy();
   // Load in the background; the screen (title, back button) shows right away.
@@ -37,10 +38,11 @@ export function renderViewer(container, ctx, route) {
 }
 
 class Viewer {
-  constructor(container, part, sites) {
+  constructor(container, part, sites, category) {
     this.container = container;
     this.part = part;
     this.sites = sites;
+    this.category = category;
     this.destroyed = false;
     this.cleanups = [];
   }
@@ -112,7 +114,8 @@ class Viewer {
         ),
       );
     }
-    frame.append(toolbar.element, scroller);
+    this.specsPanel = el('div', { class: 'viewer-specs', hidden: true }, specList(this.part, this.category));
+    frame.append(toolbar.element, this.specsPanel, scroller);
     this.container.replaceChildren(frame);
 
     this.doc = new DocumentView({
@@ -174,7 +177,11 @@ class Viewer {
     const zoomLabel = document.createElement('span');
     zoomLabel.className = 'viewer-label';
 
-    element.append(info, group(prev, pageLabel, next), group(zoomOut, zoomLabel, zoomIn, fit));
+    // "Specs" opens the part's values above the PDF (closed by default).
+    const specsButton = button('Specs', 'Specs', () => this.toggleSpecs(specsButton));
+    specsButton.setAttribute('aria-expanded', 'false');
+
+    element.append(info, specsButton, group(prev, pageLabel, next), group(zoomOut, zoomLabel, zoomIn, fit));
 
     return {
       element,
@@ -229,6 +236,18 @@ class Viewer {
     });
   }
 
+  /** The specs, shown under the "no datasheet" messages. */
+  specsSection() {
+    return el('section', { class: 'message spec-section' }, el('h3', {}, 'Specs'), specList(this.part, this.category));
+  }
+
+  toggleSpecs(toggle) {
+    const open = this.specsPanel.hidden;
+    this.specsPanel.hidden = !open;
+    toggle.setAttribute('aria-expanded', String(open));
+    toggle.classList.toggle('is-on', open);
+  }
+
   /** The datasheet exists but isn't on this device yet. */
   showNotDownloaded(problem = '') {
     this.unavailable = true;
@@ -247,7 +266,7 @@ class Viewer {
       box.append(el('p', { class: 'message-note' }, 'Connect to the internet to download it.'));
       box.append(this.manufacturerLink());
     }
-    this.container.replaceChildren(box);
+    this.container.replaceChildren(box, this.specsSection());
   }
 
   /** The line card has no datasheet file for this part at all. */
@@ -260,6 +279,7 @@ class Viewer {
         el('p', {}, `The ${this.part.mpn} datasheet hasn't been added to the line card yet.`),
         this.manufacturerLink(),
       ),
+      this.specsSection(),
     );
   }
 

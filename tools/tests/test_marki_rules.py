@@ -75,5 +75,24 @@ class Rules(unittest.TestCase):
         self.assertTrue(any("out of order" in p for p in r.sanity_problems("filter", bad)))
 
 
+class Slopes(unittest.TestCase):
+    def test_equalizer_rows_split_per_slope(self) -> None:
+        cells = {"Low Freq Attenuation (dB)": "3*, 6 , 10", "Typ Return Loss (dB)": "26, 26, 27", "Band (GHz)": "DC-7"}
+        out = r.expand_slopes("MEQX-7ASM", cells)
+        self.assertEqual([m for m, _ in out], ["MEQ3-7ASM", "MEQ6-7ASM", "MEQ10-7ASM"])
+        self.assertEqual(out[2][1]["Low Freq Attenuation (dB)"], "10")
+        self.assertEqual(out[2][1]["Typ Return Loss (dB)"], "27")
+        self.assertEqual(out[0][1]["Band (GHz)"], "DC-7")
+
+    def test_connectorized_heading_and_unpaired_values(self) -> None:
+        out = r.expand_slopes("EQX-40", {"Loss at DC (dB)": "3, 6", "Typ Return Loss (dB)": "18"})
+        self.assertEqual([m for m, _ in out], ["EQ3-40", "EQ6-40"])
+        self.assertEqual(out[1][1]["Typ Return Loss (dB)"], "18")  # one value: shared
+
+    def test_other_parts_unchanged(self) -> None:
+        self.assertEqual(r.expand_slopes("MEQ10-50AU", {"Loss at DC (dB)": "10"}), [("MEQ10-50AU", {"Loss at DC (dB)": "10"})])
+        self.assertEqual(r.expand_slopes("MXQ-1", {"Low Freq Attenuation (dB)": "3, 6"})[0][0], "MXQ-1")
+
+
 if __name__ == "__main__":
     unittest.main()

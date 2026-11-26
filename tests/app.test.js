@@ -85,3 +85,21 @@ test('parts with no link get a search of their maker\'s site', async () => {
   const unknown = new URL(searchLinkFor({ manufacturer: 'Other Co', mpn: 'X-1' }, sites));
   assert.equal(unknown.searchParams.get('q'), 'Other Co X-1 datasheet');
 });
+
+test('specRows lists the maker, description and every non-empty spec with its unit', async () => {
+  const { specRows } = await import('../src/ui/spec-list.js');
+  const category = {
+    specs: [
+      { key: 'nf_db', label: 'NF', unit: 'dB', type: 'number' },
+      { key: 'tune_min_ghz', label: 'Tune Min', unit: 'GHz', type: 'number' },
+      { key: 'eccn', label: 'ECCN', type: 'text' },
+    ],
+  };
+  const part = { manufacturer: 'Acme RF', description: 'An LNA', specs: { nf_db: 0.6, tune_min_ghz: null, eccn: 'EAR99' } };
+  assert.deepEqual(specRows(part, category), [
+    ['Manufacturer', 'Acme RF'],
+    ['Description', 'An LNA'],
+    ['NF (dB)', '0.6'],
+    ['ECCN', 'EAR99'],
+  ]);
+});
