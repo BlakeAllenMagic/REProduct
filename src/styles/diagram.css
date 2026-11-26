@@ -234,3 +234,20 @@ a.product-type:active {
 .block.is-disabled .block-glyph {
   fill: var(--disabled);
 }
+
+/* Phones (same rule as the table rows and top bar, see CLAUDE.md): a smaller
+   Receiver | Transmitter switch, 32 pt tall. */
+@media (max-width: 700px), (max-height: 500px) {
+  .diagram-tabs {
+    margin-bottom: 6px;
+    padding: 3px;
+    gap: 3px;
+  }
+
+  .diagram-tab {
+    min-width: 96px;
+    min-height: 32px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+}

@@ -140,6 +140,19 @@ test('top bar on a phone: shorter, and nothing overlaps or gets cut off', async 
   expect(await check(1024, '#/category/lna')).toBeGreaterThanOrEqual(56); // iPad: unchanged
 });
 
+test('Receiver/Transmitter tabs: 32 pt on a phone, 44 pt on an iPad', async ({ page }) => {
+  const tabHeight = async (width, height) => {
+    await page.setViewportSize({ width, height });
+    await page.goto('#/');
+    return (await page.getByRole('tab', { name: 'Transmitter' }).boundingBox()).height;
+  };
+  const phone = await tabHeight(390, 844);
+  expect(phone).toBeGreaterThanOrEqual(32);
+  expect(phone).toBeLessThan(44);
+  expect(await tabHeight(844, 390)).toBeLessThan(44); // phone held sideways
+  expect(await tabHeight(820, 1180)).toBeGreaterThanOrEqual(44);
+});
+
 test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });
