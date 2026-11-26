@@ -18,32 +18,38 @@
     <path d="M20 92 H198" marker-end="url(#arrow)" />
     <path d="M292 92 H326" marker-end="url(#arrow)" />
     <path d="M420 92 H454" marker-end="url(#arrow)" />
-    <path d="M548 92 H624" marker-end="url(#arrow)" />
+    <path d="M548 92 H582" marker-end="url(#arrow)" />
+    <path d="M676 92 H752" marker-end="url(#arrow)" />
     <path d="M20 220 H198" marker-end="url(#arrow)" />
     <path d="M292 220 H326" marker-end="url(#arrow)" />
     <path d="M420 220 H496" marker-end="url(#arrow)" />
   </g>
   <text x="20" y="78" class="diagram-note" text-anchor="start">Supply in</text>
-  <text x="634" y="97" class="diagram-note" text-anchor="start">Clean rail to RF / ADC</text>
+  <text x="762" y="97" class="diagram-note" text-anchor="start">Clean rail to RF / ADC</text>
   <text x="20" y="206" class="diagram-note" text-anchor="start">PWM / controller</text>
   <text x="506" y="225" class="diagram-note" text-anchor="start">Power out</text>
 
-  <g data-block="pw_load_switch" class="block">
+  <g data-block="pw_ssr" class="block">
     <rect x="200" y="56" width="92" height="72" rx="10" class="block-bg" />
-    <path class="block-symbol" d="M228 83 H238 L256 73 M258 73 H264 M258 93 H264" />
-    <circle class="block-symbol" cx="238" cy="83" r="2" />
-    <circle class="block-symbol" cx="258" cy="93" r="2" />
-    <text x="246" y="119" class="block-label">Load Switch</text>
+    <path class="block-symbol" d="M228 74 L238 74 L233 83 Z M228 83 H238 M241 75 l5 3 M241 80 l5 3 M250 89 L262 79 M248 89 H250 M262 89 H266" />
+    <text x="246" y="119" class="block-label">SSR / SSPC</text>
+  </g>
+  <g data-block="pw_load_switch" class="block">
+    <rect x="328" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M356 83 H366 L384 73 M386 73 H392 M386 93 H392" />
+    <circle class="block-symbol" cx="366" cy="83" r="2" />
+    <circle class="block-symbol" cx="386" cy="93" r="2" />
+    <text x="374" y="119" class="block-label">Load Switch</text>
   </g>
   <g data-block="pw_dcdc" class="block">
-    <rect x="328" y="56" width="92" height="72" rx="10" class="block-bg" />
-    <path class="block-symbol" d="M354 79 h12 M354 86 h3 m2 0 h3 m2 0 h2 M370 83 h8 M375 80 l3 3 l-3 3 M382 79 h12 M382 86 h3 m2 0 h3 m2 0 h2" />
-    <text x="374" y="119" class="block-label">DC-DC</text>
+    <rect x="456" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M482 79 h12 M482 86 h3 m2 0 h3 m2 0 h2 M498 83 h8 M503 80 l3 3 l-3 3 M510 79 h12 M510 86 h3 m2 0 h3 m2 0 h2" />
+    <text x="502" y="119" class="block-label">DC-DC</text>
   </g>
   <g data-block="pw_ldo" class="block">
-    <rect x="456" y="56" width="92" height="72" rx="10" class="block-bg" />
-    <path class="block-symbol" d="M492 74 h20 v16 h-20 Z M482 82 h10 M512 82 h10 M502 90 v7 M497 97 h10" />
-    <text x="502" y="119" class="block-label">LDO</text>
+    <rect x="584" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M620 74 h20 v16 h-20 Z M610 82 h10 M640 82 h10 M630 90 v7 M625 97 h10" />
+    <text x="630" y="119" class="block-label">LDO</text>
   </g>
   <g data-block="pw_gate_driver" class="block">
     <rect x="200" y="184" width="92" height="72" rx="10" class="block-bg" />

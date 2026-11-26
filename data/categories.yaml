@@ -424,3 +424,151 @@ categories:
       - { key: case, label: "Case", type: text }
       - { key: notes, label: "Notes", type: text }
       - { key: eccn, label: "ECCN", type: text }
+
+  # ---- Teledyne Micropac product lines (added by hand, from tools/power/micropac.py) ----
+
+  - id: solid_state_relay
+    name: "SSRs and Power Controllers"
+    blocks: [pw_ssr]
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: relay_config, label: "Configuration", type: text }
+      - { key: channels, label: "Channels", type: text }
+      - { key: lead_finish, label: "Lead Finish", type: text }
+      - { key: grade, label: "Grade", type: text }
+      - { key: screening, label: "Screening", type: text }
+      - { key: space, label: "Space Qualified", type: text }
+      - { key: radiation, label: "Radiation Tolerant", type: text }
+      - { key: qml, label: "QML", type: text }
+      - { key: cross_ref, label: "Cross-Reference", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: optocoupler
+    name: "Optocouplers"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: channels, label: "Channels", type: number }
+      - { key: output_type, label: "Output Type", type: text }
+      - { key: isolation_kv, label: "Isolation", unit: "kV", type: number, sort: desc }
+      - { key: forward_voltage, label: "Forward Voltage", type: text }
+      - { key: ic_on, label: "Ic(on) min at If", type: text }
+      - { key: collector, label: "Collector", type: text }
+      - { key: op_temp, label: "Operating Temp", type: text }
+      - { key: grade, label: "Grade", type: text }
+      - { key: screening, label: "Screening", type: text }
+      - { key: space, label: "Space Qualified", type: text }
+      - { key: radiation, label: "Radiation Tolerant", type: text }
+      - { key: qml, label: "QML", type: text }
+      - { key: cross_ref, label: "Cross-Reference", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: led
+    name: "LEDs and LED Displays"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: color, label: "Color", type: text }
+      - { key: lens, label: "Lens", type: text }
+      - { key: power_mw, label: "Power Dissipation", unit: "mW", type: number }
+      - { key: character_type, label: "Character Type", type: text }
+      - { key: character_height, label: "Character Height", type: text }
+      - { key: grade, label: "Grade", type: text }
+      - { key: screening, label: "Screening", type: text }
+      - { key: space, label: "Space Qualified", type: text }
+      - { key: radiation, label: "Radiation Tolerant", type: text }
+      - { key: qml, label: "QML", type: text }
+      - { key: cross_ref, label: "Cross-Reference", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: optical_sensor
+    name: "Optical Sensors"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: kind, label: "Type", type: text }
+      - { key: power_mw, label: "Power Dissipation", unit: "mW", type: number }
+      - { key: op_temp, label: "Operating Temp", type: text }
+      - { key: grade, label: "Grade", type: text }
+      - { key: screening, label: "Screening", type: text }
+      - { key: space, label: "Space Qualified", type: text }
+      - { key: radiation, label: "Radiation Tolerant", type: text }
+      - { key: qml, label: "QML", type: text }
+      - { key: cross_ref, label: "Cross-Reference", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: fiber_optic
+    name: "Fiber-Optic Transceivers"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: kind, label: "Type", type: text }
+      - { key: wavelength_nm, label: "Peak Wavelength", unit: "nm", type: number }
+      - { key: data_rate, label: "Data Rate", type: text }
+      - { key: optical_power, label: "Optical Power", type: text }
+      - { key: rise_time_ns, label: "Rise Time", unit: "ns", type: number, sort: asc }
+      - { key: reverse_v, label: "Reverse Voltage", unit: "V", type: number }
+      - { key: fiber, label: "Fiber", type: text }
+      - { key: grade, label: "Grade", type: text }
+      - { key: screening, label: "Screening", type: text }
+      - { key: space, label: "Space Qualified", type: text }
+      - { key: radiation, label: "Radiation Tolerant", type: text }
+      - { key: qml, label: "QML", type: text }
+      - { key: cross_ref, label: "Cross-Reference", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: hall_sensor
+    name: "Hall-Effect Sensors"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: output_type, label: "Output Type", type: text }
+      - { key: supply_voltage, label: "Supply Voltage", type: text }
+      - { key: supply_current_ma, label: "Supply Current", unit: "mA", type: number, sort: asc }
+      - { key: magnetic, label: "Operate / Release / Hysteresis", type: text }
+      - { key: op_temp, label: "Operating Temp", type: text }
+      - { key: grade, label: "Grade", type: text }
+      - { key: screening, label: "Screening", type: text }
+      - { key: space, label: "Space Qualified", type: text }
+      - { key: radiation, label: "Radiation Tolerant", type: text }
+      - { key: qml, label: "QML", type: text }
+      - { key: cross_ref, label: "Cross-Reference", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: temperature_controller
+    name: "Temperature Controllers"
+    blocks: []
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: operating_v, label: "Operating Voltage", unit: "V", type: number }
+      - { key: power_w, label: "Power", unit: "W", type: number, sort: desc }
+      - { key: operating_current, label: "Operating Current", type: text }
+      - { key: status, label: "Status", type: text }
+      - { key: grade, label: "Grade", type: text }
+      - { key: screening, label: "Screening", type: text }
+      - { key: space, label: "Space Qualified", type: text }
+      - { key: radiation, label: "Radiation Tolerant", type: text }
+      - { key: qml, label: "QML", type: text }
+      - { key: cross_ref, label: "Cross-Reference", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }

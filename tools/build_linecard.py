@@ -45,6 +45,7 @@ REQUIRED_FIXED = {"manufacturer", "mpn"}
 OPTIONAL_COLUMNS = {"product_url"}
 
 CATEGORY_FIELDS = {"id", "name", "blocks", "specs"}
+MAX_TAB_NAME = 31  # Excel / Google Sheets tab name limit
 SPEC_FIELDS = {"key", "label", "unit", "type", "sort", "required"}
 SPEC_TYPES = {"number", "text"}
 SORT_DIRECTIONS = {"asc", "desc"}
@@ -127,6 +128,10 @@ def load_categories(path: Path, report: Report) -> list[dict[str, Any]]:
             seen_ids.add(cat_id)
         if not isinstance(cat.get("name"), str) or not cat["name"].strip():
             report.error(cat_where, "name is required")
+            ok = False
+        elif len(cat["name"].strip()) > MAX_TAB_NAME:
+            # The name is also the sheet tab's name; Excel and Google Sheets cut tab names at 31 characters.
+            report.error(cat_where, f"name is longer than {MAX_TAB_NAME} characters, the limit for a sheet tab name")
             ok = False
         blocks = cat.get("blocks")
         if not isinstance(blocks, list) or not all(

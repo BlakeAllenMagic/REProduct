@@ -199,6 +199,12 @@ class BrokenCsvTests(BuildTestCase):
         self.assertIn("2 errors", err)
 
 
+class TabNameTests(BuildTestCase):
+    def test_category_names_must_fit_a_sheet_tab(self) -> None:
+        self.edit("categories.yaml", "name: Filters", "name: Filters and Very Long Product Type Names")
+        self.assert_fails("longer than 31 characters")
+
+
 class LinkTests(BuildTestCase):
     """The datasheet link is optional; a product page can be given instead."""
 
