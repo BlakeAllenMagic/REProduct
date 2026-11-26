@@ -169,3 +169,22 @@
   min-width: 4.2em;
   font-variant-numeric: tabular-nums;
 }
+
+/* Phone-width screens only (narrower than any iPad): table rows may shrink to
+   32 pt so more fit on screen. An agreed exception to the 44 pt tap-target
+   rule (CLAUDE.md); iPads and Macs keep 44 pt. */
+@media (max-width: 700px) {
+  .parts-table th,
+  .parts-table td {
+    height: max(32px, 3.25em);
+  }
+
+  .parts-table thead th {
+    height: max(32px, 3.15em);
+  }
+
+  .parts-table tbody th a,
+  .sort-button {
+    min-height: 32px;
+  }
+}

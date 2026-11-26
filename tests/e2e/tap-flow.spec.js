@@ -100,6 +100,22 @@ test('table text size: A+ / A−, remembered, rows stay tappable', async ({ page
   await expect(value).toHaveText('100%');
 });
 
+test('phone width: table rows may shrink to 32 pt; iPad width keeps 44 pt', async ({ page }) => {
+  const rowHeightAt60 = async (width) => {
+    await page.setViewportSize({ width, height: 800 });
+    await page.goto('#/category/filter');
+    for (let i = 0; i < 4; i++) await page.getByRole('button', { name: 'Smaller table text' }).click();
+    await expect(page.getByRole('button', { name: 'Reset table text size' })).toHaveText('60%');
+    const height = (await page.locator('.part-row').first().boundingBox()).height;
+    await page.getByRole('button', { name: 'Reset table text size' }).click();
+    return height;
+  };
+  const phone = await rowHeightAt60(390);
+  expect(phone).toBeGreaterThanOrEqual(32);
+  expect(phone).toBeLessThan(44);
+  expect(await rowHeightAt60(820)).toBeGreaterThanOrEqual(44);
+});
+
 test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });
