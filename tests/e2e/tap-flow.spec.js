@@ -153,6 +153,24 @@ test('Receiver/Transmitter tabs: 32 pt on a phone, 44 pt on an iPad', async ({ p
   expect(await tabHeight(820, 1180)).toBeGreaterThanOrEqual(44);
 });
 
+test('phone: the diagram scrolls sideways so blocks stay about 44 pt, and still opens tables', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await page.goto('#/receiver');
+  const diagram = page.locator('.diagram');
+  const scrolls = await diagram.evaluate((d) => d.scrollWidth > d.clientWidth + 10);
+  expect(scrolls).toBe(true);
+  const block = (await page.locator('[data-block="lna"] .block-bg').boundingBox());
+  expect(block.height).toBeGreaterThanOrEqual(44);
+  // A block that starts off-screen to the right can be reached and tapped.
+  await page.locator('[data-block="mixer"]').click();
+  await expect(page).toHaveURL(/#\/category\/mixer$/);
+
+  // iPad width: the whole drawing fits, no sideways scrolling.
+  await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto('#/receiver');
+  expect(await diagram.evaluate((d) => d.scrollWidth > d.clientWidth + 1)).toBe(false);
+});
+
 test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });

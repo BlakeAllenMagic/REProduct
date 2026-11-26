@@ -251,3 +251,29 @@ a.product-type:active {
     font-size: 14px;
   }
 }
+
+/* Phone-width screens: scaled to the screen, the blocks would be ~28 pt.
+   Instead the drawing keeps a minimum width (blocks about 44 pt) and scrolls
+   sideways inside its box. The right-edge shadow (same trick as the parts
+   table) shows there's more; it disappears at the far end. */
+@media (max-width: 700px) {
+  .diagram {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    overscroll-behavior-x: contain;
+    background:
+      linear-gradient(to left, var(--surface) 24px, rgba(255, 255, 255, 0)) right / 48px 100%
+        no-repeat local,
+      radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0)) right /
+        14px 100% no-repeat scroll,
+      var(--surface);
+  }
+
+  .diagram-svg {
+    min-width: 640px; /* 1000-unit drawing: 92 x 72 blocks become ~59 x 46 pt */
+  }
+
+  .diagram-help::after {
+    content: ' Swipe the diagram sideways to see the whole chain.';
+  }
+}
