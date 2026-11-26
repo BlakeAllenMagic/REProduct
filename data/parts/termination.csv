@@ -1,25 +1,25 @@
-manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,impedance_ohm,return_loss_db,power_w,waveguide_band,flange,eccn,notes
-Marki Microwave,TM50-27,"Terminations, DC to 27 GHz",,,Terminations,Connectorized,0,27,50,32,,,,EAR99,
-Marki Microwave,TF50-27,"Terminations, DC to 27 GHz",,,Terminations,Connectorized,0,27,50,32,,,,EAR99,
-Marki Microwave,TM50-40,"Terminations, DC to 40 GHz",,,Terminations,Connectorized,0,40,50,35,,,,EAR99,
-Marki Microwave,TF50-40,"Terminations, DC to 40 GHz",,,Terminations,Connectorized,0,40,50,35,,,,EAR99,
-Marki Microwave,TM50-50,"Terminations, DC to 50 GHz",,,Terminations,Connectorized,0,50,50,31,,,,EAR99,
-Marki Microwave,TF50-50,"Terminations, DC to 50 GHz",,,Terminations,Connectorized,0,50,50,31,,,,EAR99,
-Marki Microwave,TM50-67,"Terminations, DC to 67 GHz",,,Terminations,Connectorized,0,67,50,36,,,,EAR99,
-Marki Microwave,TF50-67,"Terminations, DC to 67 GHz",,,Terminations,Connectorized,0,67,50,36,,,,EAR99,
-Marki Microwave,TM50-110M,"Terminations, DC to 110 GHz",,,Terminations,Connectorized,0,110,50,15,,,,EAR99,
-Marki Microwave,TF50-110M,"Terminations, DC to 110 GHz",,,Terminations,Connectorized,0,110,50,15,,,,EAR99,
-Marki Microwave,TW50-28H00WG,"Terminations, 26.5 to 40 GHz",,,Terminations,Waveguide,26.5,40,,30,7,WR-28,UG-599/U,EAR99,
-Marki Microwave,TW50-28L00WG,"Terminations, 26.5 to 40 GHz",,,Terminations,Waveguide,26.5,40,,32,5,WR-28,UG-599/U,EAR99,
-Marki Microwave,TW50-22H00WG,"Terminations, 33 to 50 GHz",,,Terminations,Waveguide,33,50,,30,5,WR-22,UG-383/U,EAR99,
-Marki Microwave,TW50-22L00WG,"Terminations, 33 to 50 GHz",,,Terminations,Waveguide,33,50,,32,4,WR-22,UG-383/U,EAR99,
-Marki Microwave,TW50-19H00WG,"Terminations, 40 to 60 GHz",,,Terminations,Waveguide,40,60,,30,3,WR-19,UG-383/U,EAR99,
-Marki Microwave,TW50-19L00WG,"Terminations, 40 to 60 GHz",,,Terminations,Waveguide,40,60,,32,2,WR-19,UG-383/U,EAR99,
-Marki Microwave,TW50-15H00WG,"Terminations, 50 to 75 GHz",,,Terminations,Waveguide,50,75,,28,2,WR-15,UG-385/U,EAR99,
-Marki Microwave,TW50-15L00WG,"Terminations, 50 to 75 GHz",,,Terminations,Waveguide,50,75,,30,1,WR-15,UG-385/U,EAR99,
-Marki Microwave,TW50-12H00WG,"Terminations, 60 to 90 GHz",,,Terminations,Waveguide,60,90,,28,1.8,WR-12,UG-387/U,EAR99,
-Marki Microwave,TW50-12L00WG,"Terminations, 60 to 90 GHz",,,Terminations,Waveguide,60,90,,30,0.9,WR-12,UG-387/U,EAR99,
-Marki Microwave,TW50-10H00WG,"Terminations, 75 to 110 GHz",,,Terminations,Waveguide,75,110,,28,1.2,WR-10,UG-387/U,EAR99,
-Marki Microwave,TW50-10L00WG,"Terminations, 75 to 110 GHz",,,Terminations,Waveguide,75,110,,30,0.6,WR-10,UG-387/U,EAR99,
-Marki Microwave,TW50-08H00WG,"Terminations, 90 to 140 GHz",,,Terminations,Waveguide,90,140,,24,,WR-08,UG-387/U,EAR99,Power: contact support
-Marki Microwave,TW50-08L00WG,"Terminations, 90 to 140 GHz",,,Terminations,Waveguide,90,140,,26,,WR-08,UG-387/U,EAR99,Power: contact support
+manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,impedance_ohm,return_loss_db,power_w,waveguide_band,flange,notes,eccn
+Marki Microwave,TM50-27,"Terminations, DC to 27 GHz",,,Terminations,Connectorized,0,27,50,32,,,,,EAR99
+Marki Microwave,TF50-27,"Terminations, DC to 27 GHz",,,Terminations,Connectorized,0,27,50,32,,,,,EAR99
+Marki Microwave,TM50-40,"Terminations, DC to 40 GHz",,,Terminations,Connectorized,0,40,50,35,,,,,EAR99
+Marki Microwave,TF50-40,"Terminations, DC to 40 GHz",,,Terminations,Connectorized,0,40,50,35,,,,,EAR99
+Marki Microwave,TM50-50,"Terminations, DC to 50 GHz",,,Terminations,Connectorized,0,50,50,31,,,,,EAR99
+Marki Microwave,TF50-50,"Terminations, DC to 50 GHz",,,Terminations,Connectorized,0,50,50,31,,,,,EAR99
+Marki Microwave,TM50-67,"Terminations, DC to 67 GHz",,,Terminations,Connectorized,0,67,50,36,,,,,EAR99
+Marki Microwave,TF50-67,"Terminations, DC to 67 GHz",,,Terminations,Connectorized,0,67,50,36,,,,,EAR99
+Marki Microwave,TM50-110M,"Terminations, DC to 110 GHz",,,Terminations,Connectorized,0,110,50,15,,,,,EAR99
+Marki Microwave,TF50-110M,"Terminations, DC to 110 GHz",,,Terminations,Connectorized,0,110,50,15,,,,,EAR99
+Marki Microwave,TW50-28H00WG,"Terminations, 26.5 to 40 GHz",,,Terminations,Waveguide,26.5,40,,30,7,WR-28,UG-599/U,,EAR99
+Marki Microwave,TW50-28L00WG,"Terminations, 26.5 to 40 GHz",,,Terminations,Waveguide,26.5,40,,32,5,WR-28,UG-599/U,,EAR99
+Marki Microwave,TW50-22H00WG,"Terminations, 33 to 50 GHz",,,Terminations,Waveguide,33,50,,30,5,WR-22,UG-383/U,,EAR99
+Marki Microwave,TW50-22L00WG,"Terminations, 33 to 50 GHz",,,Terminations,Waveguide,33,50,,32,4,WR-22,UG-383/U,,EAR99
+Marki Microwave,TW50-19H00WG,"Terminations, 40 to 60 GHz",,,Terminations,Waveguide,40,60,,30,3,WR-19,UG-383/U,,EAR99
+Marki Microwave,TW50-19L00WG,"Terminations, 40 to 60 GHz",,,Terminations,Waveguide,40,60,,32,2,WR-19,UG-383/U,,EAR99
+Marki Microwave,TW50-15H00WG,"Terminations, 50 to 75 GHz",,,Terminations,Waveguide,50,75,,28,2,WR-15,UG-385/U,,EAR99
+Marki Microwave,TW50-15L00WG,"Terminations, 50 to 75 GHz",,,Terminations,Waveguide,50,75,,30,1,WR-15,UG-385/U,,EAR99
+Marki Microwave,TW50-12H00WG,"Terminations, 60 to 90 GHz",,,Terminations,Waveguide,60,90,,28,1.8,WR-12,UG-387/U,,EAR99
+Marki Microwave,TW50-12L00WG,"Terminations, 60 to 90 GHz",,,Terminations,Waveguide,60,90,,30,0.9,WR-12,UG-387/U,,EAR99
+Marki Microwave,TW50-10H00WG,"Terminations, 75 to 110 GHz",,,Terminations,Waveguide,75,110,,28,1.2,WR-10,UG-387/U,,EAR99
+Marki Microwave,TW50-10L00WG,"Terminations, 75 to 110 GHz",,,Terminations,Waveguide,75,110,,30,0.6,WR-10,UG-387/U,,EAR99
+Marki Microwave,TW50-08H00WG,"Terminations, 90 to 140 GHz",,,Terminations,Waveguide,90,140,,24,,WR-08,UG-387/U,Power: contact support,EAR99
+Marki Microwave,TW50-08L00WG,"Terminations, 90 to 140 GHz",,,Terminations,Waveguide,90,140,,26,,WR-08,UG-387/U,Power: contact support,EAR99

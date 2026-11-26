@@ -1,95 +1,95 @@
-manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,coupling_db,directivity_db,flatness_db,vswr,insertion_loss_db,pickoff_loss_db,amp_bal_db,phase_bal_deg,isolation_db,return_loss_db,power_w,waveguide_band,flange,case,eccn,notes
-Marki Microwave,CBR16-0003,"Couplers, High Directivity Bridge, 0.0002 to 3 GHz",,,High Directivity Bridge,Connectorized,0.0002,3,16,40,,1.1,,,,,,,,,,,EAR99,
-Marki Microwave,CBR16-0006,"Couplers, High Directivity Bridge, 0.0002 to 6 GHz",,,High Directivity Bridge,Connectorized,0.0002,6,16,38,,1.15,,,,,,,,,,,EAR99,
-Marki Microwave,CBR16-0012,"Couplers, High Directivity Bridge, 0.0002 to 12 GHz",,,High Directivity Bridge,Connectorized,0.0002,12,16,32,,1.25,,,,,,,,,,,EAR99,
-Marki Microwave,CBR17-0026,"Couplers, High Directivity Bridge, 0.0002 to 26 GHz",,,High Directivity Bridge,Connectorized,0.0002,26,17,23,,1.22,,,,,,,,,,,EAR99,
-Marki Microwave,C17-0R506,"Couplers, Low Loss High Power, 0.5 to 6 GHz",,,Low Loss High Power,Connectorized,0.5,6,17,20,,,0.4,,,,,,120,,,,EAR99,
-Marki Microwave,C17-0R512,"Couplers, Low Loss High Power, 0.5 to 12 GHz",,,Low Loss High Power,Connectorized,0.5,12,17,20,,,0.65,,,,,,80,,,,EAR99,
-Marki Microwave,C17-0R518,"Couplers, Low Loss High Power, 0.5 to 18 GHz",,,Low Loss High Power,Connectorized,0.5,18,17,20,,,1,,,,,,60,,,,EAR99,
-Marki Microwave,CA-18,"Couplers, Low Loss High Power, DC to 18 GHz",,,Low Loss High Power,Connectorized,0,18,,22,,,0.35,,,,,,200,,,,EAR99,Coupling: > 30
-Marki Microwave,CA-26,"Couplers, Low Loss High Power, DC to 26.5 GHz",,,Low Loss High Power,Connectorized,0,26.5,,24,,,0.35,,,,,,50,,,,EAR99,Coupling: > 27
-Marki Microwave,CA-40,"Couplers, Low Loss High Power, DC to 40 GHz",,,Low Loss High Power,Connectorized,0,40,,24,,,0.5,,,,,,20,,,,EAR99,Coupling: > 27
-Marki Microwave,CA-50,"Couplers, Low Loss High Power, DC to 50 GHz",,,Low Loss High Power,Connectorized,0,50,,24,,,0.5,,,,,,15,,,,EAR99,Coupling: > 27
-Marki Microwave,C-0250,"Couplers, Low Loss High Power, 2 to 50 GHz",,,Low Loss High Power,Connectorized,2,50,12,15,,,0.7,,,,,,10,,,,EAR99,
-Marki Microwave,C-0265,"Couplers, Low Loss High Power, 2 to 65 GHz",,,Low Loss High Power,Connectorized,2,65,12,15,,,0.7,,,,,,10,,,,EAR99,
-Marki Microwave,C09-0R412,"Couplers, Stripline Directional, 0.45 to 12 GHz",,,Stripline Directional,Connectorized,0.45,12,9,22,0.7,1.15,,,,,,,,,,,EAR99,
-Marki Microwave,C09-0R418,"Couplers, Stripline Directional, 0.45 to 18 GHz",,,Stripline Directional,Connectorized,0.45,18,9,22,0.7,1.15,,,,,,,,,,,EAR99,
-Marki Microwave,C09-0R426,"Couplers, Stripline Directional, 0.45 to 26.5 GHz",,,Stripline Directional,Connectorized,0.45,26.5,9,22,0.7,1.15,,,,,,,,,,,EAR99,
-Marki Microwave,C09-0R430,"Couplers, Stripline Directional, 0.45 to 30 GHz",,,Stripline Directional,Connectorized,0.45,30,9,20,0.7,1.15,,,,,,,,,,,EAR99,
-Marki Microwave,C20-0R612,"Couplers, Stripline Directional, 0.6 to 12 GHz",,,Stripline Directional,Connectorized,0.6,12,20,22,0.6,1.2,,,,,,,,,,,EAR99,
-Marki Microwave,C10-0116,"Couplers, Stripline Directional, 1 to 16 GHz",,,Stripline Directional,Connectorized,1,16,10,20,0.5,1.15,,,,,,,,,,,EAR99,
-Marki Microwave,C20-0116,"Couplers, Stripline Directional, 1 to 16 GHz",,,Stripline Directional,Connectorized,1,16,20,20,0.6,1.15,,,,,,,,,,,EAR99,
-Marki Microwave,C20-0R518,"Couplers, Stripline Directional, 0.5 to 18 GHz",,,Stripline Directional,Connectorized,0.5,18,20,22,0.75,1.2,,,,,,,,,,,EAR99,
-Marki Microwave,C20-0R520,"Couplers, Stripline Directional, 0.5 to 20 GHz",,,Stripline Directional,Connectorized,0.5,20,20,22,0.75,1.2,,,,,,,,,,,EAR99,
-Marki Microwave,C13-0126,"Couplers, Stripline Directional, 1 to 26.5 GHz",,,Stripline Directional,Connectorized,1,26.5,13,20,0.6,1.15,,,,,,,,,,,EAR99,
-Marki Microwave,C16-1R718,"Couplers, Stripline Directional, 1.7 to 18 GHz",,,Stripline Directional,Connectorized,1.7,18,16,20,0.3,1.15,,,,,,,,,,,EAR99,
-Marki Microwave,C16-1R726,"Couplers, Stripline Directional, 1.7 to 26.5 GHz",,,Stripline Directional,Connectorized,1.7,26.5,16,20,0.4,1.15,,,,,,,,,,,EAR99,
-Marki Microwave,C10-0226,"Couplers, Stripline Directional, 2 to 26.5 GHz",,,Stripline Directional,Connectorized,2,26.5,10,22,0.6,1.15,,,,,,,,,,,EAR99,
-Marki Microwave,C20-0226,"Couplers, Stripline Directional, 2 to 26.5 GHz",,,Stripline Directional,Connectorized,2,26.5,20,22,0.75,1.25,,,,,,,,,,,EAR99,
-Marki Microwave,C13-0140,"Couplers, Stripline Directional, 1 to 40 GHz",,,Stripline Directional,Connectorized,1,40,13,16,0.1,1.2,,,,,,,,,,,EAR99,
-Marki Microwave,C20-0240,"Couplers, Stripline Directional, 2 to 40 GHz",,,Stripline Directional,Connectorized,2,40,20,17,0.75,1.3,,,,,,,,,,,EAR99,
-Marki Microwave,C13-0150,"Couplers, Stripline Directional, 1 to 50 GHz",,,Stripline Directional,Connectorized,1,50,13,16,0.75,1.2,,,,,,,,,,,EAR99,
-Marki Microwave,C10-0450,"Couplers, Stripline Directional, 4 to 50 GHz",,,Stripline Directional,Connectorized,4,50,10,15,0.5,1.35,,,,,,,,,,,EAR99,
-Marki Microwave,C10-0667,"Couplers, Stripline Directional, 6 to 67 GHz",,,Stripline Directional,Connectorized,6,67,10,17,0.8,1.2,,,,,,,,,,,EAR99,
-Marki Microwave,C16-0667,"Couplers, Stripline Directional, 6 to 67 GHz",,,Stripline Directional,Connectorized,6,67,16,17,0.9,1.25,,,,,,,,,,,EAR99,
-Marki Microwave,C20-0667,"Couplers, Stripline Directional, 6 to 67 GHz",,,Stripline Directional,Connectorized,6,67,20,17,0.8,1.25,,,,,,,,,,,EAR99,
-Marki Microwave,MC10-25110M2,"Couplers, Stripline Directional, 25 to 110 GHz",,,Stripline Directional,Connectorized,25,110,10,19.5,0.2,1.43,,,,,,,,,,,EAR99,
-Marki Microwave,CE10-0R620T,"Couplers, Elite Stripline Directional, 0.6 to 20 GHz",,,Elite Stripline Directional,Connectorized,0.6,20,10,27,0.2,1.07,,,,,,,,,,,EAR99,
-Marki Microwave,CE10-0R640(T),"Couplers, Elite Stripline Directional, 0.6 to 40 GHz",,,Elite Stripline Directional,Connectorized,0.6,40,10,,0.2,,,,,,,,,,,,EAR99,Directivity: 24/22; VSWR: 1.07/1.08
-Marki Microwave,CE10-1R520(T),"Couplers, Elite Stripline Directional, 1.5 to 20 GHz",,,Elite Stripline Directional,Connectorized,1.5,20,10,32,0.25,1.07,,,,,,,,,,,EAR99,
-Marki Microwave,CE10-1R540(T),"Couplers, Elite Stripline Directional, 1.5 to 40 GHz",,,Elite Stripline Directional,Connectorized,1.5,40,10,,0.25,1.07,,,,,,,,,,,EAR99,Directivity: 26/22
-Marki Microwave,CE13-0220T,"Couplers, Elite Stripline Directional, 2 to 20 GHz",,,Elite Stripline Directional,Connectorized,2,20,13,30,0.15,1.07,,,,,,,,,,,EAR99,
-Marki Microwave,CE13-0240(T),"Couplers, Elite Stripline Directional, 2 to 40 GHz",,,Elite Stripline Directional,Connectorized,2,40,13,,0.15,,,,,,,,,,,,EAR99,Directivity: 29/27; VSWR: 1.07/1.08
-Marki Microwave,CE16-0220T,"Couplers, Elite Stripline Directional, 2 to 20 GHz",,,Elite Stripline Directional,Connectorized,2,20,16,32,0.1,1.07,,,,,,,,,,,EAR99,
-Marki Microwave,CE16-0240(T),"Couplers, Elite Stripline Directional, 2 to 40 GHz",,,Elite Stripline Directional,Connectorized,2,40,16,,0.1,1.07,,,,,,,,,,,EAR99,Directivity: 30/29
-Marki Microwave,CE20-0R620T,"Couplers, Elite Stripline Directional, 0.6 to 20 GHz",,,Elite Stripline Directional,Connectorized,0.6,20,20,26,0.15,1.07,,,,,,,,,,,EAR99,
-Marki Microwave,CE20-1R640(T),"Couplers, Elite Stripline Directional, 0.6 to 40 GHz",,,Elite Stripline Directional,Connectorized,0.6,40,20,,0.15,1.07,,,,,,,,,,,EAR99,Directivity: 27/24
-Marki Microwave,CE20-0220T,"Couplers, Elite Stripline Directional, 2 to 20 GHz",,,Elite Stripline Directional,Connectorized,2,20,20,30,0.1,1.07,,,,,,,,,,,EAR99,
-Marki Microwave,CE20-0R240(T),"Couplers, Elite Stripline Directional, 2 to 40 GHz",,,Elite Stripline Directional,Connectorized,2,40,20,,0.1,,,,,,,,,,,,EAR99,Directivity: 33/28; VSWR: 1.05/1.07
-Marki Microwave,CD10-0106,"Couplers, Dual Directional, 0.7 to 6.3 GHz",,,Dual Directional,Connectorized,0.7,6.3,10,25,0.6,1.14,,,,,,,,,,,EAR99,
-Marki Microwave,CD10-0114,"Couplers, Dual Directional, 0.7 to 14.7 GHz",,,Dual Directional,Connectorized,0.7,14.7,10,23,0.6,1.17,,,,,,,,,,,EAR99,
-Marki Microwave,PT-0020,"Couplers, Pick-Off Tees, DC to 20 GHz",,,Pick-Off Tees,Connectorized,0,20,,,,,2,16,,,,,,,,,EAR99,
-Marki Microwave,PT-0030(A),"Couplers, Pick-Off Tees, DC to 30 GHz",,,Pick-Off Tees,Connectorized,0,30,,,,,2,16,,,,,,,,,EAR99,
-Marki Microwave,QH-0R518,"Couplers, Hybrid, 0.5 to 18 GHz",,,Hybrid,Connectorized,0.5,18,,,,,1.5,,0.5,3,20,,,,,,EAR99,
-Marki Microwave,QH-0R71R3,"Couplers, Hybrid, 0.65 to 1.3 GHz",,,Hybrid,Connectorized,0.65,1.3,,,,,0.5,,0.3,3,16,,,,,,EAR99,
-Marki Microwave,QH-0R714,"Couplers, Hybrid, 0.7 to 14.5 GHz",,,Hybrid,Connectorized,0.7,14.5,,,,,1.2,,0.2,2,22,,,,,,EAR99,
-Marki Microwave,MQS-0209UB,"Couplers, Hybrid, 2 to 9 GHz",,,Hybrid,Connectorized,2,9,,,,,2,,0.5,3,16,,,,,,EAR99,
-Marki Microwave,MQS-0218UA,"Couplers, Hybrid, 2 to 18 GHz",,,Hybrid,Connectorized,2,18,,,,,1.4,,1,3,17,,,,,,EAR99,
-Marki Microwave,QH-0226,"Couplers, Hybrid, 2 to 26.5 GHz",,,Hybrid,Connectorized,2,26.5,,,,,2,,0.25,2,22,,,,,,EAR99,
-Marki Microwave,MQH-2R58R5UB,"Couplers, Hybrid, 2.5 to 8.5 GHz",,,Hybrid,Connectorized,2.5,8.5,,,,,2,,0.4,3,23,,,,,,EAR99,
-Marki Microwave,MQH-3R510UB,"Couplers, Hybrid, 3.5 to 10 GHz",,,Hybrid,Connectorized,3.5,10,,,,,1.8,,0.4,1.5,25,,,,,,EAR99,
-Marki Microwave,MQS-0418UA,"Couplers, Hybrid, 4 to 18 GHz",,,Hybrid,Connectorized,4,18,,,,,1.5,,0.4,0.5,20,,,,,,EAR99,
-Marki Microwave,QH-0440,"Couplers, Hybrid, 4 to 40 GHz",,,Hybrid,Connectorized,4,40,,,,,2,,0.4,5,18,,,,,,EAR99,
-Marki Microwave,MQH-0517UB,"Couplers, Hybrid, 5 to 17 GHz",,,Hybrid,Connectorized,5,17,,,,,1.6,,0.5,6,23,,,,,,EAR99,
-Marki Microwave,QH-0550,"Couplers, Hybrid, 5 to 50 GHz",,,Hybrid,Connectorized,5,50,,,,,1,,0.6,5,22,,,,,,EAR99,
-Marki Microwave,QH-0867,"Couplers, Hybrid, 8 to 67 GHz",,,Hybrid,Connectorized,8,67,,,,,1.2,,0.6,6,18,,,,,,EAR99,
-Marki Microwave,MQH-40110M2,"Couplers, Hybrid, 40 to 110 GHz",,,Hybrid,Connectorized,40,110,,,,,2.5,,1,5,18,,,,,,EAR99,
-Marki Microwave,C10-2800WG,"Couplers, 26.5 to 40 GHz",,,Couplers,Waveguide,26.5,40,10,40,,,0.5,,,,,30,,WR-28,UG-599/U,,EAR99,
-Marki Microwave,C10-2200WG,"Couplers, 33 to 50 GHz",,,Couplers,Waveguide,33,50,10,40,,,0.6,,,,,30,,WR-22,UG-383/U,,EAR99,
-Marki Microwave,C10-1900WG,"Couplers, 40 to 60 GHz",,,Couplers,Waveguide,40,60,10,40,,,0.7,,,,,30,,WR-19,UG-383/U,,EAR99,
-Marki Microwave,C10-1500WG,"Couplers, 50 to 75 GHz",,,Couplers,Waveguide,50,75,10,40,,,1.2,,,,,30,,WR-15,UG-385/U,,EAR99,
-Marki Microwave,C20-1500WG,"Couplers, 50 to 75 GHz",,,Couplers,Waveguide,50,75,19,41,,,0.9,,,,,39,,WR-15,UG-385/U,,EAR99,
-Marki Microwave,C10-1200WG,"Couplers, 60 to 90 GHz",,,Couplers,Waveguide,60,90,10,40,,,1.1,,,,,30,,WR-12,UG-387/U,,EAR99,
-Marki Microwave,C20-1200WG,"Couplers, 60 to 90 GHz",,,Couplers,Waveguide,60,90,19,38,,,0.8,,,,,39,,WR-12,UG-387/U,,EAR99,
-Marki Microwave,C10-1000WG,"Couplers, 75 to 110 GHz",,,Couplers,Waveguide,75,110,10,40,,,1.25,,,,,30,,WR-10,UG-387/U,,EAR99,
-Marki Microwave,C20-1000WG,"Couplers, 75 to 110 GHz",,,Couplers,Waveguide,75,110,20,36,,,1.15,,,,,35,,WR-10,UG-387/U,,EAR99,
-Marki Microwave,MC16-0222SM,"Couplers, Directional, 2 to 22 GHz",,https://www.markimicrowave.com/products/surface-mount/couplers/mc16-0222sm/datasheet/,Directional,Surface mount,2,22,16,23,,1.22,,,,,,,,,,4mm QFN,EAR99,
-Marki Microwave,MQH-0612CSP3,"Couplers, Hybrid, 6 to 12 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-0612csp3/datasheet/,Hybrid,Surface mount,6,12,,,,,,,0.5,0.5,27,,,,,3.5mm CSP3,EAR99,
-Marki Microwave,MQH-0516PSM,"Couplers, Hybrid, 5 to 16 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-0516psm/datasheet/,Hybrid,Surface mount,5,16,,,,,,,0.3,3,27,,,,,5mm QFN,EAR99,
-Marki Microwave,MQS-0218SM,"Couplers, Hybrid, 2 to 18 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqs-0218sm/datasheet/,Hybrid,Surface mount,2,18,,,,,,,1,3,15,,,,,4mm QFN,EAR99,
-Marki Microwave,MQS-0518SM,"Couplers, Hybrid, 5 to 18 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqs-0518sm/datasheet/,Hybrid,Surface mount,5,18,,,,,,,0.5,2.5,17,,,,,4mm QFN,EAR99,
-Marki Microwave,MQH-0919CSP3,"Couplers, Hybrid, 9 to 19 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-0919csp3/datasheet/,Hybrid,Surface mount,9,19,,,,,,,0.5,0.4,28,,,,,3.5mm CSP3,EAR99,
-Marki Microwave,MQH-1329CSP3,"Couplers, Hybrid, 13 to 29 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-1329csp3/datasheet/,Hybrid,Surface mount,13,29,,,,,,,0.6,0.6,23,,,,,3.5mm CSP3,EAR99,
-Marki Microwave,MQH-1840CSP3,"Couplers, Hybrid, 18 to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-1840csp3/datasheet/,Hybrid,Surface mount,18,40,,,,,,,0.6,0.2,27,,,,,3.5mm CSP3,EAR99,
-Marki Microwave,MQH-2655CSP3,"Couplers, Hybrid, 26 to 55 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-2655csp3/datasheet/,Hybrid,Surface mount,26,55,,,,,,,0.5,1.1,23,,,,,3.5mm CSP3,EAR99,
-Marki Microwave,PT-0067CH,"Couplers, Pick-Off Tees, DC to 67 GHz",,https://markimicrowave.com/products/bare-die/directional-couplers/pt-0067ch/datasheet/,Pick-Off Tees,Bare die,0,67,,,,,1.1,15,,,,,,,,,EAR99,
-Marki Microwave,MQH-0207CH,"Couplers, Hybrid, 2 to 7 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-0207ch/datasheet/,Hybrid,Bare die,2,7,,,,,,,0.5,1,25,,,,,,EAR99,
-Marki Microwave,MQH-2R58R5CH,"Couplers, Hybrid, 2.5 to 8.5 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-2r58r5ch/datasheet/,Hybrid,Bare die,2.5,8.5,,,,,,,0.4,3,23,,,,,,EAR99,
-Marki Microwave,MQS-0209CH,"Couplers, Hybrid, 2 to 9 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqs-0209ch/datasheet/,Hybrid,Bare die,2,9,,,,,,,0.5,3,16,,,,,,EAR99,
-Marki Microwave,MQH-3R510CH,"Couplers, Hybrid, 3.5 to 10 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-3r510ch/datasheet/,Hybrid,Bare die,3.5,10,,,,,,,0.4,1.5,25,,,,,,EAR99,
-Marki Microwave,MQH-0517CH,"Couplers, Hybrid, 5 to 17 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-0517ch/datasheet/,Hybrid,Bare die,5,17,,,,,,,0.5,5,23,,,,,,EAR99,
-Marki Microwave,MQS-0218CH,"Couplers, Hybrid, 2 to 18 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqs-0218ch/datasheet/,Hybrid,Bare die,2,18,,,,,,,1,3,17,,,,,,EAR99,
-Marki Microwave,MQS-0418CH,"Couplers, Hybrid, 4 to 18 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqs-0418ch/datasheet/,Hybrid,Bare die,4,18,,,,,,,0.4,0.5,16,,,,,,EAR99,
-Marki Microwave,MQH-0920CH,"Couplers, Hybrid, 9 to 20 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-0920ch/datasheet/,Hybrid,Bare die,9,20,,,,,,,0.55,2,22,,,,,,EAR99,
-Marki Microwave,MQH-1434CH,"Couplers, Hybrid, 14 to 34 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-1434ch/datasheet/,Hybrid,Bare die,14,34,,,,,,,0.7,4.5,17,,,,,,EAR99,
-Marki Microwave,MQH-1842CH,"Couplers, Hybrid, 18 to 42 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-1842ch/datasheet/,Hybrid,Bare die,18,42,,,,,,,1.5,4,15,,,,,,EAR99,
+manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,coupling_db,directivity_db,flatness_db,vswr,insertion_loss_db,pickoff_loss_db,amp_bal_db,phase_bal_deg,isolation_db,return_loss_db,power_w,waveguide_band,flange,case,notes,eccn
+Marki Microwave,CBR16-0003,"Couplers, High Directivity Bridge, 0.0002 to 3 GHz",,,High Directivity Bridge,Connectorized,0.0002,3,16,40,,1.1,,,,,,,,,,,,EAR99
+Marki Microwave,CBR16-0006,"Couplers, High Directivity Bridge, 0.0002 to 6 GHz",,,High Directivity Bridge,Connectorized,0.0002,6,16,38,,1.15,,,,,,,,,,,,EAR99
+Marki Microwave,CBR16-0012,"Couplers, High Directivity Bridge, 0.0002 to 12 GHz",,,High Directivity Bridge,Connectorized,0.0002,12,16,32,,1.25,,,,,,,,,,,,EAR99
+Marki Microwave,CBR17-0026,"Couplers, High Directivity Bridge, 0.0002 to 26 GHz",,,High Directivity Bridge,Connectorized,0.0002,26,17,23,,1.22,,,,,,,,,,,,EAR99
+Marki Microwave,C17-0R506,"Couplers, Low Loss High Power, 0.5 to 6 GHz",,,Low Loss High Power,Connectorized,0.5,6,17,20,,,0.4,,,,,,120,,,,,EAR99
+Marki Microwave,C17-0R512,"Couplers, Low Loss High Power, 0.5 to 12 GHz",,,Low Loss High Power,Connectorized,0.5,12,17,20,,,0.65,,,,,,80,,,,,EAR99
+Marki Microwave,C17-0R518,"Couplers, Low Loss High Power, 0.5 to 18 GHz",,,Low Loss High Power,Connectorized,0.5,18,17,20,,,1,,,,,,60,,,,,EAR99
+Marki Microwave,CA-18,"Couplers, Low Loss High Power, DC to 18 GHz",,,Low Loss High Power,Connectorized,0,18,,22,,,0.35,,,,,,200,,,,Coupling: > 30,EAR99
+Marki Microwave,CA-26,"Couplers, Low Loss High Power, DC to 26.5 GHz",,,Low Loss High Power,Connectorized,0,26.5,,24,,,0.35,,,,,,50,,,,Coupling: > 27,EAR99
+Marki Microwave,CA-40,"Couplers, Low Loss High Power, DC to 40 GHz",,,Low Loss High Power,Connectorized,0,40,,24,,,0.5,,,,,,20,,,,Coupling: > 27,EAR99
+Marki Microwave,CA-50,"Couplers, Low Loss High Power, DC to 50 GHz",,,Low Loss High Power,Connectorized,0,50,,24,,,0.5,,,,,,15,,,,Coupling: > 27,EAR99
+Marki Microwave,C-0250,"Couplers, Low Loss High Power, 2 to 50 GHz",,,Low Loss High Power,Connectorized,2,50,12,15,,,0.7,,,,,,10,,,,,EAR99
+Marki Microwave,C-0265,"Couplers, Low Loss High Power, 2 to 65 GHz",,,Low Loss High Power,Connectorized,2,65,12,15,,,0.7,,,,,,10,,,,,EAR99
+Marki Microwave,C09-0R412,"Couplers, Stripline Directional, 0.45 to 12 GHz",,,Stripline Directional,Connectorized,0.45,12,9,22,0.7,1.15,,,,,,,,,,,,EAR99
+Marki Microwave,C09-0R418,"Couplers, Stripline Directional, 0.45 to 18 GHz",,,Stripline Directional,Connectorized,0.45,18,9,22,0.7,1.15,,,,,,,,,,,,EAR99
+Marki Microwave,C09-0R426,"Couplers, Stripline Directional, 0.45 to 26.5 GHz",,,Stripline Directional,Connectorized,0.45,26.5,9,22,0.7,1.15,,,,,,,,,,,,EAR99
+Marki Microwave,C09-0R430,"Couplers, Stripline Directional, 0.45 to 30 GHz",,,Stripline Directional,Connectorized,0.45,30,9,20,0.7,1.15,,,,,,,,,,,,EAR99
+Marki Microwave,C20-0R612,"Couplers, Stripline Directional, 0.6 to 12 GHz",,,Stripline Directional,Connectorized,0.6,12,20,22,0.6,1.2,,,,,,,,,,,,EAR99
+Marki Microwave,C10-0116,"Couplers, Stripline Directional, 1 to 16 GHz",,,Stripline Directional,Connectorized,1,16,10,20,0.5,1.15,,,,,,,,,,,,EAR99
+Marki Microwave,C20-0116,"Couplers, Stripline Directional, 1 to 16 GHz",,,Stripline Directional,Connectorized,1,16,20,20,0.6,1.15,,,,,,,,,,,,EAR99
+Marki Microwave,C20-0R518,"Couplers, Stripline Directional, 0.5 to 18 GHz",,,Stripline Directional,Connectorized,0.5,18,20,22,0.75,1.2,,,,,,,,,,,,EAR99
+Marki Microwave,C20-0R520,"Couplers, Stripline Directional, 0.5 to 20 GHz",,,Stripline Directional,Connectorized,0.5,20,20,22,0.75,1.2,,,,,,,,,,,,EAR99
+Marki Microwave,C13-0126,"Couplers, Stripline Directional, 1 to 26.5 GHz",,,Stripline Directional,Connectorized,1,26.5,13,20,0.6,1.15,,,,,,,,,,,,EAR99
+Marki Microwave,C16-1R718,"Couplers, Stripline Directional, 1.7 to 18 GHz",,,Stripline Directional,Connectorized,1.7,18,16,20,0.3,1.15,,,,,,,,,,,,EAR99
+Marki Microwave,C16-1R726,"Couplers, Stripline Directional, 1.7 to 26.5 GHz",,,Stripline Directional,Connectorized,1.7,26.5,16,20,0.4,1.15,,,,,,,,,,,,EAR99
+Marki Microwave,C10-0226,"Couplers, Stripline Directional, 2 to 26.5 GHz",,,Stripline Directional,Connectorized,2,26.5,10,22,0.6,1.15,,,,,,,,,,,,EAR99
+Marki Microwave,C20-0226,"Couplers, Stripline Directional, 2 to 26.5 GHz",,,Stripline Directional,Connectorized,2,26.5,20,22,0.75,1.25,,,,,,,,,,,,EAR99
+Marki Microwave,C13-0140,"Couplers, Stripline Directional, 1 to 40 GHz",,,Stripline Directional,Connectorized,1,40,13,16,0.1,1.2,,,,,,,,,,,,EAR99
+Marki Microwave,C20-0240,"Couplers, Stripline Directional, 2 to 40 GHz",,,Stripline Directional,Connectorized,2,40,20,17,0.75,1.3,,,,,,,,,,,,EAR99
+Marki Microwave,C13-0150,"Couplers, Stripline Directional, 1 to 50 GHz",,,Stripline Directional,Connectorized,1,50,13,16,0.75,1.2,,,,,,,,,,,,EAR99
+Marki Microwave,C10-0450,"Couplers, Stripline Directional, 4 to 50 GHz",,,Stripline Directional,Connectorized,4,50,10,15,0.5,1.35,,,,,,,,,,,,EAR99
+Marki Microwave,C10-0667,"Couplers, Stripline Directional, 6 to 67 GHz",,,Stripline Directional,Connectorized,6,67,10,17,0.8,1.2,,,,,,,,,,,,EAR99
+Marki Microwave,C16-0667,"Couplers, Stripline Directional, 6 to 67 GHz",,,Stripline Directional,Connectorized,6,67,16,17,0.9,1.25,,,,,,,,,,,,EAR99
+Marki Microwave,C20-0667,"Couplers, Stripline Directional, 6 to 67 GHz",,,Stripline Directional,Connectorized,6,67,20,17,0.8,1.25,,,,,,,,,,,,EAR99
+Marki Microwave,MC10-25110M2,"Couplers, Stripline Directional, 25 to 110 GHz",,,Stripline Directional,Connectorized,25,110,10,19.5,0.2,1.43,,,,,,,,,,,,EAR99
+Marki Microwave,CE10-0R620T,"Couplers, Elite Stripline Directional, 0.6 to 20 GHz",,,Elite Stripline Directional,Connectorized,0.6,20,10,27,0.2,1.07,,,,,,,,,,,,EAR99
+Marki Microwave,CE10-0R640(T),"Couplers, Elite Stripline Directional, 0.6 to 40 GHz",,,Elite Stripline Directional,Connectorized,0.6,40,10,,0.2,,,,,,,,,,,,Directivity: 24/22; VSWR: 1.07/1.08,EAR99
+Marki Microwave,CE10-1R520(T),"Couplers, Elite Stripline Directional, 1.5 to 20 GHz",,,Elite Stripline Directional,Connectorized,1.5,20,10,32,0.25,1.07,,,,,,,,,,,,EAR99
+Marki Microwave,CE10-1R540(T),"Couplers, Elite Stripline Directional, 1.5 to 40 GHz",,,Elite Stripline Directional,Connectorized,1.5,40,10,,0.25,1.07,,,,,,,,,,,Directivity: 26/22,EAR99
+Marki Microwave,CE13-0220T,"Couplers, Elite Stripline Directional, 2 to 20 GHz",,,Elite Stripline Directional,Connectorized,2,20,13,30,0.15,1.07,,,,,,,,,,,,EAR99
+Marki Microwave,CE13-0240(T),"Couplers, Elite Stripline Directional, 2 to 40 GHz",,,Elite Stripline Directional,Connectorized,2,40,13,,0.15,,,,,,,,,,,,Directivity: 29/27; VSWR: 1.07/1.08,EAR99
+Marki Microwave,CE16-0220T,"Couplers, Elite Stripline Directional, 2 to 20 GHz",,,Elite Stripline Directional,Connectorized,2,20,16,32,0.1,1.07,,,,,,,,,,,,EAR99
+Marki Microwave,CE16-0240(T),"Couplers, Elite Stripline Directional, 2 to 40 GHz",,,Elite Stripline Directional,Connectorized,2,40,16,,0.1,1.07,,,,,,,,,,,Directivity: 30/29,EAR99
+Marki Microwave,CE20-0R620T,"Couplers, Elite Stripline Directional, 0.6 to 20 GHz",,,Elite Stripline Directional,Connectorized,0.6,20,20,26,0.15,1.07,,,,,,,,,,,,EAR99
+Marki Microwave,CE20-1R640(T),"Couplers, Elite Stripline Directional, 0.6 to 40 GHz",,,Elite Stripline Directional,Connectorized,0.6,40,20,,0.15,1.07,,,,,,,,,,,Directivity: 27/24,EAR99
+Marki Microwave,CE20-0220T,"Couplers, Elite Stripline Directional, 2 to 20 GHz",,,Elite Stripline Directional,Connectorized,2,20,20,30,0.1,1.07,,,,,,,,,,,,EAR99
+Marki Microwave,CE20-0R240(T),"Couplers, Elite Stripline Directional, 2 to 40 GHz",,,Elite Stripline Directional,Connectorized,2,40,20,,0.1,,,,,,,,,,,,Directivity: 33/28; VSWR: 1.05/1.07,EAR99
+Marki Microwave,CD10-0106,"Couplers, Dual Directional, 0.7 to 6.3 GHz",,,Dual Directional,Connectorized,0.7,6.3,10,25,0.6,1.14,,,,,,,,,,,,EAR99
+Marki Microwave,CD10-0114,"Couplers, Dual Directional, 0.7 to 14.7 GHz",,,Dual Directional,Connectorized,0.7,14.7,10,23,0.6,1.17,,,,,,,,,,,,EAR99
+Marki Microwave,PT-0020,"Couplers, Pick-Off Tees, DC to 20 GHz",,,Pick-Off Tees,Connectorized,0,20,,,,,2,16,,,,,,,,,,EAR99
+Marki Microwave,PT-0030(A),"Couplers, Pick-Off Tees, DC to 30 GHz",,,Pick-Off Tees,Connectorized,0,30,,,,,2,16,,,,,,,,,,EAR99
+Marki Microwave,QH-0R518,"Couplers, Hybrid, 0.5 to 18 GHz",,,Hybrid,Connectorized,0.5,18,,,,,1.5,,0.5,3,20,,,,,,,EAR99
+Marki Microwave,QH-0R71R3,"Couplers, Hybrid, 0.65 to 1.3 GHz",,,Hybrid,Connectorized,0.65,1.3,,,,,0.5,,0.3,3,16,,,,,,,EAR99
+Marki Microwave,QH-0R714,"Couplers, Hybrid, 0.7 to 14.5 GHz",,,Hybrid,Connectorized,0.7,14.5,,,,,1.2,,0.2,2,22,,,,,,,EAR99
+Marki Microwave,MQS-0209UB,"Couplers, Hybrid, 2 to 9 GHz",,,Hybrid,Connectorized,2,9,,,,,2,,0.5,3,16,,,,,,,EAR99
+Marki Microwave,MQS-0218UA,"Couplers, Hybrid, 2 to 18 GHz",,,Hybrid,Connectorized,2,18,,,,,1.4,,1,3,17,,,,,,,EAR99
+Marki Microwave,QH-0226,"Couplers, Hybrid, 2 to 26.5 GHz",,,Hybrid,Connectorized,2,26.5,,,,,2,,0.25,2,22,,,,,,,EAR99
+Marki Microwave,MQH-2R58R5UB,"Couplers, Hybrid, 2.5 to 8.5 GHz",,,Hybrid,Connectorized,2.5,8.5,,,,,2,,0.4,3,23,,,,,,,EAR99
+Marki Microwave,MQH-3R510UB,"Couplers, Hybrid, 3.5 to 10 GHz",,,Hybrid,Connectorized,3.5,10,,,,,1.8,,0.4,1.5,25,,,,,,,EAR99
+Marki Microwave,MQS-0418UA,"Couplers, Hybrid, 4 to 18 GHz",,,Hybrid,Connectorized,4,18,,,,,1.5,,0.4,0.5,20,,,,,,,EAR99
+Marki Microwave,QH-0440,"Couplers, Hybrid, 4 to 40 GHz",,,Hybrid,Connectorized,4,40,,,,,2,,0.4,5,18,,,,,,,EAR99
+Marki Microwave,MQH-0517UB,"Couplers, Hybrid, 5 to 17 GHz",,,Hybrid,Connectorized,5,17,,,,,1.6,,0.5,6,23,,,,,,,EAR99
+Marki Microwave,QH-0550,"Couplers, Hybrid, 5 to 50 GHz",,,Hybrid,Connectorized,5,50,,,,,1,,0.6,5,22,,,,,,,EAR99
+Marki Microwave,QH-0867,"Couplers, Hybrid, 8 to 67 GHz",,,Hybrid,Connectorized,8,67,,,,,1.2,,0.6,6,18,,,,,,,EAR99
+Marki Microwave,MQH-40110M2,"Couplers, Hybrid, 40 to 110 GHz",,,Hybrid,Connectorized,40,110,,,,,2.5,,1,5,18,,,,,,,EAR99
+Marki Microwave,C10-2800WG,"Couplers, 26.5 to 40 GHz",,,Couplers,Waveguide,26.5,40,10,40,,,0.5,,,,,30,,WR-28,UG-599/U,,,EAR99
+Marki Microwave,C10-2200WG,"Couplers, 33 to 50 GHz",,,Couplers,Waveguide,33,50,10,40,,,0.6,,,,,30,,WR-22,UG-383/U,,,EAR99
+Marki Microwave,C10-1900WG,"Couplers, 40 to 60 GHz",,,Couplers,Waveguide,40,60,10,40,,,0.7,,,,,30,,WR-19,UG-383/U,,,EAR99
+Marki Microwave,C10-1500WG,"Couplers, 50 to 75 GHz",,,Couplers,Waveguide,50,75,10,40,,,1.2,,,,,30,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,C20-1500WG,"Couplers, 50 to 75 GHz",,,Couplers,Waveguide,50,75,19,41,,,0.9,,,,,39,,WR-15,UG-385/U,,,EAR99
+Marki Microwave,C10-1200WG,"Couplers, 60 to 90 GHz",,,Couplers,Waveguide,60,90,10,40,,,1.1,,,,,30,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,C20-1200WG,"Couplers, 60 to 90 GHz",,,Couplers,Waveguide,60,90,19,38,,,0.8,,,,,39,,WR-12,UG-387/U,,,EAR99
+Marki Microwave,C10-1000WG,"Couplers, 75 to 110 GHz",,,Couplers,Waveguide,75,110,10,40,,,1.25,,,,,30,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,C20-1000WG,"Couplers, 75 to 110 GHz",,,Couplers,Waveguide,75,110,20,36,,,1.15,,,,,35,,WR-10,UG-387/U,,,EAR99
+Marki Microwave,MC16-0222SM,"Couplers, Directional, 2 to 22 GHz",,https://www.markimicrowave.com/products/surface-mount/couplers/mc16-0222sm/datasheet/,Directional,Surface mount,2,22,16,23,,1.22,,,,,,,,,,4mm QFN,,EAR99
+Marki Microwave,MQH-0612CSP3,"Couplers, Hybrid, 6 to 12 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-0612csp3/datasheet/,Hybrid,Surface mount,6,12,,,,,,,0.5,0.5,27,,,,,3.5mm CSP3,,EAR99
+Marki Microwave,MQH-0516PSM,"Couplers, Hybrid, 5 to 16 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-0516psm/datasheet/,Hybrid,Surface mount,5,16,,,,,,,0.3,3,27,,,,,5mm QFN,,EAR99
+Marki Microwave,MQS-0218SM,"Couplers, Hybrid, 2 to 18 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqs-0218sm/datasheet/,Hybrid,Surface mount,2,18,,,,,,,1,3,15,,,,,4mm QFN,,EAR99
+Marki Microwave,MQS-0518SM,"Couplers, Hybrid, 5 to 18 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqs-0518sm/datasheet/,Hybrid,Surface mount,5,18,,,,,,,0.5,2.5,17,,,,,4mm QFN,,EAR99
+Marki Microwave,MQH-0919CSP3,"Couplers, Hybrid, 9 to 19 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-0919csp3/datasheet/,Hybrid,Surface mount,9,19,,,,,,,0.5,0.4,28,,,,,3.5mm CSP3,,EAR99
+Marki Microwave,MQH-1329CSP3,"Couplers, Hybrid, 13 to 29 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-1329csp3/datasheet/,Hybrid,Surface mount,13,29,,,,,,,0.6,0.6,23,,,,,3.5mm CSP3,,EAR99
+Marki Microwave,MQH-1840CSP3,"Couplers, Hybrid, 18 to 40 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-1840csp3/datasheet/,Hybrid,Surface mount,18,40,,,,,,,0.6,0.2,27,,,,,3.5mm CSP3,,EAR99
+Marki Microwave,MQH-2655CSP3,"Couplers, Hybrid, 26 to 55 GHz",,https://www.markimicrowave.com/products/surface-mount/quad-hybrids/mqh-2655csp3/datasheet/,Hybrid,Surface mount,26,55,,,,,,,0.5,1.1,23,,,,,3.5mm CSP3,,EAR99
+Marki Microwave,PT-0067CH,"Couplers, Pick-Off Tees, DC to 67 GHz",,https://markimicrowave.com/products/bare-die/directional-couplers/pt-0067ch/datasheet/,Pick-Off Tees,Bare die,0,67,,,,,1.1,15,,,,,,,,,,EAR99
+Marki Microwave,MQH-0207CH,"Couplers, Hybrid, 2 to 7 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-0207ch/datasheet/,Hybrid,Bare die,2,7,,,,,,,0.5,1,25,,,,,,,EAR99
+Marki Microwave,MQH-2R58R5CH,"Couplers, Hybrid, 2.5 to 8.5 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-2r58r5ch/datasheet/,Hybrid,Bare die,2.5,8.5,,,,,,,0.4,3,23,,,,,,,EAR99
+Marki Microwave,MQS-0209CH,"Couplers, Hybrid, 2 to 9 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqs-0209ch/datasheet/,Hybrid,Bare die,2,9,,,,,,,0.5,3,16,,,,,,,EAR99
+Marki Microwave,MQH-3R510CH,"Couplers, Hybrid, 3.5 to 10 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-3r510ch/datasheet/,Hybrid,Bare die,3.5,10,,,,,,,0.4,1.5,25,,,,,,,EAR99
+Marki Microwave,MQH-0517CH,"Couplers, Hybrid, 5 to 17 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-0517ch/datasheet/,Hybrid,Bare die,5,17,,,,,,,0.5,5,23,,,,,,,EAR99
+Marki Microwave,MQS-0218CH,"Couplers, Hybrid, 2 to 18 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqs-0218ch/datasheet/,Hybrid,Bare die,2,18,,,,,,,1,3,17,,,,,,,EAR99
+Marki Microwave,MQS-0418CH,"Couplers, Hybrid, 4 to 18 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqs-0418ch/datasheet/,Hybrid,Bare die,4,18,,,,,,,0.4,0.5,16,,,,,,,EAR99
+Marki Microwave,MQH-0920CH,"Couplers, Hybrid, 9 to 20 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-0920ch/datasheet/,Hybrid,Bare die,9,20,,,,,,,0.55,2,22,,,,,,,EAR99
+Marki Microwave,MQH-1434CH,"Couplers, Hybrid, 14 to 34 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-1434ch/datasheet/,Hybrid,Bare die,14,34,,,,,,,0.7,4.5,17,,,,,,,EAR99
+Marki Microwave,MQH-1842CH,"Couplers, Hybrid, 18 to 42 GHz",,https://www.markimicrowave.com/products/bare-die/quad-hybrids/mqh-1842ch/datasheet/,Hybrid,Bare die,18,42,,,,,,,1.5,4,15,,,,,,,EAR99

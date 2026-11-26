@@ -116,8 +116,8 @@ categories:
       - { key: waveguide_band, label: "Waveguide Band", type: text }
       - { key: flange, label: "Flange", type: text }
       - { key: case, label: "Case", type: text }
-      - { key: eccn, label: "ECCN", type: text }
       - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
 
   - id: diplexer
     name: "Diplexers and Multiplexers"
@@ -132,8 +132,8 @@ categories:
       - { key: high_max_ghz, label: "High Band Max", unit: "GHz", type: number }
       - { key: isolation_db, label: "Isolation", unit: "dB", type: number, sort: desc }
       - { key: case, label: "Case", type: text }
-      - { key: eccn, label: "ECCN", type: text }
       - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
 
   - id: equalizer
     name: "Equalizers"
@@ -146,8 +146,8 @@ categories:
       - { key: low_freq_atten_db, label: "Low Freq Atten", unit: "dB", type: number }
       - { key: return_loss_db, label: "Return Loss", unit: "dB", type: number, sort: desc }
       - { key: case, label: "Case", type: text }
-      - { key: eccn, label: "ECCN", type: text }
       - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
 
   - id: filter
     name: "Filters"
@@ -208,8 +208,8 @@ categories:
       - { key: image_rej_dbc, label: "Image Rej", unit: "dBc", type: number, sort: desc }
       - { key: lr_isolation_db, label: "L-R Isolation", unit: "dB", type: number, sort: desc }
       - { key: case, label: "Case", type: text }
-      - { key: eccn, label: "ECCN", type: text }
       - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
 
   - id: multiplier
     name: "Multipliers"
@@ -228,8 +228,8 @@ categories:
       - { key: output_dbm, label: "Output Power", unit: "dBm", type: number, sort: desc }
       - { key: bias, label: "Bias", type: text }
       - { key: case, label: "Case", type: text }
-      - { key: eccn, label: "ECCN", type: text }
       - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
 
   - id: oscillator
     name: "Oscillators"
@@ -288,8 +288,8 @@ categories:
       - { key: sensitivity_v_mw, label: "Sensitivity", unit: "V/mW", type: number, sort: desc }
       - { key: operating_range, label: "Range (dBm)", type: text }
       - { key: flange, label: "Flange", type: text }
-      - { key: eccn, label: "ECCN", type: text }
       - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
 
   - id: isolator
     name: "Isolators"
@@ -319,8 +319,8 @@ categories:
       - { key: power_w, label: "Power", unit: "W", type: number, sort: desc }
       - { key: waveguide_band, label: "Waveguide Band", type: text }
       - { key: flange, label: "Flange", type: text }
-      - { key: eccn, label: "ECCN", type: text }
       - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
 
   - id: adapter
     name: "Adapters and Accessories"

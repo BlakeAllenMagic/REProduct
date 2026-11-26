@@ -38,18 +38,25 @@ export function sortParts(parts, column, dir) {
   });
 }
 
+/** Spec keys shown after every other column. */
+export const LAST_SPECS = ['eccn'];
+
 /** The table's columns, in display order, for a category. */
 export function columnsFor(category) {
+  const specColumn = (spec) => ({
+    key: `spec:${spec.key}`,
+    spec,
+    type: spec.type,
+    best: spec.sort ?? 'asc',
+    value: (p) => p.specs[spec.key],
+  });
+  // ECCN (export classification) always comes last, after the description.
+  const isLast = (spec) => LAST_SPECS.includes(spec.key);
   return [
     { key: 'mpn', label: 'Part number', type: 'text', best: 'asc', value: (p) => p.mpn },
     { key: 'manufacturer', label: 'Manufacturer', type: 'text', best: 'asc', value: (p) => p.manufacturer },
-    ...category.specs.map((spec) => ({
-      key: `spec:${spec.key}`,
-      spec,
-      type: spec.type,
-      best: spec.sort ?? 'asc',
-      value: (p) => p.specs[spec.key],
-    })),
+    ...category.specs.filter((spec) => !isLast(spec)).map(specColumn),
     { key: 'description', label: 'Description', type: 'text', best: 'asc', value: (p) => p.description },
+    ...category.specs.filter(isLast).map(specColumn),
   ];
 }

@@ -53,3 +53,14 @@ test('sorting does not change the original list', () => {
   order('spec:nf_db', 'asc');
   assert.deepEqual(parts.map((p) => p.mpn), before);
 });
+
+test('columnsFor puts ECCN after every other column, description included', () => {
+  const withEccn = {
+    specs: [
+      { key: 'eccn', label: 'ECCN', type: 'text' },
+      { key: 'gain_db', label: 'Gain', unit: 'dB', type: 'number' },
+    ],
+  };
+  const keys = columnsFor(withEccn).map((c) => c.key);
+  assert.deepEqual(keys, ['mpn', 'manufacturer', 'spec:gain_db', 'description', 'spec:eccn']);
+});

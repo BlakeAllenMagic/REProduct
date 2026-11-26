@@ -276,7 +276,8 @@ TYPE_SPECS: dict[str, list[dict[str, Any]]] = {
 }
 
 COMMON_FIRST = [text("family", "Family"), text("package", "Package")]
-COMMON_LAST = [text("case", "Case", "Package"), text("eccn", "ECCN", "ECCN"), text("notes", "Notes")]
+# ECCN last: export-control info, read after the specs.
+COMMON_LAST = [text("case", "Case", "Package"), text("notes", "Notes"), text("eccn", "ECCN", "ECCN")]
 
 # Catalog headings that the position reader gets slightly wrong, and their real names.
 HEADING_FIXES = {

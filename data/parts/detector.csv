@@ -1,8 +1,8 @@
-manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,sensitivity_v_mw,operating_range,flange,eccn,notes
-Marki Microwave,DET-28PP00WG,"Detectors, 26.5 to 40 GHz",,,Detectors,Waveguide,26.5,40,1800,15 to -40,UG-599/U,EAR99,Flatness: +/- 1.5
-Marki Microwave,DET-22PP00WG,"Detectors, 33 to 50 GHz",,,Detectors,Waveguide,33,50,1500,15 to -40,UG-383/U,EAR99,Flatness: +/- 1.5
-Marki Microwave,DET-19PP00WG,"Detectors, 40 to 60 GHz",,,Detectors,Waveguide,40,60,1500,15 to -40,UG-383/U,EAR99,Flatness: +/- 2.0
-Marki Microwave,DET-15PP00WG,"Detectors, 50 to 75 GHz",,,Detectors,Waveguide,50,75,1200,15 to -40,UG-385/U,EAR99,Flatness: +/- 1.5
-Marki Microwave,DET-12PP00WG,"Detectors, 60 to 90 GHz",,,Detectors,Waveguide,60,90,1000,15 to -40,UG-387/U,EAR99,Flatness: +/- 1.5
-Marki Microwave,DET-10PP00WG,"Detectors, 75 to 110 GHz",,,Detectors,Waveguide,75,110,800,15 to -40,UG-387/U,EAR99,Flatness: +/- 1.5
-Marki Microwave,DET-08PP00WG,"Detectors, 90 to 140 GHz",,,Detectors,Waveguide,90,140,700,15 to -40,UG-387/U,EAR99,Flatness: +/- 1.7
+manufacturer,mpn,description,datasheet_url,product_url,family,package,freq_min_ghz,freq_max_ghz,sensitivity_v_mw,operating_range,flange,notes,eccn
+Marki Microwave,DET-28PP00WG,"Detectors, 26.5 to 40 GHz",,,Detectors,Waveguide,26.5,40,1800,15 to -40,UG-599/U,Flatness: +/- 1.5,EAR99
+Marki Microwave,DET-22PP00WG,"Detectors, 33 to 50 GHz",,,Detectors,Waveguide,33,50,1500,15 to -40,UG-383/U,Flatness: +/- 1.5,EAR99
+Marki Microwave,DET-19PP00WG,"Detectors, 40 to 60 GHz",,,Detectors,Waveguide,40,60,1500,15 to -40,UG-383/U,Flatness: +/- 2.0,EAR99
+Marki Microwave,DET-15PP00WG,"Detectors, 50 to 75 GHz",,,Detectors,Waveguide,50,75,1200,15 to -40,UG-385/U,Flatness: +/- 1.5,EAR99
+Marki Microwave,DET-12PP00WG,"Detectors, 60 to 90 GHz",,,Detectors,Waveguide,60,90,1000,15 to -40,UG-387/U,Flatness: +/- 1.5,EAR99
+Marki Microwave,DET-10PP00WG,"Detectors, 75 to 110 GHz",,,Detectors,Waveguide,75,110,800,15 to -40,UG-387/U,Flatness: +/- 1.5,EAR99
+Marki Microwave,DET-08PP00WG,"Detectors, 90 to 140 GHz",,,Detectors,Waveguide,90,140,700,15 to -40,UG-387/U,Flatness: +/- 1.7,EAR99

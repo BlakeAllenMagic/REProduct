@@ -1,51 +1,51 @@
-manufacturer,mpn,description,datasheet_url,product_url,family,package,kind,low_min_ghz,low_max_ghz,high_min_ghz,high_max_ghz,isolation_db,case,eccn,notes
-Marki Microwave,DPXN-M50,Diplexers,,,Diplexers,Connectorized,,,0.035,0.07,10,,,EAR99,
-Marki Microwave,DPXN-0R5,Diplexers,,,Diplexers,Connectorized,,,0.36,0.7,8,,,EAR99,
-Marki Microwave,DPXN-1,Diplexers,,,Diplexers,Connectorized,,,0.85,1.4,5,,,EAR99,
-Marki Microwave,DPXN-2,Diplexers,,,Diplexers,Connectorized,,,1.5,2.7,7,,,EAR99,
-Marki Microwave,DPXN-3,Diplexers,,,Diplexers,Connectorized,,,2.3,4.2,8,,,EAR99,
-Marki Microwave,DPXN-4,Diplexers,,,Diplexers,Connectorized,,,2.8,5.5,12,,,EAR99,
-Marki Microwave,MDPX-0305,Diplexers,,,Diplexers,Connectorized,,,3,5,26.5,,,EAR99,
-Marki Microwave,MDPX-0407,Diplexers,,,Diplexers,Connectorized,,,4,7,26.5,,,EAR99,
-Marki Microwave,DPX-0508,Diplexers,,,Diplexers,Connectorized,,,5,8,18,,,EAR99,
-Marki Microwave,MDPX-0609,Diplexers,,,Diplexers,Connectorized,,,6,9,26.5,,,EAR99,
-Marki Microwave,MDPX-0609BH,Diplexers,,,Diplexers,Connectorized,,,6,9,26.5,,,EAR99,
-Marki Microwave,MDPX-0710,Diplexers,,,Diplexers,Connectorized,,,7,10,26.5,,,EAR99,
-Marki Microwave,DPX-9516,Diplexers,,,Diplexers,Connectorized,,,9.5,16,32,,,EAR99,
-Marki Microwave,DPX-1114,Diplexers,,,Diplexers,Connectorized,,,11,14,30,,,EAR99,
-Marki Microwave,DPX-1721,Diplexers,,,Diplexers,Connectorized,,,17,21.5,40,,,EAR99,
-Marki Microwave,DPX-M50-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-m50-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.035,0.07,10,24,SM,EAR99,
-Marki Microwave,DPX-M50-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-m50-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.035,0.07,10,24,SM,EAR99,
-Marki Microwave,DPX-0R5-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-0r5-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.36,0.7,8,24,SM,EAR99,
-Marki Microwave,DPX-0R5-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-0r5-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.36,0.7,8,24,SM,EAR99,
-Marki Microwave,DPX-1-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-1-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.85,1.4,5,24,SM,EAR99,
-Marki Microwave,DPX-1-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-1-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.85,1.4,5,24,SM,EAR99,
-Marki Microwave,DPX-2-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-2-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,1.5,2.7,7,25,SM,EAR99,
-Marki Microwave,DPX-2-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-2-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,1.5,2.7,7,25,SM,EAR99,
-Marki Microwave,DPX-3-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-3-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,2.3,4.2,8,25,SM,EAR99,
-Marki Microwave,DPX-3-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-3-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,2.3,4.2,8,25,SM,EAR99,
-Marki Microwave,DPX-4-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-4-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,2.8,5.5,12,30,SM,EAR99,
-Marki Microwave,DPX-4-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-4-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,2.8,5.5,12,30,SM,EAR99,
-Marki Microwave,MDPX-0305PSM-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/mdpx-0305psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,3,5,26.5,53,3mm QFN,EAR99,
-Marki Microwave,MMPX-00001PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mmpx-00001psm/datasheet/,Diplexers and multiplexers,Surface mount,Quadplexer,0,4,6,8,,6mm QFN,EAR99,Passband: DC-4 / 6-8 / 10-12 / 14-20
-Marki Microwave,MDPX-0407PSM-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/mdpx-0407psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,4,7,26.5,38,3mm QFN,EAR99,
-Marki Microwave,MDPX-00003PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00003psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,4.13,6.3,25.61,,4mm QFN,EAR99,
-Marki Microwave,MDPX-00004PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00004psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,5.61,8.29,27.87,,4mm QFN,EAR99,
-Marki Microwave,MMPX-00002PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mmpx-00002psm/datasheet/,Diplexers and multiplexers,Surface mount,Quadplexer,0,6,8,10,,6mm QFN,EAR99,Passband: DC-6 / 8-10 / 12-14 / 16-20
-Marki Microwave,MDPX-00009CSP3,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00009csp3/datasheet/,Diplexers and multiplexers,Surface mount,Reflectionless Diplexer,0,7,8,35,,3.5mm CSP3,EAR99,
-Marki Microwave,MDPX-00005PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00005psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,7.49,10.5,28,,4mm QFN,EAR99,
-Marki Microwave,MDPX-00006PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00006psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,9.3,12.63,28,,4mm QFN,EAR99,
-Marki Microwave,MTPX-00001CSP3,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/multiplexers/mtpx-00001csp3/datasheet/,Diplexers and multiplexers,Surface mount,Triplexer,0,9.6,10.9,16.8,37,3.5mm CSP3,EAR99,Passband: DC-9.6 / 10.9-16.8 / 19.4-26.1
-Marki Microwave,MDPX-00012CSP3,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00012csp3/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,9.69,10.98,20.33,11,3.5mm CSP3,EAR99,
-Marki Microwave,MDPX-00007PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00007psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,10.63,14.71,28,,4mm QFN,EAR99,
-Marki Microwave,MDPX-00008PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00008psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,13.1,16.51,28,,4mm QFN,EAR99,
-Marki Microwave,MDPX-00010CSP3,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00010csp3/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,19.7,20.9,45,,3.5mm CSP3,EAR99,
-Marki Microwave,MDPX-00011CSP3,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00011csp3/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,24.16,24.96,60,12,3.5mm CSP3,EAR99,
-Marki Microwave,MDPX-0305CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-0305ch/datasheet/,Diplexers,Bare die,,0,3,5,26.5,47,,EAR99,
-Marki Microwave,MDPX-0407CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-0407ch/datasheet/,Diplexers,Bare die,,0,4,7,26.5,38,,EAR99,
-Marki Microwave,MDPX-0609CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-0609ch/datasheet/,Diplexers,Bare die,,0,6,9,26.5,58,,EAR99,
-Marki Microwave,MDPX-0710CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-0710ch/datasheet/,Diplexers,Bare die,,0,7,7,26.5,45,,EAR99,
-Marki Microwave,MDPX-00001CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-00001ch/datasheet/,Diplexers,Bare die,,0,15.4,17.4,20.3,77,,EAR99,
-Marki Microwave,MDPX-2330CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-2330ch/datasheet/,Diplexers,Bare die,,0,23,30,60,36,,EAR99,
-Marki Microwave,MDPX-2734CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-2734ch/datasheet/,Diplexers,Bare die,,0,27,34,60,38,,EAR99,
-Marki Microwave,MDPX-00002CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-00002ch/datasheet/,Diplexers,Bare die,,0,35,43.3,59.9,44,,EAR99,
+manufacturer,mpn,description,datasheet_url,product_url,family,package,kind,low_min_ghz,low_max_ghz,high_min_ghz,high_max_ghz,isolation_db,case,notes,eccn
+Marki Microwave,DPXN-M50,Diplexers,,,Diplexers,Connectorized,,,0.035,0.07,10,,,,EAR99
+Marki Microwave,DPXN-0R5,Diplexers,,,Diplexers,Connectorized,,,0.36,0.7,8,,,,EAR99
+Marki Microwave,DPXN-1,Diplexers,,,Diplexers,Connectorized,,,0.85,1.4,5,,,,EAR99
+Marki Microwave,DPXN-2,Diplexers,,,Diplexers,Connectorized,,,1.5,2.7,7,,,,EAR99
+Marki Microwave,DPXN-3,Diplexers,,,Diplexers,Connectorized,,,2.3,4.2,8,,,,EAR99
+Marki Microwave,DPXN-4,Diplexers,,,Diplexers,Connectorized,,,2.8,5.5,12,,,,EAR99
+Marki Microwave,MDPX-0305,Diplexers,,,Diplexers,Connectorized,,,3,5,26.5,,,,EAR99
+Marki Microwave,MDPX-0407,Diplexers,,,Diplexers,Connectorized,,,4,7,26.5,,,,EAR99
+Marki Microwave,DPX-0508,Diplexers,,,Diplexers,Connectorized,,,5,8,18,,,,EAR99
+Marki Microwave,MDPX-0609,Diplexers,,,Diplexers,Connectorized,,,6,9,26.5,,,,EAR99
+Marki Microwave,MDPX-0609BH,Diplexers,,,Diplexers,Connectorized,,,6,9,26.5,,,,EAR99
+Marki Microwave,MDPX-0710,Diplexers,,,Diplexers,Connectorized,,,7,10,26.5,,,,EAR99
+Marki Microwave,DPX-9516,Diplexers,,,Diplexers,Connectorized,,,9.5,16,32,,,,EAR99
+Marki Microwave,DPX-1114,Diplexers,,,Diplexers,Connectorized,,,11,14,30,,,,EAR99
+Marki Microwave,DPX-1721,Diplexers,,,Diplexers,Connectorized,,,17,21.5,40,,,,EAR99
+Marki Microwave,DPX-M50-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-m50-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.035,0.07,10,24,SM,,EAR99
+Marki Microwave,DPX-M50-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-m50-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.035,0.07,10,24,SM,,EAR99
+Marki Microwave,DPX-0R5-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-0r5-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.36,0.7,8,24,SM,,EAR99
+Marki Microwave,DPX-0R5-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-0r5-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.36,0.7,8,24,SM,,EAR99
+Marki Microwave,DPX-1-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-1-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.85,1.4,5,24,SM,,EAR99
+Marki Microwave,DPX-1-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-1-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,0.85,1.4,5,24,SM,,EAR99
+Marki Microwave,DPX-2-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-2-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,1.5,2.7,7,25,SM,,EAR99
+Marki Microwave,DPX-2-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-2-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,1.5,2.7,7,25,SM,,EAR99
+Marki Microwave,DPX-3-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-3-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,2.3,4.2,8,25,SM,,EAR99
+Marki Microwave,DPX-3-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-3-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,2.3,4.2,8,25,SM,,EAR99
+Marki Microwave,DPX-4-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-4-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,2.8,5.5,12,30,SM,,EAR99
+Marki Microwave,DPX-4-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/dpx-4-1/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,2.8,5.5,12,30,SM,,EAR99
+Marki Microwave,MDPX-0305PSM-1,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/mdpx-0305psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,3,5,26.5,53,3mm QFN,,EAR99
+Marki Microwave,MMPX-00001PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mmpx-00001psm/datasheet/,Diplexers and multiplexers,Surface mount,Quadplexer,0,4,6,8,,6mm QFN,Passband: DC-4 / 6-8 / 10-12 / 14-20,EAR99
+Marki Microwave,MDPX-0407PSM-2,Diplexers and multiplexers,,https://www.markimicrowave.com/products/surface-mount/diplexers/mdpx-0407psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,4,7,26.5,38,3mm QFN,,EAR99
+Marki Microwave,MDPX-00003PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00003psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,4.13,6.3,25.61,,4mm QFN,,EAR99
+Marki Microwave,MDPX-00004PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00004psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,5.61,8.29,27.87,,4mm QFN,,EAR99
+Marki Microwave,MMPX-00002PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mmpx-00002psm/datasheet/,Diplexers and multiplexers,Surface mount,Quadplexer,0,6,8,10,,6mm QFN,Passband: DC-6 / 8-10 / 12-14 / 16-20,EAR99
+Marki Microwave,MDPX-00009CSP3,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00009csp3/datasheet/,Diplexers and multiplexers,Surface mount,Reflectionless Diplexer,0,7,8,35,,3.5mm CSP3,,EAR99
+Marki Microwave,MDPX-00005PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00005psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,7.49,10.5,28,,4mm QFN,,EAR99
+Marki Microwave,MDPX-00006PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00006psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,9.3,12.63,28,,4mm QFN,,EAR99
+Marki Microwave,MTPX-00001CSP3,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/multiplexers/mtpx-00001csp3/datasheet/,Diplexers and multiplexers,Surface mount,Triplexer,0,9.6,10.9,16.8,37,3.5mm CSP3,Passband: DC-9.6 / 10.9-16.8 / 19.4-26.1,EAR99
+Marki Microwave,MDPX-00012CSP3,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00012csp3/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,9.69,10.98,20.33,11,3.5mm CSP3,,EAR99
+Marki Microwave,MDPX-00007PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00007psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,10.63,14.71,28,,4mm QFN,,EAR99
+Marki Microwave,MDPX-00008PSM,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00008psm/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,13.1,16.51,28,,4mm QFN,,EAR99
+Marki Microwave,MDPX-00010CSP3,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00010csp3/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,19.7,20.9,45,,3.5mm CSP3,,EAR99
+Marki Microwave,MDPX-00011CSP3,Diplexers and multiplexers,,https://markimicrowave.com/products/surface-mount/diplexers/mdpx-00011csp3/datasheet/,Diplexers and multiplexers,Surface mount,Diplexer,0,24.16,24.96,60,12,3.5mm CSP3,,EAR99
+Marki Microwave,MDPX-0305CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-0305ch/datasheet/,Diplexers,Bare die,,0,3,5,26.5,47,,,EAR99
+Marki Microwave,MDPX-0407CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-0407ch/datasheet/,Diplexers,Bare die,,0,4,7,26.5,38,,,EAR99
+Marki Microwave,MDPX-0609CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-0609ch/datasheet/,Diplexers,Bare die,,0,6,9,26.5,58,,,EAR99
+Marki Microwave,MDPX-0710CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-0710ch/datasheet/,Diplexers,Bare die,,0,7,7,26.5,45,,,EAR99
+Marki Microwave,MDPX-00001CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-00001ch/datasheet/,Diplexers,Bare die,,0,15.4,17.4,20.3,77,,,EAR99
+Marki Microwave,MDPX-2330CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-2330ch/datasheet/,Diplexers,Bare die,,0,23,30,60,36,,,EAR99
+Marki Microwave,MDPX-2734CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-2734ch/datasheet/,Diplexers,Bare die,,0,27,34,60,38,,,EAR99
+Marki Microwave,MDPX-00002CH,Diplexers,,https://www.markimicrowave.com/products/bare-die/diplexers/mdpx-00002ch/datasheet/,Diplexers,Bare die,,0,35,43.3,59.9,44,,,EAR99

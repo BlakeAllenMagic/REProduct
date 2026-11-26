@@ -28,7 +28,7 @@ export function renderPartsTable(container, ctx, route) {
   const columns = columnsFor(category);
   const rows = new Map(); // part id -> <tr>
   const headers = new Map(); // column key -> { th, arrow }
-  const tbody = makeBody(category, parts, statusCells, rows);
+  const tbody = makeBody(columns, parts, statusCells, rows);
 
   // Put the rows in the current sort order and mark the sorted header.
   const applySort = () => {
@@ -115,7 +115,7 @@ function makeHead(columns, headers, onSort) {
   return thead;
 }
 
-function makeBody(category, parts, statusCells, rows) {
+function makeBody(columns, parts, statusCells, rows) {
   const tbody = document.createElement('tbody');
   for (const part of parts) {
     const href = hrefFor('part', part.id);
@@ -149,10 +149,15 @@ function makeBody(category, parts, statusCells, rows) {
     }
 
     addCell(row, part.manufacturer);
-    for (const spec of category.specs) {
-      addCell(row, specValue(spec, part.specs[spec.key]), spec.type === 'number' ? 'num' : '');
+    // The rest follow the heading order from columnsFor() (specs, description, then ECCN).
+    for (const column of columns) {
+      if (column.spec) {
+        const { spec } = column;
+        addCell(row, specValue(spec, part.specs[spec.key]), spec.type === 'number' ? 'num' : '');
+      } else if (column.key === 'description') {
+        addCell(row, part.description || MISSING, 'desc');
+      }
     }
-    addCell(row, part.description || MISSING, 'desc');
 
     row.addEventListener('click', (event) => {
       if (event.target.closest('a')) return; // the link handles itself
