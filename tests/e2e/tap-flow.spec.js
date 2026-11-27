@@ -318,6 +318,45 @@ test('phone, crowded bar (Email link + Send datasheet): the part number gets its
   expect(changes).toBeLessThan(5);
 });
 
+test('pinching the diagram zooms the drawing in its card; the page and top bar stay put', async ({ page, browserName, context }) => {
+  test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
+  await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto('#/receiver');
+  const svg = page.locator('.diagram-svg');
+  const reset = page.getByRole('button', { name: 'Reset zoom' });
+  await expect(reset).toBeHidden();
+  const before = (await svg.boundingBox()).width;
+  const card = await page.locator('.diagram').boundingBox();
+  const cx = card.x + card.width / 2;
+  const y = card.y + card.height / 2;
+  const cdp = await context.newCDPSession(page);
+  const touch = (type, points) =>
+    cdp.send('Input.dispatchTouchEvent', { type, touchPoints: points.map(([x, py], id) => ({ x, y: py, id })) });
+  await touch('touchStart', [[cx - 50, y], [cx + 50, y]]);
+  for (let d = 60; d <= 100; d += 10) await touch('touchMove', [[cx - d, y], [cx + d, y]]);
+  await touch('touchEnd', []);
+  await expect(reset).toBeVisible();
+  const after = (await svg.boundingBox()).width;
+  expect(after / before).toBeGreaterThan(1.8); // fingers went from 100 px to 200 px apart
+  expect(await page.evaluate(() => window.visualViewport.scale)).toBe(1); // the page didn't zoom
+  expect(Math.round((await page.locator('.topbar').boundingBox()).y)).toBe(0);
+  // The card kept its height and scrolls instead; the point between the fingers stayed put.
+  expect(Math.round((await page.locator('.diagram').boundingBox()).height)).toBe(Math.round(card.height));
+  expect(await page.locator('.diagram').evaluate((el) => el.scrollLeft)).toBeGreaterThan(100);
+
+  await reset.click();
+  await expect(reset).toBeHidden();
+  expect(Math.round((await svg.boundingBox()).width)).toBe(Math.round(before));
+
+  // Blocks still open their tables after zooming.
+  await touch('touchStart', [[cx - 50, y], [cx + 50, y]]);
+  await touch('touchMove', [[cx - 70, y], [cx + 70, y]]);
+  await touch('touchEnd', []);
+  await page.locator('[data-block="lna"]').scrollIntoViewIfNeeded();
+  await press(page, page.locator('[data-block="lna"]'));
+  await expect(page).toHaveURL(/#\/category\/lna$/);
+});
+
 test('pinching a table does nothing: A− / A+ are the only way to resize it', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });

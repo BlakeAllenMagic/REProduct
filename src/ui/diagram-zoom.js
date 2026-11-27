@@ -1,0 +1,102 @@
+// Pinch-to-zoom for the block diagram, inside its card (like a map), so the
+// page itself never zooms and the top bar and tabs stay put.
+//
+// - The drawing is made wider (its width in px), not transformed: the card
+//   then scrolls natively in both directions, and taps still land on the
+//   right block at any zoom.
+// - The card's height is locked while zoomed, so it scrolls instead of growing.
+// - Pinch detection (Safari gesture events, touch, trackpad) is shared with
+//   the PDF viewer: src/pdf/pinch.js.
+// - A "Reset zoom" button shows while zoomed in.
+
+import { attachPinch } from '../pdf/pinch.js';
+
+export const DIAGRAM_ZOOM = { min: 1, max: 3 };
+
+export function clampZoom(scale) {
+  return Math.min(DIAGRAM_ZOOM.max, Math.max(DIAGRAM_ZOOM.min, scale));
+}
+
+/**
+ * Where to scroll so the drawing point under the fingers stays under them.
+ * scroll0: scroll offset when the pinch started; pad: the card's padding
+ * (the drawing starts there); point: finger position inside the card's box;
+ * from / to: zoom before and after. One axis at a time.
+ */
+export function scrollToKeep(scroll0, pad, point, from, to) {
+  const drawingUnits = (scroll0 + point - pad) / from;
+  return pad + drawingUnits * to - point;
+}
+
+/**
+ * card: the scrolling box (.diagram) holding one <svg>; reset: the button.
+ * Returns a function that removes the listeners.
+ */
+export function attachDiagramZoom(card, reset) {
+  const svg = card.querySelector('svg');
+  let zoom = 1;
+  let baseWidth = 0; // the drawing's width in px at 1×
+  let start = null; // { zoom, left, top } when the current pinch began
+
+  const setZoom = (next, clientX, clientY, from = start) => {
+    next = clampZoom(next);
+    if (next === zoom && !from) return;
+    if (zoom === 1) {
+      baseWidth = svg.getBoundingClientRect().width;
+      card.style.height = `${card.offsetHeight}px`;
+      card.classList.add('is-zoomed');
+    }
+    const rect = card.getBoundingClientRect();
+    const style = getComputedStyle(card);
+    const x = clientX - rect.left - card.clientLeft;
+    const y = clientY - rect.top - card.clientTop;
+    const origin = from ?? { zoom, left: card.scrollLeft, top: card.scrollTop };
+    zoom = next;
+    svg.style.width = `${baseWidth * zoom}px`;
+    svg.style.minWidth = '0';
+    card.scrollLeft = scrollToKeep(origin.left, parseFloat(style.paddingLeft), x, origin.zoom, zoom);
+    card.scrollTop = scrollToKeep(origin.top, parseFloat(style.paddingTop), y, origin.zoom, zoom);
+    reset.hidden = false;
+  };
+
+  const resetZoom = () => {
+    zoom = 1;
+    start = null;
+    svg.style.width = '';
+    svg.style.minWidth = '';
+    card.style.height = '';
+    card.classList.remove('is-zoomed');
+    card.scrollLeft = 0;
+    card.scrollTop = 0;
+    reset.hidden = true;
+  };
+
+  const detachPinch = attachPinch(card, {
+    onChange(scale, x, y) {
+      start ??= { zoom, left: card.scrollLeft, top: card.scrollTop };
+      setZoom(start.zoom * scale, x, y);
+    },
+    onEnd() {
+      start = null;
+      if (zoom < 1.02) resetZoom(); // back to (about) full view: tidy up
+    },
+  });
+
+  reset.addEventListener('click', resetZoom);
+  // A rotation or a narrower/wider window changes the 1× width: start over.
+  // (Only the width: a Safari tab also "resizes" when its toolbar slides away.)
+  let width = window.innerWidth;
+  const onResize = () => {
+    if (window.innerWidth === width) return;
+    width = window.innerWidth;
+    if (zoom !== 1) resetZoom();
+  };
+  window.addEventListener('resize', onResize);
+  resetZoom();
+
+  return () => {
+    detachPinch();
+    reset.removeEventListener('click', resetZoom);
+    window.removeEventListener('resize', onResize);
+  };
+}

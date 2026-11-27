@@ -10,6 +10,8 @@ import receiverSvg from '../diagram/receiver.svg?raw';
 import transmitterSvg from '../diagram/transmitter.svg?raw';
 import powerSvg from '../diagram/power.svg?raw';
 import { DIAGRAMS, hrefFor } from '../router.js';
+import { attachDiagramZoom } from '../ui/diagram-zoom.js';
+import { blockPinch } from '../ui/block-pinch.js';
 
 const DRAWINGS = { receiver: receiverSvg, transmitter: transmitterSvg, power: powerSvg };
 const TAB_NAMES = { receiver: 'Receiver', transmitter: 'Transmitter', power: 'Power' };
@@ -29,7 +31,19 @@ export function renderDiagram(container, ctx, route = {}) {
   wrap.id = 'diagram-panel';
   wrap.setAttribute('role', 'tabpanel');
   wrap.innerHTML = DRAWINGS[which];
-  container.append(wrap);
+  // Pinching zooms the drawing inside its card; the page itself doesn't zoom
+  // here, so the top bar and tabs stay put (src/ui/diagram-zoom.js).
+  const reset = document.createElement('button');
+  reset.type = 'button';
+  reset.className = 'btn diagram-zoom-reset';
+  reset.textContent = 'Reset zoom';
+  const frame = document.createElement('div');
+  frame.className = 'diagram-frame';
+  frame.append(wrap, reset);
+  container.append(frame);
+  const detachZoom = attachDiagramZoom(wrap, reset);
+  const detachPagePinch = blockPinch(document);
+  document.documentElement.classList.add('no-page-zoom');
 
   for (const block of wrap.querySelectorAll('[data-block]')) {
     setUpBlock(block, ctx);
@@ -37,7 +51,15 @@ export function renderDiagram(container, ctx, route = {}) {
 
   container.append(productTypes(ctx));
   // The top bar shows the firm's logo followed by "Line Card" (see main.js).
-  return { title: 'G2CMI Line Card', logo: { alt: 'G2CMI', text: 'Line Card' } };
+  return {
+    title: 'G2CMI Line Card',
+    logo: { alt: 'G2CMI', text: 'Line Card' },
+    destroy() {
+      detachZoom();
+      detachPagePinch();
+      document.documentElement.classList.remove('no-page-zoom');
+    },
+  };
 }
 
 /** Receiver | Transmitter switch. Links, so Back and swipe-back move between them. */

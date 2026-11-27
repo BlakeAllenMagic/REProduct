@@ -8,6 +8,7 @@ import { readFileSync } from 'node:fs';
 import { parseHash, hrefFor } from '../src/router.js';
 import { specHeader, specValue, formatBytes, MISSING } from '../src/format.js';
 import { indexLinecard } from '../src/data.js';
+import { clampZoom, scrollToKeep } from '../src/ui/diagram-zoom.js';
 
 const linecard = JSON.parse(readFileSync(new URL('./fixtures/linecard.json', import.meta.url)));
 
@@ -107,4 +108,15 @@ test('specRows lists the maker, description and every non-empty spec with its un
     ['NF (dB)', '0.6'],
     ['ECCN', 'EAR99'],
   ]);
+});
+
+test('diagram zoom: the point under the fingers stays put; zoom stays within 1× to 3×', () => {
+  // Card padding 8 px, not scrolled, fingers 408 px in: drawing x = 400 units.
+  // At 2× that point is 808 px in, so scroll 400 px to keep it under the fingers.
+  assert.equal(scrollToKeep(0, 8, 408, 1, 2), 400);
+  assert.equal(scrollToKeep(400, 8, 408, 2, 2), 400); // no change, no move
+  assert.equal(scrollToKeep(400, 8, 408, 2, 1), 0); // back to 1×
+  assert.equal(clampZoom(0.5), 1);
+  assert.equal(clampZoom(5), 3);
+  assert.equal(clampZoom(1.5), 1.5);
 });

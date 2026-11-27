@@ -239,6 +239,7 @@ Do one phase at a time, and don't start the next until the current one's "done w
 - [ ] In Mail, the share's title shows up as the email subject (if not, note it; the rep types a subject)
 - [ ] Portrait and landscape layouts
 - [ ] Search: tapping the magnifier opens the on-screen keyboard right away
+- [ ] Diagram: pinching zooms only the drawing inside its card (the top bar and tabs stay put), one finger pans it, blocks still open, Reset zoom returns to the full view
 - [ ] Parts table: pinching resizes the table text (A− / A+ show the new size), and the page itself doesn't zoom
 - [ ] A long real datasheet (50+ pages): scroll through it, no blank pages
 - [ ] Mac Safari (if available): Add to Dock, same flow, trackpad pinch
