@@ -1,6 +1,16 @@
 {
-  "ok": true,
-  "problems": [],
+  "ok": false,
+  "problems": [
+    "No tab for SSRs and Power Controllers. Add a tab named \"SSRs and Power Controllers\".",
+    "No tab for Optocouplers. Add a tab named \"Optocouplers\".",
+    "No tab for LEDs and LED Displays. Add a tab named \"LEDs and LED Displays\".",
+    "No tab for Optical Sensors. Add a tab named \"Optical Sensors\".",
+    "No tab for Fiber-Optic Transceivers. Add a tab named \"Fiber-Optic Transceivers\".",
+    "No tab for Hall-Effect Sensors. Add a tab named \"Hall-Effect Sensors\".",
+    "No tab for Temperature Controllers. Add a tab named \"Temperature Controllers\".",
+    "No tab for PLL Synthesizers. Add a tab named \"PLL Synthesizers\".",
+    "No tab for Prescalers. Add a tab named \"Prescalers\"."
+  ],
   "warnings": [],
   "importedAt": null
 }
