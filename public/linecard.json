@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-27T01:04:32Z",
+  "dataVersion": "2026-11-27T01:20:46Z",
   "categories": [
     {
       "id": "amplifier",
@@ -2531,7 +2531,8 @@
       "id": "pll",
       "name": "PLL Synthesizers",
       "blocks": [
-        "lo_pll"
+        "lo_pll",
+        "tx_lo_pll"
       ],
       "specs": [
         {
@@ -2605,7 +2606,8 @@
       "id": "prescaler",
       "name": "Prescalers",
       "blocks": [
-        "lo_prescaler"
+        "lo_prescaler",
+        "tx_lo_prescaler"
       ],
       "specs": [
         {

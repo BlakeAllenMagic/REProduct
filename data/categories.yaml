@@ -577,7 +577,7 @@ categories:
 
   - id: pll
     name: "PLL Synthesizers"
-    blocks: [lo_pll]
+    blocks: [lo_pll, tx_lo_pll]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -594,7 +594,7 @@ categories:
 
   - id: prescaler
     name: "Prescalers"
-    blocks: [lo_prescaler]
+    blocks: [lo_prescaler, tx_lo_prescaler]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
