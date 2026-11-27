@@ -13,7 +13,7 @@ import { button, el } from '../ui/dom.js';
 import { createFilterPanel } from '../ui/filter-panel.js';
 import { showError } from '../ui/errors.js';
 import { isPageZoomed, watchPageZoom } from '../ui/page-zoom.js';
-import { applyTextSize, readTextSize, setTextSize, TEXT_SIZE } from '../ui/text-size.js';
+import { applyTextSize, clampSize, readTextSize, setTextSize, TEXT_SIZE } from '../ui/text-size.js';
 
 // Sort order per category, kept while the app is open, so opening a
 // datasheet and coming back keeps the table as it was.
@@ -158,8 +158,6 @@ export function renderPartsTable(container, ctx, route) {
 
 /**
  * A− / 100% / A+ buttons, and the pinch handlers, for the table text size.
- * During a pinch the table is only scaled with a transform (cheap, smooth);
- * on release the real size is set and the table re-lays out.
  */
 function textSizeControls(table) {
   let size = readTextSize();
@@ -176,61 +174,67 @@ function textSizeControls(table) {
     bigger.disabled = size >= TEXT_SIZE.max;
   };
   const commit = (next) => {
-    table.classList.remove('is-pinching');
-    table.style.transform = '';
-    table.style.transformOrigin = '';
     size = setTextSize(next);
     show();
   };
   show();
 
-  // Where the fingers are when a pinch starts: the row under them and the
-  // point's position in the table, so the table can grow around that point.
-  let anchor = null;
+  // Pinch: the table is resized live while the fingers move (at most once a
+  // frame), and scrolled so the spot under the fingers stays put. When the
+  // fingers lift, the size is only saved: nothing else moves.
+  let pinch = null;
+  let frame = 0;
   const startPinch = (x, y) => {
     const box = table.getBoundingClientRect();
     const row = document.elementFromPoint(x, y)?.closest('tr');
-    anchor = {
+    const rowBox = row && table.contains(row) ? row.getBoundingClientRect() : null;
+    pinch = {
+      startSize: size,
       x,
       y,
       tableX: x - box.left, // includes how far the table is scrolled sideways
       tableWidth: box.width,
-      row: row && table.contains(row) ? row : null,
-      rowTop: row ? row.getBoundingClientRect().top : 0,
-      rowHeight: row ? row.getBoundingClientRect().height : 1,
+      row: rowBox ? row : null,
+      rowTop: rowBox?.top ?? 0,
+      rowHeight: rowBox?.height ?? 1,
+      target: size,
     };
-    table.style.transformOrigin = `${x - box.left}px ${y - box.top}px`;
   };
-  // After the real size is set: scroll so the same spot is under the fingers
-  // again (sideways inside the table box, up/down on the page).
-  const keepAnchorInPlace = () => {
-    if (!anchor) return;
-    const scroller = table.parentElement;
+  // Scroll so the spot that was under the fingers at the start is there again
+  // (sideways inside the table box, up/down on the page).
+  const keepSpotInPlace = () => {
     const box = table.getBoundingClientRect();
-    const newX = anchor.tableX * (box.width / anchor.tableWidth);
-    scroller.scrollLeft += box.left + newX - anchor.x;
-    if (anchor.row?.isConnected) {
-      const rowBox = anchor.row.getBoundingClientRect();
-      const offset = (anchor.y - anchor.rowTop) * (rowBox.height / anchor.rowHeight);
-      window.scrollBy(0, rowBox.top + offset - anchor.y);
+    table.parentElement.scrollLeft += box.left + pinch.tableX * (box.width / pinch.tableWidth) - pinch.x;
+    if (pinch.row?.isConnected) {
+      const rowBox = pinch.row.getBoundingClientRect();
+      const offset = (pinch.y - pinch.rowTop) * (rowBox.height / pinch.rowHeight);
+      window.scrollBy(0, rowBox.top + offset - pinch.y);
     }
-    anchor = null;
+  };
+  const resizeNow = () => {
+    frame = 0;
+    if (!pinch || pinch.target === size) return;
+    size = pinch.target;
+    applyTextSize(size); // not saved yet: that happens once, when the fingers lift
+    show();
+    keepSpotInPlace();
   };
 
   return {
     element: el('div', { class: 'text-size', role: 'group', 'aria-label': 'Table text size' }, smaller, value, bigger),
     pinch: {
       onChange(scale, x, y) {
-        if (!anchor) startPinch(x, y);
-        const preview = Math.min(TEXT_SIZE.max, Math.max(TEXT_SIZE.min, size * scale)) / size;
-        table.classList.add('is-pinching');
-        table.style.transform = `scale(${preview})`;
+        if (!pinch) startPinch(x, y);
+        // Whole percent steps, so tiny finger movements don't re-lay out the table.
+        pinch.target = clampSize(Math.round(pinch.startSize * scale * 100) / 100);
+        frame ||= requestAnimationFrame(resizeNow);
       },
       onEnd(scale) {
-        if (!anchor) return commit(size * scale);
-        // Measure without the preview stretch, then apply the real size.
-        commit(size * scale);
-        keepAnchorInPlace();
+        if (!pinch) return commit(size * scale);
+        cancelAnimationFrame(frame);
+        resizeNow(); // the last movement, if a frame hadn't drawn it yet
+        pinch = null;
+        commit(size); // save only: same size as on screen, so nothing moves
       },
     },
   };

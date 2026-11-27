@@ -337,7 +337,7 @@ test('two-finger pinch on a table resizes its text', async ({ page, browserName,
   await expect(value).toHaveText('70%'); // fingers went from 100 px to 70 px apart
 });
 
-test('pinching a table keeps the row and column under the fingers in place', async ({ page, browserName, context }) => {
+test('pinching a table resizes it live around the fingers; lifting them changes nothing', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   // Narrow and short, so the table scrolls sideways and the page scrolls down.
   await page.setViewportSize({ width: 390, height: 420 });
@@ -366,9 +366,18 @@ test('pinching a table keeps the row and column under the fingers in place', asy
     cdp.send('Input.dispatchTouchEvent', { type, touchPoints: points.map(([px, py], id) => ({ x: px, y: py, id })) });
   await touch('touchStart', [[x - 40, y], [x + 40, y]]);
   for (let d = 42; d <= 52; d += 2) await touch('touchMove', [[x - d, y], [x + d, y]]);
-  await touch('touchEnd', []);
+  // Still pinching: the table has already resized, around the fingers.
   await expect(page.getByRole('button', { name: 'Reset table text size' })).not.toHaveText('90%');
   expect(await under()).toBe(before); // same part, same column
+  const scrolled = () => page.evaluate(() => [window.scrollY, document.querySelector('.table-scroll').scrollLeft]);
+  // Let the last finger movement draw (it's applied on the next frame).
+  await page.evaluate(() => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))));
+  const beforeLift = await scrolled();
+  await touch('touchEnd', []);
+  // Lifting the fingers only saves the size: nothing moves.
+  await page.waitForTimeout(100);
+  expect(await scrolled()).toEqual(beforeLift);
+  expect(await under()).toBe(before);
 });
 
 test('page zoomed in from the diagram: pinches on a table zoom the page, not the table', async ({ page, browserName, context }) => {

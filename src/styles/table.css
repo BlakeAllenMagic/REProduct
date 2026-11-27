@@ -146,13 +146,6 @@
   touch-action: auto;
 }
 
-/* While pinching, the table is scaled with a transform (cheap); the real
-   size is set when the fingers lift. */
-.parts-table.is-pinching {
-  transform-origin: 0 0;
-  will-change: transform;
-}
-
 /* A− 100% A+ */
 .text-size {
   display: flex;
