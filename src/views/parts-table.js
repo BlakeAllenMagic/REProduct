@@ -4,7 +4,7 @@
 import { specHeader, specValue, MISSING } from '../format.js';
 import { downloads, getSavedHashes, itemsForParts } from '../offline/downloads.js';
 import { isRecentlyUpdated } from '../offline/update-plan.js';
-import { attachPinch } from '../pdf/pinch.js';
+import { blockPinch } from '../ui/block-pinch.js';
 import { hrefFor } from '../router.js';
 import { activeCount, filtersFor, matches } from '../table-filter.js';
 import { columnsFor, nextSort, sortParts } from '../table-sort.js';
@@ -13,7 +13,7 @@ import { button, el } from '../ui/dom.js';
 import { createFilterPanel } from '../ui/filter-panel.js';
 import { showError } from '../ui/errors.js';
 import { isPageZoomed, watchPageZoom } from '../ui/page-zoom.js';
-import { applyTextSize, clampSize, readTextSize, setTextSize, TEXT_SIZE } from '../ui/text-size.js';
+import { applyTextSize, readTextSize, setTextSize, TEXT_SIZE } from '../ui/text-size.js';
 
 // Sort order per category, kept while the app is open, so opening a
 // datasheet and coming back keeps the table as it was.
@@ -61,7 +61,7 @@ export function renderPartsTable(container, ctx, route) {
   applySort();
   const count = el('p', { class: 'table-count', 'aria-live': 'polite' });
   const downloadButton = button('Download this category', () => downloadParts(parts));
-  const sizer = textSizeControls(table);
+  const sizer = textSizeControls();
 
   // ---- Filters ----
   const filters = filtersFor(columns, parts);
@@ -109,14 +109,18 @@ export function renderPartsTable(container, ctx, route) {
   togglePanel(saved.open);
   applyFilters();
 
-  const toolbar = el('div', { class: 'table-toolbar' }, count, filterButton, sizer.element, downloadButton);
+  // Count, Filter and A− / A+ (and the open filter panel) stay at the top
+  // while the table scrolls; the download button stays at the bottom.
+  const toolbar = el('div', { class: 'table-toolbar' }, count, filterButton, sizer.element);
+  const controls = el('div', { class: 'table-controls' }, toolbar, panelSlot, noMatch);
   const scroller = el('div', { class: 'table-scroll' }, table);
-  container.append(toolbar, panelSlot, noMatch, scroller);
-  // If the page itself is zoomed in (e.g. pinched on the diagram before
-  // opening this table), pinches go to the browser so it can zoom back out;
-  // only at normal page zoom do they resize the table text.
+  const footer = el('div', { class: 'table-footer' }, downloadButton);
+  container.append(controls, scroller, footer);
+  // No pinch-to-zoom on the table: A− / A+ change the size. Exception: if the
+  // page itself is already zoomed in (pinched on the diagram first), pinches
+  // go to the browser so it can zoom back out.
   const stopWatchingZoom = watchPageZoom(scroller);
-  const detachPinch = attachPinch(scroller, { ...sizer.pinch, isEnabled: () => !isPageZoomed() });
+  const detachPinch = blockPinch(scroller, () => !isPageZoomed());
 
   const items = itemsForParts(parts);
   let destroyed = false;
@@ -156,10 +160,8 @@ export function renderPartsTable(container, ctx, route) {
   };
 }
 
-/**
- * A− / 100% / A+ buttons, and the pinch handlers, for the table text size.
- */
-function textSizeControls(table) {
+/** A− / 100% / A+ buttons: the only way to change the table text size. */
+function textSizeControls() {
   let size = readTextSize();
   applyTextSize(size);
   const value = button('', () => commit(TEXT_SIZE.default), {
@@ -179,64 +181,8 @@ function textSizeControls(table) {
   };
   show();
 
-  // Pinch: the table is resized live while the fingers move (at most once a
-  // frame), and scrolled so the spot under the fingers stays put. When the
-  // fingers lift, the size is only saved: nothing else moves.
-  let pinch = null;
-  let frame = 0;
-  const startPinch = (x, y) => {
-    const box = table.getBoundingClientRect();
-    const row = document.elementFromPoint(x, y)?.closest('tr');
-    const rowBox = row && table.contains(row) ? row.getBoundingClientRect() : null;
-    pinch = {
-      startSize: size,
-      x,
-      y,
-      tableX: x - box.left, // includes how far the table is scrolled sideways
-      tableWidth: box.width,
-      row: rowBox ? row : null,
-      rowTop: rowBox?.top ?? 0,
-      rowHeight: rowBox?.height ?? 1,
-      target: size,
-    };
-  };
-  // Scroll so the spot that was under the fingers at the start is there again
-  // (sideways inside the table box, up/down on the page).
-  const keepSpotInPlace = () => {
-    const box = table.getBoundingClientRect();
-    table.parentElement.scrollLeft += box.left + pinch.tableX * (box.width / pinch.tableWidth) - pinch.x;
-    if (pinch.row?.isConnected) {
-      const rowBox = pinch.row.getBoundingClientRect();
-      const offset = (pinch.y - pinch.rowTop) * (rowBox.height / pinch.rowHeight);
-      window.scrollBy(0, rowBox.top + offset - pinch.y);
-    }
-  };
-  const resizeNow = () => {
-    frame = 0;
-    if (!pinch || pinch.target === size) return;
-    size = pinch.target;
-    applyTextSize(size); // not saved yet: that happens once, when the fingers lift
-    show();
-    keepSpotInPlace();
-  };
-
   return {
     element: el('div', { class: 'text-size', role: 'group', 'aria-label': 'Table text size' }, smaller, value, bigger),
-    pinch: {
-      onChange(scale, x, y) {
-        if (!pinch) startPinch(x, y);
-        // Whole percent steps, so tiny finger movements don't re-lay out the table.
-        pinch.target = clampSize(Math.round(pinch.startSize * scale * 100) / 100);
-        frame ||= requestAnimationFrame(resizeNow);
-      },
-      onEnd(scale) {
-        if (!pinch) return commit(size * scale);
-        cancelAnimationFrame(frame);
-        resizeNow(); // the last movement, if a frame hadn't drawn it yet
-        pinch = null;
-        commit(size); // save only: same size as on screen, so nothing moves
-      },
-    },
   };
 }
 

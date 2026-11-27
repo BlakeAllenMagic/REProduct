@@ -93,6 +93,12 @@ async function start() {
   installTopbarFit(document.querySelector('.topbar'));
   installDownloadChip(document.getElementById('download-chip'));
   // Before loading data, so offline support turns on even if loading fails.
+  // The banners ("Update ready", the install hint) stick under the top bar;
+  // --banners-h lets the parts table's fixed controls sit below them.
+  const banners = document.getElementById('banners');
+  new ResizeObserver(() => {
+    document.documentElement.style.setProperty('--banners-h', `${banners.getBoundingClientRect().height}px`);
+  }).observe(banners);
   registerServiceWorker(document.getElementById('banners'));
   captureInstallPrompt();
   showInstallHintOnce(document.getElementById('banners'));

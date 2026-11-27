@@ -12,8 +12,8 @@
   margin: 0 auto;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  /* Two-finger pinches resize the table text (parts-table.js) instead of
-     zooming the page; one-finger scrolling is unchanged. */
+  /* One finger scrolls; two fingers don't zoom (A− / A+ change the size,
+     see src/ui/block-pinch.js). */
   touch-action: pan-x pan-y;
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -295,4 +295,39 @@
   .filter-chip {
     min-height: 32px;
   }
+}
+
+/* ---- Fixed controls: top (count, Filter, A− / A+, filter panel) and bottom
+   (download button) stay on screen while the table scrolls. Both run the
+   full width of the page (past the page padding) so rows don't show at the
+   sides as they scroll underneath. ---- */
+
+.table-controls {
+  position: sticky;
+  /* Under the top bar and any banner ("Update ready", install hint). */
+  top: calc(var(--topbar-actual, calc(var(--topbar-h) + var(--safe-top))) + var(--banners-h, 0px));
+  z-index: 5;
+  margin: -16px calc(-16px - var(--safe-right)) 0 calc(-16px - var(--safe-left));
+  padding: 12px calc(16px + var(--safe-right)) 4px calc(16px + var(--safe-left));
+  background: var(--bg);
+}
+
+/* A tall filter panel scrolls inside itself, so the table stays in view. */
+.table-controls #filter-panel {
+  max-height: 50vh;
+  max-height: 50dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+.table-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 5;
+  display: flex;
+  justify-content: flex-end;
+  margin: 12px calc(-16px - var(--safe-right)) calc(-16px - var(--safe-bottom)) calc(-16px - var(--safe-left));
+  padding: 8px calc(16px + var(--safe-right)) calc(8px + var(--safe-bottom)) calc(16px + var(--safe-left));
+  background: var(--bg);
+  border-top: 1px solid var(--border);
 }

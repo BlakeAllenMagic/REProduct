@@ -318,7 +318,7 @@ test('phone, crowded bar (Email link + Send datasheet): the part number gets its
   expect(changes).toBeLessThan(5);
 });
 
-test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {
+test('pinching a table does nothing: A− / A+ are the only way to resize it', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });
   await page.goto('#/category/filter');
@@ -327,57 +327,46 @@ test('two-finger pinch on a table resizes its text', async ({ page, browserName,
   const box = await page.locator('.table-scroll').boundingBox();
   const y = box.y + 80;
   const cx = box.x + box.width / 2;
-
   const cdp = await context.newCDPSession(page);
   const touch = (type, points) =>
     cdp.send('Input.dispatchTouchEvent', { type, touchPoints: points.map(([x, py], id) => ({ x, y: py, id })) });
   await touch('touchStart', [[cx - 50, y], [cx + 50, y]]);
-  for (let d = 45; d >= 35; d -= 5) await touch('touchMove', [[cx - d, y], [cx + d, y]]);
+  for (let d = 60; d <= 100; d += 10) await touch('touchMove', [[cx - d, y], [cx + d, y]]);
   await touch('touchEnd', []);
-  await expect(value).toHaveText('70%'); // fingers went from 100 px to 70 px apart
+  await page.waitForTimeout(200);
+  await expect(value).toHaveText('100%'); // the table text didn't change
+  expect(await page.evaluate(() => window.visualViewport.scale)).toBe(1); // and the page didn't zoom
+  await page.getByRole('button', { name: 'Bigger table text' }).click();
+  await expect(value).toHaveText('110%');
 });
 
-test('pinching a table resizes it live around the fingers; lifting them changes nothing', async ({ page, browserName, context }) => {
-  test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
-  // Narrow and short, so the table scrolls sideways and the page scrolls down.
-  await page.setViewportSize({ width: 390, height: 420 });
+test('table: count, Filter and A− / A+ stay at the top, the download button at the bottom', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 360 }); // short, so the page scrolls
   await page.goto('#/category/filter');
-  await page.getByRole('button', { name: 'Smaller table text' }).click(); // 90%, room to grow
-  const scroller = page.locator('.table-scroll');
-  await scroller.evaluate((s) => (s.scrollLeft = 150));
-  await page.evaluate(() => window.scrollTo(0, 120));
-  // A point in that row, well right of the sticky part number column (which
-  // grows with the text and would cover a point close to it).
-  const { x, y } = await page.locator('.part-row', { hasText: 'NFL-6000' }).evaluate((row) => {
-    const r = row.getBoundingClientRect();
-    return { x: 320, y: Math.round(r.top + r.height / 2) };
-  });
-  const box = { x, y };
-  const under = () =>
-    page.evaluate(([px, py]) => {
-      const cell = document.elementFromPoint(px, py)?.closest('td, th');
-      return cell ? `${cell.closest('tr').textContent.includes('NFL-6000')}:${cell.cellIndex}` : 'none';
-    }, [x, y]);
-  const before = await under();
-  expect(before, JSON.stringify({ x, y, box })).toMatch(/^true:/);
-
-  const cdp = await context.newCDPSession(page);
-  const touch = (type, points) =>
-    cdp.send('Input.dispatchTouchEvent', { type, touchPoints: points.map(([px, py], id) => ({ x: px, y: py, id })) });
-  await touch('touchStart', [[x - 40, y], [x + 40, y]]);
-  for (let d = 42; d <= 52; d += 2) await touch('touchMove', [[x - d, y], [x + d, y]]);
-  // Still pinching: the table has already resized, around the fingers.
-  await expect(page.getByRole('button', { name: 'Reset table text size' })).not.toHaveText('90%');
-  expect(await under()).toBe(before); // same part, same column
-  const scrolled = () => page.evaluate(() => [window.scrollY, document.querySelector('.table-scroll').scrollLeft]);
-  // Let the last finger movement draw (it's applied on the next frame).
-  await page.evaluate(() => new Promise((done) => requestAnimationFrame(() => requestAnimationFrame(done))));
-  const beforeLift = await scrolled();
-  await touch('touchEnd', []);
-  // Lifting the fingers only saves the size: nothing moves.
+  await expect(page.locator('.part-row').first()).toBeVisible();
+  // Under the top bar and the banners (Safari's install hint), not hidden behind them.
+  const belowBars = () =>
+    page.evaluate(() => {
+      const t = document.querySelector('.table-toolbar').getBoundingClientRect().top;
+      const bars = Math.max(
+        document.querySelector('.topbar').getBoundingClientRect().bottom,
+        document.querySelector('#banners').getBoundingClientRect().bottom,
+      );
+      return t >= bars - 1;
+    });
+  expect(await belowBars()).toBe(true);
+  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
   await page.waitForTimeout(100);
-  expect(await scrolled()).toEqual(beforeLift);
-  expect(await under()).toBe(before);
+  expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(50);
+  expect(await belowBars()).toBe(true); // still visible after scrolling
+  await expect(page.getByRole('button', { name: 'Filter', exact: true })).toBeInViewport();
+  await expect(page.getByRole('button', { name: 'Bigger table text' })).toBeInViewport();
+  const download = page.locator('.table-footer .btn');
+  await expect(download).toBeInViewport();
+  await page.evaluate(() => window.scrollTo(0, 0));
+  await expect(download).toBeInViewport(); // also at the top of the page
+  const footer = await page.locator('.table-footer').boundingBox();
+  expect(Math.round(footer.y + footer.height)).toBeLessThanOrEqual(360 + 1);
 });
 
 test('page zoomed in from the diagram: pinches on a table zoom the page, not the table', async ({ page, browserName, context }) => {
