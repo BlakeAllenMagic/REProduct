@@ -124,25 +124,75 @@ function productTypes(ctx) {
   section.append(heading);
 
   const all = [...ctx.categories.values()];
-  const groups = ctx.groups?.length ? ctx.groups : [null];
-  for (const group of groups) {
-    const members = group ? all.filter((c) => c.group === group) : all;
+  if (!ctx.groups?.length) {
+    section.append(productTypeGrid(all, ctx));
+    return section;
+  }
+
+  // One block per group: its heading and its grid.
+  const blocks = [];
+  for (const group of ctx.groups) {
+    const members = all.filter((c) => c.group === group);
     if (!members.length) continue;
-    if (group) {
-      const title = document.createElement('h3');
-      title.className = 'product-group-title';
-      title.textContent = group;
-      section.append(title);
-    }
-    section.append(productTypeGrid(members, ctx));
+    const block = document.createElement('div');
+    block.className = 'product-group';
+    block.dataset.group = group;
+    const title = document.createElement('h3');
+    title.className = 'product-group-title';
+    title.textContent = group;
+    block.append(title, productTypeGrid(members, ctx));
+    blocks.push(block);
   }
   // Safety net: a type whose group isn't listed still shows (the build
   // rejects that, so this only matters for hand-made data).
-  if (ctx.groups?.length) {
-    const strays = all.filter((c) => !ctx.groups.includes(c.group));
-    if (strays.length) section.append(productTypeGrid(strays, ctx));
+  const strays = all.filter((c) => !ctx.groups.includes(c.group));
+  if (strays.length) blocks.push(productTypeGrid(strays, ctx));
+
+  // Filter chips: All, RF, Power... Shows one group at a time, remembered on this device.
+  const chips = document.createElement('div');
+  chips.className = 'product-group-filter';
+  chips.setAttribute('role', 'group');
+  chips.setAttribute('aria-label', 'Show product types');
+  const show = (choice) => {
+    for (const chip of chips.children) chip.setAttribute('aria-pressed', String(chip.dataset.group === choice));
+    for (const block of blocks) {
+      block.hidden = choice !== ALL_GROUPS && block.dataset?.group !== choice;
+    }
+    section.classList.toggle('is-filtered', choice !== ALL_GROUPS);
+    rememberGroup(choice);
+  };
+  for (const choice of [ALL_GROUPS, ...blocks.map((b) => b.dataset?.group).filter(Boolean)]) {
+    const chip = document.createElement('button');
+    chip.type = 'button';
+    chip.className = 'btn filter-chip';
+    chip.dataset.group = choice;
+    chip.textContent = choice;
+    chip.addEventListener('click', () => show(choice));
+    chips.append(chip);
   }
+  section.append(chips, ...blocks);
+  const saved = lastGroup();
+  show([...chips.children].some((c) => c.dataset.group === saved) ? saved : ALL_GROUPS);
   return section;
+}
+
+const ALL_GROUPS = 'All';
+const GROUP_KEY = 'linecard.productGroup';
+
+function lastGroup() {
+  try {
+    return localStorage.getItem(GROUP_KEY) ?? ALL_GROUPS;
+  } catch {
+    return ALL_GROUPS;
+  }
+}
+
+function rememberGroup(group) {
+  try {
+    localStorage.setItem(GROUP_KEY, group);
+  } catch {
+    // Not saved; nothing else depends on it.
+  }
 }
 
 function productTypeGrid(categories, ctx) {

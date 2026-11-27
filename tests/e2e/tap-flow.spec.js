@@ -259,6 +259,33 @@ test('home screen shows the logo in the top bar; other screens show their title'
   await expect(page.locator('#title img')).toHaveCount(0);
 });
 
+test('All product types: chips filter the grid by group, and the choice is remembered', async ({ page }) => {
+  // The sample line card has no groups; add two for this test.
+  await page.route('**/linecard.json', async (route) => {
+    const card = await (await route.fetch()).json();
+    card.groups = ['RF', 'Power'];
+    for (const c of card.categories) c.group = c.id === 'filter' ? 'Power' : 'RF';
+    await route.fulfill({ json: card });
+  });
+  await page.goto('#/receiver');
+  const chip = (name) => page.locator('.product-group-filter').getByRole('button', { name, exact: true });
+  const type = (name) => page.locator('.product-type-grid').getByRole('link', { name: new RegExp(name) });
+  await expect(chip('All')).toHaveAttribute('aria-pressed', 'true');
+  await expect(type('Filters')).toBeVisible();
+  await expect(type('Mixers')).toBeVisible();
+
+  await press(page, chip('Power'));
+  await expect(chip('Power')).toHaveAttribute('aria-pressed', 'true');
+  await expect(type('Filters')).toBeVisible();
+  await expect(type('Mixers')).toBeHidden();
+
+  await page.reload();
+  await expect(chip('Power')).toHaveAttribute('aria-pressed', 'true'); // remembered on this device
+  await expect(type('Mixers')).toBeHidden();
+  await press(page, chip('All'));
+  await expect(type('Mixers')).toBeVisible();
+});
+
 test('Power tab: its own diagram; blocks without parts are greyed out', async ({ page }) => {
   await page.goto('#/');
   await press(page, page.getByRole('tab', { name: 'Power' }));

@@ -169,8 +169,55 @@ html.no-page-zoom {
   font-weight: 600;
 }
 
-.product-types h2 + .product-group-title {
+.product-group:first-of-type .product-group-title {
   margin-top: 4px;
+}
+
+/* All · RF · Power ... chips under the heading. Compact, but still 44 pt
+   tall (32 pt on phones, like the other phone-size controls). */
+.product-group-filter {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 0 0 8px;
+}
+
+.product-group-filter .filter-chip {
+  padding: 0 14px;
+  font-size: 15px;
+}
+
+/* One group chosen: its chip already names it, so the heading is hidden. */
+.product-types.is-filtered .product-group-title {
+  display: none;
+}
+
+.product-group[hidden] {
+  display: none;
+}
+
+@media (max-width: 700px), (max-height: 500px) {
+  /* One row; if the chips don't fit, the row scrolls sideways. */
+  .product-group-filter {
+    flex-wrap: nowrap;
+    gap: 4px;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .product-group-filter::-webkit-scrollbar {
+    display: none;
+  }
+
+  .product-group-filter .filter-chip {
+    flex: none;
+  }
+
+  .product-group-filter .filter-chip {
+    padding: 0 10px;
+    font-size: 14px;
+  }
 }
 
 .product-type-grid {
