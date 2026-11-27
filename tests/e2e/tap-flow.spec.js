@@ -264,7 +264,7 @@ test('Power tab: its own diagram; blocks without parts are greyed out', async ({
   await press(page, page.getByRole('tab', { name: 'Power' }));
   await expect(page).toHaveURL(/#\/power$/);
   await expect(page.getByRole('tab', { name: 'Power' })).toHaveAttribute('aria-selected', 'true');
-  for (const block of ['pw_ssr', 'pw_load_switch', 'pw_dcdc', 'pw_ldo', 'pw_opto', 'pw_gate_driver', 'pw_fet']) {
+  for (const block of ['pw_ssr', 'pw_load_switch', 'pw_dcdc', 'pw_ldo', 'pw_temp', 'pw_opto', 'pw_gate_driver', 'pw_fet']) {
     // The fixture line card has no power parts, so every block is disabled.
     await expect(page.locator(`[data-block="${block}"]`)).toHaveClass(/is-disabled/);
   }

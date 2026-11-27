@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-27T01:20:46Z",
+  "dataVersion": "2026-11-27T03:42:57Z",
   "categories": [
     {
       "id": "amplifier",
@@ -2445,7 +2445,9 @@
     {
       "id": "temperature_controller",
       "name": "Temperature Controllers",
-      "blocks": [],
+      "blocks": [
+        "pw_temp"
+      ],
       "specs": [
         {
           "key": "family",

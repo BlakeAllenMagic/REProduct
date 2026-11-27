@@ -555,7 +555,7 @@ categories:
 
   - id: temperature_controller
     name: "Temperature Controllers"
-    blocks: []
+    blocks: [pw_temp]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }

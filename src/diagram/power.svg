@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 276" class="diagram-svg" role="group" aria-label="Power block diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 404" class="diagram-svg" role="group" aria-label="Power block diagram">
   <!--
     Power chain. Each tappable block is a <g data-block="...">.
     Which category a block opens is decided by categories.yaml (blocks list),
@@ -20,15 +20,19 @@
     <path d="M420 92 H454" marker-end="url(#arrow)" />
     <path d="M548 92 H582" marker-end="url(#arrow)" />
     <path d="M676 92 H752" marker-end="url(#arrow)" />
-    <path d="M20 220 H198" marker-end="url(#arrow)" />
-    <path d="M292 220 H326" marker-end="url(#arrow)" />
-    <path d="M420 220 H454" marker-end="url(#arrow)" />
-    <path d="M548 220 H624" marker-end="url(#arrow)" />
+    <path d="M306 92 V220 H326" marker-end="url(#arrow)" />
+    <circle cx="306" cy="92" r="4" class="diagram-arrowhead" />
+    <path d="M420 220 H496" marker-end="url(#arrow)" />
+    <path d="M20 348 H198" marker-end="url(#arrow)" />
+    <path d="M292 348 H326" marker-end="url(#arrow)" />
+    <path d="M420 348 H454" marker-end="url(#arrow)" />
+    <path d="M548 348 H624" marker-end="url(#arrow)" />
   </g>
   <text x="20" y="78" class="diagram-note" text-anchor="start">Supply in</text>
   <text x="762" y="97" class="diagram-note" text-anchor="start">Clean rail to RF / ADC</text>
-  <text x="20" y="206" class="diagram-note" text-anchor="start">PWM / controller</text>
-  <text x="634" y="225" class="diagram-note" text-anchor="start">Power out</text>
+  <text x="506" y="225" class="diagram-note" text-anchor="start">Heater</text>
+  <text x="20" y="334" class="diagram-note" text-anchor="start">PWM / controller</text>
+  <text x="634" y="353" class="diagram-note" text-anchor="start">Power out</text>
 
   <g data-block="pw_ssr" class="block">
     <rect x="200" y="56" width="92" height="72" rx="10" class="block-bg" />
@@ -52,19 +56,24 @@
     <path class="block-symbol" d="M620 74 h20 v16 h-20 Z M610 82 h10 M640 82 h10 M630 90 v7 M625 97 h10" />
     <text x="630" y="119" class="block-label">LDO</text>
   </g>
+  <g data-block="pw_temp" class="block">
+    <rect x="328" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M370 195 V213 A8 8 0 1 0 378 213 V195 A4 4 0 0 0 370 195 Z M382 199 h5 M382 205 h5 M382 211 h5" />
+    <text x="374" y="247" class="block-label">Temp Ctrl</text>
+  </g>
   <g data-block="pw_opto" class="block">
-    <rect x="200" y="184" width="92" height="72" rx="10" class="block-bg" />
-    <path class="block-symbol" d="M226 203 H238 L232 213 Z M226 213 H238 M232 213 V221 M242 205 l6 4 M242 211 l6 4 M254 201 V221 M254 207 L264 199 M254 215 L264 223" />
-    <text x="246" y="247" class="block-label">Optocoupler</text>
+    <rect x="200" y="312" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M226 331 H238 L232 341 Z M226 341 H238 M232 341 V349 M242 333 l6 4 M242 339 l6 4 M254 329 V349 M254 335 L264 327 M254 343 L264 351" />
+    <text x="246" y="375" class="block-label">Optocoupler</text>
   </g>
   <g data-block="pw_gate_driver" class="block">
-    <rect x="328" y="184" width="92" height="72" rx="10" class="block-bg" />
-    <path class="block-symbol" d="M354 217 h5 v-12 h5 v12 h5 M371 198 L392 211 L371 224 Z" />
-    <text x="374" y="247" class="block-label">Gate Driver</text>
+    <rect x="328" y="312" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M354 345 h5 v-12 h5 v12 h5 M371 326 L392 339 L371 352 Z" />
+    <text x="374" y="375" class="block-label">Gate Driver</text>
   </g>
   <g data-block="pw_fet" class="block">
-    <rect x="456" y="184" width="92" height="72" rx="10" class="block-bg" />
-    <path class="block-symbol" d="M484 219 H494 V201 M498 199 V223 M498 203 H512 V195 M498 219 H512 V227 M498 211 H512 V219" />
-    <text x="502" y="247" class="block-label">Power FET</text>
+    <rect x="456" y="312" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M484 347 H494 V329 M498 327 V351 M498 331 H512 V323 M498 347 H512 V355 M498 339 H512 V347" />
+    <text x="502" y="375" class="block-label">Power FET</text>
   </g>
 </svg>

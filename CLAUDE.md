@@ -102,7 +102,7 @@ Datasheet files are content addressed: the filename is the SHA-256 of the PDF. W
 - `categories.yaml` decides which category each block opens, through each category's `blocks` list. The SVG holds no category ids, so remapping a block never means editing the drawing.
 - A category can appear in more than one block (for example, amplifiers at RF and IF).
 - Each block shows a part count badge, and blocks with zero parts look visibly disabled.
-- Adapters, waveguide parts and the Micropac types with no place in a chain (LEDs, optical and Hall-effect sensors, fiber-optic transceivers, temperature controllers) are reached from the "All product types" grid. Diplexers and terminations sit at the TX antenna and the isolator's third port; optocouplers sit between the PWM controller and the gate driver.
+- Adapters, waveguide parts and the Micropac types with no place in a chain (LEDs, optical and Hall-effect sensors, fiber-optic transceivers) are reached from the "All product types" grid. Diplexers and terminations sit at the TX antenna and the isolator's third port; optocouplers sit between the PWM controller and the gate driver. Temperature (heater) controllers hang off the switched supply rail on the Power tab.
 
 ## Offline strategy (most important section)
 
