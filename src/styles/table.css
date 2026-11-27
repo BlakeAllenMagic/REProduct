@@ -6,11 +6,16 @@
   color: var(--text-muted);
 }
 
-/* Wide tables scroll sideways inside this box (iPad portrait), not the page. */
+/* The table scrolls inside this box, both ways, not the page: that's what
+   lets the header row stay put (a sticky header only sticks inside the box
+   that scrolls, and a box that scrolls sideways can't hand its vertical
+   scrolling to the page). */
 .table-scroll {
+  width: 100%;
   max-width: 1400px;
   margin: 0 auto;
-  overflow-x: auto;
+  overflow: auto;
+  overscroll-behavior: contain;
   -webkit-overflow-scrolling: touch;
   /* One finger scrolls; two fingers don't zoom (A− / A+ change the size,
      see src/ui/block-pinch.js). */
@@ -48,6 +53,10 @@
 }
 
 .parts-table thead th {
+  /* The header row stays at the top while the rows scroll under it. */
+  position: sticky;
+  top: 0;
+  z-index: 2;
   height: max(44px, 3.15em);
   background: var(--bg);
   color: var(--text-muted);
@@ -79,9 +88,10 @@
   border-right: 1px solid var(--border);
 }
 
+/* Top-left corner: fixed both ways, above the header row and the part column. */
 .parts-table thead th:first-child {
   background: var(--bg);
-  z-index: 2;
+  z-index: 3;
 }
 
 .parts-table tbody th a {
@@ -297,37 +307,49 @@
   }
 }
 
-/* ---- Fixed controls: top (count, Filter, A− / A+, filter panel) and bottom
-   (download button) stay on screen while the table scrolls. Both run the
-   full width of the page (past the page padding) so rows don't show at the
-   sides as they scroll underneath. ---- */
+/* ---- The table screen fills the space under the top bar (and any banner,
+   e.g. "Update ready"), like the datasheet viewer: controls (count, Filter,
+   A− / A+, filter panel) at the top, the download button at the bottom, and
+   only the table scrolls between them. ---- */
+
+.view[data-view='category'] {
+  display: flex;
+  flex-direction: column;
+  height: calc(100dvh - var(--topbar-actual, calc(var(--topbar-h) + var(--safe-top))) - var(--banners-h, 0px));
+  padding-bottom: 0;
+}
 
 .table-controls {
-  position: sticky;
-  /* Under the top bar and any banner ("Update ready", install hint). */
-  top: calc(var(--topbar-actual, calc(var(--topbar-h) + var(--safe-top))) + var(--banners-h, 0px));
-  z-index: 5;
-  margin: -16px calc(-16px - var(--safe-right)) 0 calc(-16px - var(--safe-left));
-  padding: 12px calc(16px + var(--safe-right)) 4px calc(16px + var(--safe-left));
-  background: var(--bg);
+  flex: none;
+}
+
+/* Shrinks to fit; never so small that no rows show. */
+.table-scroll {
+  flex: 0 1 auto;
+  min-height: min(5em, 20dvh); /* header row and part of the first row */
+  margin-bottom: 12px;
 }
 
 /* A tall filter panel scrolls inside itself, so the table stays in view. */
 .table-controls #filter-panel {
-  max-height: 50vh;
-  max-height: 50dvh;
+  max-height: 40vh;
+  max-height: 40dvh;
   overflow-y: auto;
   overscroll-behavior: contain;
 }
 
 .table-footer {
+  flex: none;
+  /* Only matters on a very short screen with a tall banner, where everything
+     can't fit and the page scrolls a little: the button stays on screen. */
   position: sticky;
   bottom: 0;
   z-index: 5;
+  background: var(--bg);
   display: flex;
   justify-content: flex-end;
-  margin: 12px calc(-16px - var(--safe-right)) calc(-16px - var(--safe-bottom)) calc(-16px - var(--safe-left));
+  /* margin-top: auto keeps it at the bottom of the screen when the table is short. */
+  margin: auto calc(-16px - var(--safe-right)) 0 calc(-16px - var(--safe-left));
   padding: 8px calc(16px + var(--safe-right)) calc(8px + var(--safe-bottom)) calc(16px + var(--safe-left));
-  background: var(--bg);
   border-top: 1px solid var(--border);
 }

@@ -340,8 +340,8 @@ test('pinching a table does nothing: A− / A+ are the only way to resize it', a
   await expect(value).toHaveText('110%');
 });
 
-test('table: count, Filter and A− / A+ stay at the top, the download button at the bottom', async ({ page }) => {
-  await page.setViewportSize({ width: 390, height: 360 }); // short, so the page scrolls
+test('table: count, Filter, A− / A+ and the header row stay at the top, the download button at the bottom', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 360 }); // short, so the table scrolls
   await page.goto('#/category/filter');
   await expect(page.locator('.part-row').first()).toBeVisible();
   // Under the top bar and the banners (Safari's install hint), not hidden behind them.
@@ -355,18 +355,35 @@ test('table: count, Filter and A− / A+ stay at the top, the download button at
       return t >= bars - 1;
     });
   expect(await belowBars()).toBe(true);
-  await page.evaluate(() => window.scrollTo(0, document.documentElement.scrollHeight));
+  const scroller = page.locator('.table-scroll');
+  const headerOffset = () =>
+    page.evaluate(() => {
+      const box = document.querySelector('.table-scroll').getBoundingClientRect().top;
+      return Math.round(document.querySelector('.parts-table thead th').getBoundingClientRect().top - box);
+    });
+  expect(await headerOffset()).toBeLessThanOrEqual(1);
+  await scroller.evaluate((el) => el.scrollTo(0, el.scrollHeight));
   await page.waitForTimeout(100);
-  expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(50);
-  expect(await belowBars()).toBe(true); // still visible after scrolling
+  expect(await scroller.evaluate((el) => el.scrollTop)).toBeGreaterThan(50);
+  expect(await page.evaluate(() => window.scrollY)).toBe(0); // the page itself didn't move
+  expect(await headerOffset()).toBeLessThanOrEqual(1); // header row still at the top of the table
+  await expect(page.locator('.parts-table thead th').first()).toBeInViewport();
+  expect(await belowBars()).toBe(true);
   await expect(page.getByRole('button', { name: 'Filter', exact: true })).toBeInViewport();
   await expect(page.getByRole('button', { name: 'Bigger table text' })).toBeInViewport();
   const download = page.locator('.table-footer .btn');
   await expect(download).toBeInViewport();
-  await page.evaluate(() => window.scrollTo(0, 0));
-  await expect(download).toBeInViewport(); // also at the top of the page
   const footer = await page.locator('.table-footer').boundingBox();
   expect(Math.round(footer.y + footer.height)).toBeLessThanOrEqual(360 + 1);
+});
+
+test('table: the header row stays put on an iPad too, and a short table keeps the button at the bottom', async ({ page }) => {
+  await page.setViewportSize({ width: 820, height: 1180 });
+  await page.goto('#/category/filter');
+  await expect(page.locator('.part-row').first()).toBeVisible();
+  const footer = await page.locator('.table-footer').boundingBox();
+  expect(Math.round(footer.y + footer.height)).toBeGreaterThanOrEqual(1180 - 1);
+  expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBeLessThanOrEqual(1180 + 1);
 });
 
 test('page zoomed in from the diagram: pinches on a table zoom the page, not the table', async ({ page, browserName, context }) => {

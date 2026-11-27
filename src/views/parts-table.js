@@ -109,8 +109,9 @@ export function renderPartsTable(container, ctx, route) {
   togglePanel(saved.open);
   applyFilters();
 
-  // Count, Filter and A− / A+ (and the open filter panel) stay at the top
-  // while the table scrolls; the download button stays at the bottom.
+  // Count, Filter and A− / A+ (and the open filter panel) at the top, the
+  // download button at the bottom; only the table scrolls between them, and
+  // its header row stays put (src/styles/table.css).
   const toolbar = el('div', { class: 'table-toolbar' }, count, filterButton, sizer.element);
   const controls = el('div', { class: 'table-controls' }, toolbar, panelSlot, noMatch);
   const scroller = el('div', { class: 'table-scroll' }, table);
