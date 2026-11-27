@@ -5,6 +5,7 @@
  * @returns {{
  *   linecard: object,
  *   categories: Map<string, object>,
+ *   groups: string[],
  *   parts: Map<string, object>,
  *   partsByCategory: Map<string, object[]>,
  *   categoryForBlock: Map<string, object>,
@@ -37,6 +38,8 @@ export function indexLinecard(linecard) {
   return {
     linecard,
     categories,
+    // Headings for the "All product types" grid; empty in older data.
+    groups: Array.isArray(linecard.groups) ? linecard.groups : [],
     parts,
     partsByCategory,
     categoryForBlock,

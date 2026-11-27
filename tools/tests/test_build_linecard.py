@@ -179,6 +179,26 @@ class BrokenCsvTests(BuildTestCase):
         shutil.copy(self.data / "parts" / "lna.csv", self.data / "parts" / "switch.csv")
         self.assert_fails("switch.csv: no category with this id")
 
+    def test_groups_are_carried_to_the_app(self) -> None:
+        self.edit("categories.yaml", "categories:\n", "groups: [RF, Misc]\n\ncategories:\n")
+        for cid in ("lna", "mixer", "filter"):
+            self.edit("categories.yaml", f"  - id: {cid}\n", f"  - id: {cid}\n    group: RF\n")
+        code, _, err = self.run_tool()
+        self.assertEqual(code, 0, err)
+        card = json.loads(self.out.read_text(encoding="utf-8"))
+        self.assertEqual(card["groups"], ["RF", "Misc"])
+        self.assertEqual({c["group"] for c in card["categories"]}, {"RF"})
+
+    def test_unknown_or_missing_group(self) -> None:
+        self.edit("categories.yaml", "categories:\n", "groups: [RF]\n\ncategories:\n")
+        self.edit("categories.yaml", "  - id: lna\n", "  - id: lna\n    group: Optical\n")
+        self.edit("categories.yaml", "  - id: mixer\n", "  - id: mixer\n    group: RF\n")
+        self.assert_fails("category 'lna': group must be one of RF", "category 'filter': group must be one of RF")
+
+    def test_group_without_groups_list(self) -> None:
+        self.edit("categories.yaml", "  - id: lna\n", "  - id: lna\n    group: RF\n")
+        self.assert_fails('has no "groups" list')
+
     def test_category_without_csv(self) -> None:
         (self.data / "parts" / "mixer.csv").unlink()
         self.assert_fails("missing CSV for category 'mixer'")

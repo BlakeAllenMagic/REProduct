@@ -91,7 +91,11 @@ function rememberDiagram(name) {
   }
 }
 
-/** "All product types": one button per category, in categories.yaml order, with its part count. */
+/**
+ * "All product types": one button per category with its part count, under a
+ * heading per group (RF, Power, ...) in the order categories.yaml lists them.
+ * Without groups (older data), one grid in categories.yaml order.
+ */
 function productTypes(ctx) {
   const section = document.createElement('section');
   section.className = 'product-types';
@@ -100,10 +104,34 @@ function productTypes(ctx) {
   const heading = document.createElement('h2');
   heading.id = 'product-types-title';
   heading.textContent = 'All product types';
+  section.append(heading);
 
+  const all = [...ctx.categories.values()];
+  const groups = ctx.groups?.length ? ctx.groups : [null];
+  for (const group of groups) {
+    const members = group ? all.filter((c) => c.group === group) : all;
+    if (!members.length) continue;
+    if (group) {
+      const title = document.createElement('h3');
+      title.className = 'product-group-title';
+      title.textContent = group;
+      section.append(title);
+    }
+    section.append(productTypeGrid(members, ctx));
+  }
+  // Safety net: a type whose group isn't listed still shows (the build
+  // rejects that, so this only matters for hand-made data).
+  if (ctx.groups?.length) {
+    const strays = all.filter((c) => !ctx.groups.includes(c.group));
+    if (strays.length) section.append(productTypeGrid(strays, ctx));
+  }
+  return section;
+}
+
+function productTypeGrid(categories, ctx) {
   const list = document.createElement('ul');
   list.className = 'product-type-grid';
-  for (const category of ctx.categories.values()) {
+  for (const category of categories) {
     const count = ctx.partsByCategory.get(category.id).length;
     const item = document.createElement('li');
     const name = document.createElement('span');
@@ -130,9 +158,7 @@ function productTypes(ctx) {
     }
     list.append(item);
   }
-
-  section.append(heading, list);
-  return section;
+  return list;
 }
 
 function setUpBlock(block, ctx) {

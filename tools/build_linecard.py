@@ -44,7 +44,7 @@ REQUIRED_FIXED = {"manufacturer", "mpn"}
 # Columns a CSV may leave out entirely (older CSVs don't have them).
 OPTIONAL_COLUMNS = {"product_url"}
 
-CATEGORY_FIELDS = {"id", "name", "blocks", "specs"}
+CATEGORY_FIELDS = {"id", "name", "group", "blocks", "specs"}
 MAX_TAB_NAME = 31  # Excel / Google Sheets tab name limit
 SPEC_FIELDS = {"key", "label", "unit", "type", "sort", "required"}
 SPEC_TYPES = {"number", "text"}
@@ -103,6 +103,15 @@ def load_categories(path: Path, report: Report) -> list[dict[str, Any]]:
         report.error(where, 'top level must be a mapping with a "categories" list')
         return []
 
+    # Optional headings for the app's "All product types" grid. When listed,
+    # every category must name one of them.
+    groups = doc.get("groups")
+    if groups is not None and (
+        not isinstance(groups, list) or not all(isinstance(g, str) and g.strip() for g in groups)
+    ):
+        report.error(where, "groups must be a list of names")
+        groups = None
+
     categories: list[dict[str, Any]] = []
     seen_ids: set[str] = set()
     for index, cat in enumerate(doc["categories"], start=1):
@@ -133,6 +142,13 @@ def load_categories(path: Path, report: Report) -> list[dict[str, Any]]:
             # The name is also the sheet tab's name; Excel and Google Sheets cut tab names at 31 characters.
             report.error(cat_where, f"name is longer than {MAX_TAB_NAME} characters, the limit for a sheet tab name")
             ok = False
+        group = cat.get("group")
+        if groups is not None and group not in groups:
+            report.error(cat_where, f"group must be one of {', '.join(groups)}")
+            ok = False
+        elif groups is None and group is not None:
+            report.error(cat_where, 'group given, but categories.yaml has no "groups" list')
+            ok = False
         blocks = cat.get("blocks")
         if not isinstance(blocks, list) or not all(
             isinstance(b, str) and ID_RE.match(b) for b in blocks
@@ -145,8 +161,11 @@ def load_categories(path: Path, report: Report) -> list[dict[str, Any]]:
             ok = False
         if ok:
             categories.append(
-                {"id": cat_id, "name": cat["name"].strip(), "blocks": blocks, "specs": specs}
+                {"id": cat_id, "name": cat["name"].strip(), "group": group, "blocks": blocks, "specs": specs}
             )
+    if groups is not None:
+        for category in categories:
+            category["groups"] = groups  # carried to the output; same list for all
     return categories
 
 
@@ -539,6 +558,7 @@ def build(data_dir: Path, data_version: str) -> tuple[dict[str, Any] | None, Rep
     )
     linecard = {
         "dataVersion": data_version,
+        **({"groups": categories[0]["groups"]} if categories and categories[0].get("groups") else {}),
         "categories": [_category_output(c) for c in categories],
         "parts": parts,
     }
@@ -555,9 +575,11 @@ def _category_output(category: dict[str, Any]) -> dict[str, Any]:
         if s["sort"]:
             out["sort"] = s["sort"]
         specs.append(out)
+    out_cat: dict[str, Any] = {"id": category["id"], "name": category["name"]}
+    if category.get("group"):
+        out_cat["group"] = category["group"]
     return {
-        "id": category["id"],
-        "name": category["name"],
+        **out_cat,
         "blocks": category["blocks"],
         "specs": specs,
     }

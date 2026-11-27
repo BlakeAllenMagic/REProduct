@@ -69,6 +69,11 @@ test('indexLinecard maps blocks to categories from categories.yaml', () => {
   assert.equal(ctx.parts.get('acme-alm1234').mpn, 'ALM-1234');
 });
 
+test('indexLinecard: groups for the product-type grid, empty when the data has none', () => {
+  assert.deepEqual(indexLinecard(linecard).groups, []);
+  assert.deepEqual(indexLinecard({ ...linecard, groups: ['RF', 'Power'] }).groups, ['RF', 'Power']);
+});
+
 test('indexLinecard rejects malformed data', () => {
   assert.throws(() => indexLinecard({}), /missing/);
 });

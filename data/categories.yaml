@@ -7,6 +7,8 @@
 #   id        short lowercase name, also the CSV file name
 #   name      shown in the app, and the sheet tab's name
 #   blocks    ids of diagram blocks that open this category
+#   group     which heading it sits under in the app's "All product types" grid
+#             (one of the groups listed below, shown in that order)
 #   specs     the spec columns, in the order the parts table shows them
 #     key       CSV column name (never shown to customers, safe to keep stable)
 #     label     column heading in the app
@@ -17,9 +19,12 @@
 #
 # After editing, run: python3 tools/build_linecard.py
 
+groups: [RF, Power, Optical, Misc]
+
 categories:
   - id: amplifier
     name: "Amplifiers"
+    group: RF
     blocks: [lna, if_amp, lo_amp, tx_lo_amp, tx_if_amp, tx_driver, tx_pa]
     specs:
       - { key: family, label: "Family", type: text }
@@ -38,6 +43,7 @@ categories:
 
   - id: attenuator
     name: "Attenuators"
+    group: RF
     blocks: [rx_atten, tx_atten]
     specs:
       - { key: family, label: "Family", type: text }
@@ -56,6 +62,7 @@ categories:
 
   - id: balun
     name: "Baluns and Pulse Inverters"
+    group: RF
     blocks: [rx_balun, tx_balun]
     specs:
       - { key: family, label: "Family", type: text }
@@ -79,6 +86,7 @@ categories:
 
   - id: bias_tee
     name: "Bias Tees and DC Blocks"
+    group: RF
     blocks: [rx_bias_tee]
     specs:
       - { key: family, label: "Family", type: text }
@@ -96,6 +104,7 @@ categories:
 
   - id: coupler
     name: "Couplers"
+    group: RF
     blocks: [tx_coupler]
     specs:
       - { key: family, label: "Family", type: text }
@@ -121,6 +130,7 @@ categories:
 
   - id: diplexer
     name: "Diplexers and Multiplexers"
+    group: RF
     blocks: [tx_diplexer]
     specs:
       - { key: family, label: "Family", type: text }
@@ -137,6 +147,7 @@ categories:
 
   - id: equalizer
     name: "Equalizers"
+    group: RF
     blocks: [tx_equalizer]
     specs:
       - { key: family, label: "Family", type: text }
@@ -151,6 +162,7 @@ categories:
 
   - id: filter
     name: "Filters"
+    group: RF
     blocks: [rf_filter, if_filter, tx_if_filter, tx_rf_filter]
     specs:
       - { key: family, label: "Family", type: text }
@@ -178,6 +190,7 @@ categories:
 
   - id: limiter
     name: "Limiters"
+    group: RF
     blocks: [rx_limiter]
     specs:
       - { key: family, label: "Family", type: text }
@@ -194,6 +207,7 @@ categories:
 
   - id: mixer
     name: "Mixers"
+    group: RF
     blocks: [mixer, tx_mixer]
     specs:
       - { key: family, label: "Family", type: text }
@@ -213,6 +227,7 @@ categories:
 
   - id: multiplier
     name: "Multipliers"
+    group: RF
     blocks: [lo_mult, tx_lo_mult]
     specs:
       - { key: family, label: "Family", type: text }
@@ -233,6 +248,7 @@ categories:
 
   - id: oscillator
     name: "Oscillators"
+    group: RF
     blocks: [lo_osc, tx_lo_osc]
     specs:
       - { key: family, label: "Family", type: text }
@@ -247,6 +263,7 @@ categories:
 
   - id: power_divider
     name: "Power Dividers"
+    group: RF
     blocks: [lo_split, tx_lo_split]
     specs:
       - { key: family, label: "Family", type: text }
@@ -263,6 +280,7 @@ categories:
 
   - id: switch
     name: "Switches"
+    group: RF
     blocks: [rx_switch, tx_switch]
     specs:
       - { key: family, label: "Family", type: text }
@@ -279,6 +297,7 @@ categories:
 
   - id: detector
     name: "Detectors"
+    group: RF
     blocks: [tx_detector]
     specs:
       - { key: family, label: "Family", type: text }
@@ -293,6 +312,7 @@ categories:
 
   - id: isolator
     name: "Isolators"
+    group: RF
     blocks: [tx_isolator]
     specs:
       - { key: family, label: "Family", type: text }
@@ -308,6 +328,7 @@ categories:
 
   - id: termination
     name: "Terminations"
+    group: RF
     blocks: [tx_termination]
     specs:
       - { key: family, label: "Family", type: text }
@@ -324,6 +345,7 @@ categories:
 
   - id: adapter
     name: "Adapters and Accessories"
+    group: Misc
     blocks: []
     specs:
       - { key: family, label: "Family", type: text }
@@ -336,6 +358,7 @@ categories:
 
   - id: waveguide
     name: "Waveguide Parts"
+    group: Misc
     blocks: []
     specs:
       - { key: family, label: "Family", type: text }
@@ -351,6 +374,7 @@ categories:
 
   - id: power_transistor
     name: "Power Transistors"
+    group: Power
     blocks: [pw_fet]
     specs:
       - { key: family, label: "Family", type: text }
@@ -368,6 +392,7 @@ categories:
 
   - id: dc_dc
     name: "DC-DC Converters"
+    group: Power
     blocks: [pw_dcdc]
     specs:
       - { key: family, label: "Family", type: text }
@@ -388,6 +413,7 @@ categories:
 
   - id: ldo
     name: "LDOs and Load Switches"
+    group: Power
     blocks: [pw_load_switch, pw_ldo]
     specs:
       - { key: family, label: "Family", type: text }
@@ -409,6 +435,7 @@ categories:
 
   - id: gate_driver
     name: "Gate Drivers"
+    group: Power
     blocks: [pw_gate_driver]
     specs:
       - { key: family, label: "Family", type: text }
@@ -429,6 +456,7 @@ categories:
 
   - id: solid_state_relay
     name: "SSRs and Power Controllers"
+    group: Power
     blocks: [pw_ssr]
     specs:
       - { key: family, label: "Family", type: text }
@@ -448,6 +476,7 @@ categories:
 
   - id: optocoupler
     name: "Optocouplers"
+    group: Power
     blocks: [pw_opto]
     specs:
       - { key: family, label: "Family", type: text }
@@ -471,6 +500,7 @@ categories:
 
   - id: led
     name: "LEDs and LED Displays"
+    group: Optical
     blocks: []
     specs:
       - { key: family, label: "Family", type: text }
@@ -492,6 +522,7 @@ categories:
 
   - id: optical_sensor
     name: "Optical Sensors"
+    group: Optical
     blocks: []
     specs:
       - { key: family, label: "Family", type: text }
@@ -511,6 +542,7 @@ categories:
 
   - id: fiber_optic
     name: "Fiber-Optic Transceivers"
+    group: Optical
     blocks: []
     specs:
       - { key: family, label: "Family", type: text }
@@ -534,6 +566,7 @@ categories:
 
   - id: hall_sensor
     name: "Hall-Effect Sensors"
+    group: Misc
     blocks: []
     specs:
       - { key: family, label: "Family", type: text }
@@ -555,6 +588,7 @@ categories:
 
   - id: temperature_controller
     name: "Temperature Controllers"
+    group: Power
     blocks: [pw_temp]
     specs:
       - { key: family, label: "Family", type: text }
@@ -577,6 +611,7 @@ categories:
 
   - id: pll
     name: "PLL Synthesizers"
+    group: RF
     blocks: [lo_pll, tx_lo_pll]
     specs:
       - { key: family, label: "Family", type: text }
@@ -594,6 +629,7 @@ categories:
 
   - id: prescaler
     name: "Prescalers"
+    group: RF
     blocks: [lo_prescaler, tx_lo_prescaler]
     specs:
       - { key: family, label: "Family", type: text }

@@ -138,6 +138,18 @@
   font-size: 1.1rem;
 }
 
+/* RF, Power, Optical, Misc */
+.product-group-title {
+  margin: 20px 0 8px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.product-types h2 + .product-group-title {
+  margin-top: 4px;
+}
+
 .product-type-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
