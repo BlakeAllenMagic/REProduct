@@ -6,3 +6,12 @@ Marki Microwave,MSW2-00001CH,"Switches, 2 to 26 GHz",,https://markimicrowave.com
 Marki Microwave,MSW2-00002CH,"Switches, 4 to 50 GHz",,https://markimicrowave.com/products/bare-die/switches/msw2-00002ch/datasheet/,Switches,Bare die,4,50,1,48,,,41,,EAR99
 Marki Microwave,MSW2-00003CH,"Switches, 6 to 67 GHz",,https://markimicrowave.com/products/bare-die/switches/msw2-00003ch/datasheet/,Switches,Bare die,6,67,1.3,48,,,41,,EAR99
 Marki Microwave,MSW2-00004CH,"Switches, 9 to 100 GHz",,https://markimicrowave.com/products/bare-die/switches/msw2-00004ch/datasheet/,Switches,Bare die,9,100,1.5,50,,,41,,EAR99
+Teledyne HiRel,PE95421,"SPDT Absorptive, 1 to 8.5 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,SPDT Absorptive,Surface mount,1,8.5,0.77,38,,,,7-lead CQFP,
+Teledyne HiRel,PE95420,"SPDT Absorptive, 1 to 8.5 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,SPDT Absorptive,Surface mount,1,8.5,0.77,38,,,,7-lead CQFP,
+Teledyne HiRel,PE9354,"SPDT Reflective, 0.01 to 3 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,SPDT Reflective,Surface mount,0.01,3,0.55,32,,,,8-lead CFP,
+Teledyne HiRel,TDSW0602T,"SPDT Reflective, 9e-06 to 60 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,SPDT Reflective,Bare die,9e-06,60,0.9,29,,,,,
+Teledyne HiRel,TDSW002040X,"SPDT Reflective, 0.1 to 2 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,SPDT Reflective,Surface mount,0.1,2,0.8,43,,,,QFN,
+Teledyne HiRel,TDSW020A2T,"SPDT Absorptive, 0 to 20 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,SPDT Absorptive,Bare die,0,20,3,40,,,,,
+Teledyne HiRel,TDSW030A2T,"SPDT Reflective, 0 to 30 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,SPDT Reflective,Bare die,0,30,3,35,,,,,
+Teledyne HiRel,TDSW050A2T,"SPDT Reflective, 0 to 30 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,SPDT Reflective,Bare die,0,30,3,35,,,,,
+Teledyne HiRel,TDSW84230,"SPDT Reflective, 0.03 to 5 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,SPDT Reflective,Surface mount,0.03,5,0.5,25,,,,QFN,

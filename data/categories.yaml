@@ -121,7 +121,7 @@ categories:
 
   - id: diplexer
     name: "Diplexers and Multiplexers"
-    blocks: []
+    blocks: [tx_diplexer]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -308,7 +308,7 @@ categories:
 
   - id: termination
     name: "Terminations"
-    blocks: []
+    blocks: [tx_termination]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -448,7 +448,7 @@ categories:
 
   - id: optocoupler
     name: "Optocouplers"
-    blocks: []
+    blocks: [pw_opto]
     specs:
       - { key: family, label: "Family", type: text }
       - { key: package, label: "Package", type: text }
@@ -569,6 +569,39 @@ categories:
       - { key: radiation, label: "Radiation Tolerant", type: text }
       - { key: qml, label: "QML", type: text }
       - { key: cross_ref, label: "Cross-Reference", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  # ---- Teledyne HiRel RF lines with no existing type (added by hand, from tools/power/hirel.py) ----
+
+  - id: pll
+    name: "PLL Synthesizers"
+    blocks: [lo_pll]
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: kind, label: "Type", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: fom_dbc_hz, label: "Phase Noise FOM", unit: "dBc/Hz", type: number, sort: asc }
+      - { key: prescaler, label: "Prescaler", type: text }
+      - { key: ref_max_mhz, label: "Max Reference", unit: "MHz", type: number }
+      - { key: grade, label: "Grade", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: prescaler
+    name: "Prescalers"
+    blocks: [lo_prescaler]
+    specs:
+      - { key: family, label: "Family", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: divide_by, label: "Divide By", type: number }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: grade, label: "Grade", type: text }
       - { key: case, label: "Case", type: text }
       - { key: notes, label: "Notes", type: text }
       - { key: eccn, label: "ECCN", type: text }

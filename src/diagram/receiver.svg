@@ -18,9 +18,12 @@
     <line x1="28" y1="192" x2="28" y2="220" />
   </g>
   <g class="diagram-wires">
+    <path d="M420 92 H454" marker-end="url(#arrow)" />
     <path d="M548 92 H582" marker-end="url(#arrow)" />
     <path d="M676 92 H710" marker-end="url(#arrow)" />
     <path d="M804 92 H838" marker-end="url(#arrow)" />
+    <path d="M566 92 V142 H246 V130" marker-end="url(#arrow)" />
+    <path d="M246 56 V46 H502 V54" marker-end="url(#arrow)" />
     <path d="M886 128 V182" marker-end="url(#arrow)" />
     <path d="M932 92 H990" marker-end="url(#arrow)" />
     <path d="M28 220 H70" marker-end="url(#arrow)" />
@@ -36,15 +39,25 @@
     <path d="M420 348 H454" marker-end="url(#arrow)" />
     <path d="M548 348 H624" marker-end="url(#arrow)" />
   </g>
-  <text x="442" y="97" class="diagram-note" text-anchor="end">LO chain</text>
+  <text x="20" y="97" class="diagram-note" text-anchor="start">LO chain</text>
   <text x="986" y="82" class="diagram-note" text-anchor="end">to TX</text>
   <text x="650" y="353" class="diagram-note" text-anchor="middle">DSP</text>
 
+  <g data-block="lo_prescaler" class="block">
+    <rect x="200" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <text x="246" y="90" class="block-glyph">÷N</text>
+    <text x="246" y="119" class="block-label">Prescaler</text>
+  </g>
   <g data-block="lo_osc" class="block">
+    <rect x="328" y="56" width="92" height="72" rx="10" class="block-bg" />
+    <circle class="block-symbol" cx="374" cy="83" r="14" />
+    <path class="block-symbol" d="M365 83 q4.5 -9 9 0 t9 0" />
+    <text x="374" y="119" class="block-label">Oscillator</text>
+  </g>
+  <g data-block="lo_pll" class="block">
     <rect x="456" y="56" width="92" height="72" rx="10" class="block-bg" />
-    <circle class="block-symbol" cx="502" cy="83" r="14" />
-    <path class="block-symbol" d="M493 83 q4.5 -9 9 0 t9 0" />
-    <text x="502" y="119" class="block-label">Oscillator</text>
+    <text x="502" y="91" class="block-glyph">φ</text>
+    <text x="502" y="119" class="block-label">PLL</text>
   </g>
   <g data-block="lo_mult" class="block">
     <rect x="584" y="56" width="92" height="72" rx="10" class="block-bg" />

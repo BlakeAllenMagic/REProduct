@@ -1,1 +1,2 @@
 manufacturer,mpn,description,datasheet_url,product_url,family,package,kind,vin_min_v,vin_max_v,vout_min_v,vout_max_v,iout_max_a,dropout_mv,noise_uvrms,rds_on_mohm,grade,status,case,notes,eccn
+Teledyne HiRel,TDGM650LS60,"GaN load switch module, 650 V, 60 A",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,GaN Load Switch Module,Surface mount,GaN load switch module,,650,,,60,,,,,,,Integrated GaN FET and isolated gate driver,EAR99

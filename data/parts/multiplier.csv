@@ -51,3 +51,4 @@ Marki Microwave,MMD-18100HCH,"Passive multipliers and non linear transmission li
 Marki Microwave,MMQ-40125HCH,"Passive multipliers and non linear transmission lines, 40 to 125 GHz",,,Passive multipliers and non linear transmission lines,Bare die,Quadrupler,10,31.25,40,125,20,19,12,,,,,3A001.b.7.b.1
 Marki Microwave,NLTL-6273CH,"Passive multipliers and non linear transmission lines, 0.7 to 40 GHz",,,Passive multipliers and non linear transmission lines,Bare die,Comb Generator,0.7,5,0.7,40,,,,,,,,EAR99
 Marki Microwave,NLTL-6275CH,"Passive multipliers and non linear transmission lines, 3 to 85 GHz",,,Passive multipliers and non linear transmission lines,Bare die,Comb Generator,3,15,3,85,,,,,,,,EAR99
+Teledyne HiRel,TDFM001000,"Active frequency doubler, 15 to 50 GHz out",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,2x Active Doubler,Bare die,Doubler (active),7.5,25,15,50,,,,13,,,,

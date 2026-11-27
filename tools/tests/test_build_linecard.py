@@ -351,3 +351,23 @@ class HelperTests(unittest.TestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DiagramBlocksTest(unittest.TestCase):
+    """Every drawn block opens a product type, and every block named in
+    categories.yaml exists in a drawing (catches a typo or a deleted block).
+    DAC and ADC are drawn but have no product type yet."""
+
+    UNMAPPED_OK = {"adc", "dac"}
+
+    def test_blocks_match_drawings(self) -> None:
+        import re
+        root = Path(__file__).resolve().parents[2]
+        drawn: list[str] = []
+        for svg in sorted((root / "src" / "diagram").glob("*.svg")):
+            drawn += re.findall(r'<[a-z]+[^>]* data-block="([^".]+)"', svg.read_text(encoding="utf-8"))
+        self.assertEqual(len(drawn), len(set(drawn)), "block ids must be unique across drawings")
+        cats = build_linecard.load_categories(root / "data" / "categories.yaml", build_linecard.Report())
+        mapped = {b for c in cats for b in c.get("blocks", [])}
+        self.assertEqual(sorted(mapped - set(drawn)), [], "blocks in categories.yaml with no drawing")
+        self.assertEqual(sorted(set(drawn) - mapped - self.UNMAPPED_OK), [], "drawn blocks with no product type")

@@ -22,12 +22,13 @@
     <path d="M676 92 H752" marker-end="url(#arrow)" />
     <path d="M20 220 H198" marker-end="url(#arrow)" />
     <path d="M292 220 H326" marker-end="url(#arrow)" />
-    <path d="M420 220 H496" marker-end="url(#arrow)" />
+    <path d="M420 220 H454" marker-end="url(#arrow)" />
+    <path d="M548 220 H624" marker-end="url(#arrow)" />
   </g>
   <text x="20" y="78" class="diagram-note" text-anchor="start">Supply in</text>
   <text x="762" y="97" class="diagram-note" text-anchor="start">Clean rail to RF / ADC</text>
   <text x="20" y="206" class="diagram-note" text-anchor="start">PWM / controller</text>
-  <text x="506" y="225" class="diagram-note" text-anchor="start">Power out</text>
+  <text x="634" y="225" class="diagram-note" text-anchor="start">Power out</text>
 
   <g data-block="pw_ssr" class="block">
     <rect x="200" y="56" width="92" height="72" rx="10" class="block-bg" />
@@ -51,14 +52,19 @@
     <path class="block-symbol" d="M620 74 h20 v16 h-20 Z M610 82 h10 M640 82 h10 M630 90 v7 M625 97 h10" />
     <text x="630" y="119" class="block-label">LDO</text>
   </g>
-  <g data-block="pw_gate_driver" class="block">
+  <g data-block="pw_opto" class="block">
     <rect x="200" y="184" width="92" height="72" rx="10" class="block-bg" />
-    <path class="block-symbol" d="M226 217 h5 v-12 h5 v12 h5 M243 198 L264 211 L243 224 Z" />
-    <text x="246" y="247" class="block-label">Gate Driver</text>
+    <path class="block-symbol" d="M226 203 H238 L232 213 Z M226 213 H238 M232 213 V221 M242 205 l6 4 M242 211 l6 4 M254 201 V221 M254 207 L264 199 M254 215 L264 223" />
+    <text x="246" y="247" class="block-label">Optocoupler</text>
+  </g>
+  <g data-block="pw_gate_driver" class="block">
+    <rect x="328" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M354 217 h5 v-12 h5 v12 h5 M371 198 L392 211 L371 224 Z" />
+    <text x="374" y="247" class="block-label">Gate Driver</text>
   </g>
   <g data-block="pw_fet" class="block">
-    <rect x="328" y="184" width="92" height="72" rx="10" class="block-bg" />
-    <path class="block-symbol" d="M356 219 H366 V201 M370 199 V223 M370 203 H384 V195 M370 219 H384 V227 M370 211 H384 V219" />
-    <text x="374" y="247" class="block-label">Power FET</text>
+    <rect x="456" y="184" width="92" height="72" rx="10" class="block-bg" />
+    <path class="block-symbol" d="M484 219 H494 V201 M498 199 V223 M498 203 H512 V195 M498 219 H512 V227 M498 211 H512 V219" />
+    <text x="502" y="247" class="block-label">Power FET</text>
   </g>
 </svg>

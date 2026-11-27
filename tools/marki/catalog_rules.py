@@ -53,7 +53,7 @@ PRODUCT_TYPES: dict[str, tuple[str, list[str]]] = {
     "balun": ("Baluns and Pulse Inverters", ["rx_balun", "tx_balun"]),
     "bias_tee": ("Bias Tees and DC Blocks", ["rx_bias_tee"]),
     "coupler": ("Couplers", ["tx_coupler"]),
-    "diplexer": ("Diplexers and Multiplexers", []),
+    "diplexer": ("Diplexers and Multiplexers", ["tx_diplexer"]),
     "equalizer": ("Equalizers", ["tx_equalizer"]),
     "filter": ("Filters", ["rf_filter", "if_filter", "tx_if_filter", "tx_rf_filter"]),
     "limiter": ("Limiters", ["rx_limiter"]),
@@ -64,7 +64,7 @@ PRODUCT_TYPES: dict[str, tuple[str, list[str]]] = {
     "switch": ("Switches", ["rx_switch", "tx_switch"]),
     "detector": ("Detectors", ["tx_detector"]),
     "isolator": ("Isolators", ["tx_isolator"]),
-    "termination": ("Terminations", []),
+    "termination": ("Terminations", ["tx_termination"]),
     "adapter": ("Adapters and Accessories", []),
     "waveguide": ("Waveguide Parts", []),
 }

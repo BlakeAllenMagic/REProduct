@@ -1,0 +1,6 @@
+manufacturer,mpn,description,datasheet_url,product_url,family,package,divide_by,freq_min_ghz,freq_max_ghz,grade,case,notes,eccn
+Teledyne HiRel,PE9304,"Divide-by-2 prescaler, 1 to 7 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,Divide by 2,Surface mount,2,1,7,Hi-Rel,8-lead CFP,,
+Teledyne HiRel,PE9309,"Divide-by-4 prescaler, 3 to 13.5 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,Divide by 4,Surface mount,4,3,13.5,Hi-Rel,8-lead CFP,,
+Teledyne HiRel,PE9311,"Divide-by-2 prescaler, 0 to 1.5 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,Divide by 2,Surface mount,2,0,1.5,Hi-Rel,8-lead CFP,,
+Teledyne HiRel,PE9312,"Divide-by-4 prescaler, 0 to 1.5 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,Divide by 4,Surface mount,4,0,1.5,Space,8-lead CFP,,
+Teledyne HiRel,PE9313,"Divide-by-8 prescaler, 0 to 1.5 GHz",,https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx,Divide by 8,Surface mount,8,0,1.5,Hi-Rel,8-lead CFP,,

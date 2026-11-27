@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-26T23:54:24Z",
+  "dataVersion": "2026-11-27T01:04:32Z",
   "categories": [
     {
       "id": "amplifier",
@@ -510,7 +510,9 @@
     {
       "id": "diplexer",
       "name": "Diplexers and Multiplexers",
-      "blocks": [],
+      "blocks": [
+        "tx_diplexer"
+      ],
       "specs": [
         {
           "key": "family",
@@ -1388,7 +1390,9 @@
     {
       "id": "termination",
       "name": "Terminations",
-      "blocks": [],
+      "blocks": [
+        "tx_termination"
+      ],
       "specs": [
         {
           "key": "family",
@@ -1984,7 +1988,9 @@
     {
       "id": "optocoupler",
       "name": "Optocouplers",
-      "blocks": [],
+      "blocks": [
+        "pw_opto"
+      ],
       "specs": [
         {
           "key": "family",
@@ -2502,6 +2508,136 @@
         {
           "key": "cross_ref",
           "label": "Cross-Reference",
+          "type": "text"
+        },
+        {
+          "key": "case",
+          "label": "Case",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "eccn",
+          "label": "ECCN",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "pll",
+      "name": "PLL Synthesizers",
+      "blocks": [
+        "lo_pll"
+      ],
+      "specs": [
+        {
+          "key": "family",
+          "label": "Family",
+          "type": "text"
+        },
+        {
+          "key": "package",
+          "label": "Package",
+          "type": "text"
+        },
+        {
+          "key": "kind",
+          "label": "Type",
+          "type": "text"
+        },
+        {
+          "key": "freq_min_ghz",
+          "label": "Freq Min",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "freq_max_ghz",
+          "label": "Freq Max",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "fom_dbc_hz",
+          "label": "Phase Noise FOM",
+          "unit": "dBc/Hz",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "prescaler",
+          "label": "Prescaler",
+          "type": "text"
+        },
+        {
+          "key": "ref_max_mhz",
+          "label": "Max Reference",
+          "unit": "MHz",
+          "type": "number"
+        },
+        {
+          "key": "grade",
+          "label": "Grade",
+          "type": "text"
+        },
+        {
+          "key": "case",
+          "label": "Case",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "eccn",
+          "label": "ECCN",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "prescaler",
+      "name": "Prescalers",
+      "blocks": [
+        "lo_prescaler"
+      ],
+      "specs": [
+        {
+          "key": "family",
+          "label": "Family",
+          "type": "text"
+        },
+        {
+          "key": "package",
+          "label": "Package",
+          "type": "text"
+        },
+        {
+          "key": "divide_by",
+          "label": "Divide By",
+          "type": "number"
+        },
+        {
+          "key": "freq_min_ghz",
+          "label": "Freq Min",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "freq_max_ghz",
+          "label": "Freq Max",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "grade",
+          "label": "Grade",
           "type": "text"
         },
         {
@@ -5958,6 +6094,618 @@
       }
     },
     {
+      "id": "teledyne-tdgb010a",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDGB010A",
+      "description": "Wideband Gain Block, 0.1 to 10 GHz",
+      "specs": {
+        "family": "Wideband Gain Block",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 10,
+        "gain_db": 13.6,
+        "nf_db": 5.5,
+        "op1db_dbm": 14.3,
+        "oip3_dbm": 28,
+        "voltage": "+3.85",
+        "current": "50"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdgb010b",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDGB010B",
+      "description": "Wideband Gain Block, 0.1 to 10 GHz",
+      "specs": {
+        "family": "Wideband Gain Block",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 10,
+        "gain_db": 16.5,
+        "op1db_dbm": 15.2,
+        "oip3_dbm": 28,
+        "voltage": "+3.8",
+        "current": "50"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdgb010c",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDGB010C",
+      "description": "Wideband Gain Block, 0.1 to 10 GHz",
+      "specs": {
+        "family": "Wideband Gain Block",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 10,
+        "gain_db": 18.4,
+        "nf_db": 5.5,
+        "op1db_dbm": 16.3,
+        "oip3_dbm": 28,
+        "voltage": "+4.2",
+        "current": "50"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna001013",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA001013",
+      "description": "X-Band LNA, 8 to 12 GHz",
+      "specs": {
+        "family": "X-Band LNA",
+        "package": "Bare die",
+        "freq_min_ghz": 8,
+        "freq_max_ghz": 12,
+        "gain_db": 26,
+        "nf_db": 1.4,
+        "op1db_dbm": 12,
+        "voltage": "+5",
+        "current": "80"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna002093",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA002093",
+      "description": "L/S-Band LNA, 1 to 6 GHz",
+      "specs": {
+        "family": "L/S-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 1,
+        "freq_max_ghz": 6,
+        "gain_db": 21,
+        "nf_db": 0.37,
+        "op1db_dbm": 19,
+        "voltage": "+5",
+        "current": "55",
+        "case": "DFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna002093sep",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA002093SEP",
+      "description": "L/S-Band LNA, 1 to 6 GHz",
+      "specs": {
+        "family": "L/S-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 1,
+        "freq_max_ghz": 6,
+        "gain_db": 21,
+        "nf_db": 0.37,
+        "op1db_dbm": 19,
+        "case": "DFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna043011",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA0430-11",
+      "description": "UHF/L-Band LNA, 0.03 to 3 GHz",
+      "specs": {
+        "family": "UHF/L-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.03,
+        "freq_max_ghz": 3,
+        "gain_db": 21.5,
+        "nf_db": 0.35,
+        "op1db_dbm": 12,
+        "case": "6-pin 3×3×1.4 mm ceramic DFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna0430ep",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA0430EP",
+      "description": "UHF/L-Band LNA, 0.04 to 3 GHz",
+      "specs": {
+        "family": "UHF/L-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.04,
+        "freq_max_ghz": 3,
+        "gain_db": 17.5,
+        "nf_db": 0.35,
+        "op1db_dbm": 18.5,
+        "case": "DFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna0430sep",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA0430SEP",
+      "description": "UHF/L-Band LNA, 0.04 to 3 GHz",
+      "specs": {
+        "family": "UHF/L-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.04,
+        "freq_max_ghz": 3,
+        "gain_db": 17.5,
+        "nf_db": 0.35,
+        "op1db_dbm": 18.5,
+        "voltage": "+5",
+        "case": "DFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna0840ep",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA0840EP",
+      "description": "S-Band LNA, 3 to 4 GHz",
+      "specs": {
+        "family": "S-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 3,
+        "freq_max_ghz": 4,
+        "gain_db": 29,
+        "nf_db": 1.5,
+        "op1db_dbm": -6,
+        "voltage": "+1.5",
+        "current": "15",
+        "case": "QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna0840sep",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA0840SEP",
+      "description": "S-Band LNA, 3 to 40 GHz",
+      "specs": {
+        "family": "S-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 3,
+        "freq_max_ghz": 40,
+        "gain_db": 29,
+        "nf_db": 1.5,
+        "voltage": "+1.5",
+        "current": "15",
+        "case": "QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna2050ep",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA2050EP",
+      "description": "S-Band LNA, 2 to 5 GHz",
+      "specs": {
+        "family": "S-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 2,
+        "freq_max_ghz": 5,
+        "gain_db": 17.5,
+        "nf_db": 0.4,
+        "op1db_dbm": 19.5,
+        "voltage": "+5",
+        "case": "DFN"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna2050sep",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA2050SEP",
+      "description": "S-Band LNA, 2 to 5 GHz",
+      "specs": {
+        "family": "S-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 2,
+        "freq_max_ghz": 5,
+        "gain_db": 17.5,
+        "nf_db": 0.4,
+        "op1db_dbm": 19.5,
+        "voltage": "+5",
+        "case": "DFN"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna2069qfn",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA2069QFN",
+      "description": "Ka-Band LNA, 18 to 31 GHz",
+      "specs": {
+        "family": "Ka-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 18,
+        "freq_max_ghz": 31,
+        "gain_db": 19.5,
+        "nf_db": 3,
+        "op1db_dbm": 10.5,
+        "voltage": "+4.5",
+        "current": "65",
+        "case": "QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna2069sp",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA2069SP",
+      "description": "Ka-Band LNA, 16 to 32 GHz",
+      "specs": {
+        "family": "Ka-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 16,
+        "freq_max_ghz": 32,
+        "gain_db": 22,
+        "nf_db": 2.5,
+        "op1db_dbm": 10,
+        "voltage": "+3.5",
+        "current": "55",
+        "case": "Hermetic QFN"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna2626sep",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA2626SEP",
+      "description": "K-Band LNA, 17 to 22 GHz",
+      "specs": {
+        "family": "K-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 17,
+        "freq_max_ghz": 22,
+        "gain_db": 25,
+        "nf_db": 1.3,
+        "op1db_dbm": 20,
+        "voltage": "+3.5",
+        "current": "90",
+        "case": "QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna2628sep",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA2628SEP",
+      "description": "K-Band LNA, 22 to 31.5 GHz",
+      "specs": {
+        "family": "K-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 22,
+        "freq_max_ghz": 31.5,
+        "gain_db": 23,
+        "nf_db": 1.6,
+        "op1db_dbm": 19,
+        "voltage": "+3.5",
+        "current": "90",
+        "case": "DFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna3024qfn",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA3024QFN",
+      "description": "S-Band LNA, 2 to 22 GHz",
+      "specs": {
+        "family": "S-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 2,
+        "freq_max_ghz": 22,
+        "gain_db": 15,
+        "nf_db": 3,
+        "op1db_dbm": 18,
+        "voltage": "+5.0",
+        "current": "125",
+        "case": "QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlna3024sp",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLNA3024SP",
+      "description": "S-Band LNA, 2 to 22 GHz",
+      "specs": {
+        "family": "S-Band LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 2,
+        "freq_max_ghz": 22,
+        "gain_db": 15,
+        "nf_db": 3,
+        "op1db_dbm": 18,
+        "voltage": "+5.0",
+        "current": "125",
+        "case": "Hermetic QFN"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdpa4220qfn",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDPA4220QFN",
+      "description": "Wideband PA, 0.5 to 20 GHz",
+      "specs": {
+        "family": "Wideband PA",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.5,
+        "freq_max_ghz": 20,
+        "gain_db": 17,
+        "psat_dbm": 28,
+        "case": "QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdpa5115qfn",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDPA5115QFN",
+      "description": "X-Band PA, 8 to 12 GHz",
+      "specs": {
+        "family": "X-Band PA",
+        "package": "Surface mount",
+        "freq_min_ghz": 8,
+        "freq_max_ghz": 12,
+        "gain_db": 21.5,
+        "voltage": "+8",
+        "current": "190",
+        "case": "QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdpa6005qfn",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDPA6005QFN",
+      "description": "X-Band PA, 8 to 12 GHz",
+      "specs": {
+        "family": "X-Band PA",
+        "package": "Surface mount",
+        "freq_min_ghz": 8,
+        "freq_max_ghz": 12,
+        "gain_db": 20,
+        "psat_dbm": 31.5,
+        "case": "QFN"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdpa6710sp",
+      "category": "amplifier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDPA6710SP",
+      "description": "X-Ku Band PA, 8 to 12.75 GHz",
+      "specs": {
+        "family": "X-Ku Band PA",
+        "package": "Surface mount",
+        "freq_min_ghz": 8,
+        "freq_max_ghz": 12.75,
+        "gain_db": 22.5,
+        "psat_dbm": 36.5,
+        "case": "Hermetic QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
       "id": "marki-atd000040psm",
       "category": "attenuator",
       "manufacturer": "Marki Microwave",
@@ -9211,6 +9959,29 @@
         "eccn": "EAR99"
       },
       "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe94302",
+      "category": "attenuator",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE94302",
+      "description": "Digital step attenuator, 0.00025 to 4 GHz",
+      "specs": {
+        "family": "50Ω DSA",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.00025,
+        "freq_max_ghz": 4,
+        "attenuation_range": "0 to 31.5 (0.5 dB steps)",
+        "case": "28-lead CQFP"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
       "datasheet": {
         "sourceUrl": null,
         "file": null,
@@ -30511,6 +31282,128 @@
       }
     },
     {
+      "id": "teledyne-tdlm025100",
+      "category": "limiter",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLM025100",
+      "description": "MMIC Limiter, 0.01 to 2.5 GHz",
+      "specs": {
+        "family": "MMIC Limiter",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 2.5,
+        "flat_leakage": "7–13 (threshold)",
+        "peak_power_w": 100,
+        "case": "24-lead CLGA"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlm052402qc",
+      "category": "limiter",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLM052402QC",
+      "description": "PIN Diode Limiter, 0.5 to 4 GHz",
+      "specs": {
+        "family": "PIN Diode Limiter",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.5,
+        "freq_max_ghz": 4,
+        "flat_leakage": "0–17 (threshold)",
+        "peak_power_w": 1995.3,
+        "case": "QFN"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlm06100",
+      "category": "limiter",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLM06100",
+      "description": "MMIC Limiter, 0.01 to 6 GHz",
+      "specs": {
+        "family": "MMIC Limiter",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 6,
+        "flat_leakage": "7–13 (threshold)",
+        "peak_power_w": 100,
+        "case": "24-lead CLGA"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlm202402",
+      "category": "limiter",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLM202402",
+      "description": "PIN Diode Limiter, 2 to 4 GHz",
+      "specs": {
+        "family": "PIN Diode Limiter",
+        "package": "Surface mount",
+        "freq_min_ghz": 2,
+        "freq_max_ghz": 4,
+        "flat_leakage": "0–14 (threshold)",
+        "peak_power_w": 1000,
+        "case": "QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdlm961122mc299",
+      "category": "limiter",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDLM961122MC-299",
+      "description": "PIN Diode Limiter, 0.96 to 1.215 GHz",
+      "specs": {
+        "family": "PIN Diode Limiter",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.96,
+        "freq_max_ghz": 1.215,
+        "flat_leakage": "0–14 (threshold)",
+        "peak_power_w": 1000,
+        "case": "QFN",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
       "id": "marki-mm10115hch",
       "category": "mixer",
       "manufacturer": "Marki Microwave",
@@ -35973,6 +36866,32 @@
       }
     },
     {
+      "id": "teledyne-tdmx011037",
+      "category": "mixer",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDMX011037",
+      "description": "Double-balanced mixer, 18 to 46 GHz RF/LO",
+      "specs": {
+        "family": "Double-Balanced Mixer",
+        "package": "Bare die",
+        "rf_lo_min_ghz": 18,
+        "rf_lo_max_ghz": 46,
+        "if_min_ghz": 0,
+        "if_max_ghz": 20,
+        "conv_loss_db": 6.5,
+        "iip3_dbm": 20,
+        "lo_drive_dbm": 15
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
       "id": "marki-ada0416",
       "category": "multiplier",
       "manufacturer": "Marki Microwave",
@@ -37397,6 +38316,31 @@
         "eccn": "EAR99"
       },
       "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdfm001000",
+      "category": "multiplier",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDFM001000",
+      "description": "Active frequency doubler, 15 to 50 GHz out",
+      "specs": {
+        "family": "2x Active Doubler",
+        "package": "Bare die",
+        "kind": "Doubler (active)",
+        "input_min_ghz": 7.5,
+        "input_max_ghz": 25,
+        "output_min_ghz": 15,
+        "output_max_ghz": 50,
+        "output_dbm": 13
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
       "datasheet": {
         "sourceUrl": null,
         "file": null,
@@ -39432,6 +40376,218 @@
         "eccn": "EAR99"
       },
       "productUrl": "https://markimicrowave.com/products/surface-mount/switches/msw2-90001psm/datasheet/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe9354",
+      "category": "switch",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE9354",
+      "description": "SPDT Reflective, 0.01 to 3 GHz",
+      "specs": {
+        "family": "SPDT Reflective",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.55,
+        "isolation_db": 32,
+        "case": "8-lead CFP"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe95420",
+      "category": "switch",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE95420",
+      "description": "SPDT Absorptive, 1 to 8.5 GHz",
+      "specs": {
+        "family": "SPDT Absorptive",
+        "package": "Surface mount",
+        "freq_min_ghz": 1,
+        "freq_max_ghz": 8.5,
+        "insertion_loss_db": 0.77,
+        "isolation_db": 38,
+        "case": "7-lead CQFP"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe95421",
+      "category": "switch",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE95421",
+      "description": "SPDT Absorptive, 1 to 8.5 GHz",
+      "specs": {
+        "family": "SPDT Absorptive",
+        "package": "Surface mount",
+        "freq_min_ghz": 1,
+        "freq_max_ghz": 8.5,
+        "insertion_loss_db": 0.77,
+        "isolation_db": 38,
+        "case": "7-lead CQFP"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdsw002040x",
+      "category": "switch",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDSW002040X",
+      "description": "SPDT Reflective, 0.1 to 2 GHz",
+      "specs": {
+        "family": "SPDT Reflective",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 2,
+        "insertion_loss_db": 0.8,
+        "isolation_db": 43,
+        "case": "QFN"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdsw020a2t",
+      "category": "switch",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDSW020A2T",
+      "description": "SPDT Absorptive, 0 to 20 GHz",
+      "specs": {
+        "family": "SPDT Absorptive",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 20,
+        "insertion_loss_db": 3,
+        "isolation_db": 40
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdsw030a2t",
+      "category": "switch",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDSW030A2T",
+      "description": "SPDT Reflective, 0 to 30 GHz",
+      "specs": {
+        "family": "SPDT Reflective",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 30,
+        "insertion_loss_db": 3,
+        "isolation_db": 35
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdsw050a2t",
+      "category": "switch",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDSW050A2T",
+      "description": "SPDT Reflective, 0 to 30 GHz",
+      "specs": {
+        "family": "SPDT Reflective",
+        "package": "Bare die",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 30,
+        "insertion_loss_db": 3,
+        "isolation_db": 35
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdsw0602t",
+      "category": "switch",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDSW0602T",
+      "description": "SPDT Reflective, 9e-06 to 60 GHz",
+      "specs": {
+        "family": "SPDT Reflective",
+        "package": "Bare die",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 60,
+        "insertion_loss_db": 0.9,
+        "isolation_db": 29
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdsw84230",
+      "category": "switch",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDSW84230",
+      "description": "SPDT Reflective, 0.03 to 5 GHz",
+      "specs": {
+        "family": "SPDT Reflective",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.03,
+        "freq_max_ghz": 5,
+        "insertion_loss_db": 0.5,
+        "isolation_db": 25,
+        "case": "QFN"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
       "datasheet": {
         "sourceUrl": null,
         "file": null,
@@ -42882,6 +44038,295 @@
       }
     },
     {
+      "id": "teledyne-tdg100e90bep",
+      "category": "power_transistor",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDG100E90BEP",
+      "description": "GaN FET, 100 V, 90 A, 7 mΩ",
+      "specs": {
+        "family": "100V GaN FET - Bottom-Side Cooled",
+        "package": "Surface mount",
+        "technology": "GaN",
+        "vds_max_v": 100,
+        "rds_on_mohm": 7,
+        "id_max_a": 90,
+        "grade": "Enhanced plastic",
+        "case": "GaNPX",
+        "notes": "Catalog lists LTB",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdg100e90bsp",
+      "category": "power_transistor",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDG100E90BSP",
+      "description": "GaN FET, 100 V, 90 A, 7 mΩ",
+      "specs": {
+        "family": "100V GaN FET - Bottom-Side Cooled, Space",
+        "package": "Surface mount",
+        "technology": "GaN",
+        "vds_max_v": 100,
+        "rds_on_mohm": 7,
+        "id_max_a": 90,
+        "grade": "Space",
+        "case": "GaNPX",
+        "notes": "Catalog lists LTB"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdg100e90tep",
+      "category": "power_transistor",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDG100E90TEP",
+      "description": "GaN FET, 100 V, 90 A, 7 mΩ",
+      "specs": {
+        "family": "100V GaN FET - Top-Side Cooled",
+        "package": "Surface mount",
+        "technology": "GaN",
+        "vds_max_v": 100,
+        "rds_on_mohm": 7,
+        "id_max_a": 90,
+        "case": "GaNPX (7.0×4.0×0.54 mm)",
+        "notes": "Catalog lists LTB",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdg100e90tsp",
+      "category": "power_transistor",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDG100E90TSP",
+      "description": "GaN FET, 100 V, 90 A, 7 mΩ",
+      "specs": {
+        "family": "100V GaN FET - Top-Side Cooled, Space",
+        "package": "Surface mount",
+        "technology": "GaN",
+        "vds_max_v": 100,
+        "rds_on_mohm": 7,
+        "id_max_a": 90,
+        "grade": "Space",
+        "case": "GaNPX (7.0×4.0×0.54 mm)",
+        "notes": "Catalog lists LTB"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdg650e15bep",
+      "category": "power_transistor",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDG650E15BEP",
+      "description": "GaN FET, 650 V, 15 A, 100 mΩ",
+      "specs": {
+        "family": "650V GaN FET - Bottom-Side Cooled",
+        "package": "Surface mount",
+        "technology": "GaN",
+        "vds_max_v": 650,
+        "rds_on_mohm": 100,
+        "id_max_a": 15,
+        "case": "GaNPX (5.0×6.6×0.51 mm)",
+        "notes": "Catalog lists LTB",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdg650e30bep",
+      "category": "power_transistor",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDG650E30BEP",
+      "description": "GaN FET, 650 V, 30 A, 50 mΩ",
+      "specs": {
+        "family": "650V GaN FET - Bottom-Side Cooled",
+        "package": "Surface mount",
+        "technology": "GaN",
+        "vds_max_v": 650,
+        "rds_on_mohm": 50,
+        "id_max_a": 30,
+        "case": "GaNPX (7.1×8.5×0.56 mm)",
+        "notes": "Catalog lists LTB",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdg650e30bsp",
+      "category": "power_transistor",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDG650E30BSP",
+      "description": "GaN FET, 650 V, 30 A, 50 mΩ",
+      "specs": {
+        "family": "650V GaN FET - Bottom-Side Cooled, Space",
+        "package": "Surface mount",
+        "technology": "GaN",
+        "vds_max_v": 650,
+        "rds_on_mohm": 50,
+        "id_max_a": 30,
+        "grade": "Space",
+        "case": "GaNPX (7.1×8.5×0.56 mm)",
+        "notes": "Catalog lists LTB"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdg650e601tsp",
+      "category": "power_transistor",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDG650E601TSP",
+      "description": "GaN FET, 650 V, 60 A, 25 mΩ",
+      "specs": {
+        "family": "650V GaN FET - Top-Side Cooled, Space",
+        "package": "Surface mount",
+        "technology": "GaN",
+        "vds_max_v": 650,
+        "rds_on_mohm": 25,
+        "id_max_a": 60,
+        "grade": "Space",
+        "case": "GaNPX (9.0×7.6×0.54 mm)",
+        "notes": "Catalog lists LTB",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdg650e602tsp",
+      "category": "power_transistor",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDG650E602TSP",
+      "description": "GaN FET, 650 V, 60 A, 25 mΩ",
+      "specs": {
+        "family": "650V GaN FET - Top-Side Cooled, Space",
+        "package": "Surface mount",
+        "technology": "GaN",
+        "vds_max_v": 650,
+        "rds_on_mohm": 25,
+        "id_max_a": 60,
+        "grade": "Space",
+        "case": "GaNPX (9.0×7.6×0.54 mm)",
+        "notes": "Catalog lists LTB",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdg650e60bep",
+      "category": "power_transistor",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDG650E60BEP",
+      "description": "GaN FET, 650 V, 60 A, 25 mΩ",
+      "specs": {
+        "family": "650V GaN FET - Bottom-Side Cooled",
+        "package": "Surface mount",
+        "technology": "GaN",
+        "vds_max_v": 650,
+        "rds_on_mohm": 25,
+        "id_max_a": 60,
+        "case": "GaNPX",
+        "notes": "Catalog lists LTB",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdg650e60tep",
+      "category": "power_transistor",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDG650E60TEP",
+      "description": "GaN FET, 650 V, 60 A, 25 mΩ",
+      "specs": {
+        "family": "650V GaN FET - Top-Side Cooled",
+        "package": "Surface mount",
+        "technology": "GaN",
+        "vds_max_v": 650,
+        "rds_on_mohm": 25,
+        "id_max_a": 60,
+        "case": "GaNPX (9.0×7.6×0.54 mm)",
+        "notes": "Catalog lists LTB",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
       "id": "psemi-arc1c0605",
       "category": "dc_dc",
       "manufacturer": "pSemi",
@@ -43423,6 +44868,119 @@
       }
     },
     {
+      "id": "teledyne-pe99151",
+      "category": "dc_dc",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE99151",
+      "description": "POL buck regulator, 4.6 to 6.0 V in, up to 2 A",
+      "specs": {
+        "family": "POL Buck Regulator",
+        "package": "Surface mount",
+        "topology": "Buck (point of load)",
+        "vin_min_v": 4.6,
+        "vin_max_v": 6,
+        "vout_min_v": 1,
+        "vout_max_v": 3.6,
+        "iout_max_a": 2,
+        "fsw_khz": "500–1,000 / 100–5,000",
+        "grade": "Hi-Rel",
+        "case": "32-lead CQFP",
+        "notes": "Also available as die"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe99153",
+      "category": "dc_dc",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE99153",
+      "description": "POL buck regulator, 4.6 to 6.0 V in, up to 6 A",
+      "specs": {
+        "family": "POL Buck Regulator",
+        "package": "Surface mount",
+        "topology": "Buck (point of load)",
+        "vin_min_v": 4.6,
+        "vin_max_v": 6,
+        "vout_min_v": 1,
+        "vout_max_v": 3.6,
+        "iout_max_a": 6,
+        "fsw_khz": "500–1,000 / 100–5,000",
+        "grade": "Space",
+        "case": "32-lead CQFP",
+        "notes": "Also available as die"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe99155",
+      "category": "dc_dc",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE99155",
+      "description": "POL buck regulator, 4.6 to 6.0 V in, up to 10 A",
+      "specs": {
+        "family": "POL Buck Regulator",
+        "package": "Surface mount",
+        "topology": "Buck (point of load)",
+        "vin_min_v": 4.6,
+        "vin_max_v": 6,
+        "vout_min_v": 1,
+        "vout_max_v": 3.6,
+        "iout_max_a": 10,
+        "fsw_khz": "500–1,000 / 100–5,000",
+        "grade": "Space",
+        "case": "32-lead CQFP",
+        "notes": "Also available as die"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-td5series",
+      "category": "dc_dc",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TD5 Series",
+      "description": "POL DC-DC module, 4.6 to 6.0 V in, up to 10 A",
+      "specs": {
+        "family": "POL DC-DC Module",
+        "package": "Surface mount",
+        "topology": "Buck (point of load)",
+        "vin_min_v": 4.6,
+        "vin_max_v": 6,
+        "vout_min_v": 1,
+        "vout_max_v": 3.6,
+        "iout_max_a": 10,
+        "grade": "Hi-Rel"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
       "id": "teledyne-56500100512flt",
       "category": "dc_dc",
       "manufacturer": "Teledyne Micropac",
@@ -43524,6 +45082,118 @@
         "sha256": "3c695d964da77fd4b31e2da46313e638d8a6751e762f900e1ef920c92e2cf969",
         "bytes": 185771,
         "updated": "2026-11-26"
+      }
+    },
+    {
+      "id": "teledyne-tdgm650ls60",
+      "category": "ldo",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDGM650LS60",
+      "description": "GaN load switch module, 650 V, 60 A",
+      "specs": {
+        "family": "GaN Load Switch Module",
+        "package": "Surface mount",
+        "kind": "GaN load switch module",
+        "vin_max_v": 650,
+        "iout_max_a": 60,
+        "notes": "Integrated GaN FET and isolated gate driver",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-td99102",
+      "category": "gate_driver",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TD99102",
+      "description": "Half-Bridge GaN Driver, Bare die",
+      "specs": {
+        "family": "Half-Bridge GaN Driver",
+        "package": "Bare die",
+        "channels": 2,
+        "notes": "Rated to (V): 100; UVLO (V): 3.6; Max switching (MHz): 20"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdgd271",
+      "category": "gate_driver",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDGD271",
+      "description": "Single GaN Driver, SOIC-8 NB",
+      "specs": {
+        "family": "Single GaN Driver",
+        "package": "Surface mount",
+        "channels": 1,
+        "grade": "Space",
+        "case": "SOIC-8 NB",
+        "notes": "Rated to (V): 650; Isolation (kV RMS): 2.5; UVLO (V): 3; Max switching (MHz): 1"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdgd274",
+      "category": "gate_driver",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDGD274",
+      "description": "Half-Bridge GaN Driver, SOIC-16 NB",
+      "specs": {
+        "family": "Half-Bridge GaN Driver",
+        "package": "Surface mount",
+        "channels": 2,
+        "case": "SOIC-16 NB",
+        "notes": "Rated to (V): 650; Isolation (kV RMS): 2.5; UVLO (V): 3; Max switching (MHz): 1"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdgd85110ep",
+      "category": "gate_driver",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDGD85110EP",
+      "description": "Single GaN Driver",
+      "specs": {
+        "family": "Single GaN Driver",
+        "package": "Surface mount",
+        "channels": 1,
+        "grade": "Space",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
       }
     },
     {
@@ -53499,6 +55169,283 @@
         "sha256": "f337cca8e724c283e04c75bf9a372de9ddd72735b18f239f974977dd02b24e88",
         "bytes": 218549,
         "updated": "2026-11-26"
+      }
+    },
+    {
+      "id": "teledyne-pe83336",
+      "category": "pll",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE83336",
+      "description": "Integer-N PLL synthesizer, 0.5 to 3 GHz",
+      "specs": {
+        "family": "PLL - Integer-N",
+        "package": "Surface mount",
+        "kind": "Integer-N",
+        "freq_min_ghz": 0.5,
+        "freq_max_ghz": 3,
+        "fom_dbc_hz": -84,
+        "prescaler": "10/11",
+        "ref_max_mhz": 100,
+        "grade": "Military"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe9601",
+      "category": "pll",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE9601",
+      "description": "Integer-N PLL synthesizer, 0.002 to 2.2 GHz",
+      "specs": {
+        "family": "PLL - Integer-N",
+        "package": "Surface mount",
+        "kind": "Integer-N",
+        "freq_min_ghz": 0.002,
+        "freq_max_ghz": 2.2,
+        "fom_dbc_hz": -210,
+        "prescaler": "10/11",
+        "ref_max_mhz": 100,
+        "grade": "Radiation hardened"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe9701",
+      "category": "pll",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE9701",
+      "description": "Integer-N PLL synthesizer, 0.05 to 3 GHz",
+      "specs": {
+        "family": "PLL - Integer-N",
+        "package": "Surface mount",
+        "kind": "Integer-N",
+        "freq_min_ghz": 0.05,
+        "freq_max_ghz": 3,
+        "fom_dbc_hz": -210,
+        "prescaler": "10/11",
+        "ref_max_mhz": 100,
+        "grade": "Radiation hardened"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe97240",
+      "category": "pll",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE97240",
+      "description": "Integer-N PLL synthesizer, 0.8 to 5 GHz",
+      "specs": {
+        "family": "PLL - Integer-N",
+        "package": "Surface mount",
+        "kind": "Integer-N",
+        "freq_min_ghz": 0.8,
+        "freq_max_ghz": 5,
+        "fom_dbc_hz": -230,
+        "prescaler": "5/6, 10/11",
+        "grade": "Radiation hardened",
+        "case": "44-lead CQFP"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe97640",
+      "category": "pll",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE97640",
+      "description": "Fractional-N PLL synthesizer, 0.8 to 5 GHz",
+      "specs": {
+        "family": "PLL - Frac-N",
+        "package": "Surface mount",
+        "kind": "Fractional-N",
+        "freq_min_ghz": 0.8,
+        "freq_max_ghz": 5,
+        "fom_dbc_hz": -225,
+        "prescaler": "5/6, 10/11",
+        "ref_max_mhz": 100,
+        "grade": "Radiation hardened",
+        "case": "68-lead CQFP"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-tdpl97240",
+      "category": "pll",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "TDPL97240",
+      "description": "Integer-N PLL synthesizer, 0.8 to 5 GHz",
+      "specs": {
+        "family": "PLL - Integer-N",
+        "package": "Surface mount",
+        "kind": "Integer-N",
+        "freq_min_ghz": 0.8,
+        "freq_max_ghz": 5,
+        "fom_dbc_hz": -230,
+        "prescaler": "5/6, 10/11",
+        "grade": "Radiation hardened",
+        "case": "48-lead CQFN"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe9304",
+      "category": "prescaler",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE9304",
+      "description": "Divide-by-2 prescaler, 1 to 7 GHz",
+      "specs": {
+        "family": "Divide by 2",
+        "package": "Surface mount",
+        "divide_by": 2,
+        "freq_min_ghz": 1,
+        "freq_max_ghz": 7,
+        "grade": "Hi-Rel",
+        "case": "8-lead CFP"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe9309",
+      "category": "prescaler",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE9309",
+      "description": "Divide-by-4 prescaler, 3 to 13.5 GHz",
+      "specs": {
+        "family": "Divide by 4",
+        "package": "Surface mount",
+        "divide_by": 4,
+        "freq_min_ghz": 3,
+        "freq_max_ghz": 13.5,
+        "grade": "Hi-Rel",
+        "case": "8-lead CFP"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe9311",
+      "category": "prescaler",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE9311",
+      "description": "Divide-by-2 prescaler, 0 to 1.5 GHz",
+      "specs": {
+        "family": "Divide by 2",
+        "package": "Surface mount",
+        "divide_by": 2,
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 1.5,
+        "grade": "Hi-Rel",
+        "case": "8-lead CFP"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe9312",
+      "category": "prescaler",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE9312",
+      "description": "Divide-by-4 prescaler, 0 to 1.5 GHz",
+      "specs": {
+        "family": "Divide by 4",
+        "package": "Surface mount",
+        "divide_by": 4,
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 1.5,
+        "grade": "Space",
+        "case": "8-lead CFP"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-pe9313",
+      "category": "prescaler",
+      "manufacturer": "Teledyne HiRel",
+      "mpn": "PE9313",
+      "description": "Divide-by-8 prescaler, 0 to 1.5 GHz",
+      "specs": {
+        "family": "Divide by 8",
+        "package": "Surface mount",
+        "divide_by": 8,
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 1.5,
+        "grade": "Hi-Rel",
+        "case": "8-lead CFP"
+      },
+      "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
       }
     }
   ]

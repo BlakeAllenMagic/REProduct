@@ -30,7 +30,7 @@ test('diagram shows part counts and disables empty blocks', async ({ page }) => 
   await expect(badge('rf_filter')).toHaveText('4');
   await expect(badge('if_filter')).toHaveText('4');
   // Fixture categories only map lna, mixer and the filters; every other receiver block is empty.
-  for (const block of ['lo_osc', 'lo_mult', 'rx_limiter', 'rx_atten', 'if_amp', 'adc']) {
+  for (const block of ['lo_osc', 'lo_pll', 'lo_prescaler', 'lo_mult', 'rx_limiter', 'rx_atten', 'if_amp', 'adc']) {
     await expect(page.locator(`[data-block="${block}"]`)).toHaveClass(/is-disabled/);
     await expect(badge(block)).toHaveCount(0);
   }
@@ -264,7 +264,7 @@ test('Power tab: its own diagram; blocks without parts are greyed out', async ({
   await press(page, page.getByRole('tab', { name: 'Power' }));
   await expect(page).toHaveURL(/#\/power$/);
   await expect(page.getByRole('tab', { name: 'Power' })).toHaveAttribute('aria-selected', 'true');
-  for (const block of ['pw_ssr', 'pw_load_switch', 'pw_dcdc', 'pw_ldo', 'pw_gate_driver', 'pw_fet']) {
+  for (const block of ['pw_ssr', 'pw_load_switch', 'pw_dcdc', 'pw_ldo', 'pw_opto', 'pw_gate_driver', 'pw_fet']) {
     // The fixture line card has no power parts, so every block is disabled.
     await expect(page.locator(`[data-block="${block}"]`)).toHaveClass(/is-disabled/);
   }
