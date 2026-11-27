@@ -135,6 +135,7 @@
   <g data-block="adc" class="block">
     <rect x="456" y="312" width="92" height="72" rx="10" class="block-bg" />
     <path class="block-symbol" d="M482 324 H522 V354 H482 Z M482 354 L522 324" />
+    <path class="block-symbol" d="M485 333 q3 -6 6 0 t6 0 M505 350 h4 v-4 h4 v-4 h4" />
     <text x="502" y="375" class="block-label">ADC</text>
   </g>
 </svg>

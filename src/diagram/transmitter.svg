@@ -84,6 +84,7 @@
   <g data-block="dac" class="block">
     <rect x="72" y="184" width="92" height="72" rx="10" class="block-bg" />
     <path class="block-symbol" d="M98 196 H138 V226 H98 Z M98 226 L138 196" />
+    <path class="block-symbol" d="M101 210 h4 v-4 h4 v-4 h4 M122 218 q3 -6 6 0 t6 0" />
     <text x="118" y="247" class="block-label">DAC</text>
   </g>
   <g data-block="tx_balun" class="block">
