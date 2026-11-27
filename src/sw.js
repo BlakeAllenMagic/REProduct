@@ -64,6 +64,15 @@ async function saveShellFile(cache, path) {
   const url = scoped(path);
   let response = await fetch(new Request(url, { cache: 'reload' }));
   if (!response.ok) throw new Error(`${path}: HTTP ${response.status}`);
+  if (path === './') {
+    // The page must belong to this version. If a newer version went live
+    // while this one was installing, the site now serves the newer page,
+    // which asks for script and style files this version doesn't have; saving
+    // it would leave the app unstyled and blank. Failing the install keeps
+    // the current version running; the browser tries the update again later.
+    const missing = pageFilesNotIn(await response.clone().text(), PRECACHE);
+    if (missing.length) throw new Error(`page is from another version (needs ${missing.join(', ')})`);
+  }
   if (response.redirected) {
     response = new Response(await response.blob(), {
       status: response.status,
@@ -72,6 +81,17 @@ async function saveShellFile(cache, path) {
     });
   }
   await cache.put(url, response);
+}
+
+/**
+ * The app files (./assets/...) a page asks for that aren't in `precache`.
+ * Kept free of anything service-worker specific so tests/sw-page-check.test.js
+ * can run it.
+ */
+function pageFilesNotIn(html, precache) {
+  const have = new Set(precache.map((path) => path.replace(/^\.\//, '')));
+  const wanted = [...html.matchAll(/(?:src|href)="\.?\/?(assets\/[^"?#]+)/g)].map((m) => m[1]);
+  return [...new Set(wanted)].filter((path) => !have.has(path));
 }
 
 // ---------------------------------------------------------------------------

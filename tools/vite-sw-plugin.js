@@ -54,6 +54,9 @@ export function serviceWorker({ source = 'src/sw.js', output = 'sw.js' } = {}) {
           `App shell is ${(total / 1024 / 1024).toFixed(1)} MB, over the 10 MB limit in CLAUDE.md.`,
         );
       }
+      // The worker's own code counts too: a change to it alone (like a new
+      // install check) must still get a fresh cache name.
+      versionHash.update('sw.js\0').update(readFileSync(resolve(root, source)));
       const version = versionHash.digest('hex').slice(0, 10);
       // The page is saved under "./", its real address. Hosts like Cloudflare
       // Pages redirect /index.html to /, and a redirected page can't be used
