@@ -337,6 +337,40 @@ test('two-finger pinch on a table resizes its text', async ({ page, browserName,
   await expect(value).toHaveText('70%'); // fingers went from 100 px to 70 px apart
 });
 
+test('pinching a table keeps the row and column under the fingers in place', async ({ page, browserName, context }) => {
+  test.skip(browserName !== 'chromium', 'multi-touch simulation is Chromium-only');
+  // Narrow and short, so the table scrolls sideways and the page scrolls down.
+  await page.setViewportSize({ width: 390, height: 420 });
+  await page.goto('#/category/filter');
+  await page.getByRole('button', { name: 'Smaller table text' }).click(); // 90%, room to grow
+  const scroller = page.locator('.table-scroll');
+  await scroller.evaluate((s) => (s.scrollLeft = 150));
+  await page.evaluate(() => window.scrollTo(0, 120));
+  // A point in that row, well right of the sticky part number column (which
+  // grows with the text and would cover a point close to it).
+  const { x, y } = await page.locator('.part-row', { hasText: 'NFL-6000' }).evaluate((row) => {
+    const r = row.getBoundingClientRect();
+    return { x: 320, y: Math.round(r.top + r.height / 2) };
+  });
+  const box = { x, y };
+  const under = () =>
+    page.evaluate(([px, py]) => {
+      const cell = document.elementFromPoint(px, py)?.closest('td, th');
+      return cell ? `${cell.closest('tr').textContent.includes('NFL-6000')}:${cell.cellIndex}` : 'none';
+    }, [x, y]);
+  const before = await under();
+  expect(before, JSON.stringify({ x, y, box })).toMatch(/^true:/);
+
+  const cdp = await context.newCDPSession(page);
+  const touch = (type, points) =>
+    cdp.send('Input.dispatchTouchEvent', { type, touchPoints: points.map(([px, py], id) => ({ x: px, y: py, id })) });
+  await touch('touchStart', [[x - 40, y], [x + 40, y]]);
+  for (let d = 42; d <= 52; d += 2) await touch('touchMove', [[x - d, y], [x + d, y]]);
+  await touch('touchEnd', []);
+  await expect(page.getByRole('button', { name: 'Reset table text size' })).not.toHaveText('90%');
+  expect(await under()).toBe(before); // same part, same column
+});
+
 test('page zoomed in from the diagram: pinches on a table zoom the page, not the table', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'page zoom and multi-touch simulation are Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });

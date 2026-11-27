@@ -178,20 +178,59 @@ function textSizeControls(table) {
   const commit = (next) => {
     table.classList.remove('is-pinching');
     table.style.transform = '';
+    table.style.transformOrigin = '';
     size = setTextSize(next);
     show();
   };
   show();
+
+  // Where the fingers are when a pinch starts: the row under them and the
+  // point's position in the table, so the table can grow around that point.
+  let anchor = null;
+  const startPinch = (x, y) => {
+    const box = table.getBoundingClientRect();
+    const row = document.elementFromPoint(x, y)?.closest('tr');
+    anchor = {
+      x,
+      y,
+      tableX: x - box.left, // includes how far the table is scrolled sideways
+      tableWidth: box.width,
+      row: row && table.contains(row) ? row : null,
+      rowTop: row ? row.getBoundingClientRect().top : 0,
+      rowHeight: row ? row.getBoundingClientRect().height : 1,
+    };
+    table.style.transformOrigin = `${x - box.left}px ${y - box.top}px`;
+  };
+  // After the real size is set: scroll so the same spot is under the fingers
+  // again (sideways inside the table box, up/down on the page).
+  const keepAnchorInPlace = () => {
+    if (!anchor) return;
+    const scroller = table.parentElement;
+    const box = table.getBoundingClientRect();
+    const newX = anchor.tableX * (box.width / anchor.tableWidth);
+    scroller.scrollLeft += box.left + newX - anchor.x;
+    if (anchor.row?.isConnected) {
+      const rowBox = anchor.row.getBoundingClientRect();
+      const offset = (anchor.y - anchor.rowTop) * (rowBox.height / anchor.rowHeight);
+      window.scrollBy(0, rowBox.top + offset - anchor.y);
+    }
+    anchor = null;
+  };
+
   return {
     element: el('div', { class: 'text-size', role: 'group', 'aria-label': 'Table text size' }, smaller, value, bigger),
     pinch: {
-      onChange(scale) {
+      onChange(scale, x, y) {
+        if (!anchor) startPinch(x, y);
         const preview = Math.min(TEXT_SIZE.max, Math.max(TEXT_SIZE.min, size * scale)) / size;
         table.classList.add('is-pinching');
         table.style.transform = `scale(${preview})`;
       },
       onEnd(scale) {
+        if (!anchor) return commit(size * scale);
+        // Measure without the preview stretch, then apply the real size.
         commit(size * scale);
+        keepAnchorInPlace();
       },
     },
   };
