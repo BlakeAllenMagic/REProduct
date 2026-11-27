@@ -52,6 +52,12 @@ categories:
       - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
       - { key: attenuation_db, label: "Attenuation", unit: "dB", type: number }
       - { key: attenuation_range, label: "Atten Range (dB)", type: text }
+      - { key: bits, label: "Bits", type: number }
+      - { key: step_db, label: "Step (dB)", type: text }
+      - { key: control, label: "Control", type: text }
+      - { key: insertion_loss_db, label: "IL", unit: "dB", type: number, sort: asc }
+      - { key: iip3_dbm, label: "IIP3", unit: "dBm", type: number, sort: desc }
+      - { key: supply_v, label: "Supply (V)", type: text }
       - { key: accuracy_db, label: "Accuracy", unit: "dB", type: number, sort: asc }
       - { key: return_loss_db, label: "Return Loss", unit: "dB", type: number, sort: desc }
       - { key: waveguide_band, label: "Waveguide Band", type: text }
@@ -203,6 +209,7 @@ categories:
       - { key: peak_power_w, label: "Peak Power", unit: "W", type: number, sort: desc }
       - { key: p1db_dbm, label: "P1dB", unit: "dBm", type: number, sort: desc }
       - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
       - { key: eccn, label: "ECCN", type: text }
 
   - id: mixer
@@ -284,15 +291,21 @@ categories:
     blocks: [rx_switch, tx_switch]
     specs:
       - { key: family, label: "Family", type: text }
+      - { key: configuration, label: "Configuration", type: text }
+      - { key: impedance, label: "Impedance", type: text }
       - { key: package, label: "Package", type: text }
       - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
       - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
       - { key: insertion_loss_db, label: "IL", unit: "dB", type: number, sort: asc }
       - { key: isolation_db, label: "Isolation", unit: "dB", type: number, sort: desc }
       - { key: rise_fall_ns, label: "Rise/Fall", unit: "ns", type: number, sort: asc }
+      - { key: switching_ns, label: "Switching Time", unit: "ns", type: number, sort: asc }
       - { key: power_w, label: "Power", unit: "W", type: number, sort: desc }
+      - { key: max_power_dbm, label: "Max Power", unit: "dBm", type: number, sort: desc }
       - { key: iip3_dbm, label: "IIP3", unit: "dBm", type: number, sort: desc }
+      - { key: supply_v, label: "Supply (V)", type: text }
       - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
       - { key: eccn, label: "ECCN", type: text }
 
   - id: detector
@@ -656,5 +669,62 @@ categories:
       - { key: package, label: "Package", type: text }
       - { key: temp_range, label: "Temperature Range", type: text }
       - { key: grade, label: "Grade", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: phase_shifter
+    name: "Phase Shifters"
+    group: RF
+    blocks: []
+    specs:
+      - { key: kind, label: "Type", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: phase_range_deg, label: "Phase Range", unit: "deg", type: number, sort: desc }
+      - { key: phase_step_deg, label: "Phase Step", unit: "deg", type: number, sort: asc }
+      - { key: bits, label: "Bits", type: number }
+      - { key: attenuation, label: "Attenuation (range / step / bits)", type: text }
+      - { key: insertion_loss_db, label: "IL", unit: "dB", type: number, sort: asc }
+      - { key: iip3_dbm, label: "IIP3", unit: "dBm", type: number, sort: desc }
+      - { key: rms_phase_error_deg, label: "RMS Phase Error", unit: "deg", type: number, sort: asc }
+      - { key: supply_v, label: "Supply (V)", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: tunable_capacitor
+    name: "Digital Tunable Capacitors"
+    group: RF
+    blocks: []
+    specs:
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: c_min_pf, label: "C Min", unit: "pF", type: number }
+      - { key: c_max_pf, label: "C Max", unit: "pF", type: number }
+      - { key: tuning_ratio, label: "Tuning Ratio", type: text }
+      - { key: bits, label: "Bits", type: number }
+      - { key: q_cmin, label: "Q at C Min", type: number, sort: desc }
+      - { key: peak_rf_vpk, label: "Peak RF Voltage", unit: "Vpk", type: number, sort: desc }
+      - { key: control, label: "Control", type: text }
+      - { key: supply_v, label: "Supply (V)", type: text }
+      - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: front_end_module
+    name: "Front-End Modules"
+    group: RF
+    blocks: []
+    specs:
+      - { key: kind, label: "Type", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: freq_min_ghz, label: "Freq Min", unit: "GHz", type: number }
+      - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
+      - { key: tx_gain_db, label: "TX Gain", unit: "dB", type: number, sort: desc }
+      - { key: rx_nf_db, label: "RX NF", unit: "dB", type: number, sort: asc }
+      - { key: bypass_loss_db, label: "Bypass Loss", unit: "dB", type: number, sort: asc }
+      - { key: case, label: "Case", type: text }
       - { key: notes, label: "Notes", type: text }
       - { key: eccn, label: "ECCN", type: text }

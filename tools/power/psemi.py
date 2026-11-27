@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-"""pSemi power products -> rows for the DC-DC Converters (and Gate Drivers) tabs.
+"""pSemi products -> rows for the power tabs (DC-DC Converters, Gate Drivers) and,
+through psemi_rf.py, the RF tabs (Switches, Attenuators, Mixers...).
 
 pSemi's website publishes each product's specs through its public WordPress
 interface (https://psemi.com/wp-json/wp/v2/products), the same data its
@@ -26,6 +27,9 @@ import time
 import urllib.request
 from pathlib import Path
 from typing import Any
+
+sys.path.insert(0, str(Path(__file__).resolve().parent))
+from psemi_rf import convert_rf  # noqa: E402
 
 API = "https://psemi.com/wp-json/wp/v2/products?per_page=100&page={page}"
 SITE = "https://psemi.com"
@@ -219,6 +223,9 @@ def main(argv: list[str] | None = None) -> int:
     a = p.parse_args(argv)
     items = fetch() if a.fetch else [x for f in a.json for x in json.loads(f.read_text(encoding="utf-8"))]
     rows, review = convert(items)
+    rf_rows, rf_review = convert_rf(items)  # switches, attenuators... (psemi_rf.py)
+    rows.update(rf_rows)
+    review += rf_review
     write(rows, a.out, a.categories)
     (a.out / "psemi-review.json").write_text(json.dumps(review, indent=1), encoding="utf-8")
     for cid, r in rows.items():

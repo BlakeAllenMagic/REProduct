@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-27T04:41:27Z",
+  "dataVersion": "2026-11-27T06:24:39Z",
   "groups": [
     "RF",
     "Power",
@@ -141,6 +141,40 @@
         {
           "key": "attenuation_range",
           "label": "Atten Range (dB)",
+          "type": "text"
+        },
+        {
+          "key": "bits",
+          "label": "Bits",
+          "type": "number"
+        },
+        {
+          "key": "step_db",
+          "label": "Step (dB)",
+          "type": "text"
+        },
+        {
+          "key": "control",
+          "label": "Control",
+          "type": "text"
+        },
+        {
+          "key": "insertion_loss_db",
+          "label": "IL",
+          "unit": "dB",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "iip3_dbm",
+          "label": "IIP3",
+          "unit": "dBm",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "supply_v",
+          "label": "Supply (V)",
           "type": "text"
         },
         {
@@ -864,6 +898,11 @@
           "type": "text"
         },
         {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
           "key": "eccn",
           "label": "ECCN",
           "type": "text"
@@ -1220,6 +1259,16 @@
           "type": "text"
         },
         {
+          "key": "configuration",
+          "label": "Configuration",
+          "type": "text"
+        },
+        {
+          "key": "impedance",
+          "label": "Impedance",
+          "type": "text"
+        },
+        {
           "key": "package",
           "label": "Package",
           "type": "text"
@@ -1258,9 +1307,23 @@
           "sort": "asc"
         },
         {
+          "key": "switching_ns",
+          "label": "Switching Time",
+          "unit": "ns",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
           "key": "power_w",
           "label": "Power",
           "unit": "W",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "max_power_dbm",
+          "label": "Max Power",
+          "unit": "dBm",
           "type": "number",
           "sort": "desc"
         },
@@ -1272,8 +1335,18 @@
           "sort": "desc"
         },
         {
+          "key": "supply_v",
+          "label": "Supply (V)",
+          "type": "text"
+        },
+        {
           "key": "case",
           "label": "Case",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
           "type": "text"
         },
         {
@@ -2759,6 +2832,252 @@
         {
           "key": "grade",
           "label": "Grade",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "eccn",
+          "label": "ECCN",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "phase_shifter",
+      "name": "Phase Shifters",
+      "group": "RF",
+      "blocks": [],
+      "specs": [
+        {
+          "key": "kind",
+          "label": "Type",
+          "type": "text"
+        },
+        {
+          "key": "package",
+          "label": "Package",
+          "type": "text"
+        },
+        {
+          "key": "freq_min_ghz",
+          "label": "Freq Min",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "freq_max_ghz",
+          "label": "Freq Max",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "phase_range_deg",
+          "label": "Phase Range",
+          "unit": "deg",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "phase_step_deg",
+          "label": "Phase Step",
+          "unit": "deg",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "bits",
+          "label": "Bits",
+          "type": "number"
+        },
+        {
+          "key": "attenuation",
+          "label": "Attenuation (range / step / bits)",
+          "type": "text"
+        },
+        {
+          "key": "insertion_loss_db",
+          "label": "IL",
+          "unit": "dB",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "iip3_dbm",
+          "label": "IIP3",
+          "unit": "dBm",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "rms_phase_error_deg",
+          "label": "RMS Phase Error",
+          "unit": "deg",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "supply_v",
+          "label": "Supply (V)",
+          "type": "text"
+        },
+        {
+          "key": "case",
+          "label": "Case",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "eccn",
+          "label": "ECCN",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "tunable_capacitor",
+      "name": "Digital Tunable Capacitors",
+      "group": "RF",
+      "blocks": [],
+      "specs": [
+        {
+          "key": "package",
+          "label": "Package",
+          "type": "text"
+        },
+        {
+          "key": "freq_min_ghz",
+          "label": "Freq Min",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "freq_max_ghz",
+          "label": "Freq Max",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "c_min_pf",
+          "label": "C Min",
+          "unit": "pF",
+          "type": "number"
+        },
+        {
+          "key": "c_max_pf",
+          "label": "C Max",
+          "unit": "pF",
+          "type": "number"
+        },
+        {
+          "key": "tuning_ratio",
+          "label": "Tuning Ratio",
+          "type": "text"
+        },
+        {
+          "key": "bits",
+          "label": "Bits",
+          "type": "number"
+        },
+        {
+          "key": "q_cmin",
+          "label": "Q at C Min",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "peak_rf_vpk",
+          "label": "Peak RF Voltage",
+          "unit": "Vpk",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "control",
+          "label": "Control",
+          "type": "text"
+        },
+        {
+          "key": "supply_v",
+          "label": "Supply (V)",
+          "type": "text"
+        },
+        {
+          "key": "case",
+          "label": "Case",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "eccn",
+          "label": "ECCN",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "front_end_module",
+      "name": "Front-End Modules",
+      "group": "RF",
+      "blocks": [],
+      "specs": [
+        {
+          "key": "kind",
+          "label": "Type",
+          "type": "text"
+        },
+        {
+          "key": "package",
+          "label": "Package",
+          "type": "text"
+        },
+        {
+          "key": "freq_min_ghz",
+          "label": "Freq Min",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "freq_max_ghz",
+          "label": "Freq Max",
+          "unit": "GHz",
+          "type": "number"
+        },
+        {
+          "key": "tx_gain_db",
+          "label": "TX Gain",
+          "unit": "dB",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "rx_nf_db",
+          "label": "RX NF",
+          "unit": "dB",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "bypass_loss_db",
+          "label": "Bypass Loss",
+          "unit": "dB",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "case",
+          "label": "Case",
           "type": "text"
         },
         {
@@ -10077,6 +10396,426 @@
       "productUrl": null,
       "datasheet": {
         "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe4312",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE4312",
+      "description": "6-bit digital step attenuator, 1 MHz to 4000 MHz",
+      "specs": {
+        "family": "Digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.001,
+        "freq_max_ghz": 4,
+        "attenuation_range": "0 to 31.50",
+        "bits": 6,
+        "step_db": "0.5",
+        "control": "Parallel (Latched, Direct), Serial",
+        "insertion_loss_db": 1.3,
+        "iip3_dbm": 59,
+        "note": "Accuracy at 1 GHz: ±(0.15 + 2% of setting) dB; 50Ω",
+        "case": "20L QFN (4x4 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe4312/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4312ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe4314",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE4314",
+      "description": "6-bit digital step attenuator, 1 MHz to 2500 MHz",
+      "specs": {
+        "family": "75 Ω digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.001,
+        "freq_max_ghz": 2.5,
+        "attenuation_range": "0.00 to 31.50",
+        "bits": 6,
+        "step_db": "0.5",
+        "control": "Parallel (latched; direct); Serial",
+        "insertion_loss_db": 1,
+        "iip3_dbm": 58,
+        "note": "Accuracy at 1 GHz: ±(0.15 + 3% of setting) dB; 75Ω",
+        "case": "20L QFN (4x4 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/75%cf%89-wired-broadband-rf-digital-step-attenuators/pe4314/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4314ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43205",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43205",
+      "description": "2-bit digital step attenuator, 35 MHz to 6 GHz",
+      "specs": {
+        "family": "Digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.035,
+        "freq_max_ghz": 6,
+        "attenuation_range": "0.00 to 18.00",
+        "bits": 2,
+        "step_db": "6",
+        "control": "Parallel",
+        "insertion_loss_db": 0.5,
+        "iip3_dbm": 61,
+        "note": "Accuracy at 1 GHz: 0.1 dB; 50Ω",
+        "case": "12L QFN (3x3 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43205/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43205ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43508",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43508",
+      "description": "6-bit digital step attenuator, 9 kHz to 55 GHz",
+      "specs": {
+        "family": "Digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 55,
+        "attenuation_range": "0.00 to 31.50",
+        "bits": 6,
+        "step_db": "0.5, 1.0",
+        "control": "Parallel (Latched, Direct), Serial, Serial Addressable",
+        "insertion_loss_db": 2.2,
+        "iip3_dbm": 50,
+        "note": "Accuracy at 1 GHz: +(1.00+4.5% of setting) / -1 dB; 50Ω",
+        "case": "Flip Chip",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43508/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43508ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43610",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43610",
+      "description": "6-bit digital step attenuator, 9 kHz to 13 GHz",
+      "specs": {
+        "family": "Digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 13,
+        "attenuation_range": "0.00 to 31.50",
+        "bits": 6,
+        "step_db": "0.5, 1.0",
+        "control": "Parallel (Latched, Direct), Serial, Serial Addressable",
+        "insertion_loss_db": 1.6,
+        "iip3_dbm": 50,
+        "note": "Accuracy at 1 GHz: +(1.00+4.5% of setting) / -1 dB; 50Ω",
+        "case": "24L LGA (4x4 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43610/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43610ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43614",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43614",
+      "description": "6-bit digital step attenuator, 9 kHz to 45 GHz",
+      "specs": {
+        "family": "Digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 45,
+        "attenuation_range": "0.00 to 31.50",
+        "bits": 6,
+        "step_db": "0.5, 1.0",
+        "control": "Parallel (Latched, Direct), Serial, Serial Addressable",
+        "insertion_loss_db": 3,
+        "iip3_dbm": 50,
+        "note": "Accuracy at 1 GHz: +(1.00+4.5% of setting) / -1 dB; 50Ω",
+        "case": "24L LGA (4x4 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43614/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43614ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43620",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43620",
+      "description": "2-bit digital step attenuator, 50 MHz to 3000 MHz",
+      "specs": {
+        "family": "Digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.05,
+        "freq_max_ghz": 3,
+        "attenuation_range": "0 to 18.0",
+        "bits": 2,
+        "step_db": "6, 12, 18",
+        "control": "Parallel",
+        "insertion_loss_db": 0.6,
+        "iip3_dbm": 61,
+        "note": "Last Time Buy; Accuracy at 1 GHz: ±(–0.25/+0.40 of setting) dB; 50Ω",
+        "case": "12L QFN (3x3 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43620/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43650",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43650",
+      "description": "5-bit digital step attenuator, 9 kHz to 6 GHz",
+      "specs": {
+        "family": "Digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 6,
+        "attenuation_range": "0.00 to 15.50",
+        "bits": 5,
+        "step_db": "0.5",
+        "control": "Parallel (Latched, Direct), Serial",
+        "insertion_loss_db": 2.4,
+        "iip3_dbm": 58,
+        "note": "Last Time Buy; Accuracy at 1 GHz: ±(0.3/+0.30 of setting) dB; 50Ω",
+        "case": "24L QFN (4x4 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43650/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43665",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43665",
+      "description": "6-bit digital step attenuator, 1 MHz to 2000 MHz",
+      "specs": {
+        "family": "75 Ω digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.001,
+        "freq_max_ghz": 2,
+        "attenuation_range": "0.00 to 31.50",
+        "bits": 6,
+        "step_db": "0.5",
+        "control": "Parallel (latched; direct); Serial",
+        "insertion_loss_db": 1.4,
+        "iip3_dbm": 52,
+        "note": "Last Time Buy; Accuracy at 1 GHz: ±(0.15 + 4% of setting) dB; 75Ω",
+        "case": "20L QFN (4x4 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/75%cf%89-wired-broadband-rf-digital-step-attenuators/pe43665/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43704",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43704",
+      "description": "7-bit digital step attenuator, 9 kHz to 8 GHz",
+      "specs": {
+        "family": "Digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 8,
+        "attenuation_range": "0.00 to 31.75",
+        "bits": 7,
+        "step_db": "0.25, 0.5, 1.0",
+        "control": "Parallel (Latched, Direct), Serial, Serial Addressable",
+        "insertion_loss_db": 1.3,
+        "iip3_dbm": 61,
+        "note": "Accuracy at 1 GHz: +(0.15 + 4.5% of setting), –(0.1 + 2% of setting) dB; 50Ω",
+        "case": "32L QFN (5x5 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43704/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43704ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43705",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43705",
+      "description": "7-bit digital step attenuator, 50 MHz to 8 GHz",
+      "specs": {
+        "family": "Digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.05,
+        "freq_max_ghz": 8,
+        "attenuation_range": "0.00 to 31.75",
+        "bits": 7,
+        "step_db": "0.25, 0.5, 1.0",
+        "control": "Parallel (Latched, Direct), Serial, Serial Addressable",
+        "insertion_loss_db": 1.3,
+        "iip3_dbm": 58,
+        "note": "Accuracy at 1 GHz: +(0.15 + 1.5% of setting), –(0.1 + 1% of setting) dB; 50Ω",
+        "case": "32L QFN (5x5 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43705/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43705ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43711",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43711",
+      "description": "7-bit digital step attenuator, 9 kHz to 6 GHz",
+      "specs": {
+        "family": "Glitch-less digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 6,
+        "attenuation_range": "0.00 to 31.75",
+        "bits": 7,
+        "step_db": "0.25, 0.5, 1.0",
+        "control": "Parallel (Latched, Direct), Serial",
+        "insertion_loss_db": 1.3,
+        "iip3_dbm": 57,
+        "note": "Accuracy at 1 GHz: ±(0.15 + 1.5% of setting) dB; 50Ω",
+        "case": "24L QFN (4x4 mm)",
+        "eccn": "5A991"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/glitch-less-rf-digital-step-attenuators/pe43711/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43711ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43712",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43712",
+      "description": "7-bit digital step attenuator, 9 kHz to 6 GHz",
+      "specs": {
+        "family": "Glitch-less digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 6,
+        "attenuation_range": "0.00 to 31.75",
+        "bits": 7,
+        "step_db": "0.25, 0.5, 1.0",
+        "control": "Parallel (latched, direct); Serial-addressable",
+        "insertion_loss_db": 1.3,
+        "iip3_dbm": 57,
+        "note": "Accuracy at 1 GHz: ±(0.20 + 1.5% of setting) dB; 50Ω",
+        "case": "32L QFN (5x5 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/glitch-less-rf-digital-step-attenuators/pe43712/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43712ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe43713",
+      "category": "attenuator",
+      "manufacturer": "pSemi",
+      "mpn": "PE43713",
+      "description": "7-bit digital step attenuator, 9 kHz to 6 GHz",
+      "specs": {
+        "family": "Glitch-less digital step attenuator",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 6,
+        "attenuation_range": "0.00 to 31.75",
+        "bits": 7,
+        "step_db": "0.25, 0.5, 1.0",
+        "control": "Parallel (latched, direct); Serial-addressable",
+        "insertion_loss_db": 1.3,
+        "iip3_dbm": 57,
+        "note": "Accuracy at 1 GHz: ±(0.20 + 1.5% of setting) dB; 50Ω",
+        "case": "32L QFN (5x5 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-attenuators/glitch-less-rf-digital-step-attenuators/pe43713/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43713ds.pdf",
         "file": null,
         "sha256": null,
         "bytes": null,
@@ -31398,6 +32137,56 @@
       }
     },
     {
+      "id": "psemi-pe45361",
+      "category": "limiter",
+      "manufacturer": "pSemi",
+      "mpn": "PE45361",
+      "description": "Low Threshold (Limiting, Reflecting) power limiter, 10 MHz to 8 GHz",
+      "specs": {
+        "family": "Power limiter",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 8,
+        "flat_leakage": "Adjustable threshold 7 to 13 dBm",
+        "case": "12L QFN (3x3 mm)",
+        "notes": "Max power (dBm): 50; IIP3 (dBm): 37",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-mixers-limiters/power-limiters/pe45361/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe45361ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe45450",
+      "category": "limiter",
+      "manufacturer": "pSemi",
+      "mpn": "PE45450",
+      "description": "Broadband (Limiting, Reflecting) power limiter, 9 kHz to 6 GHz",
+      "specs": {
+        "family": "Power limiter",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 6,
+        "flat_leakage": "Adjustable threshold 25 to 35 dBm",
+        "case": "12L QFN (3x3 mm)",
+        "notes": "Max power (dBm): 47; IIP3 (dBm): 70",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-mixers-limiters/power-limiters/pe45450/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe45450ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
       "id": "teledyne-tdlm025100",
       "category": "limiter",
       "manufacturer": "Teledyne HiRel",
@@ -36982,6 +37771,110 @@
       }
     },
     {
+      "id": "psemi-pe4140",
+      "category": "mixer",
+      "manufacturer": "pSemi",
+      "mpn": "PE4140",
+      "description": "Low Conversion Loss mixer, DC to 6 GHz RF/LO",
+      "specs": {
+        "family": "Passive mixer",
+        "package": "Surface mount",
+        "rf_lo_min_ghz": 0,
+        "rf_lo_max_ghz": 6,
+        "conv_loss_db": 6.5,
+        "iip3_dbm": 32,
+        "case": "6L DFN (3x3 mm)",
+        "notes": "Conversion loss: 6.5–7.5; Max LO drive (dBm): 20; LO-RF isolation (dB): 25–40; LO-IF isolation (dB): 25–40; Quad MOSFET Array",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-mixers-limiters/mixers/pe4140/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4140ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe4141",
+      "category": "mixer",
+      "manufacturer": "pSemi",
+      "mpn": "PE4141",
+      "description": "High Linearity mixer, DC to 1000 MHz RF/LO",
+      "specs": {
+        "family": "Passive mixer",
+        "package": "Surface mount",
+        "rf_lo_min_ghz": 0,
+        "rf_lo_max_ghz": 1,
+        "conv_loss_db": 7,
+        "iip3_dbm": 33,
+        "case": "8L MSOP (3x3 mm)",
+        "notes": "Conversion loss: 7.0–8.0; Max LO drive (dBm): 20; LO-RF isolation (dB): 40; LO-IF isolation (dB): 40; Quad MOSFET Array",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-mixers-limiters/mixers/pe4141/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4141ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe4151",
+      "category": "mixer",
+      "manufacturer": "pSemi",
+      "mpn": "PE4151",
+      "description": "High Linearity mixer, 136 MHz to 520 MHz RF/LO",
+      "specs": {
+        "family": "Passive mixer",
+        "package": "Surface mount",
+        "rf_lo_min_ghz": 0.136,
+        "rf_lo_max_ghz": 0.52,
+        "conv_loss_db": 6.5,
+        "iip3_dbm": 26,
+        "case": "10L MSOP (3x3 mm)",
+        "notes": "Conversion loss: 6.5–8.5; Max LO drive (dBm): -6; Min LO drive (dBm): -10; LO-RF isolation (dB): 43; LO-IF isolation (dB): 40; Quad MOSFET Array",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-mixers-limiters/mixers/pe4151/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4151ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe4152",
+      "category": "mixer",
+      "manufacturer": "pSemi",
+      "mpn": "PE4152",
+      "description": "High Linearity mixer, 136 MHz to 941 MHz RF/LO",
+      "specs": {
+        "family": "Passive mixer",
+        "package": "Surface mount",
+        "rf_lo_min_ghz": 0.136,
+        "rf_lo_max_ghz": 0.941,
+        "conv_loss_db": 6.5,
+        "iip3_dbm": 25,
+        "case": "20L QFN (4x4 mm)",
+        "notes": "Conversion loss: 6.5–7.3; Max LO drive (dBm): 23; Min LO drive (dBm): -10; LO-RF isolation (dB): 30–60; LO-IF isolation (dB): 22–58; Quad MOSFET Array",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-mixers-limiters/mixers/pe4152/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4152ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
       "id": "teledyne-tdmx011037",
       "category": "mixer",
       "manufacturer": "Teledyne HiRel",
@@ -40494,6 +41387,2127 @@
       "productUrl": "https://markimicrowave.com/products/surface-mount/switches/msw2-90001psm/datasheet/",
       "datasheet": {
         "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42020",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42020",
+      "description": "SPDT (A, OR) RF switch, DC to 10 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SPDT (A, OR)",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 10,
+        "insertion_loss_db": 0.6,
+        "isolation_db": 30,
+        "switching_ns": 10000,
+        "max_power_dbm": 38,
+        "iip3_dbm": 62,
+        "supply_v": "10–17",
+        "case": "20L QFN (4x4 mm)",
+        "notes": "IL: 0.6 / 1.2 dB; Isolation: 30 to 56 dB; P0.1dB: – / 38.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42020/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42020ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe423211",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE423211",
+      "description": "SPDT reflective RF switch, 300 MHz to 10.6 GHz",
+      "specs": {
+        "family": "Automotive",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.3,
+        "freq_max_ghz": 10.6,
+        "insertion_loss_db": 0.3,
+        "isolation_db": 18,
+        "switching_ns": 100,
+        "supply_v": "2.7–3.6",
+        "case": "6L DFN (1.6x1.6 mm)",
+        "notes": "IL: 0.3 / 0.7 dB; Isolation: 18 to 27 dB; P0.1dB: 24.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/automotive-switches/pe423211/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe423211ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe423213",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE423213",
+      "description": "SPDT reflective RF switch, 300 MHz to 10.6 GHz",
+      "specs": {
+        "family": "Low insertion loss",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.3,
+        "freq_max_ghz": 10.6,
+        "insertion_loss_db": 0.4,
+        "isolation_db": 18,
+        "switching_ns": 100,
+        "max_power_dbm": 21,
+        "supply_v": "2.7–3.6",
+        "case": "6L DFN (1.6x1.6 mm)",
+        "notes": "IL: 0.4 @ 6 GHz / 0.7 @ 10.6 GHz dB; Isolation: 18 @ 10.6 GHz to 25 @ 8.5 GHz dB; P0.1dB: 24 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe423213/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe423213ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe423422",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE423422",
+      "description": "SPDT reflective RF switch, 100 MHz to 6 GHz",
+      "specs": {
+        "family": "Automotive",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 6,
+        "insertion_loss_db": 0.25,
+        "isolation_db": 16,
+        "switching_ns": 2000,
+        "max_power_dbm": 32,
+        "iip3_dbm": 73.5,
+        "supply_v": "2.3–5.5",
+        "case": "12L QFN (2x2 mm)",
+        "notes": "IL: 0.25 / 0.9 dB; Isolation: 16 to 41 dB; P0.1dB: – / 34.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/automotive-switches/pe423422/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe423422ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42359",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42359",
+      "description": "SPDT reflective RF switch, 10 MHz to 3000 MHz",
+      "specs": {
+        "family": "Automotive",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.35,
+        "isolation_db": 14,
+        "switching_ns": 2000,
+        "max_power_dbm": 34,
+        "iip3_dbm": 55,
+        "supply_v": "1.8–3.3",
+        "case": "6L SC-70 (1.25x2 mm)",
+        "notes": "IL: 0.35 / 1.1 dB; Isolation: 14 to 35 dB; P0.1dB: 33.5 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/automotive-switches/pe42359/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42359ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe423641",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE423641",
+      "description": "SP4T reflective RF switch, 50 MHz to 3000 MHz",
+      "specs": {
+        "family": "Automotive",
+        "configuration": "SP4T reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.05,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.5,
+        "isolation_db": 22,
+        "switching_ns": 1000,
+        "max_power_dbm": 35,
+        "iip3_dbm": 68,
+        "supply_v": "2.65–3.3",
+        "case": "16L QFN (3x3 mm)",
+        "notes": "IL: 0.5 / 0.95 dB; Isolation: 22 to 32 dB; P0.1dB: – / 37.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/automotive-switches/pe423641/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe423641ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe4239",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE4239",
+      "description": "SPDT reflective RF switch, DC to 3000 MHz",
+      "specs": {
+        "family": "Low insertion loss",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 23,
+        "switching_ns": 300,
+        "max_power_dbm": 30,
+        "iip3_dbm": 45,
+        "supply_v": "2.7–3.3",
+        "case": "6L SC-70 (1x2 mm)",
+        "notes": "IL: 0.7 / 0.9 dB; Isolation: 23 to 32 dB; P0.1dB: 25.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe4239/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4239ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42412",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42412",
+      "description": "SP12T absorptive RF switch, 10 MHz to 8 GHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SP12T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 22,
+        "switching_ns": 232,
+        "max_power_dbm": 35,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "32L QFN (5x5 mm)",
+        "notes": "IL: 0.7 / 2.4 dB; Isolation: 22 to 69 dB; P0.1dB: 40.0 / 37.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42412/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42412ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42420",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42420",
+      "description": "SPDT absorptive RF switch, 20 MHz to 6 GHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SPDT absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.02,
+        "freq_max_ghz": 6,
+        "insertion_loss_db": 0.95,
+        "isolation_db": 50,
+        "switching_ns": 300,
+        "max_power_dbm": 23,
+        "iip3_dbm": 65,
+        "supply_v": "2.7–5.5",
+        "case": "20L LGA (4x4 mm)",
+        "notes": "IL: 0.95 / 1.6 dB; Isolation: 50 to 69 dB; P0.1dB: 33.0 / 28.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42420/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42420ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42421",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42421",
+      "description": "SPDT reflective RF switch, 10 MHz to 3000 MHz",
+      "specs": {
+        "family": "Low insertion loss",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.35,
+        "isolation_db": 20,
+        "switching_ns": 1500,
+        "max_power_dbm": 35,
+        "iip3_dbm": 55,
+        "supply_v": "1.8–3.3",
+        "case": "6L SC-70 (1.25x2 mm)",
+        "notes": "IL: 0.35 / 0.5 dB; Isolation: 20 to 30 dB; P0.1dB: 30.5 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe42421/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42421ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42422",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42422",
+      "description": "SPDT reflective RF switch, 5 MHz to 6 GHz",
+      "specs": {
+        "family": "High linearity",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 6,
+        "insertion_loss_db": 0.23,
+        "isolation_db": 17,
+        "switching_ns": 2000,
+        "max_power_dbm": 34,
+        "iip3_dbm": 81,
+        "supply_v": "2.3–5.5",
+        "case": "12L QFN (2x2 mm)",
+        "notes": "IL: 0.23 / 0.9 dB; Isolation: 17 to 68 dB; P0.1dB: 37.0 / 34.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42422/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42422ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42423",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42423",
+      "description": "SPDT absorptive RF switch, 100 MHz to 8.5 GHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SPDT absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 8.5,
+        "insertion_loss_db": 0.8,
+        "isolation_db": 35,
+        "switching_ns": 500,
+        "max_power_dbm": 39,
+        "iip3_dbm": 65,
+        "supply_v": "2.3–5.5",
+        "case": "16L QFN (3x3 mm)",
+        "notes": "IL: 0.8 / 1.1 dB; Isolation: 35 to 51 dB; P0.1dB: – / 39.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42423/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42423ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42424",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42424",
+      "description": "SPDT reflective RF switch, 100 MHz to 8.5 GHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 8.5,
+        "insertion_loss_db": 0.8,
+        "isolation_db": 45,
+        "switching_ns": 145,
+        "max_power_dbm": 39,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "6L DFN (1.5x1.5 mm)",
+        "notes": "IL: 0.8 / 1.08 dB; Isolation: 45 to 47 dB; P0.1dB: 41.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42424/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42424ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42426",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42426",
+      "description": "SPDT reflective RF switch, 5 MHz to 6 GHz",
+      "specs": {
+        "family": "High linearity",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 6,
+        "insertion_loss_db": 0.3,
+        "isolation_db": 20,
+        "switching_ns": 35000,
+        "max_power_dbm": 38,
+        "iip3_dbm": 83,
+        "supply_v": "2.3–5.5",
+        "case": "12L QFN (3x3 mm)",
+        "notes": "IL: 0.3 / 0.75 dB; Isolation: 20 to 33 dB; P0.1dB: – / 40.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42426/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42426ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42427",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42427",
+      "description": "SPDT reflective RF switch, 5 MHz to 6 GHz",
+      "specs": {
+        "family": "High linearity",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 6,
+        "insertion_loss_db": 0.23,
+        "isolation_db": 17,
+        "switching_ns": 2000,
+        "max_power_dbm": 34,
+        "iip3_dbm": 75,
+        "supply_v": "2.3–5.5",
+        "case": "12L QFN (2x2 mm)",
+        "notes": "IL: 0.23 / 0.9 dB; Isolation: 17 to 68 dB; P0.1dB: 36.0 / 34.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42427/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42427ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42429",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42429",
+      "description": "SPDT reflective RF switch, 9 kHz to 8.5 GHz",
+      "specs": {
+        "family": "High linearity",
+        "configuration": "SPDT reflective",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 8.5,
+        "insertion_loss_db": 1.1,
+        "isolation_db": 38,
+        "switching_ns": 490,
+        "max_power_dbm": 34,
+        "iip3_dbm": 65,
+        "supply_v": "2.3–5.5",
+        "case": "12L QFN (2x2 mm)",
+        "notes": "Isolation: 38 to 50 dB",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42429/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42429ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42430",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42430",
+      "description": "SP3T reflective RF switch, 100 MHz to 3000 MHz",
+      "specs": {
+        "family": "Low insertion loss",
+        "configuration": "SP3T reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.45,
+        "isolation_db": 30,
+        "switching_ns": 500,
+        "max_power_dbm": 30,
+        "iip3_dbm": 66,
+        "supply_v": "3.0–5.5",
+        "case": "8L DFN (1.5x1.5 mm)",
+        "notes": "IL: 0.45 / 0.55 dB; Isolation: 30 to 40 dB; P0.1dB: – / 30.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe42430/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42430ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42440",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42440",
+      "description": "SP4T reflective RF switch, 50 MHz to 3000 MHz",
+      "specs": {
+        "family": "Low insertion loss",
+        "configuration": "SP4T reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.05,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.45,
+        "isolation_db": 22,
+        "switching_ns": 2000,
+        "max_power_dbm": 33,
+        "iip3_dbm": 67,
+        "supply_v": "2.7–3.3",
+        "case": "16L QFN (3x3 mm)",
+        "notes": "IL: 0.45 / 0.85 dB; Isolation: 22 to 34 dB; P0.1dB: 41.5 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe42440/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42440ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42441",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42441",
+      "description": "SP4T absorptive RF switch, 10 MHz to 8 GHz",
+      "specs": {
+        "family": "Low insertion loss",
+        "configuration": "SP4T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.8,
+        "isolation_db": 31,
+        "switching_ns": 5000,
+        "max_power_dbm": 31,
+        "iip3_dbm": 58,
+        "supply_v": "3.0–3.55",
+        "case": "32L LGA (5x5 mm)",
+        "notes": "IL: 0.8 / 1.2 dB; Isolation: 31 to 45 dB; P0.1dB: – / 31.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe42441/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/pdf/datasheets/pe42441ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42442",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42442",
+      "description": "SP4T absorptive RF switch, 30 MHz to 6 GHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SP4T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.03,
+        "freq_max_ghz": 6,
+        "insertion_loss_db": 0.85,
+        "isolation_db": 32,
+        "switching_ns": 255,
+        "max_power_dbm": 33,
+        "iip3_dbm": 58,
+        "supply_v": "2.3–5.5",
+        "case": "24L QFN (4x4 mm)",
+        "notes": "IL: 0.85 / 2.35 dB; Isolation: 32 to 67 dB; P0.1dB: 35.0 / 33.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42442/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42442ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42443",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42443",
+      "description": "SP4T reflective RF switch, 1800 MHz to 6 GHz",
+      "specs": {
+        "family": "High linearity",
+        "configuration": "SP4T reflective",
+        "package": "Surface mount",
+        "freq_min_ghz": 1.8,
+        "freq_max_ghz": 6,
+        "insertion_loss_db": 0.33,
+        "isolation_db": 24,
+        "switching_ns": 820,
+        "max_power_dbm": 50,
+        "iip3_dbm": 85,
+        "supply_v": "4.5–5.5",
+        "case": "20L LGA (4x4 mm)",
+        "notes": "IL: 0.33 / 1.07 dB; Isolation: 24 to 34 dB; P0.1dB: 50.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42443/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42443ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42444",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42444",
+      "description": "SP4T reflective RF switch, 1800 MHz to 5 GHz",
+      "specs": {
+        "family": "High linearity",
+        "configuration": "SP4T reflective",
+        "package": "Surface mount",
+        "freq_min_ghz": 1.8,
+        "freq_max_ghz": 5,
+        "insertion_loss_db": 0.32,
+        "isolation_db": 26,
+        "switching_ns": 860,
+        "max_power_dbm": 51,
+        "iip3_dbm": 85,
+        "supply_v": "4.5–5.5",
+        "case": "20L LGA (4x4 mm)",
+        "notes": "IL: 0.32 / 0.62 dB; Isolation: 26 to 39 dB; P0.1dB: 50.3 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42444/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42444ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42445",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42445",
+      "description": "SP4T absorptive RF switch, 10 MHz to 8.5 GHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SP4T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 8.5,
+        "insertion_loss_db": 0.57,
+        "isolation_db": 46,
+        "switching_ns": 200,
+        "max_power_dbm": 34,
+        "iip3_dbm": 65.5,
+        "supply_v": "–0.3–5.5",
+        "case": "20L LGA (3x3 mm)",
+        "notes": "IL: 0.57 / 1 dB; Isolation: 46 to 72 dB; P0.1dB: – / 37.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42445/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42445ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42446",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42446",
+      "description": "SP4T absorptive RF switch, 10 MHz to 8.5 GHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SP4T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 8.5,
+        "insertion_loss_db": 0.6,
+        "isolation_db": 82,
+        "switching_ns": 200,
+        "max_power_dbm": 34,
+        "iip3_dbm": 65.5,
+        "supply_v": "–0.3–5.5",
+        "case": "24L LGA (4x4 mm)",
+        "notes": "IL: 0.6 / 1.27 dB; Isolation: 82 to 82 dB; P0.1dB: – / 36.8 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42446/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42446ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42447",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42447",
+      "description": "SP4T reflective RF switch, 10 MHz to 8000 MHz",
+      "specs": {
+        "family": "High linearity",
+        "configuration": "SP4T reflective",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.32,
+        "isolation_db": 26,
+        "max_power_dbm": 35,
+        "iip3_dbm": 85,
+        "supply_v": "4.5–5.5",
+        "case": "20L LGA (4x4 mm)",
+        "notes": "IL: .32 / .62 dB; Isolation: 26 to 39 dB; P0.1dB: – / 50.3 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42447/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42447ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42448",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42448",
+      "description": "SP4T reflective RF switch, 10 MHz to 6 GHz",
+      "specs": {
+        "family": "High linearity",
+        "configuration": "SP4T reflective",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 6,
+        "insertion_loss_db": 0.25,
+        "isolation_db": 16,
+        "switching_ns": 3000,
+        "max_power_dbm": 39.5,
+        "iip3_dbm": 88.5,
+        "supply_v": "4.5–5.5",
+        "case": "20L LGA (4x4 mm)",
+        "notes": "IL: 0.25 / 3.0 dB; Isolation: 16.0 to 45.0 dB; P0.1dB: 50.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42448/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42448ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42451",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42451",
+      "description": "SP5T absorptive RF switch, 450 MHz to 5000 MHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SP5T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.45,
+        "freq_max_ghz": 5,
+        "insertion_loss_db": 1.6,
+        "isolation_db": 43,
+        "switching_ns": 200,
+        "max_power_dbm": 33,
+        "iip3_dbm": 58,
+        "supply_v": "2.7–3.3",
+        "case": "24L QFN (4x4 mm)",
+        "notes": "IL: 1.6 / 2.5 dB; Isolation: 43 to 68 dB; P0.1dB: 35.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42451/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42451ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42452",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42452",
+      "description": "SP5T absorptive RF switch, 450 MHz to 4000 MHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SP5T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.45,
+        "freq_max_ghz": 4,
+        "insertion_loss_db": 0.95,
+        "isolation_db": 44,
+        "switching_ns": 265,
+        "max_power_dbm": 33,
+        "iip3_dbm": 57,
+        "supply_v": "2.3–5.5",
+        "case": "24L QFN (4x4 mm)",
+        "notes": "IL: 0.95 / 1.6 dB; Isolation: 44 to 61 dB; P0.1dB: 35.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42452/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42452ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42462",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42462",
+      "description": "SP6T absorptive RF switch, 10 MHz to 8 GHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SP6T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 30,
+        "switching_ns": 210,
+        "max_power_dbm": 33,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "24L QFN (4x4 mm)",
+        "notes": "IL: 0.7 / 1.6 dB; Isolation: 30 to 68 dB; P0.1dB: 40.0 / 37.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42462/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42462ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42482",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42482",
+      "description": "SP8T absorptive RF switch, 10 MHz to 8 GHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SP8T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 30,
+        "switching_ns": 227,
+        "max_power_dbm": 33,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "24L QFN (4x4 mm)",
+        "notes": "IL: 0.7 / 1.6 dB; Isolation: 30 to 85 dB; P0.1dB: 40.0 / 37.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42482/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42482ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe4250",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE4250",
+      "description": "SPDT reflective RF switch, 10 MHz to 3000 MHz",
+      "specs": {
+        "family": "Low insertion loss",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.6,
+        "isolation_db": 40,
+        "switching_ns": 150,
+        "max_power_dbm": 27,
+        "iip3_dbm": 59,
+        "supply_v": "3.0–5.5",
+        "case": "8L MSOP (3x3 mm)",
+        "notes": "IL: 0.6 / 0.75 dB; Isolation: 40 to 51 dB; P0.1dB: 30.5 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe4250/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4250ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe4251",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE4251",
+      "description": "SPDT absorptive RF switch, 10 MHz to 4000 MHz",
+      "specs": {
+        "family": "Low insertion loss",
+        "configuration": "SPDT absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 4,
+        "insertion_loss_db": 0.55,
+        "isolation_db": 37,
+        "switching_ns": 150,
+        "max_power_dbm": 27,
+        "iip3_dbm": 59,
+        "supply_v": "3.0–5.5",
+        "case": "8L MSOP (3x3 mm)",
+        "notes": "IL: 0.55 / 1 dB; Isolation: 37 to 62 dB; P0.1dB: 30.5 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe4251/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4251ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42512",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42512",
+      "description": "SP12T absorptive RF switch, 9 kHz to 8 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SP12T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 22,
+        "switching_ns": 232,
+        "max_power_dbm": 33,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "32L QFN (5x5 mm)",
+        "notes": "IL: 0.7 / 2.4 dB; Isolation: 22 to 69 dB; P0.1dB: 40.0 / 37.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42512/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42512ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42520",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42520",
+      "description": "SPDT absorptive RF switch, 9 kHz to 13 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SPDT absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 13,
+        "insertion_loss_db": 0.6,
+        "isolation_db": 18,
+        "switching_ns": 5500,
+        "max_power_dbm": 36,
+        "iip3_dbm": 66,
+        "supply_v": "2.3–5.5",
+        "case": "16L QFN (3x3 mm)",
+        "notes": "IL: 0.6 / 2 dB; Isolation: 18 to 90 dB; P0.1dB: 39.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42520/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42520ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42521",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42521",
+      "description": "SPDT absorptive RF switch, 9 kHz to 13 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SPDT absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 13,
+        "insertion_loss_db": 0.6,
+        "isolation_db": 17,
+        "switching_ns": 500,
+        "max_power_dbm": 36,
+        "iip3_dbm": 65,
+        "supply_v": "2.3–5.5",
+        "case": "16L QFN (3x3 mm)",
+        "notes": "IL: 0.6 / 1.85 dB; Isolation: 17 to 90 dB; P0.1dB: 38.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42521/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42521ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42522",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42522",
+      "description": "SPDT absorptive RF switch, 9 kHz to 26.5 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SPDT absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 26.5,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 20,
+        "switching_ns": 3000,
+        "max_power_dbm": 30,
+        "iip3_dbm": 59,
+        "supply_v": "2.3–5.5",
+        "case": "29L LGA (4x4 mm)",
+        "notes": "IL: 0.7 / 5.3 dB; Isolation: 20 to 80 dB; P0.1dB: 33.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42522/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42522ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42524",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42524",
+      "description": "SPDT reflective RF switch, 10 MHz to 40 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω",
+        "package": "Bare die",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 40,
+        "insertion_loss_db": 0.6,
+        "isolation_db": 33,
+        "switching_ns": 225,
+        "max_power_dbm": 27,
+        "iip3_dbm": 52,
+        "case": "Flip-chip",
+        "notes": "IL: 0.6 / 5.5 dB; Isolation: 33 to 84 dB; P0.1dB: 32.5 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42524/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42524ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42525",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42525",
+      "description": "SPDT reflective RF switch, 9 kHz to 60 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω",
+        "package": "Bare die",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 60,
+        "insertion_loss_db": 0.9,
+        "isolation_db": 36,
+        "switching_ns": 8,
+        "max_power_dbm": 29,
+        "iip3_dbm": 48,
+        "supply_v": "2.7–3.3",
+        "case": "Flip-chip",
+        "notes": "IL: 0.9 / 2.7 dB; Isolation: 36 to 80 dB; P0.1dB: 35.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42525/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42525ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42540",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42540",
+      "description": "SP4T absorptive RF switch, 10 Hz to 8 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SP4T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 1e-08,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 27,
+        "switching_ns": 5000,
+        "max_power_dbm": 30,
+        "iip3_dbm": 58,
+        "supply_v": "3.0–3.6",
+        "case": "32L LGA (5x5 mm)",
+        "notes": "IL: 0.7 / 1.2 dB; Isolation: 27 to 84 dB; P0.1dB: 33.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42540/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42540ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42542",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42542",
+      "description": "SP4T absorptive RF switch, 9 kHz to 18 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SP4T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 18,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 27,
+        "switching_ns": 3000,
+        "max_power_dbm": 30,
+        "iip3_dbm": 58,
+        "supply_v": "2.3–5.5",
+        "case": "29L LGA (4x4 mm)",
+        "notes": "IL: 0.7 / 3.9 dB; Isolation: 27 to 90 dB; P0.1dB: 33.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42542/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/pdf/datasheets/pe42542ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42543",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42543",
+      "description": "SP4T absorptive RF switch, 9 kHz to 18 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SP4T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 18,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 29,
+        "switching_ns": 500,
+        "max_power_dbm": 30,
+        "iip3_dbm": 59,
+        "supply_v": "2.3–5.5",
+        "case": "29L LGA (4x4 mm)",
+        "notes": "IL: 0.7 / 4.1 dB; Isolation: 29 to 90 dB; P0.1dB: 33.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42543/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42543ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42544",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42544",
+      "description": "SP4T absorptive RF switch, 9 kHz to 8.5 GHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SP4T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 8.5,
+        "insertion_loss_db": 1.4,
+        "isolation_db": 32,
+        "switching_ns": 300,
+        "max_power_dbm": 34,
+        "iip3_dbm": 61,
+        "supply_v": "2.3–5.5",
+        "case": "20L QFN (3x3 mm)",
+        "notes": "Isolation: 32 to 41 dB",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42544/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42544ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42545",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42545",
+      "description": "SP4T reflective RF switch, 9 kHz to 67 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SP4T reflective",
+        "package": "Bare die",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 67,
+        "insertion_loss_db": 1,
+        "isolation_db": 22.5,
+        "switching_ns": 75,
+        "max_power_dbm": 30,
+        "iip3_dbm": 50,
+        "supply_v": "3.15–3.45",
+        "case": "Flip-chip",
+        "notes": "IIP3: 50-52; IL: 1 / 4.5 dB; Isolation: 22.5 to 46 dB; P0.1dB: 33.5 / 28 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42545/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42545ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42546",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42546",
+      "description": "SP4T reflective RF switch, 9 kHz to 52 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SP4T reflective",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 52,
+        "insertion_loss_db": 1.1,
+        "isolation_db": 23,
+        "switching_ns": 60,
+        "max_power_dbm": 29,
+        "iip3_dbm": 52,
+        "supply_v": "3.15–3.45",
+        "case": "20L LGA (3x3 mm)",
+        "notes": "IIP3: 52-53; IL: 1.1 / 3.7 dB; Isolation: 23 to 41 dB; P0.1dB: 35.0 / 27.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42546/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42546ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42548",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42548",
+      "description": "SP4T reflective RF switch, 0.009 MHz to 30000 MHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SP4T reflective",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 30,
+        "insertion_loss_db": 1.1,
+        "isolation_db": 33,
+        "switching_ns": 60,
+        "max_power_dbm": 35,
+        "iip3_dbm": 52,
+        "supply_v": "3.15–3.45",
+        "case": "20L LGA (3x3 mm)",
+        "notes": "IL: 1.1 / 2.3 dB; Isolation: 33 to 41 dB; P0.1dB: 33 / 31 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42548/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42548ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42553",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42553",
+      "description": "SPDT absorptive RF switch, 9 kHz to 8 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SPDT absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.6,
+        "isolation_db": 36,
+        "switching_ns": 5500,
+        "max_power_dbm": 36,
+        "iip3_dbm": 66,
+        "supply_v": "2.3–5.5",
+        "case": "16L QFN (3x3 mm)",
+        "notes": "IL: 0.6 / 0.85 dB; Isolation: 36 to 90 dB; P0.1dB: 39.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42553/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42553ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe4256",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE4256",
+      "description": "SPDT absorptive RF switch, 5 MHz to 3000 MHz",
+      "specs": {
+        "family": "Low insertion loss",
+        "configuration": "SPDT absorptive",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.5,
+        "isolation_db": 52,
+        "switching_ns": 2000,
+        "max_power_dbm": 24,
+        "iip3_dbm": 55,
+        "supply_v": "2.7–3.3",
+        "case": "2OL QFN (4x4 mm)",
+        "notes": "IL: 0.5 / 1.1 dB; Isolation: 52 to 80 dB; P0.1dB: 31.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe4256/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4256ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42562",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42562",
+      "description": "SP6T absorptive RF switch, 9 kHz to 8 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SP6T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 30,
+        "switching_ns": 210,
+        "max_power_dbm": 33,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "24L QFN (4x4 mm)",
+        "notes": "IL: 0.7 / 1.6 dB; Isolation: 30 to 68 dB; P0.1dB: 40.0 / 37.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42562/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42562ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe4257",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE4257",
+      "description": "SPDT absorptive RF switch, 10 MHz to 3000 MHz",
+      "specs": {
+        "family": "High isolation",
+        "configuration": "SPDT absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.75,
+        "isolation_db": 44,
+        "switching_ns": 2000,
+        "max_power_dbm": 33,
+        "iip3_dbm": 55,
+        "supply_v": "2.7–3.3",
+        "case": "20L QFN (4x4 mm)",
+        "notes": "IL: 0.75 / 1.2 dB; Isolation: 44 to 64 dB; P0.1dB: 31.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe4257/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4257ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42582",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42582",
+      "description": "SP8T absorptive RF switch, 9 kHz to 8 GHz",
+      "specs": {
+        "family": "Broadband",
+        "configuration": "SP8T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 30,
+        "switching_ns": 227,
+        "max_power_dbm": 33,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "24L QFN (4x4 mm)",
+        "notes": "IL: 0.7 / 1.6 dB; Isolation: 30 to 85 dB; P0.1dB: 40.0 / 37.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42582/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42582ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe4259",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE4259",
+      "description": "SPDT reflective RF switch, 10 MHz to 3000 MHz",
+      "specs": {
+        "family": "Low insertion loss",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.35,
+        "isolation_db": 20,
+        "switching_ns": 1500,
+        "max_power_dbm": 34,
+        "iip3_dbm": 55,
+        "supply_v": "1.8–3.3",
+        "case": "6L SC-70 (1x2 mm)",
+        "notes": "IL: 0.35 / 0.5 dB; Isolation: 20 to 30 dB; P0.1dB: 33.5 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe4259/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4259ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42641",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42641",
+      "description": "SP4T reflective RF switch, 100 MHz to 3000 MHz",
+      "specs": {
+        "family": "Low insertion loss",
+        "configuration": "SP4T reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.45,
+        "isolation_db": 27.5,
+        "switching_ns": 2000,
+        "max_power_dbm": 38,
+        "iip3_dbm": 68,
+        "supply_v": "2.65–2.85",
+        "case": "16L QFN (3x3 mm)",
+        "notes": "IL: 0.45 / 0.55 dB; Isolation: 27.5 to 35 dB",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe42641/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/pdf/datasheets/pe42641ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe426462",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE426462",
+      "description": "SP6T absorptive RF switch, 10 MHz to 8 GHz",
+      "specs": {
+        "family": "Extended temperature",
+        "configuration": "SP6T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 30,
+        "switching_ns": 210,
+        "max_power_dbm": 31,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "24L QFN (4x4 mm)",
+        "notes": "IL: 0.7 / 1.6 dB; Isolation: 30 to 68 dB; P0.1dB: 40.0 / 37.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/extended-temperature-rf-switches/pe426462/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe426462ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe426482",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE426482",
+      "description": "SP8T absorptive RF switch, 10 MHz to 8 GHz",
+      "specs": {
+        "family": "Extended temperature",
+        "configuration": "SP8T absorptive",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.01,
+        "freq_max_ghz": 8,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 30,
+        "switching_ns": 227,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "24L QFN (4x4 mm)",
+        "notes": "IL: 0.7 / 1.6 dB; Isolation: 30 to 85 dB; P0.1dB: 40.0 / 37.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/extended-temperature-rf-switches/pe426482/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe426482ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe426525",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE426525",
+      "description": "SPDT reflective RF switch, 9 kHz to 60 GHz",
+      "specs": {
+        "family": "Extended temperature",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω",
+        "package": "Bare die",
+        "freq_min_ghz": 9e-06,
+        "freq_max_ghz": 60,
+        "insertion_loss_db": 0.9,
+        "isolation_db": 36,
+        "switching_ns": 8,
+        "max_power_dbm": 27,
+        "iip3_dbm": 48,
+        "case": "Flip-chip",
+        "notes": "IL: 0.9 / 2.7 dB; Isolation: 36 to 80 dB; P0.1dB: 35.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/extended-temperature-rf-switches/pe426525/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe426525ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42721",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42721",
+      "description": "SPDT absorptive RF switch, 5 MHz to 2200 MHz",
+      "specs": {
+        "family": "75 Ω broadband",
+        "configuration": "SPDT absorptive",
+        "impedance": "75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 2.2,
+        "insertion_loss_db": 0.4,
+        "isolation_db": 53,
+        "switching_ns": 1000,
+        "max_power_dbm": 18,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "12L QFN (3x3 mm)",
+        "notes": "IL: 0.4 / 0.65 dB; Isolation: 53 to 85 dB; P0.1dB: – / 27.0 dBm",
+        "eccn": "5A991.g"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42721/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42721ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42722",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42722",
+      "description": "SPDT reflective RF switch, 5 MHz to 1794 MHz",
+      "specs": {
+        "family": "75 Ω broadband",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 1.794,
+        "insertion_loss_db": 0.2,
+        "isolation_db": 29,
+        "switching_ns": 15000,
+        "supply_v": "2.3–5.5",
+        "case": "32L QFN (5x5 mm)",
+        "notes": "IL: 0.2 / 0.85 dB; Isolation: 29 to 50 dB; Max power: 87.5 (dBmV); P0.1dB: 88 (dBmV)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42722/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42722ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42723",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42723",
+      "description": "SPDT reflective RF switch, 5 MHz to 1794 MHZ",
+      "specs": {
+        "family": "75 Ω broadband",
+        "configuration": "SPDT reflective",
+        "impedance": "75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "insertion_loss_db": 0.1,
+        "isolation_db": 34,
+        "switching_ns": 35000,
+        "supply_v": "2.3–5.5",
+        "case": "12L QFN (3x3 mm)",
+        "notes": "Frequency: 5 MHz to 1794 MHZ; IL: 0.1 / 0.4 dB; Isolation: 34 to 54 dB; Max power: 86 (dBmV); P0.1dB: 87 (dBmV)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42723/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42723ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42724",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42724",
+      "description": "SPDT reflective RF switch, 5 MHz to 1794 MHz",
+      "specs": {
+        "family": "75 Ω broadband",
+        "configuration": "SPDT reflective",
+        "impedance": "75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 1.794,
+        "insertion_loss_db": 0.1,
+        "isolation_db": 19,
+        "switching_ns": 35000,
+        "supply_v": "2.3–5.5",
+        "case": "12L QFN (3x3 mm)",
+        "notes": "IL: 0.1 / 0.4 dB; Isolation: 19 to 39 dB; Max power: 87 (dBmV); P0.1dB: 86 (dBmV)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42724/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42724ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42726",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42726",
+      "description": "SPDT reflective RF switch, 5 MHz to 1794 MHz",
+      "specs": {
+        "family": "75 Ω broadband",
+        "configuration": "SPDT reflective",
+        "impedance": "75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 1.794,
+        "insertion_loss_db": 0.1,
+        "isolation_db": 21,
+        "switching_ns": 38000,
+        "supply_v": "2.3–5.5",
+        "case": "12L QFN (3x3 mm)",
+        "notes": "IL: 0.1 / 0.4 dB; Isolation: 21 to 39 dB; Max power: 86 (dBmV); P0.1dB: 87 (dBmV)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42726/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42726ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42727",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42727",
+      "description": "SPDT reflective RF switch, 5 MHz to 3100 MHz",
+      "specs": {
+        "family": "75 Ω broadband",
+        "configuration": "SPDT reflective",
+        "impedance": "75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 3.1,
+        "insertion_loss_db": 0.29,
+        "isolation_db": 30,
+        "switching_ns": 38000,
+        "max_power_dbm": 86,
+        "supply_v": "2.3–5.5",
+        "case": "12L QFN (3x3 mm)",
+        "notes": "IL: 0.29 / 0.55 dB; Isolation: 30 to 64 dB; P0.1dB: 87 (dBmV)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42727/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42727ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42742",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42742",
+      "description": "SPDT absorptive RF switch, 5 MHz to 2200 MHz",
+      "specs": {
+        "family": "75 Ω broadband",
+        "configuration": "SPDT absorptive",
+        "impedance": "75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 2.2,
+        "insertion_loss_db": 0.45,
+        "isolation_db": 53.6,
+        "switching_ns": 3000,
+        "max_power_dbm": 33,
+        "iip3_dbm": 53,
+        "supply_v": "2.7–3.3",
+        "case": "20L QFN (4x4 mm)",
+        "notes": "IL: 0.45 / 1.7 dB; Isolation: 53.6 to 94 dB; P0.1dB: 32.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42742/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42742ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42750",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42750",
+      "description": "SPDT absorptive RF switch, 5 MHz to 2200 MHz",
+      "specs": {
+        "family": "75 Ω broadband",
+        "configuration": "SPDT absorptive",
+        "impedance": "75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 2.2,
+        "insertion_loss_db": 0.7,
+        "isolation_db": 57,
+        "switching_ns": 2000,
+        "max_power_dbm": 26,
+        "iip3_dbm": 47.5,
+        "supply_v": "2.7–3.63",
+        "case": "12L QFN (3x3 mm)",
+        "notes": "IL: 0.7 / 1.7 dB; Isolation: 57 to 84 dB; P0.1dB: 23.5 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42750/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42750ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42820",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42820",
+      "description": "SPDT reflective RF switch, 30 MHz to 2700 MHz",
+      "specs": {
+        "family": "High power",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.03,
+        "freq_max_ghz": 2.7,
+        "insertion_loss_db": 0.3,
+        "isolation_db": 24,
+        "switching_ns": 15000,
+        "max_power_dbm": 45.5,
+        "iip3_dbm": 85,
+        "supply_v": "2.3–5.5",
+        "case": "32L QFN (5x5 mm)",
+        "notes": "IL: 0.3 / 0.7 dB; Isolation: 24 to 35 dB; P0.1dB: – / 45.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-power-switches/pe42820/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42820ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42823",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42823",
+      "description": "SPDT reflective RF switch, 700 MHz to 6 GHz",
+      "specs": {
+        "family": "High power",
+        "configuration": "SPDT reflective",
+        "impedance": "50Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.7,
+        "freq_max_ghz": 6,
+        "insertion_loss_db": 0.25,
+        "isolation_db": 23,
+        "switching_ns": 840,
+        "max_power_dbm": 43,
+        "iip3_dbm": 70,
+        "supply_v": "2.3–5.5",
+        "case": "16L QFN (3x3 mm)",
+        "notes": "IL: 0.25 / 0.53 dB; Isolation: 23 to 59 dB; P0.1dB: 46.0 / – dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-power-switches/pe42823/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42823ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe42850",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE42850",
+      "description": "SP5T reflective RF switch, 30 MHz to 1000 MHz",
+      "specs": {
+        "family": "High power",
+        "configuration": "SP5T reflective",
+        "impedance": "50Ω or 75Ω",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.03,
+        "freq_max_ghz": 1,
+        "insertion_loss_db": 0.25,
+        "isolation_db": 30,
+        "switching_ns": 15000,
+        "max_power_dbm": 45.5,
+        "iip3_dbm": 42,
+        "supply_v": "2.3–5.5",
+        "case": "32L QFN (5x5 mm)",
+        "notes": "IL: 0.25 / 0.35 dB; Isolation: 30 to 36 dB; P0.1dB: – / 45.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/high-power-switches/pe42850/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42850ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe613050",
+      "category": "switch",
+      "manufacturer": "pSemi",
+      "mpn": "PE613050",
+      "description": "SP4T open-reflective RF switch, 5 MHz to 3000 MHz",
+      "specs": {
+        "family": "Antenna tuning",
+        "configuration": "SP4T open-reflective",
+        "impedance": "Open-Reflective",
+        "package": "Surface mount",
+        "freq_min_ghz": 0.005,
+        "freq_max_ghz": 3,
+        "insertion_loss_db": 0.2,
+        "isolation_db": 17,
+        "switching_ns": 2000,
+        "iip3_dbm": 80,
+        "supply_v": "2.3–5.5",
+        "case": "12L QFN (2x2 mm)",
+        "notes": "IL: 0.2 / 0.55 dB; Isolation: 17 to 28 dB; P0.1dB: – / 35.1 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-switches/antenna-tuning-switches/pe613050/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe613050ds.pdf",
         "file": null,
         "sha256": null,
         "bytes": null,
@@ -55445,6 +58459,31 @@
       }
     },
     {
+      "id": "psemi-pe35400",
+      "category": "prescaler",
+      "manufacturer": "pSemi",
+      "mpn": "PE35400",
+      "description": "Divide-by-4 prescaler, 3000 MHz to 13.5 GHz",
+      "specs": {
+        "family": "Prescaler",
+        "package": "Bare die",
+        "divide_by": 4,
+        "freq_min_ghz": 3,
+        "freq_max_ghz": 13.5,
+        "case": "Die",
+        "notes": "Last Time Buy",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-mixers-limiters/prescalers/pe35400/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
       "id": "teledyne-pe9304",
       "category": "prescaler",
       "manufacturer": "Teledyne HiRel",
@@ -55765,6 +58804,433 @@
       "productUrl": "https://semiconductors.teledyne-e2v.com/products/dac/?model=EV12DS480A",
       "datasheet": {
         "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe44820",
+      "category": "phase_shifter",
+      "manufacturer": "pSemi",
+      "mpn": "PE44820",
+      "description": "8-bit DPS, 1700 MHz to 2200 MHz",
+      "specs": {
+        "kind": "Digital phase shifter",
+        "package": "Surface mount",
+        "freq_min_ghz": 1.7,
+        "freq_max_ghz": 2.2,
+        "phase_range_deg": 358.6,
+        "phase_step_deg": 1.4,
+        "bits": 8,
+        "insertion_loss_db": 6,
+        "iip3_dbm": 60,
+        "rms_phase_error_deg": 1,
+        "supply_v": "2.3–5.5",
+        "case": "32L QFN (5x5 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/phase-shifters/pe44820/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe44820ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe44951",
+      "category": "phase_shifter",
+      "manufacturer": "pSemi",
+      "mpn": "PE44951",
+      "description": "Dual-channel phase shifter + DSA, 6.025 GHz to 7.525 GHz",
+      "specs": {
+        "kind": "MPAC (phase + amplitude)",
+        "package": "Surface mount",
+        "freq_min_ghz": 6.025,
+        "freq_max_ghz": 7.525,
+        "phase_range_deg": 360,
+        "phase_step_deg": 2.8,
+        "bits": 7,
+        "attenuation": "15.5 / 0.125 / 7 (dB / dB / bits)",
+        "insertion_loss_db": 8.5,
+        "iip3_dbm": 54.6,
+        "supply_v": "2.3–5.5",
+        "case": "32L LGA (5x5 mm)",
+        "notes": "Pre Release; IIP3: 54.6-56; P0.1dB: 22.2-25.5 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/monolithic-phase-amplitude-controllers-mpacs/pe44951/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe44951pb.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe46120",
+      "category": "phase_shifter",
+      "manufacturer": "pSemi",
+      "mpn": "PE46120",
+      "description": "MPAC-Doherty, 1800 MHz to 2200 MHz",
+      "specs": {
+        "kind": "MPAC (phase + amplitude)",
+        "package": "Surface mount",
+        "freq_min_ghz": 1.8,
+        "freq_max_ghz": 2.2,
+        "phase_range_deg": 87.2,
+        "phase_step_deg": 2.8,
+        "bits": 5,
+        "attenuation": "7.5/0.5/4 (dB / dB / bits)",
+        "insertion_loss_db": 6.9,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "32L QFN (6x6 mm)",
+        "notes": "Last Time Buy; P0.1dB: -/35.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/monolithic-phase-amplitude-controllers-mpacs/pe46120/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe46130",
+      "category": "phase_shifter",
+      "manufacturer": "pSemi",
+      "mpn": "PE46130",
+      "description": "MPAC-Doherty, 2300 MHz to 2700 MHz",
+      "specs": {
+        "kind": "MPAC (phase + amplitude)",
+        "package": "Surface mount",
+        "freq_min_ghz": 2.3,
+        "freq_max_ghz": 2.7,
+        "phase_range_deg": 87.2,
+        "phase_step_deg": 2.8,
+        "bits": 5,
+        "attenuation": "7.5/0.5/4 (dB / dB / bits)",
+        "insertion_loss_db": 7.2,
+        "iip3_dbm": 70,
+        "supply_v": "2.3–5.5",
+        "case": "32L QFN (6x6 mm)",
+        "notes": "P0.1dB: -/35.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/monolithic-phase-amplitude-controllers-mpacs/pe46130/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe46130ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe46140",
+      "category": "phase_shifter",
+      "manufacturer": "pSemi",
+      "mpn": "PE46140",
+      "description": "MPAC-Doherty, 3400 MHz to 3800 MHz",
+      "specs": {
+        "kind": "MPAC (phase + amplitude)",
+        "package": "Surface mount",
+        "freq_min_ghz": 3.4,
+        "freq_max_ghz": 3.8,
+        "phase_range_deg": 87.2,
+        "phase_step_deg": 2.8,
+        "bits": 5,
+        "attenuation": "7.5/0.5/4 (dB / dB / bits)",
+        "insertion_loss_db": 6.5,
+        "iip3_dbm": 60,
+        "supply_v": "2.3–5.5",
+        "case": "32L QFN (6x6 mm)",
+        "notes": "Last Time Buy; P0.1dB: -/35.0 dBm",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/monolithic-phase-amplitude-controllers-mpacs/pe46140/",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe64102",
+      "category": "tunable_capacitor",
+      "manufacturer": "pSemi",
+      "mpn": "PE64102",
+      "description": "5-bit; 32 states digital tunable capacitor, 1.88 to 14 pF",
+      "specs": {
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 3,
+        "c_min_pf": 1.88,
+        "c_max_pf": 14,
+        "tuning_ratio": "7.4:1",
+        "bits": 5,
+        "q_cmin": 50,
+        "peak_rf_vpk": 6,
+        "control": "SPI",
+        "supply_v": "2.3–3.6",
+        "case": "12L QFN (2x2 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/digital-tunable-capacitors-dtcs/pe64102/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe64102ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe64904",
+      "category": "tunable_capacitor",
+      "manufacturer": "pSemi",
+      "mpn": "PE64904",
+      "description": "5-bit; 32 states digital tunable capacitor, 1.1 to 5.1 pF",
+      "specs": {
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 3,
+        "c_min_pf": 1.1,
+        "c_max_pf": 5.1,
+        "tuning_ratio": "4.6:1",
+        "bits": 5,
+        "q_cmin": 35,
+        "peak_rf_vpk": 30,
+        "control": "SPI",
+        "supply_v": "2.3–3.6",
+        "case": "10L QFN (2x2 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/digital-tunable-capacitors-dtcs/pe64904/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe64904ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe64906",
+      "category": "tunable_capacitor",
+      "manufacturer": "pSemi",
+      "mpn": "PE64906",
+      "description": "5-bit; 32 states digital tunable capacitor, 0.9 to 4.6 pF",
+      "specs": {
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 3,
+        "c_min_pf": 0.9,
+        "c_max_pf": 4.6,
+        "tuning_ratio": "5.1:1",
+        "bits": 5,
+        "q_cmin": 40,
+        "peak_rf_vpk": 30,
+        "control": "SPI",
+        "supply_v": "2.3–4.8",
+        "case": "10L QFN (2x2 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/digital-tunable-capacitors-dtcs/pe64906/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe64906ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe64907",
+      "category": "tunable_capacitor",
+      "manufacturer": "pSemi",
+      "mpn": "PE64907",
+      "description": "5-bit; 32 states digital tunable capacitor, 0.85 to 2.4 pF",
+      "specs": {
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 3,
+        "c_min_pf": 0.85,
+        "c_max_pf": 2.4,
+        "tuning_ratio": "2.82:1",
+        "bits": 5,
+        "q_cmin": 41,
+        "peak_rf_vpk": 30,
+        "control": "SPI",
+        "supply_v": "2.3–4.8",
+        "case": "10L QFN (2x2 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/digital-tunable-capacitors-dtcs/pe64907/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe64907ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe64909",
+      "category": "tunable_capacitor",
+      "manufacturer": "pSemi",
+      "mpn": "PE64909",
+      "description": "4-bit; 16 states digital tunable capacitor, 0.6 to 2.35 pF",
+      "specs": {
+        "package": "Surface mount",
+        "freq_min_ghz": 0.1,
+        "freq_max_ghz": 3,
+        "c_min_pf": 0.6,
+        "c_max_pf": 2.35,
+        "tuning_ratio": "3.9:1",
+        "bits": 4,
+        "q_cmin": 40,
+        "peak_rf_vpk": 30,
+        "control": "SPI",
+        "supply_v": "2.3–4.8",
+        "case": "10L QFN (2x2 mm)",
+        "eccn": "EAR99"
+      },
+      "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/digital-tunable-capacitors-dtcs/pe64909/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe64909ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe188100",
+      "category": "front_end_module",
+      "manufacturer": "pSemi",
+      "mpn": "PE188100",
+      "description": "8-channel Beamforming Front End, 24.25 GHz to 27.5 GHz",
+      "specs": {
+        "kind": "Beamforming front end",
+        "freq_min_ghz": 24.25,
+        "freq_max_ghz": 27.5,
+        "eccn": "5A991"
+      },
+      "productUrl": "https://psemi.com/products/rf-tx-rx-modules/beamforming-front-ends/pe188100/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe188100pb.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe53231",
+      "category": "front_end_module",
+      "manufacturer": "pSemi",
+      "mpn": "PE53231",
+      "description": "Switch LNA, 3300 MHz to 4200 MHz",
+      "specs": {
+        "kind": "Switch-LNA",
+        "package": "Surface mount",
+        "freq_min_ghz": 3.3,
+        "freq_max_ghz": 4.2,
+        "case": "40L LGA (6x6 mm)",
+        "eccn": "5A991.b7"
+      },
+      "productUrl": "https://psemi.com/products/integrated-products/switch-lna/pe53231/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe53231ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe562212",
+      "category": "front_end_module",
+      "manufacturer": "pSemi",
+      "mpn": "PE562212",
+      "description": "2.4 GHz SOI IoT FEM, 2400 MHz to 2483.5 MHz",
+      "specs": {
+        "kind": "2.4 GHz IoT FEM",
+        "package": "Surface mount",
+        "freq_min_ghz": 2.4,
+        "freq_max_ghz": 2.4835,
+        "tx_gain_db": 23,
+        "rx_nf_db": 1.6,
+        "bypass_loss_db": 0.6,
+        "case": "14L LGA (1.8x1.8x0.63 mm)",
+        "notes": "TX gain control: 15 dB in 1 dB steps",
+        "eccn": "5A991.g"
+      },
+      "productUrl": "https://psemi.com/products/front-end-modules/2-4-ghz-iot-fems/pe562212/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe562212ds.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe566212",
+      "category": "front_end_module",
+      "manufacturer": "pSemi",
+      "mpn": "PE566212",
+      "description": "2.4 GHz SOI IoT FEM for Bluetooth/Zigbee/Thread IoT Applications, 2400 MHz to 2483.5 MHz",
+      "specs": {
+        "kind": "2.4 GHz IoT FEM",
+        "package": "Surface mount",
+        "freq_min_ghz": 2.4,
+        "freq_max_ghz": 2.4835,
+        "tx_gain_db": 21,
+        "rx_nf_db": 1.8,
+        "bypass_loss_db": 0.8,
+        "case": "14L LGA (1.8x1.8x0.63 mm)",
+        "notes": "TX gain control: 22.5 dB in 1.5 dB steps"
+      },
+      "productUrl": "https://psemi.com/products/front-end-modules/2-4-ghz-iot-fems/pe566212/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe566212pb.pdf",
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "psemi-pe566213",
+      "category": "front_end_module",
+      "manufacturer": "pSemi",
+      "mpn": "PE566213",
+      "description": "2.4 GHz SOI IoT FEM, 2400 MHz to 2483.5 MHz",
+      "specs": {
+        "kind": "2.4 GHz IoT FEM",
+        "package": "Surface mount",
+        "freq_min_ghz": 2.4,
+        "freq_max_ghz": 2.4835,
+        "tx_gain_db": 20,
+        "rx_nf_db": 1.8,
+        "bypass_loss_db": 0.8,
+        "case": "14L LGA (1.8x1.8x0.63 mm)",
+        "notes": "TX gain control: 15 dB in 1 dB steps"
+      },
+      "productUrl": "https://psemi.com/products/front-end-modules/2-4-ghz-iot-fems/pe566213/",
+      "datasheet": {
+        "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe566213pb.pdf",
         "file": null,
         "sha256": null,
         "bytes": null,
