@@ -51,7 +51,13 @@ function showUpdateBar(container, waitingWorker) {
   const bar = el(
     'div',
     { class: 'update-bar', role: 'status' },
-    el('span', {}, 'A new version of the app is ready.'),
+    // Phones show the short text so the bar stays on one line (settings.css).
+    el(
+      'span',
+      { class: 'update-text' },
+      el('span', { class: 'update-text-long' }, 'A new version of the app is ready.'),
+      el('span', { class: 'update-text-short' }, 'Update ready.'),
+    ),
     button('Reload', () => waitingWorker.postMessage({ type: 'SKIP_WAITING' }), { primary: true }),
     button('Later', () => bar.remove()),
   );

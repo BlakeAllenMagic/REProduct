@@ -201,9 +201,32 @@
   border-bottom: 1px solid var(--border);
 }
 
-.update-bar span {
+.update-text {
   flex: 1;
   min-width: 200px;
+}
+
+.update-text-short {
+  display: none;
+}
+
+/* Phones: short text, one line. */
+@media (max-width: 700px), (max-height: 500px) {
+  .update-bar {
+    flex-wrap: nowrap;
+  }
+
+  .update-text {
+    min-width: 0;
+  }
+
+  .update-text-long {
+    display: none;
+  }
+
+  .update-text-short {
+    display: inline;
+  }
 }
 
 /* ---- Updates ---- */
