@@ -13,6 +13,13 @@
     "sha256": "2105bab20b7e6c16802e936ec6547f4a6b071c0eecfbfb4223e2bbe2fdfcb31f",
     "updated": "2026-11-26"
   },
+  "psemi-pe188100": {
+    "bytes": 319131,
+    "etag": "\"6881414c-4de9b\"",
+    "lastModified": "Wed, 23 Jul 2025 20:08:44 GMT",
+    "sha256": "ccfdc5145a75456f493e06875e6b629265bd3cc388906ac5c956632a05c57da4",
+    "updated": "2026-11-27"
+  },
   "psemi-pe23108": {
     "bytes": 423296,
     "etag": "\"6881414d-67580\"",
@@ -54,6 +61,678 @@
     "lastModified": "Wed, 05 Aug 2026 20:18:24 GMT",
     "sha256": "268adf04b452a7abf0de61e24bcdb69f9464ceaeb2c8124ac61f28571e6a0995",
     "updated": "2026-11-26"
+  },
+  "psemi-pe4140": {
+    "bytes": 699481,
+    "etag": "\"6aa46dd6-aac59\"",
+    "lastModified": "Fri, 11 Sep 2026 21:08:38 GMT",
+    "sha256": "9f2927ace8b02b85345bc1c95b6e30ea6fa5d9f3e36e87f50b5cd008e53168cc",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe4141": {
+    "bytes": 813544,
+    "etag": "\"6aa99cd7-c69e8\"",
+    "lastModified": "Tue, 15 Sep 2026 19:30:31 GMT",
+    "sha256": "a9310e08b328344d9336af2b18a97bd07c3f09524a82d28e24bdb42d54bd8266",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe4151": {
+    "bytes": 3781788,
+    "etag": "\"6aa46dd6-39b49c\"",
+    "lastModified": "Fri, 11 Sep 2026 21:08:38 GMT",
+    "sha256": "6b64865c2445ddd19570d26f4c9cc6f84d56570c07279963bdd0879a892ec41e",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe4152": {
+    "bytes": 2764404,
+    "etag": "\"69f3e1a9-2a2e74\"",
+    "lastModified": "Thu, 30 Apr 2026 23:11:37 GMT",
+    "sha256": "dd892aa2a0f4536ab3926365772c9a49f9d70aceae5390612432bdbdf5fbdce2",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42020": {
+    "bytes": 3938402,
+    "etag": "\"6aecee3c-3c1862\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:40 GMT",
+    "sha256": "92fad7d5fab130f75783bf014740e16acf9f0ac0b12c7bbf10b32d73de7cf997",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe423211": {
+    "bytes": 2213176,
+    "etag": "\"6a0e24a0-21c538\"",
+    "lastModified": "Wed, 20 May 2026 21:16:16 GMT",
+    "sha256": "39d35837c93a578f48a5e41a84d4d360a19ce419c925b346e5d7fdc086a5512a",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe423213": {
+    "bytes": 1705703,
+    "etag": "\"6aecee3c-1a06e7\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:40 GMT",
+    "sha256": "d9751589dcac27165a00c75a54134adeb307a00358b2fd08f883673418e2cf68",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe423422": {
+    "bytes": 2463120,
+    "etag": "\"6afe17b8-259590\"",
+    "lastModified": "Wed, 18 Nov 2026 21:25:12 GMT",
+    "sha256": "a00fd5e09d4426f6455dd3081019a561a48cf6bf80fcc3f4912c1aff9744c9af",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42359": {
+    "bytes": 1661615,
+    "etag": "\"6a5697c0-195aaf\"",
+    "lastModified": "Tue, 14 Jul 2026 20:10:40 GMT",
+    "sha256": "5e26e2695666de2e2ff268289585e0f0b22391b8009c9910117753294b3a5b82",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe423641": {
+    "bytes": 988421,
+    "etag": "\"6a5fd5b3-f1505\"",
+    "lastModified": "Tue, 21 Jul 2026 20:25:23 GMT",
+    "sha256": "43e1e126f5b166e0e909db412f2faf1771b0bca89996ee307095bf676adb0641",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe4239": {
+    "bytes": 1346373,
+    "etag": "\"6a610206-148b45\"",
+    "lastModified": "Wed, 22 Jul 2026 17:46:46 GMT",
+    "sha256": "c858057b541b1f75b35aa82d4fc3d4698d43001679014e82a1013d652edd6e6e",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42412": {
+    "bytes": 2233282,
+    "etag": "\"6ad93859-2213c2\"",
+    "lastModified": "Wed, 21 Oct 2026 22:10:33 GMT",
+    "sha256": "407a1227c85cfb95038d0036035d3c2c032c081e3441baee36ad171a46b57195",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42420": {
+    "bytes": 2238553,
+    "etag": "\"6a5697c0-222859\"",
+    "lastModified": "Tue, 14 Jul 2026 20:10:40 GMT",
+    "sha256": "436b25c691d23166ea738df8cffe74fd6567762c8eaf282c34ec927b1c6c33cc",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42421": {
+    "bytes": 1076015,
+    "etag": "\"6a5fd5b3-106b2f\"",
+    "lastModified": "Tue, 21 Jul 2026 20:25:23 GMT",
+    "sha256": "680d3c27e6f11942df7b1d342df420584c88d16ab0a15890252be9eab9d663c0",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42422": {
+    "bytes": 1067941,
+    "etag": "\"6a6bc125-104ba5\"",
+    "lastModified": "Thu, 30 Jul 2026 21:24:53 GMT",
+    "sha256": "8231223ed1ae4809e1e492633dad147e0bd55a47d143ccb6a5fa5afce3886acf",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42423": {
+    "bytes": 2361492,
+    "etag": "\"6a5697c0-240894\"",
+    "lastModified": "Tue, 14 Jul 2026 20:10:40 GMT",
+    "sha256": "3f846c256c658ec3661b063017d0340b92e59a04afdfc644f3a68e3ec8af3f05",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42424": {
+    "bytes": 1272924,
+    "etag": "\"6ad14064-136c5c\"",
+    "lastModified": "Thu, 15 Oct 2026 21:06:44 GMT",
+    "sha256": "f02d4e9675f5fef22a93ed6f752790f73d3c1042a5ad0bc757840bde2afd2efb",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42426": {
+    "bytes": 1456858,
+    "etag": "\"6aecee3c-163ada\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:40 GMT",
+    "sha256": "0b1a28b1e26fb928d06a3eab7ee2bd7ccbd46f637d2ebacff3e0bc4a689eef49",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42427": {
+    "bytes": 2247212,
+    "etag": "\"6a5697c0-224a2c\"",
+    "lastModified": "Tue, 14 Jul 2026 20:10:40 GMT",
+    "sha256": "f5967b3996aee77452f6c4baa287c3067c4ff9df47a05c75c4b2feb4eaae19c8",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42429": {
+    "bytes": 1180705,
+    "etag": "\"6a5697c0-120421\"",
+    "lastModified": "Tue, 14 Jul 2026 20:10:40 GMT",
+    "sha256": "34a7f2d464dea76b66790f8fe672f193f1fdc4895ab25bf455e5169f3e4e565e",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42430": {
+    "bytes": 5430951,
+    "etag": "\"6aecee3c-52dea7\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:40 GMT",
+    "sha256": "ae4b44191348e01417279a95fec32980ac746feec2039d0c8e1f5aa7dc3fef2b",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42440": {
+    "bytes": 1041226,
+    "etag": "\"6a5913d2-fe34a\"",
+    "lastModified": "Thu, 16 Jul 2026 17:24:34 GMT",
+    "sha256": "d24a5c92709e57eceedeba8b9cc93a75e80b9e888954c8318023433b14a1f054",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42441": {
+    "bytes": 1124702,
+    "etag": "\"6a5fd5b3-11295e\"",
+    "lastModified": "Tue, 21 Jul 2026 20:25:23 GMT",
+    "sha256": "a95814c04b4be4ff8ce0031ccaa500f033d9e134855dc40d47517d8a0eca455e",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42442": {
+    "bytes": 1167403,
+    "etag": "\"6a8c8ff0-11d02b\"",
+    "lastModified": "Mon, 24 Aug 2026 18:39:44 GMT",
+    "sha256": "250ef833f08dfe28ef61334099c245579bc0e7937e5117271e768c42a9d133a4",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42443": {
+    "bytes": 1591615,
+    "etag": "\"6a84b221-18493f\"",
+    "lastModified": "Tue, 18 Aug 2026 19:27:29 GMT",
+    "sha256": "3ebd00b54521b2bc45f7780cdaea15e01818cbdc60246aaf213f800131bfa4b6",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42444": {
+    "bytes": 1561300,
+    "etag": "\"6a84b221-17d2d4\"",
+    "lastModified": "Tue, 18 Aug 2026 19:27:29 GMT",
+    "sha256": "4eca1014912c2768b811812561d99bffdded7f375479ad92a0b9f74af29e5f8c",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42445": {
+    "bytes": 1389724,
+    "etag": "\"6a8c8ff0-15349c\"",
+    "lastModified": "Mon, 24 Aug 2026 18:39:44 GMT",
+    "sha256": "9580771a0c3309e1b9ce3688b6a2ffa8bda8701374a3df5ac64eb10c2e45c541",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42446": {
+    "bytes": 1527453,
+    "etag": "\"6ad9385a-174e9d\"",
+    "lastModified": "Wed, 21 Oct 2026 22:10:34 GMT",
+    "sha256": "521f58d3f7b94bcfabac0181d011ea7ef101de60f170565fc145fce56ff4dcdb",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42447": {
+    "bytes": 2132606,
+    "etag": "\"6aecee3c-208a7e\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:40 GMT",
+    "sha256": "fa50e13a47af91b490886a0b4362752f8501140209a218bdab59d9c1e1ef0b3f",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42448": {
+    "bytes": 1845953,
+    "etag": "\"68a8b65e-1c2ac1\"",
+    "lastModified": "Fri, 22 Aug 2025 18:26:38 GMT",
+    "sha256": "9ef80e0bb4ac3b67e7e04f356c423996af3fe69a82379404665f62f33b2db9bd",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42451": {
+    "bytes": 1842501,
+    "etag": "\"6a8c8ff0-1c1d45\"",
+    "lastModified": "Mon, 24 Aug 2026 18:39:44 GMT",
+    "sha256": "aeae04bec061c1daefb226ac508eadc5ecb930c81da6080de67db3f504359354",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42452": {
+    "bytes": 1287895,
+    "etag": "\"6a8c8ff0-13a6d7\"",
+    "lastModified": "Mon, 24 Aug 2026 18:39:44 GMT",
+    "sha256": "f693160bbaa0fd467d062f039411e01fe6433fe5f61556b62dcb4daba5782bf2",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42462": {
+    "bytes": 1509799,
+    "etag": "\"6a8c8ff1-1709a7\"",
+    "lastModified": "Mon, 24 Aug 2026 18:39:45 GMT",
+    "sha256": "4bd69bc8598d6951659d7f2771624460f8b0605d228d9b095bdab61d6fa3dc55",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42482": {
+    "bytes": 1926005,
+    "etag": "\"6ab56301-1d6375\"",
+    "lastModified": "Thu, 24 Sep 2026 17:50:57 GMT",
+    "sha256": "3dcbf7e849ca3af297545aaf3dec0df5e399542f625594cf7e0c4904c37c287f",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe4250": {
+    "bytes": 677877,
+    "etag": "\"6aa99cd7-a57f5\"",
+    "lastModified": "Tue, 15 Sep 2026 19:30:31 GMT",
+    "sha256": "702f6a5742ccf2d5c733b58197b89f89ed5a21df47cb3229256a0d06a145e3a0",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe4251": {
+    "bytes": 641744,
+    "etag": "\"6a7c9ab6-9cad0\"",
+    "lastModified": "Wed, 12 Aug 2026 16:09:26 GMT",
+    "sha256": "96ba513095bb3294edce9c943b1927444d550861bdb332fb3c95cdd04ddff4a9",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42512": {
+    "bytes": 2210068,
+    "etag": "\"6aecee3c-21b914\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:40 GMT",
+    "sha256": "9af1ae5fb3ce737873881ccb90f7a18f9d8dd0173670e0b562ab4169ebb718ab",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42520": {
+    "bytes": 3126884,
+    "etag": "\"6a5697c0-2fb664\"",
+    "lastModified": "Tue, 14 Jul 2026 20:10:40 GMT",
+    "sha256": "30bfd5a1ba899bc2d2fe6e55b7b779ee54013e6be31c110a00b82cdb7122195f",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42521": {
+    "bytes": 2126835,
+    "etag": "\"6a8c8ff1-2073f3\"",
+    "lastModified": "Mon, 24 Aug 2026 18:39:45 GMT",
+    "sha256": "bf42f2c86bfa64b9319d22a4564f18bbdc8660854467733ed84472d44c99b85f",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42522": {
+    "bytes": 2352249,
+    "etag": "\"6aecee3d-23e479\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:41 GMT",
+    "sha256": "c51dcb0c42704467f4c9a15d1a01ec6f5bfd56fb65608a6363830e037343ea3b",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42524": {
+    "bytes": 1170804,
+    "etag": "\"6afe17b8-11dd74\"",
+    "lastModified": "Wed, 18 Nov 2026 21:25:12 GMT",
+    "sha256": "628de5ce51a4bc39d833729e8196736770aa25fcc848329ad490be9f7040ad46",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42525": {
+    "bytes": 1237097,
+    "etag": "\"6afe17b8-12e069\"",
+    "lastModified": "Wed, 18 Nov 2026 21:25:12 GMT",
+    "sha256": "2bafab25f2175c109c53f89e5117a4c0511ef1b608b4c03e650738075c15d27a",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42540": {
+    "bytes": 1601894,
+    "etag": "\"6a5697c0-187166\"",
+    "lastModified": "Tue, 14 Jul 2026 20:10:40 GMT",
+    "sha256": "16496876c3daffb87cac75c70502fba06bd7d7f4a47f52d81b322eb842ae4fba",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42542": {
+    "bytes": 3070956,
+    "etag": "\"6a5fd5b3-2edbec\"",
+    "lastModified": "Tue, 21 Jul 2026 20:25:23 GMT",
+    "sha256": "dfa3256f97d6df25b8380a1158d8dfc1833d5e33ab3612e32a72087a70fb1411",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42543": {
+    "bytes": 2469416,
+    "etag": "\"6a5fd5b3-25ae28\"",
+    "lastModified": "Tue, 21 Jul 2026 20:25:23 GMT",
+    "sha256": "a5f59320d594cf945e0fafd63b4f72d9a23c72207ad7e4611fa19e73b377776b",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42544": {
+    "bytes": 1199688,
+    "etag": "\"6a5697c0-124e48\"",
+    "lastModified": "Tue, 14 Jul 2026 20:10:40 GMT",
+    "sha256": "75d5232d7306604336084bf2b8236ed957b58480ebe0a06fc4dbf42547d50015",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42545": {
+    "bytes": 318583,
+    "etag": "\"68814153-4dc77\"",
+    "lastModified": "Wed, 23 Jul 2025 20:08:51 GMT",
+    "sha256": "a1029fefdcdf375050560f517adae3a7f551e58c4d978b964709ffdf6c8eb66d",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42546": {
+    "bytes": 2425935,
+    "etag": "\"68bb16b8-25044f\"",
+    "lastModified": "Fri, 05 Sep 2025 16:58:32 GMT",
+    "sha256": "3b405d4fc3939d3a5641dc53a3073308adc5d614fb5c6a0a4e74d9971c8ddc76",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42548": {
+    "bytes": 2431441,
+    "etag": "\"68814153-2519d1\"",
+    "lastModified": "Wed, 23 Jul 2025 20:08:51 GMT",
+    "sha256": "6da20456a4a09d9bec9f883100daae5ab08a26688a7948524c893898f7f11c8e",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42553": {
+    "bytes": 1837563,
+    "etag": "\"6aab053f-1c09fb\"",
+    "lastModified": "Wed, 16 Sep 2026 21:08:15 GMT",
+    "sha256": "361a92c03e73a1b89053e96d8e05c63a253fc3c088d77d4eb5c0d4a2c6823a3e",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe4256": {
+    "bytes": 1016766,
+    "etag": "\"6a5fd5b3-f83be\"",
+    "lastModified": "Tue, 21 Jul 2026 20:25:23 GMT",
+    "sha256": "bd2da06cc1160b14a411a0d6d0afde39b80709ea833c21989df57ba729f8c1c5",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42562": {
+    "bytes": 1837873,
+    "etag": "\"6aed0730-1c0b31\"",
+    "lastModified": "Thu, 05 Nov 2026 22:46:08 GMT",
+    "sha256": "e90c0fd5aa01a1e2176f5502427e9a5b9ecec482a0f77cf1a6b1b13ef2470991",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe4257": {
+    "bytes": 746226,
+    "etag": "\"6a8c8ff1-b62f2\"",
+    "lastModified": "Mon, 24 Aug 2026 18:39:45 GMT",
+    "sha256": "31d7ab5390ee49a14a121a79059c2b595035853455c7a9b9ba4a37d43221b347",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42582": {
+    "bytes": 2004693,
+    "etag": "\"6ad9385a-1e96d5\"",
+    "lastModified": "Wed, 21 Oct 2026 22:10:34 GMT",
+    "sha256": "e52322394a164af2edb091b050b1ad3c2a388462e3be98215891af77d1fdd0e6",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe4259": {
+    "bytes": 1185698,
+    "etag": "\"6a5697c0-1217a2\"",
+    "lastModified": "Tue, 14 Jul 2026 20:10:40 GMT",
+    "sha256": "422ba4c6643a573ae4424a7f64aa0b0ed91ed4e5c8790da5579fc1a5ddbb8b53",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42641": {
+    "bytes": 1066966,
+    "etag": "\"6a5fd5b3-1047d6\"",
+    "lastModified": "Tue, 21 Jul 2026 20:25:23 GMT",
+    "sha256": "1443554a219d85fbc5d2f499fe71531f4e638d1a4e796b3624286f4186d18ec0",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe426462": {
+    "bytes": 1365969,
+    "etag": "\"6aa46dd6-14d7d1\"",
+    "lastModified": "Fri, 11 Sep 2026 21:08:38 GMT",
+    "sha256": "7cd13003a1a24fab1bf7fb81212e17e80e0c6a3e687f99786f13e81a52c588a7",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe426482": {
+    "bytes": 1958617,
+    "etag": "\"6a6935bc-1de2d9\"",
+    "lastModified": "Tue, 28 Jul 2026 23:05:32 GMT",
+    "sha256": "77b42611a3f0937796e15fe6e376c3945e86ffc98e111e669f56fd52890e8c1b",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe426525": {
+    "bytes": 247775,
+    "etag": "\"68814153-3c7df\"",
+    "lastModified": "Wed, 23 Jul 2025 20:08:51 GMT",
+    "sha256": "bbb4606e1e4e6386068005bf0daac8d3de0eb5c72a709c4b4129d25d1233900a",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42721": {
+    "bytes": 1679931,
+    "etag": "\"6a5fd5b3-19a23b\"",
+    "lastModified": "Tue, 21 Jul 2026 20:25:23 GMT",
+    "sha256": "cd452f729724c2b40587c2d4525cdcdc096f743b8f2b0e3d7f0c895756edb4a6",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42722": {
+    "bytes": 1409824,
+    "etag": "\"6aecee3d-158320\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:41 GMT",
+    "sha256": "6d11dffd100ae3df4d08df1e7b06e1e33cb2019993f1a1b8fb6df0d4d28f188d",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42723": {
+    "bytes": 1481899,
+    "etag": "\"6aecee3d-169cab\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:41 GMT",
+    "sha256": "ee4ba296311a61b30c06d0763e8cc4f98f7c8289ed6e4b56feb31317373315b9",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42724": {
+    "bytes": 1211562,
+    "etag": "\"6ad9385a-127caa\"",
+    "lastModified": "Wed, 21 Oct 2026 22:10:34 GMT",
+    "sha256": "327335c307bac47a36a6365cff1292dacb9702f88523370b55e596118bc26ba5",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42726": {
+    "bytes": 1229094,
+    "etag": "\"6aecee3d-12c126\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:41 GMT",
+    "sha256": "f4bddc57a8d43d921ca92cb8693103c63c3aae7f69a4964378b0ba66cffceae5",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42727": {
+    "bytes": 1275214,
+    "etag": "\"6aecee3d-13754e\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:41 GMT",
+    "sha256": "6689accaf0ea9a81fed7bd544577f368e2c24df9f0a67954bb677fa3320d5b13",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42742": {
+    "bytes": 1664789,
+    "etag": "\"6a610206-196715\"",
+    "lastModified": "Wed, 22 Jul 2026 17:46:46 GMT",
+    "sha256": "fbe0eb414bd2e039b55b61297dc6234ad56ac803aa283303f3fc35a4c9b0e517",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42750": {
+    "bytes": 1333192,
+    "etag": "\"6aa46dd6-1457c8\"",
+    "lastModified": "Fri, 11 Sep 2026 21:08:38 GMT",
+    "sha256": "bcdea14865e2220fa4fc9bff0fdabc76be1cc2de9efce7989c8ae8efd24ea745",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42820": {
+    "bytes": 1014334,
+    "etag": "\"6a5913d2-f7a3e\"",
+    "lastModified": "Thu, 16 Jul 2026 17:24:34 GMT",
+    "sha256": "91a7c1f859870fb3f6bac1cc8f151325290457b01c52c0dfa0ced87365810ba7",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42823": {
+    "bytes": 1554596,
+    "etag": "\"6aa99cd7-17b8a4\"",
+    "lastModified": "Tue, 15 Sep 2026 19:30:31 GMT",
+    "sha256": "efceb516138eb8dcc457b7e6cd88a598ee8dc69446ddda70020a274c8567a936",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe42850": {
+    "bytes": 1610781,
+    "etag": "\"6a5fd5b3-18941d\"",
+    "lastModified": "Tue, 21 Jul 2026 20:25:23 GMT",
+    "sha256": "7302e8c8498bf54c0876f30bb078b110d96ad4bace220ed59b43accd68393b9f",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe4312": {
+    "bytes": 2658870,
+    "etag": "\"6aecee3d-289236\"",
+    "lastModified": "Thu, 05 Nov 2026 20:59:41 GMT",
+    "sha256": "e88aa51214c782f440316240e91ed89be3fa77bf866bb783ec964d51abe02870",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe4314": {
+    "bytes": 3324514,
+    "etag": "\"6ad9385a-32ba62\"",
+    "lastModified": "Wed, 21 Oct 2026 22:10:34 GMT",
+    "sha256": "df2e115aaa4566263435c46256d36434666894cc103a0ed48095944d5d9ea410",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe43205": {
+    "bytes": 1782507,
+    "etag": "\"6a628fdf-1b32eb\"",
+    "lastModified": "Thu, 23 Jul 2026 22:04:15 GMT",
+    "sha256": "bdd6f7dbf962ad697b7d8e510ab165be30d2279a67b0d8fee62e405e62559e6f",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe43508": {
+    "bytes": 1005758,
+    "etag": "\"68814153-f58be\"",
+    "lastModified": "Wed, 23 Jul 2025 20:08:51 GMT",
+    "sha256": "e0f4fd34f2a3e6568d27cbe507a2adf183f87e1dbc27f75db4a76120d1d73f70",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe43610": {
+    "bytes": 2791284,
+    "etag": "\"6ad14064-2a9774\"",
+    "lastModified": "Thu, 15 Oct 2026 21:06:44 GMT",
+    "sha256": "9b9a3b7e15a69d70d5b61e2ed75ed0051f2d8603181eb8503d30e7fc5a5896f2",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe43614": {
+    "bytes": 4012479,
+    "etag": "\"6933240d-3d39bf\"",
+    "lastModified": "Fri, 05 Dec 2025 18:27:25 GMT",
+    "sha256": "a01a9b6a191c1bed0188d51f17cb4a056f18053460d5d2ef546dfed04c5bc2ee",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe43704": {
+    "bytes": 2976460,
+    "etag": "\"6a5697c4-2d6acc\"",
+    "lastModified": "Tue, 14 Jul 2026 20:10:44 GMT",
+    "sha256": "ce58a8c1f0390d7b8ea9bd1ae40e08546158df3b53ae856e4a7ce5b79e3f75c3",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe43705": {
+    "bytes": 4586333,
+    "etag": "\"6aa46dd6-45fb5d\"",
+    "lastModified": "Fri, 11 Sep 2026 21:08:38 GMT",
+    "sha256": "0d97d1dd91768b56d1fd621bfa404573cc75003ffec285db0af704ac160337dc",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe43711": {
+    "bytes": 7792314,
+    "etag": "\"6afe17b8-76e6ba\"",
+    "lastModified": "Wed, 18 Nov 2026 21:25:12 GMT",
+    "sha256": "d531bfe001852c32bad39930142aff9c388f71c7ff73b518c362f125e0dbf663",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe43712": {
+    "bytes": 4350424,
+    "etag": "\"6afe17b8-4261d8\"",
+    "lastModified": "Wed, 18 Nov 2026 21:25:12 GMT",
+    "sha256": "2d3dba81cdfb9be0f073117def73e32cb95fd8608f26de6d62a5373cbf341d5f",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe43713": {
+    "bytes": 4196312,
+    "etag": "\"6a84b221-4007d8\"",
+    "lastModified": "Tue, 18 Aug 2026 19:27:29 GMT",
+    "sha256": "dc83209046a4d403c02f2c2ecbce4d1ba714f223b216b4bf159b9c1a7b8a13ff",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe44820": {
+    "bytes": 1916036,
+    "etag": "\"6aa99cd7-1d3c84\"",
+    "lastModified": "Tue, 15 Sep 2026 19:30:31 GMT",
+    "sha256": "0778e861f837d475a8dc25666f1e9191b3c0abe02cdd1d6971f5e8840df34caa",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe44951": {
+    "bytes": 249529,
+    "etag": "\"6a610207-3ceb9\"",
+    "lastModified": "Wed, 22 Jul 2026 17:46:47 GMT",
+    "sha256": "e87a354ed5540fa939dc2dab0cf998a92c297eff38f6f968759b6e785322d995",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe45361": {
+    "bytes": 1336964,
+    "etag": "\"6ab56301-146684\"",
+    "lastModified": "Thu, 24 Sep 2026 17:50:57 GMT",
+    "sha256": "3f0dc784f15909c6400052960fbdc23a4e9fc3cf6fc993b537cb9487d204b2d8",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe45450": {
+    "bytes": 1457634,
+    "etag": "\"6aa46dd6-163de2\"",
+    "lastModified": "Fri, 11 Sep 2026 21:08:38 GMT",
+    "sha256": "ed33958554fdc9cc3c23bffd894fc221ad242c15d0008aa8aa7a1a2d42a07796",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe46130": {
+    "bytes": 3024920,
+    "etag": "\"6a46c55d-2e2818\"",
+    "lastModified": "Thu, 02 Jul 2026 20:09:01 GMT",
+    "sha256": "2b9465d21089bf3570fa6948b81888250dc1e7d66cd40931671e9e0b0a83df98",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe53231": {
+    "bytes": 1652635,
+    "etag": "\"6aa99cd7-19379b\"",
+    "lastModified": "Tue, 15 Sep 2026 19:30:31 GMT",
+    "sha256": "ba4b75016dbcf69300cab7a5b401ae035d8be6ba321a62afde5acf6d047ef917",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe562212": {
+    "bytes": 3634165,
+    "etag": "\"6afe17b8-3773f5\"",
+    "lastModified": "Wed, 18 Nov 2026 21:25:12 GMT",
+    "sha256": "6ba7c46813b9a719539fa1e05cb336e80d101b4aece84178bbc6aa020041eba7",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe566212": {
+    "bytes": 217663,
+    "etag": "\"6ac8e0c7-3523f\"",
+    "lastModified": "Fri, 09 Oct 2026 12:40:39 GMT",
+    "sha256": "fddbe5d3763e3dd9dde21459dbb5de434daa0d3c36962f9ecbad90e498ff361a",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe566213": {
+    "bytes": 218046,
+    "etag": "\"6ac8e0c7-353be\"",
+    "lastModified": "Fri, 09 Oct 2026 12:40:39 GMT",
+    "sha256": "63293fdcb68a75dd1bfad443d87859424218ceca1e409d22fdacec35b22839dc",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe613050": {
+    "bytes": 620345,
+    "etag": "\"6aa46dd6-97739\"",
+    "lastModified": "Fri, 11 Sep 2026 21:08:38 GMT",
+    "sha256": "6dc6740a72009e690bb78ef7eed3129bc47a5f98cef0dde06b6253dd9230064f",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe64102": {
+    "bytes": 3311910,
+    "etag": "\"6aa99cd7-328926\"",
+    "lastModified": "Tue, 15 Sep 2026 19:30:31 GMT",
+    "sha256": "3347ce8c3fedafc0f88ebfa528e70d722c35f4658aca30189db72312edd91a35",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe64904": {
+    "bytes": 1412887,
+    "etag": "\"6aa99cd7-158f17\"",
+    "lastModified": "Tue, 15 Sep 2026 19:30:31 GMT",
+    "sha256": "a4da72942a6cff27710ea3abc679416546445b7f8bd767ff037794bdc33fd042",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe64906": {
+    "bytes": 2073487,
+    "etag": "\"6aa99cd8-1fa38f\"",
+    "lastModified": "Tue, 15 Sep 2026 19:30:32 GMT",
+    "sha256": "11ef262f8c503e960f87884e137bd540584ccaf0502267684880a5069f541407",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe64907": {
+    "bytes": 1667427,
+    "etag": "\"6a46c55d-197163\"",
+    "lastModified": "Thu, 02 Jul 2026 20:09:01 GMT",
+    "sha256": "374abaf24408772ca73db6a1b5ed7d1885dd27031621c4c7f3157a4ed08c437d",
+    "updated": "2026-11-27"
+  },
+  "psemi-pe64909": {
+    "bytes": 1822326,
+    "etag": "\"6aa99cd8-1bce76\"",
+    "lastModified": "Tue, 15 Sep 2026 19:30:32 GMT",
+    "sha256": "44e46c79ecc45133fbba179a45a3219a16ab7ddaebb425cb6d220d5966bd7152",
+    "updated": "2026-11-27"
   },
   "teledyne-52280101x": {
     "bytes": 219251,

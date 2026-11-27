@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-27T06:24:39Z",
+  "dataVersion": "2026-11-27T06:46:49Z",
   "groups": [
     "RF",
     "Power",
@@ -10426,10 +10426,10 @@
       "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe4312/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4312ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/e88aa51214c782f440316240e91ed89be3fa77bf866bb783ec964d51abe02870.pdf",
+        "sha256": "e88aa51214c782f440316240e91ed89be3fa77bf866bb783ec964d51abe02870",
+        "bytes": 2658870,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -10456,10 +10456,10 @@
       "productUrl": "https://psemi.com/products/rf-attenuators/75%cf%89-wired-broadband-rf-digital-step-attenuators/pe4314/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4314ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/df2e115aaa4566263435c46256d36434666894cc103a0ed48095944d5d9ea410.pdf",
+        "sha256": "df2e115aaa4566263435c46256d36434666894cc103a0ed48095944d5d9ea410",
+        "bytes": 3324514,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -10486,10 +10486,10 @@
       "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43205/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43205ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/bdd6f7dbf962ad697b7d8e510ab165be30d2279a67b0d8fee62e405e62559e6f.pdf",
+        "sha256": "bdd6f7dbf962ad697b7d8e510ab165be30d2279a67b0d8fee62e405e62559e6f",
+        "bytes": 1782507,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -10516,10 +10516,10 @@
       "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43508/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43508ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/e0f4fd34f2a3e6568d27cbe507a2adf183f87e1dbc27f75db4a76120d1d73f70.pdf",
+        "sha256": "e0f4fd34f2a3e6568d27cbe507a2adf183f87e1dbc27f75db4a76120d1d73f70",
+        "bytes": 1005758,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -10546,10 +10546,10 @@
       "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43610/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43610ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/9b9a3b7e15a69d70d5b61e2ed75ed0051f2d8603181eb8503d30e7fc5a5896f2.pdf",
+        "sha256": "9b9a3b7e15a69d70d5b61e2ed75ed0051f2d8603181eb8503d30e7fc5a5896f2",
+        "bytes": 2791284,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -10576,10 +10576,10 @@
       "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43614/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43614ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/a01a9b6a191c1bed0188d51f17cb4a056f18053460d5d2ef546dfed04c5bc2ee.pdf",
+        "sha256": "a01a9b6a191c1bed0188d51f17cb4a056f18053460d5d2ef546dfed04c5bc2ee",
+        "bytes": 4012479,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -10696,10 +10696,10 @@
       "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43704/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43704ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/ce58a8c1f0390d7b8ea9bd1ae40e08546158df3b53ae856e4a7ce5b79e3f75c3.pdf",
+        "sha256": "ce58a8c1f0390d7b8ea9bd1ae40e08546158df3b53ae856e4a7ce5b79e3f75c3",
+        "bytes": 2976460,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -10726,10 +10726,10 @@
       "productUrl": "https://psemi.com/products/rf-attenuators/general-purpose-rf-digital-step-attenuators/pe43705/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43705ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/0d97d1dd91768b56d1fd621bfa404573cc75003ffec285db0af704ac160337dc.pdf",
+        "sha256": "0d97d1dd91768b56d1fd621bfa404573cc75003ffec285db0af704ac160337dc",
+        "bytes": 4586333,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -10756,10 +10756,10 @@
       "productUrl": "https://psemi.com/products/rf-attenuators/glitch-less-rf-digital-step-attenuators/pe43711/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43711ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/d531bfe001852c32bad39930142aff9c388f71c7ff73b518c362f125e0dbf663.pdf",
+        "sha256": "d531bfe001852c32bad39930142aff9c388f71c7ff73b518c362f125e0dbf663",
+        "bytes": 7792314,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -10786,10 +10786,10 @@
       "productUrl": "https://psemi.com/products/rf-attenuators/glitch-less-rf-digital-step-attenuators/pe43712/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43712ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/2d3dba81cdfb9be0f073117def73e32cb95fd8608f26de6d62a5373cbf341d5f.pdf",
+        "sha256": "2d3dba81cdfb9be0f073117def73e32cb95fd8608f26de6d62a5373cbf341d5f",
+        "bytes": 4350424,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -10816,10 +10816,10 @@
       "productUrl": "https://psemi.com/products/rf-attenuators/glitch-less-rf-digital-step-attenuators/pe43713/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe43713ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/dc83209046a4d403c02f2c2ecbce4d1ba714f223b216b4bf159b9c1a7b8a13ff.pdf",
+        "sha256": "dc83209046a4d403c02f2c2ecbce4d1ba714f223b216b4bf159b9c1a7b8a13ff",
+        "bytes": 4196312,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -32155,10 +32155,10 @@
       "productUrl": "https://psemi.com/products/rf-mixers-limiters/power-limiters/pe45361/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe45361ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/3f0dc784f15909c6400052960fbdc23a4e9fc3cf6fc993b537cb9487d204b2d8.pdf",
+        "sha256": "3f0dc784f15909c6400052960fbdc23a4e9fc3cf6fc993b537cb9487d204b2d8",
+        "bytes": 1336964,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -32180,10 +32180,10 @@
       "productUrl": "https://psemi.com/products/rf-mixers-limiters/power-limiters/pe45450/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe45450ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/ed33958554fdc9cc3c23bffd894fc221ad242c15d0008aa8aa7a1a2d42a07796.pdf",
+        "sha256": "ed33958554fdc9cc3c23bffd894fc221ad242c15d0008aa8aa7a1a2d42a07796",
+        "bytes": 1457634,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -37790,10 +37790,10 @@
       "productUrl": "https://psemi.com/products/rf-mixers-limiters/mixers/pe4140/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4140ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/9f2927ace8b02b85345bc1c95b6e30ea6fa5d9f3e36e87f50b5cd008e53168cc.pdf",
+        "sha256": "9f2927ace8b02b85345bc1c95b6e30ea6fa5d9f3e36e87f50b5cd008e53168cc",
+        "bytes": 699481,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -37816,10 +37816,10 @@
       "productUrl": "https://psemi.com/products/rf-mixers-limiters/mixers/pe4141/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4141ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/a9310e08b328344d9336af2b18a97bd07c3f09524a82d28e24bdb42d54bd8266.pdf",
+        "sha256": "a9310e08b328344d9336af2b18a97bd07c3f09524a82d28e24bdb42d54bd8266",
+        "bytes": 813544,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -37842,10 +37842,10 @@
       "productUrl": "https://psemi.com/products/rf-mixers-limiters/mixers/pe4151/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4151ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/6b64865c2445ddd19570d26f4c9cc6f84d56570c07279963bdd0879a892ec41e.pdf",
+        "sha256": "6b64865c2445ddd19570d26f4c9cc6f84d56570c07279963bdd0879a892ec41e",
+        "bytes": 3781788,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -37868,10 +37868,10 @@
       "productUrl": "https://psemi.com/products/rf-mixers-limiters/mixers/pe4152/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4152ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/dd892aa2a0f4536ab3926365772c9a49f9d70aceae5390612432bdbdf5fbdce2.pdf",
+        "sha256": "dd892aa2a0f4536ab3926365772c9a49f9d70aceae5390612432bdbdf5fbdce2",
+        "bytes": 2764404,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41419,10 +41419,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42020/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42020ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/92fad7d5fab130f75783bf014740e16acf9f0ac0b12c7bbf10b32d73de7cf997.pdf",
+        "sha256": "92fad7d5fab130f75783bf014740e16acf9f0ac0b12c7bbf10b32d73de7cf997",
+        "bytes": 3938402,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41449,10 +41449,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/automotive-switches/pe423211/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe423211ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/39d35837c93a578f48a5e41a84d4d360a19ce419c925b346e5d7fdc086a5512a.pdf",
+        "sha256": "39d35837c93a578f48a5e41a84d4d360a19ce419c925b346e5d7fdc086a5512a",
+        "bytes": 2213176,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41480,10 +41480,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe423213/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe423213ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/d9751589dcac27165a00c75a54134adeb307a00358b2fd08f883673418e2cf68.pdf",
+        "sha256": "d9751589dcac27165a00c75a54134adeb307a00358b2fd08f883673418e2cf68",
+        "bytes": 1705703,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41512,10 +41512,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/automotive-switches/pe423422/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe423422ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/a00fd5e09d4426f6455dd3081019a561a48cf6bf80fcc3f4912c1aff9744c9af.pdf",
+        "sha256": "a00fd5e09d4426f6455dd3081019a561a48cf6bf80fcc3f4912c1aff9744c9af",
+        "bytes": 2463120,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41544,10 +41544,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/automotive-switches/pe42359/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42359ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/5e26e2695666de2e2ff268289585e0f0b22391b8009c9910117753294b3a5b82.pdf",
+        "sha256": "5e26e2695666de2e2ff268289585e0f0b22391b8009c9910117753294b3a5b82",
+        "bytes": 1661615,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41576,10 +41576,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/automotive-switches/pe423641/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe423641ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/43e1e126f5b166e0e909db412f2faf1771b0bca89996ee307095bf676adb0641.pdf",
+        "sha256": "43e1e126f5b166e0e909db412f2faf1771b0bca89996ee307095bf676adb0641",
+        "bytes": 988421,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41608,10 +41608,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe4239/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4239ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/c858057b541b1f75b35aa82d4fc3d4698d43001679014e82a1013d652edd6e6e.pdf",
+        "sha256": "c858057b541b1f75b35aa82d4fc3d4698d43001679014e82a1013d652edd6e6e",
+        "bytes": 1346373,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41640,10 +41640,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42412/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42412ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/407a1227c85cfb95038d0036035d3c2c032c081e3441baee36ad171a46b57195.pdf",
+        "sha256": "407a1227c85cfb95038d0036035d3c2c032c081e3441baee36ad171a46b57195",
+        "bytes": 2233282,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41672,10 +41672,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42420/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42420ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/436b25c691d23166ea738df8cffe74fd6567762c8eaf282c34ec927b1c6c33cc.pdf",
+        "sha256": "436b25c691d23166ea738df8cffe74fd6567762c8eaf282c34ec927b1c6c33cc",
+        "bytes": 2238553,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41704,10 +41704,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe42421/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42421ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/680d3c27e6f11942df7b1d342df420584c88d16ab0a15890252be9eab9d663c0.pdf",
+        "sha256": "680d3c27e6f11942df7b1d342df420584c88d16ab0a15890252be9eab9d663c0",
+        "bytes": 1076015,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41736,10 +41736,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42422/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42422ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/8231223ed1ae4809e1e492633dad147e0bd55a47d143ccb6a5fa5afce3886acf.pdf",
+        "sha256": "8231223ed1ae4809e1e492633dad147e0bd55a47d143ccb6a5fa5afce3886acf",
+        "bytes": 1067941,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41768,10 +41768,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42423/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42423ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/3f846c256c658ec3661b063017d0340b92e59a04afdfc644f3a68e3ec8af3f05.pdf",
+        "sha256": "3f846c256c658ec3661b063017d0340b92e59a04afdfc644f3a68e3ec8af3f05",
+        "bytes": 2361492,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41800,10 +41800,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42424/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42424ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/f02d4e9675f5fef22a93ed6f752790f73d3c1042a5ad0bc757840bde2afd2efb.pdf",
+        "sha256": "f02d4e9675f5fef22a93ed6f752790f73d3c1042a5ad0bc757840bde2afd2efb",
+        "bytes": 1272924,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41832,10 +41832,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42426/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42426ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/0b1a28b1e26fb928d06a3eab7ee2bd7ccbd46f637d2ebacff3e0bc4a689eef49.pdf",
+        "sha256": "0b1a28b1e26fb928d06a3eab7ee2bd7ccbd46f637d2ebacff3e0bc4a689eef49",
+        "bytes": 1456858,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41864,10 +41864,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42427/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42427ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/f5967b3996aee77452f6c4baa287c3067c4ff9df47a05c75c4b2feb4eaae19c8.pdf",
+        "sha256": "f5967b3996aee77452f6c4baa287c3067c4ff9df47a05c75c4b2feb4eaae19c8",
+        "bytes": 2247212,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41895,10 +41895,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42429/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42429ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/34a7f2d464dea76b66790f8fe672f193f1fdc4895ab25bf455e5169f3e4e565e.pdf",
+        "sha256": "34a7f2d464dea76b66790f8fe672f193f1fdc4895ab25bf455e5169f3e4e565e",
+        "bytes": 1180705,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41927,10 +41927,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe42430/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42430ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/ae4b44191348e01417279a95fec32980ac746feec2039d0c8e1f5aa7dc3fef2b.pdf",
+        "sha256": "ae4b44191348e01417279a95fec32980ac746feec2039d0c8e1f5aa7dc3fef2b",
+        "bytes": 5430951,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41959,10 +41959,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe42440/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42440ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/d24a5c92709e57eceedeba8b9cc93a75e80b9e888954c8318023433b14a1f054.pdf",
+        "sha256": "d24a5c92709e57eceedeba8b9cc93a75e80b9e888954c8318023433b14a1f054",
+        "bytes": 1041226,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -41991,10 +41991,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe42441/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/pdf/datasheets/pe42441ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/a95814c04b4be4ff8ce0031ccaa500f033d9e134855dc40d47517d8a0eca455e.pdf",
+        "sha256": "a95814c04b4be4ff8ce0031ccaa500f033d9e134855dc40d47517d8a0eca455e",
+        "bytes": 1124702,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42023,10 +42023,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42442/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42442ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/250ef833f08dfe28ef61334099c245579bc0e7937e5117271e768c42a9d133a4.pdf",
+        "sha256": "250ef833f08dfe28ef61334099c245579bc0e7937e5117271e768c42a9d133a4",
+        "bytes": 1167403,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42054,10 +42054,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42443/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42443ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/3ebd00b54521b2bc45f7780cdaea15e01818cbdc60246aaf213f800131bfa4b6.pdf",
+        "sha256": "3ebd00b54521b2bc45f7780cdaea15e01818cbdc60246aaf213f800131bfa4b6",
+        "bytes": 1591615,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42085,10 +42085,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42444/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42444ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/4eca1014912c2768b811812561d99bffdded7f375479ad92a0b9f74af29e5f8c.pdf",
+        "sha256": "4eca1014912c2768b811812561d99bffdded7f375479ad92a0b9f74af29e5f8c",
+        "bytes": 1561300,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42117,10 +42117,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42445/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42445ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/9580771a0c3309e1b9ce3688b6a2ffa8bda8701374a3df5ac64eb10c2e45c541.pdf",
+        "sha256": "9580771a0c3309e1b9ce3688b6a2ffa8bda8701374a3df5ac64eb10c2e45c541",
+        "bytes": 1389724,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42149,10 +42149,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42446/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42446ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/521f58d3f7b94bcfabac0181d011ea7ef101de60f170565fc145fce56ff4dcdb.pdf",
+        "sha256": "521f58d3f7b94bcfabac0181d011ea7ef101de60f170565fc145fce56ff4dcdb",
+        "bytes": 1527453,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42180,10 +42180,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42447/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42447ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/fa50e13a47af91b490886a0b4362752f8501140209a218bdab59d9c1e1ef0b3f.pdf",
+        "sha256": "fa50e13a47af91b490886a0b4362752f8501140209a218bdab59d9c1e1ef0b3f",
+        "bytes": 2132606,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42212,10 +42212,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-linearity-rf-switches/pe42448/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42448ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/9ef80e0bb4ac3b67e7e04f356c423996af3fe69a82379404665f62f33b2db9bd.pdf",
+        "sha256": "9ef80e0bb4ac3b67e7e04f356c423996af3fe69a82379404665f62f33b2db9bd",
+        "bytes": 1845953,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42244,10 +42244,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42451/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42451ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/aeae04bec061c1daefb226ac508eadc5ecb930c81da6080de67db3f504359354.pdf",
+        "sha256": "aeae04bec061c1daefb226ac508eadc5ecb930c81da6080de67db3f504359354",
+        "bytes": 1842501,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42276,10 +42276,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42452/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42452ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/f693160bbaa0fd467d062f039411e01fe6433fe5f61556b62dcb4daba5782bf2.pdf",
+        "sha256": "f693160bbaa0fd467d062f039411e01fe6433fe5f61556b62dcb4daba5782bf2",
+        "bytes": 1287895,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42308,10 +42308,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42462/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42462ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/4bd69bc8598d6951659d7f2771624460f8b0605d228d9b095bdab61d6fa3dc55.pdf",
+        "sha256": "4bd69bc8598d6951659d7f2771624460f8b0605d228d9b095bdab61d6fa3dc55",
+        "bytes": 1509799,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42340,10 +42340,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42482/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42482ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/3dcbf7e849ca3af297545aaf3dec0df5e399542f625594cf7e0c4904c37c287f.pdf",
+        "sha256": "3dcbf7e849ca3af297545aaf3dec0df5e399542f625594cf7e0c4904c37c287f",
+        "bytes": 1926005,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42372,10 +42372,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe4250/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4250ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/702f6a5742ccf2d5c733b58197b89f89ed5a21df47cb3229256a0d06a145e3a0.pdf",
+        "sha256": "702f6a5742ccf2d5c733b58197b89f89ed5a21df47cb3229256a0d06a145e3a0",
+        "bytes": 677877,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42404,10 +42404,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe4251/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4251ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/96ba513095bb3294edce9c943b1927444d550861bdb332fb3c95cdd04ddff4a9.pdf",
+        "sha256": "96ba513095bb3294edce9c943b1927444d550861bdb332fb3c95cdd04ddff4a9",
+        "bytes": 641744,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42436,10 +42436,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42512/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42512ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/9af1ae5fb3ce737873881ccb90f7a18f9d8dd0173670e0b562ab4169ebb718ab.pdf",
+        "sha256": "9af1ae5fb3ce737873881ccb90f7a18f9d8dd0173670e0b562ab4169ebb718ab",
+        "bytes": 2210068,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42468,10 +42468,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42520/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42520ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/30bfd5a1ba899bc2d2fe6e55b7b779ee54013e6be31c110a00b82cdb7122195f.pdf",
+        "sha256": "30bfd5a1ba899bc2d2fe6e55b7b779ee54013e6be31c110a00b82cdb7122195f",
+        "bytes": 3126884,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42500,10 +42500,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42521/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42521ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/bf42f2c86bfa64b9319d22a4564f18bbdc8660854467733ed84472d44c99b85f.pdf",
+        "sha256": "bf42f2c86bfa64b9319d22a4564f18bbdc8660854467733ed84472d44c99b85f",
+        "bytes": 2126835,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42532,10 +42532,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42522/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42522ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/c51dcb0c42704467f4c9a15d1a01ec6f5bfd56fb65608a6363830e037343ea3b.pdf",
+        "sha256": "c51dcb0c42704467f4c9a15d1a01ec6f5bfd56fb65608a6363830e037343ea3b",
+        "bytes": 2352249,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42563,10 +42563,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42524/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42524ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/628de5ce51a4bc39d833729e8196736770aa25fcc848329ad490be9f7040ad46.pdf",
+        "sha256": "628de5ce51a4bc39d833729e8196736770aa25fcc848329ad490be9f7040ad46",
+        "bytes": 1170804,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42595,10 +42595,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42525/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42525ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/2bafab25f2175c109c53f89e5117a4c0511ef1b608b4c03e650738075c15d27a.pdf",
+        "sha256": "2bafab25f2175c109c53f89e5117a4c0511ef1b608b4c03e650738075c15d27a",
+        "bytes": 1237097,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42627,10 +42627,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42540/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42540ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/16496876c3daffb87cac75c70502fba06bd7d7f4a47f52d81b322eb842ae4fba.pdf",
+        "sha256": "16496876c3daffb87cac75c70502fba06bd7d7f4a47f52d81b322eb842ae4fba",
+        "bytes": 1601894,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42659,10 +42659,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42542/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/pdf/datasheets/pe42542ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/dfa3256f97d6df25b8380a1158d8dfc1833d5e33ab3612e32a72087a70fb1411.pdf",
+        "sha256": "dfa3256f97d6df25b8380a1158d8dfc1833d5e33ab3612e32a72087a70fb1411",
+        "bytes": 3070956,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42691,10 +42691,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42543/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42543ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/a5f59320d594cf945e0fafd63b4f72d9a23c72207ad7e4611fa19e73b377776b.pdf",
+        "sha256": "a5f59320d594cf945e0fafd63b4f72d9a23c72207ad7e4611fa19e73b377776b",
+        "bytes": 2469416,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42723,10 +42723,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe42544/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42544ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/75d5232d7306604336084bf2b8236ed957b58480ebe0a06fc4dbf42547d50015.pdf",
+        "sha256": "75d5232d7306604336084bf2b8236ed957b58480ebe0a06fc4dbf42547d50015",
+        "bytes": 1199688,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42754,10 +42754,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42545/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42545ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/a1029fefdcdf375050560f517adae3a7f551e58c4d978b964709ffdf6c8eb66d.pdf",
+        "sha256": "a1029fefdcdf375050560f517adae3a7f551e58c4d978b964709ffdf6c8eb66d",
+        "bytes": 318583,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42785,10 +42785,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42546/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42546ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/3b405d4fc3939d3a5641dc53a3073308adc5d614fb5c6a0a4e74d9971c8ddc76.pdf",
+        "sha256": "3b405d4fc3939d3a5641dc53a3073308adc5d614fb5c6a0a4e74d9971c8ddc76",
+        "bytes": 2425935,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42817,10 +42817,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42548/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42548ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/6da20456a4a09d9bec9f883100daae5ab08a26688a7948524c893898f7f11c8e.pdf",
+        "sha256": "6da20456a4a09d9bec9f883100daae5ab08a26688a7948524c893898f7f11c8e",
+        "bytes": 2431441,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42849,10 +42849,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42553/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42553ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/361a92c03e73a1b89053e96d8e05c63a253fc3c088d77d4eb5c0d4a2c6823a3e.pdf",
+        "sha256": "361a92c03e73a1b89053e96d8e05c63a253fc3c088d77d4eb5c0d4a2c6823a3e",
+        "bytes": 1837563,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42881,10 +42881,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe4256/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4256ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/bd2da06cc1160b14a411a0d6d0afde39b80709ea833c21989df57ba729f8c1c5.pdf",
+        "sha256": "bd2da06cc1160b14a411a0d6d0afde39b80709ea833c21989df57ba729f8c1c5",
+        "bytes": 1016766,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42913,10 +42913,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42562/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42562ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/e90c0fd5aa01a1e2176f5502427e9a5b9ecec482a0f77cf1a6b1b13ef2470991.pdf",
+        "sha256": "e90c0fd5aa01a1e2176f5502427e9a5b9ecec482a0f77cf1a6b1b13ef2470991",
+        "bytes": 1837873,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42945,10 +42945,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-isolation-rf-switches/pe4257/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4257ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/31d7ab5390ee49a14a121a79059c2b595035853455c7a9b9ba4a37d43221b347.pdf",
+        "sha256": "31d7ab5390ee49a14a121a79059c2b595035853455c7a9b9ba4a37d43221b347",
+        "bytes": 746226,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -42977,10 +42977,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/broadband-rf-switches/pe42582/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42582ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/e52322394a164af2edb091b050b1ad3c2a388462e3be98215891af77d1fdd0e6.pdf",
+        "sha256": "e52322394a164af2edb091b050b1ad3c2a388462e3be98215891af77d1fdd0e6",
+        "bytes": 2004693,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43009,10 +43009,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe4259/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe4259ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/422ba4c6643a573ae4424a7f64aa0b0ed91ed4e5c8790da5579fc1a5ddbb8b53.pdf",
+        "sha256": "422ba4c6643a573ae4424a7f64aa0b0ed91ed4e5c8790da5579fc1a5ddbb8b53",
+        "bytes": 1185698,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43041,10 +43041,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/low-il-rf-switches/pe42641/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/pdf/datasheets/pe42641ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/1443554a219d85fbc5d2f499fe71531f4e638d1a4e796b3624286f4186d18ec0.pdf",
+        "sha256": "1443554a219d85fbc5d2f499fe71531f4e638d1a4e796b3624286f4186d18ec0",
+        "bytes": 1066966,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43073,10 +43073,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/extended-temperature-rf-switches/pe426462/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe426462ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/7cd13003a1a24fab1bf7fb81212e17e80e0c6a3e687f99786f13e81a52c588a7.pdf",
+        "sha256": "7cd13003a1a24fab1bf7fb81212e17e80e0c6a3e687f99786f13e81a52c588a7",
+        "bytes": 1365969,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43104,10 +43104,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/extended-temperature-rf-switches/pe426482/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe426482ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/77b42611a3f0937796e15fe6e376c3945e86ffc98e111e669f56fd52890e8c1b.pdf",
+        "sha256": "77b42611a3f0937796e15fe6e376c3945e86ffc98e111e669f56fd52890e8c1b",
+        "bytes": 1958617,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43135,10 +43135,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/extended-temperature-rf-switches/pe426525/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe426525ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/bbb4606e1e4e6386068005bf0daac8d3de0eb5c72a709c4b4129d25d1233900a.pdf",
+        "sha256": "bbb4606e1e4e6386068005bf0daac8d3de0eb5c72a709c4b4129d25d1233900a",
+        "bytes": 247775,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43167,10 +43167,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42721/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42721ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/cd452f729724c2b40587c2d4525cdcdc096f743b8f2b0e3d7f0c895756edb4a6.pdf",
+        "sha256": "cd452f729724c2b40587c2d4525cdcdc096f743b8f2b0e3d7f0c895756edb4a6",
+        "bytes": 1679931,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43197,10 +43197,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42722/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42722ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/6d11dffd100ae3df4d08df1e7b06e1e33cb2019993f1a1b8fb6df0d4d28f188d.pdf",
+        "sha256": "6d11dffd100ae3df4d08df1e7b06e1e33cb2019993f1a1b8fb6df0d4d28f188d",
+        "bytes": 1409824,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43226,10 +43226,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42723/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42723ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/ee4ba296311a61b30c06d0763e8cc4f98f7c8289ed6e4b56feb31317373315b9.pdf",
+        "sha256": "ee4ba296311a61b30c06d0763e8cc4f98f7c8289ed6e4b56feb31317373315b9",
+        "bytes": 1481899,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43256,10 +43256,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42724/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42724ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/327335c307bac47a36a6365cff1292dacb9702f88523370b55e596118bc26ba5.pdf",
+        "sha256": "327335c307bac47a36a6365cff1292dacb9702f88523370b55e596118bc26ba5",
+        "bytes": 1211562,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43286,10 +43286,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42726/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42726ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/f4bddc57a8d43d921ca92cb8693103c63c3aae7f69a4964378b0ba66cffceae5.pdf",
+        "sha256": "f4bddc57a8d43d921ca92cb8693103c63c3aae7f69a4964378b0ba66cffceae5",
+        "bytes": 1229094,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43317,10 +43317,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42727/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42727ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/6689accaf0ea9a81fed7bd544577f368e2c24df9f0a67954bb677fa3320d5b13.pdf",
+        "sha256": "6689accaf0ea9a81fed7bd544577f368e2c24df9f0a67954bb677fa3320d5b13",
+        "bytes": 1275214,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43349,10 +43349,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42742/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42742ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/fbe0eb414bd2e039b55b61297dc6234ad56ac803aa283303f3fc35a4c9b0e517.pdf",
+        "sha256": "fbe0eb414bd2e039b55b61297dc6234ad56ac803aa283303f3fc35a4c9b0e517",
+        "bytes": 1664789,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43381,10 +43381,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/75%cf%89-wired-broadband-switches/pe42750/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42750ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/bcdea14865e2220fa4fc9bff0fdabc76be1cc2de9efce7989c8ae8efd24ea745.pdf",
+        "sha256": "bcdea14865e2220fa4fc9bff0fdabc76be1cc2de9efce7989c8ae8efd24ea745",
+        "bytes": 1333192,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43413,10 +43413,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-power-switches/pe42820/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42820ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/91a7c1f859870fb3f6bac1cc8f151325290457b01c52c0dfa0ced87365810ba7.pdf",
+        "sha256": "91a7c1f859870fb3f6bac1cc8f151325290457b01c52c0dfa0ced87365810ba7",
+        "bytes": 1014334,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43445,10 +43445,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-power-switches/pe42823/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42823ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/efceb516138eb8dcc457b7e6cd88a598ee8dc69446ddda70020a274c8567a936.pdf",
+        "sha256": "efceb516138eb8dcc457b7e6cd88a598ee8dc69446ddda70020a274c8567a936",
+        "bytes": 1554596,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43477,10 +43477,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/high-power-switches/pe42850/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe42850ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/7302e8c8498bf54c0876f30bb078b110d96ad4bace220ed59b43accd68393b9f.pdf",
+        "sha256": "7302e8c8498bf54c0876f30bb078b110d96ad4bace220ed59b43accd68393b9f",
+        "bytes": 1610781,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -43508,10 +43508,10 @@
       "productUrl": "https://psemi.com/products/rf-switches/antenna-tuning-switches/pe613050/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe613050ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/6dc6740a72009e690bb78ef7eed3129bc47a5f98cef0dde06b6253dd9230064f.pdf",
+        "sha256": "6dc6740a72009e690bb78ef7eed3129bc47a5f98cef0dde06b6253dd9230064f",
+        "bytes": 620345,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -58834,10 +58834,10 @@
       "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/phase-shifters/pe44820/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe44820ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/0778e861f837d475a8dc25666f1e9191b3c0abe02cdd1d6971f5e8840df34caa.pdf",
+        "sha256": "0778e861f837d475a8dc25666f1e9191b3c0abe02cdd1d6971f5e8840df34caa",
+        "bytes": 1916036,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -58865,10 +58865,10 @@
       "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/monolithic-phase-amplitude-controllers-mpacs/pe44951/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe44951pb.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/e87a354ed5540fa939dc2dab0cf998a92c297eff38f6f968759b6e785322d995.pdf",
+        "sha256": "e87a354ed5540fa939dc2dab0cf998a92c297eff38f6f968759b6e785322d995",
+        "bytes": 249529,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -58927,10 +58927,10 @@
       "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/monolithic-phase-amplitude-controllers-mpacs/pe46130/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe46130ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/2b9465d21089bf3570fa6948b81888250dc1e7d66cd40931671e9e0b0a83df98.pdf",
+        "sha256": "2b9465d21089bf3570fa6948b81888250dc1e7d66cd40931671e9e0b0a83df98",
+        "bytes": 3024920,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -58988,10 +58988,10 @@
       "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/digital-tunable-capacitors-dtcs/pe64102/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe64102ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/3347ce8c3fedafc0f88ebfa528e70d722c35f4658aca30189db72312edd91a35.pdf",
+        "sha256": "3347ce8c3fedafc0f88ebfa528e70d722c35f4658aca30189db72312edd91a35",
+        "bytes": 3311910,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -59018,10 +59018,10 @@
       "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/digital-tunable-capacitors-dtcs/pe64904/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe64904ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/a4da72942a6cff27710ea3abc679416546445b7f8bd767ff037794bdc33fd042.pdf",
+        "sha256": "a4da72942a6cff27710ea3abc679416546445b7f8bd767ff037794bdc33fd042",
+        "bytes": 1412887,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -59048,10 +59048,10 @@
       "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/digital-tunable-capacitors-dtcs/pe64906/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe64906ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/11ef262f8c503e960f87884e137bd540584ccaf0502267684880a5069f541407.pdf",
+        "sha256": "11ef262f8c503e960f87884e137bd540584ccaf0502267684880a5069f541407",
+        "bytes": 2073487,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -59078,10 +59078,10 @@
       "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/digital-tunable-capacitors-dtcs/pe64907/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe64907ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/374abaf24408772ca73db6a1b5ed7d1885dd27031621c4c7f3157a4ed08c437d.pdf",
+        "sha256": "374abaf24408772ca73db6a1b5ed7d1885dd27031621c4c7f3157a4ed08c437d",
+        "bytes": 1667427,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -59108,10 +59108,10 @@
       "productUrl": "https://psemi.com/products/rf-phase-amplitude-control/digital-tunable-capacitors-dtcs/pe64909/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe64909ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/44e46c79ecc45133fbba179a45a3219a16ab7ddaebb425cb6d220d5966bd7152.pdf",
+        "sha256": "44e46c79ecc45133fbba179a45a3219a16ab7ddaebb425cb6d220d5966bd7152",
+        "bytes": 1822326,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -59129,10 +59129,10 @@
       "productUrl": "https://psemi.com/products/rf-tx-rx-modules/beamforming-front-ends/pe188100/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe188100pb.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/ccfdc5145a75456f493e06875e6b629265bd3cc388906ac5c956632a05c57da4.pdf",
+        "sha256": "ccfdc5145a75456f493e06875e6b629265bd3cc388906ac5c956632a05c57da4",
+        "bytes": 319131,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -59152,10 +59152,10 @@
       "productUrl": "https://psemi.com/products/integrated-products/switch-lna/pe53231/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe53231ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/ba4b75016dbcf69300cab7a5b401ae035d8be6ba321a62afde5acf6d047ef917.pdf",
+        "sha256": "ba4b75016dbcf69300cab7a5b401ae035d8be6ba321a62afde5acf6d047ef917",
+        "bytes": 1652635,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -59179,10 +59179,10 @@
       "productUrl": "https://psemi.com/products/front-end-modules/2-4-ghz-iot-fems/pe562212/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe562212ds.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/6ba7c46813b9a719539fa1e05cb336e80d101b4aece84178bbc6aa020041eba7.pdf",
+        "sha256": "6ba7c46813b9a719539fa1e05cb336e80d101b4aece84178bbc6aa020041eba7",
+        "bytes": 3634165,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -59205,10 +59205,10 @@
       "productUrl": "https://psemi.com/products/front-end-modules/2-4-ghz-iot-fems/pe566212/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe566212pb.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/fddbe5d3763e3dd9dde21459dbb5de434daa0d3c36962f9ecbad90e498ff361a.pdf",
+        "sha256": "fddbe5d3763e3dd9dde21459dbb5de434daa0d3c36962f9ecbad90e498ff361a",
+        "bytes": 217663,
+        "updated": "2026-11-27"
       }
     },
     {
@@ -59231,10 +59231,10 @@
       "productUrl": "https://psemi.com/products/front-end-modules/2-4-ghz-iot-fems/pe566213/",
       "datasheet": {
         "sourceUrl": "https://psemi.com/wp-content/uploads/pdf/datasheets/pe566213pb.pdf",
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null
+        "file": "datasheets/63293fdcb68a75dd1bfad443d87859424218ceca1e409d22fdacec35b22839dc.pdf",
+        "sha256": "63293fdcb68a75dd1bfad443d87859424218ceca1e409d22fdacec35b22839dc",
+        "bytes": 218046,
+        "updated": "2026-11-27"
       }
     }
   ]
