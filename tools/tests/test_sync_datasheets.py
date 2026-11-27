@@ -289,3 +289,19 @@ class SyncTests(SyncTestCase):
 
 if __name__ == "__main__":
     unittest.main()
+
+
+class DriveLinkTests(unittest.TestCase):
+    def test_drive_share_links_become_direct_downloads(self) -> None:
+        direct = "https://drive.google.com/uc?export=download&id=1AbCdEfGhIjKlMnOpQrStUvWxYz"
+        for link in (
+            "https://drive.google.com/file/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/view?usp=sharing",
+            "https://drive.google.com/file/d/1AbCdEfGhIjKlMnOpQrStUvWxYz/view?usp=drive_link",
+            "https://drive.google.com/open?id=1AbCdEfGhIjKlMnOpQrStUvWxYz",
+            direct,
+        ):
+            self.assertEqual(sync_datasheets.download_url(link), direct, link)
+
+    def test_other_links_are_unchanged(self) -> None:
+        url = "https://www.markimicrowave.com/x/datasheet.pdf?id=1234567890ab"
+        self.assertEqual(sync_datasheets.download_url(url), url)

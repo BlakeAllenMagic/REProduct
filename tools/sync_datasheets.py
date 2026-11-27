@@ -37,6 +37,7 @@ import argparse
 import hashlib
 import json
 import os
+import re
 import shutil
 import sys
 import time
@@ -124,6 +125,26 @@ class Fetcher:
         raise last_error or FetchError("unknown error")
 
 
+DRIVE_ID = re.compile(r"(?:/file/d/|[?&]id=)([A-Za-z0-9_-]{10,})")
+
+
+def download_url(url: str) -> str:
+    """The address to download a datasheet from.
+
+    A Google Drive share link ("drive.google.com/file/d/<id>/view") opens
+    Drive's viewer page, not the PDF; its direct-download address is used
+    instead. That lets the rep host a datasheet a manufacturer only hands out
+    by request (upload to Drive, share "Anyone with the link", paste the link
+    in the Sheet). Every other link is used as is.
+    """
+    host = urlsplit(url).netloc.lower()
+    if host in ("drive.google.com", "docs.google.com"):
+        match = DRIVE_ID.search(url)
+        if match:
+            return f"https://drive.google.com/uc?export=download&id={match.group(1)}"
+    return url
+
+
 def looks_like_pdf(body: bytes) -> bool:
     # The PDF header must be in the first 1024 bytes (PDF specification).
     return b"%PDF-" in body[:1024]
@@ -176,7 +197,7 @@ def sync(
         body: bytes | None = None
         problem = ""
         try:
-            status, data, headers = fetcher.get(url, conditional)
+            status, data, headers = fetcher.get(download_url(url), conditional)
             if status == 304:
                 problem = "not modified"
             elif len(data) > fetcher.max_bytes:

@@ -19,7 +19,7 @@
 #
 # After editing, run: python3 tools/build_linecard.py
 
-groups: [RF, Power, Optical, Misc]
+groups: [RF, Power, Optical, Digital, Misc]
 
 categories:
   - id: amplifier
@@ -639,5 +639,22 @@ categories:
       - { key: freq_max_ghz, label: "Freq Max", unit: "GHz", type: number }
       - { key: grade, label: "Grade", type: text }
       - { key: case, label: "Case", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: dac
+    name: "Digital-to-Analog Converters"
+    group: Digital
+    blocks: [dac]
+    specs:
+      - { key: resolution_bits, label: "Resolution", unit: "bit", type: number, sort: desc }
+      - { key: rate_gsps, label: "Rate", unit: "GSps", type: number, sort: desc }
+      - { key: channels, label: "Channels", type: number }
+      - { key: bandwidth_ghz, label: "Output Bandwidth", unit: "GHz", type: number, sort: desc }
+      - { key: mux, label: "MUX", type: text }
+      - { key: power_w, label: "Power", unit: "W", type: number, sort: asc }
+      - { key: package, label: "Package", type: text }
+      - { key: temp_range, label: "Temperature Range", type: text }
+      - { key: grade, label: "Grade", type: text }
       - { key: notes, label: "Notes", type: text }
       - { key: eccn, label: "ECCN", type: text }

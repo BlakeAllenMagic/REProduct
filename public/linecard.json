@@ -1,9 +1,10 @@
 {
-  "dataVersion": "2026-11-27T03:54:32Z",
+  "dataVersion": "2026-11-27T04:41:27Z",
   "groups": [
     "RF",
     "Power",
     "Optical",
+    "Digital",
     "Misc"
   ],
   "categories": [
@@ -2685,6 +2686,79 @@
         {
           "key": "case",
           "label": "Case",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "eccn",
+          "label": "ECCN",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "dac",
+      "name": "Digital-to-Analog Converters",
+      "group": "Digital",
+      "blocks": [
+        "dac"
+      ],
+      "specs": [
+        {
+          "key": "resolution_bits",
+          "label": "Resolution",
+          "unit": "bit",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "rate_gsps",
+          "label": "Rate",
+          "unit": "GSps",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "channels",
+          "label": "Channels",
+          "type": "number"
+        },
+        {
+          "key": "bandwidth_ghz",
+          "label": "Output Bandwidth",
+          "unit": "GHz",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "mux",
+          "label": "MUX",
+          "type": "text"
+        },
+        {
+          "key": "power_w",
+          "label": "Power",
+          "unit": "W",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "package",
+          "label": "Package",
+          "type": "text"
+        },
+        {
+          "key": "temp_range",
+          "label": "Temperature Range",
+          "type": "text"
+        },
+        {
+          "key": "grade",
+          "label": "Grade",
           "type": "text"
         },
         {
@@ -55482,6 +55556,213 @@
         "case": "8-lead CFP"
       },
       "productUrl": "https://www.teledyne-ade.com/en-us/companies/e2v%20HiRel%20Electronics/products/SiteAssets/HiRel-Catalog.aspx",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-ev10ds130azp",
+      "category": "dac",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV10DS130AZP",
+      "description": "Low power 10-bit 3 GSps DAC with 4/2:1 MUX",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 3,
+        "channels": 1,
+        "bandwidth_ghz": 7,
+        "mux": "4:1 or 2:1",
+        "power_w": 1.4,
+        "package": "FPBGA196",
+        "temp_range": "-40 to +110°C",
+        "grade": "Commercial (C), Industrial (V)",
+        "notes": "Datasheet covers EV10DS130AZP and EV10DS130BZP; revision A has a SYNC/power-on-reset erratum (ES1125), fixed in B"
+      },
+      "productUrl": "https://semiconductors.teledyne-e2v.com/products/dac/?model=EV10DS130AZP",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-ev10ds130xg",
+      "category": "dac",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV10DS130xG",
+      "description": "10-bit 3 GSps DAC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 3,
+        "channels": 1,
+        "package": "LGA255 / CICGA255 / CCGA255",
+        "temp_range": "-55 to +125°C",
+        "notes": "EV10DS130AG and EV10DS130BG; revision A has a SYNC/power-on-reset erratum (ES1125), fixed in B"
+      },
+      "productUrl": "https://semiconductors.teledyne-e2v.com/products/dac/?model=EV10DS130xG",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-ev12dd700",
+      "category": "dac",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12DD700",
+      "description": "Dual 12-bit 10 GSps DAC",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 10,
+        "channels": 2,
+        "package": "20x20 mm Hi-TCE package CBGA480",
+        "temp_range": "-55 to +125°C",
+        "notes": "Datasheet on request from Teledyne e2v (not available for direct download)"
+      },
+      "productUrl": "https://semiconductors.teledyne-e2v.com/products/dac/?model=EV12DD700",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-ev12ds130xg",
+      "category": "dac",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12DS130xG",
+      "description": "Low power 12-bit 3 GSps DAC with 4/2:1 MUX",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 3,
+        "channels": 1,
+        "bandwidth_ghz": 7,
+        "mux": "4:1 or 2:1",
+        "power_w": 1.4,
+        "package": "LGA255 / CICGA255 / CCGA255",
+        "temp_range": "-55 to +125°C",
+        "grade": "Space grade (engineering models and prototypes too)",
+        "notes": "EV12DS130AG and EV12DS130BG; revision A has a SYNC/power-on-reset erratum (ES1125), fixed in B"
+      },
+      "productUrl": "https://semiconductors.teledyne-e2v.com/products/dac/?model=EV12DS130xG",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-ev12ds130xzp",
+      "category": "dac",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12DS130xZP",
+      "description": "Low power 12-bit 3 GSps DAC with 4/2:1 MUX",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 3,
+        "channels": 1,
+        "bandwidth_ghz": 7,
+        "mux": "4:1 or 2:1",
+        "power_w": 1.4,
+        "package": "FPBGA196",
+        "temp_range": "-40 to +110°C",
+        "grade": "Commercial (C), Industrial (V)",
+        "notes": "EV12DS130AZP and EV12DS130BZP; revision A has a SYNC/power-on-reset erratum (ES1125), fixed in B"
+      },
+      "productUrl": "https://semiconductors.teledyne-e2v.com/products/dac/?model=EV12DS130xZP",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-ev12ds400a",
+      "category": "dac",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12DS400A",
+      "description": "Low power 12-bit 4.5 GSps DAC with 4/2:1 MUX",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 4.5,
+        "channels": 1,
+        "bandwidth_ghz": 7,
+        "mux": "4:1 or 2:1",
+        "power_w": 2.6,
+        "package": "fpBGA 196",
+        "temp_range": "-55 to +125°C",
+        "grade": "Commercial (C), Industrial (V), Military (M)"
+      },
+      "productUrl": "https://semiconductors.teledyne-e2v.com/products/dac/?model=EV12DS400A",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-ev12ds460a",
+      "category": "dac",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12DS460A",
+      "description": "Low power 12-bit 6 GSps DAC with 4/2:1 MUX",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 6,
+        "channels": 1,
+        "bandwidth_ghz": 7.5,
+        "mux": "4:1 or 2:1",
+        "power_w": 2.6,
+        "package": "fpBGA 196",
+        "temp_range": "-55 to 125°C",
+        "grade": "Commercial (C), Industrial (V), Military (M)",
+        "notes": "7.0 GSps operation; RF synthesis up to 12 GHz, 24 GHz at reduced power"
+      },
+      "productUrl": "https://semiconductors.teledyne-e2v.com/products/dac/?model=EV12DS460A",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null
+      }
+    },
+    {
+      "id": "teledyne-ev12ds480a",
+      "category": "dac",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12DS480A",
+      "description": "Low power 12-bit 8 GSps DAC with 4/2:1 MUX",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 8,
+        "channels": 1,
+        "bandwidth_ghz": 7.5,
+        "mux": "4:1 or 2:1",
+        "power_w": 2.6,
+        "package": "fpBGA 196",
+        "temp_range": "-55 to 125°C",
+        "grade": "Commercial (C), Industrial (V), Military (M), ECSS Class 3, NASA Level 1",
+        "notes": "6.4 GSps guaranteed (8.0 GSps with reduced data rate); RF synthesis up to 12 GHz, 24 GHz at reduced power"
+      },
+      "productUrl": "https://semiconductors.teledyne-e2v.com/products/dac/?model=EV12DS480A",
       "datasheet": {
         "sourceUrl": null,
         "file": null,
