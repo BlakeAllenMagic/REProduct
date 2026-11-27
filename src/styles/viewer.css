@@ -8,7 +8,8 @@
 .viewer {
   display: flex;
   flex-direction: column;
-  height: calc(100dvh - var(--topbar-h) - var(--safe-top));
+  /* --topbar-actual: the bar's real height (taller when its title wraps). */
+  height: calc(100dvh - var(--topbar-actual, calc(var(--topbar-h) + var(--safe-top))));
 }
 
 .viewer-toolbar {

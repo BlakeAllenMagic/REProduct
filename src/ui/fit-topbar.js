@@ -1,8 +1,8 @@
 // Keeps the top bar readable at any width: if the title, "‹ Back" and the
 // buttons don't fit, their text gets smaller (17 px down to 11 px) instead of
 // overlapping or being cut off with "…". If that isn't enough, the title
-// moves off-centre, and as a last resort the back label and title wrap onto
-// a second line.
+// moves off-centre, and as a last resort it gets its own line under the
+// back label and buttons.
 //
 // It reruns whenever the bar's contents change (new screen, "Send datasheet"
 // appearing, a download chip) or the window is resized or rotated.
@@ -43,15 +43,27 @@ export function installTopbarFit(topbar) {
     return false;
   };
 
+  // Title on its own line: it has to fit the full width, and back + buttons
+  // the first line.
+  const fitsStacked = () => {
+    const m = measure();
+    return m.title <= m.inner + 0.5 && m.back + m.actions + m.gap <= m.inner + 0.5;
+  };
+
   // Steps, until something fits: smaller text with the title centred; then
-  // the title off-centre; then the smallest text with the back label and
-  // title on two lines (topbar-wrap).
+  // the title off-centre; then the title on its own line under the back
+  // label and buttons (topbar-wrap), as big as fits there.
   const fit = () => {
     topbar.classList.remove('topbar-tight', 'topbar-wrap');
-    if (shrinkUntil(fitsCentred)) return;
-    topbar.classList.add('topbar-tight');
-    if (shrinkUntil(fitsSideBySide)) return;
-    topbar.classList.add('topbar-wrap');
+    if (!shrinkUntil(fitsCentred)) {
+      topbar.classList.add('topbar-tight');
+      if (!shrinkUntil(fitsSideBySide)) {
+        topbar.classList.add('topbar-wrap');
+        shrinkUntil(fitsStacked); // at 11 px whatever is left wraps between words
+      }
+    }
+    // The bar's real height, for screens laid out under it (the PDF viewer).
+    document.documentElement.style.setProperty('--topbar-actual', `${topbar.getBoundingClientRect().height}px`);
   };
 
   let queued = false;
@@ -64,8 +76,11 @@ export function installTopbarFit(topbar) {
     });
   };
 
-  // Only changes to the bar's contents, not the font size this sets on the bar itself.
-  new MutationObserver(schedule).observe(topbar, {
+  // Only changes to the bar's contents. The class changes fit() itself makes
+  // on the bar are ignored: reacting to them would rerun fit() every frame.
+  new MutationObserver((records) => {
+    if (records.some((r) => !(r.target === topbar && r.attributeName === 'class'))) schedule();
+  }).observe(topbar, {
     subtree: true,
     childList: true,
     characterData: true,

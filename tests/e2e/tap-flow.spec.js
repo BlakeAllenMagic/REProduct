@@ -124,8 +124,12 @@ test('top bar on a phone: shorter, and nothing overlaps or gets cut off', async 
     await page.waitForTimeout(100); // let the fit run (one animation frame)
     const box = (sel) => page.locator(sel).boundingBox();
     const [back, title, actions] = [await box('#back'), await box('#title'), await box('.topbar-actions')];
-    expect(back.x + back.width, `${hash} @${width}: back/title`).toBeLessThanOrEqual(title.x + 1);
-    expect(title.x + title.width, `${hash} @${width}: title/actions`).toBeLessThanOrEqual(actions.x + 1);
+    // No two of them overlap (side by side, or the title on its own line below).
+    const apart = (a, b) =>
+      a.x + a.width <= b.x + 1 || b.x + b.width <= a.x + 1 || a.y + a.height <= b.y + 1 || b.y + b.height <= a.y + 1;
+    expect(apart(back, title), `${hash} @${width}: back/title`).toBe(true);
+    expect(apart(title, actions), `${hash} @${width}: title/actions`).toBe(true);
+    expect(apart(back, actions), `${hash} @${width}: back/actions`).toBe(true);
     const cut = await page.evaluate(() =>
       ['#title', '#back'].some((s) => {
         const e = document.querySelector(s);
@@ -265,6 +269,53 @@ test('Power tab: its own diagram; blocks without parts are greyed out', async ({
     await expect(page.locator(`[data-block="${block}"]`)).toHaveClass(/is-disabled/);
   }
   await expect(page.locator('[data-block="lna"]')).toHaveCount(0);
+});
+
+test('phone, crowded bar (Email link + Send datasheet): the part number gets its own readable line', async ({ page }) => {
+  await page.setViewportSize({ width: 360, height: 780 });
+  await page.goto('#/settings');
+  await page.getByRole('button', { name: 'Download all' }).click();
+  await expect(page.locator('.big-stat')).toContainText('5 of 5');
+  await page.goto('#/part/acme-alm1234');
+  await expect(page.getByRole('button', { name: 'Email link' })).toBeVisible();
+  await expect(page.locator('.viewer-label').first()).toHaveText('1 / 7');
+  // Test browsers can't share files, so "Send datasheet" stays hidden here;
+  // a same-size stand-in crowds the bar the way it does on a phone. And a
+  // long part number, like Micropac's IPC01-280VAC5A-ST.
+  await page.evaluate(() => {
+    const send = document.createElement('button');
+    send.className = 'btn btn-primary';
+    send.textContent = 'Send datasheet';
+    document.querySelector('#actions').append(send);
+    document.querySelector('#title').textContent = 'IPC01-280VAC5A-ST';
+  });
+  await expect(page.locator('.topbar')).toHaveClass(/topbar-wrap/);
+  const title = await page.locator('#title').boundingBox();
+  expect(title.width).toBeGreaterThan(150); // not squeezed letter by letter
+  expect(title.height).toBeLessThan(30); // one line
+  const actions = await page.locator('.topbar-actions').boundingBox();
+  expect(title.y).toBeGreaterThanOrEqual(actions.y + actions.height - 1); // below the buttons
+  // The PDF viewer fits under the taller bar. (Safari in a browser tab shows
+  // an "Install for offline use" hint above it; the installed app doesn't.)
+  await page.evaluate(() => document.querySelector('.install-hint')?.remove());
+  const bar = await page.locator('.topbar').boundingBox();
+  const viewer = await page.locator('.viewer').boundingBox();
+  expect(Math.round(viewer.y + viewer.height)).toBeLessThanOrEqual(780 + 1);
+  expect(viewer.y).toBeGreaterThanOrEqual(bar.y + bar.height - 1);
+  // And the fitting code stays quiet once done (it used to rerun every frame).
+  const changes = await page.evaluate(
+    () =>
+      new Promise((done) => {
+        let count = 0;
+        const watcher = new MutationObserver((m) => (count += m.length));
+        watcher.observe(document.querySelector('.topbar'), { attributes: true, subtree: true });
+        setTimeout(() => {
+          watcher.disconnect();
+          done(count);
+        }, 1000);
+      }),
+  );
+  expect(changes).toBeLessThan(5);
 });
 
 test('two-finger pinch on a table resizes its text', async ({ page, browserName, context }) => {

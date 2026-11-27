@@ -187,7 +187,7 @@
 
 .banners {
   position: sticky;
-  top: calc(var(--topbar-h) + var(--safe-top));
+  top: var(--topbar-actual, calc(var(--topbar-h) + var(--safe-top)));
   z-index: 9;
 }
 

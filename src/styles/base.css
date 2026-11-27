@@ -168,7 +168,7 @@ a {
 
 .errors {
   position: sticky;
-  top: calc(var(--topbar-h) + var(--safe-top));
+  top: var(--topbar-actual, calc(var(--topbar-h) + var(--safe-top)));
   z-index: 9;
 }
 
@@ -238,18 +238,37 @@ a {
   grid-template-columns: auto minmax(0, 1fr) auto;
 }
 
-/* Even the smallest text doesn't fit: the back label and title wrap onto two
-   lines instead of being cut. */
+/* Still too crowded (a phone with "Email link" and "Send datasheet" in the
+   bar): back label and buttons on the first line, the title on its own
+   full-width line below, so it's never squeezed letter by letter. */
 .topbar.topbar-wrap {
-  grid-template-columns: fit-content(40%) minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) auto;
+  row-gap: 0;
+  padding-top: calc(4px + var(--safe-top));
+  padding-bottom: 6px;
 }
 
-.topbar.topbar-wrap .topbar-title,
 .topbar.topbar-wrap .topbar-back {
+  grid-column: 1;
+  grid-row: 1;
+  white-space: normal;
+  line-height: 1.15;
+}
+
+.topbar.topbar-wrap .topbar-actions {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.topbar.topbar-wrap .topbar-title {
+  grid-column: 1 / -1;
+  grid-row: 2;
   white-space: normal;
   overflow: visible;
   line-height: 1.15;
-  overflow-wrap: anywhere;
+  /* Break only between words; a single word longer than the line (a very
+     long part number) may break inside it rather than run off the screen. */
+  overflow-wrap: break-word;
 }
 
 /* Phone screens only (narrower than any iPad, or a phone held sideways:
