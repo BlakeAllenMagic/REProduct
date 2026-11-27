@@ -23,9 +23,9 @@
     <path d="M548 92 H582" marker-end="url(#arrow)" />
     <path d="M676 92 H710" marker-end="url(#arrow)" />
     <path d="M804 92 H838" marker-end="url(#arrow)" />
-    <path d="M560 92 V144 H374 V130" marker-end="url(#arrow)" />
+    <path d="M560 92 V154 H374 V130" marker-end="url(#arrow)" />
     <circle cx="560" cy="92" r="4" class="diagram-arrowhead" />
-    <path d="M886 128 V156 H630 V182" marker-end="url(#arrow)" />
+    <path d="M886 128 V158 H630 V182" marker-end="url(#arrow)" />
     <path d="M932 92 H990" marker-end="url(#arrow)" />
     <path d="M8 220 H70" marker-end="url(#arrow)" />
     <path d="M164 220 H198" marker-end="url(#arrow)" />
