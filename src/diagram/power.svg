@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 404" class="diagram-svg" role="group" aria-label="Power block diagram">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 404" class="diagram-svg" style="--diagram-w: 0.84" role="group" aria-label="Power block diagram">
   <!--
     Power chain. Each tappable block is a <g data-block="...">.
     Which category a block opens is decided by categories.yaml (blocks list),
@@ -19,20 +19,21 @@
     <path d="M292 92 H326" marker-end="url(#arrow)" />
     <path d="M420 92 H454" marker-end="url(#arrow)" />
     <path d="M548 92 H582" marker-end="url(#arrow)" />
-    <path d="M676 92 H752" marker-end="url(#arrow)" />
+    <path d="M676 92 H724" marker-end="url(#arrow)" />
     <path d="M306 92 V220 H326" marker-end="url(#arrow)" />
     <circle cx="306" cy="92" r="4" class="diagram-arrowhead" />
-    <path d="M420 220 H496" marker-end="url(#arrow)" />
+    <path d="M420 220 H468" marker-end="url(#arrow)" />
     <path d="M20 348 H198" marker-end="url(#arrow)" />
     <path d="M292 348 H326" marker-end="url(#arrow)" />
     <path d="M420 348 H454" marker-end="url(#arrow)" />
-    <path d="M548 348 H624" marker-end="url(#arrow)" />
+    <path d="M548 348 H596" marker-end="url(#arrow)" />
   </g>
   <text x="20" y="78" class="diagram-note" text-anchor="start">Supply in</text>
-  <text x="762" y="97" class="diagram-note" text-anchor="start">Clean rail to RF / ADC</text>
-  <text x="506" y="225" class="diagram-note" text-anchor="start">Heater</text>
+  <text x="734" y="88" class="diagram-note" text-anchor="start">Clean rail</text>
+  <text x="734" y="108" class="diagram-note" text-anchor="start">to RF / ADC</text>
+  <text x="478" y="225" class="diagram-note" text-anchor="start">Heater</text>
   <text x="20" y="334" class="diagram-note" text-anchor="start">PWM / controller</text>
-  <text x="634" y="353" class="diagram-note" text-anchor="start">Power out</text>
+  <text x="606" y="353" class="diagram-note" text-anchor="start">Power out</text>
 
   <g data-block="pw_ssr" class="block">
     <rect x="200" y="56" width="92" height="72" rx="10" class="block-bg" />
