@@ -18,7 +18,7 @@
     <line x1="28" y1="192" x2="28" y2="220" />
   </g>
   <g class="diagram-wires">
-    <path d="M246 56 V34 H502 V54" marker-end="url(#arrow)" />
+    <path d="M246 56 V30 H502 V54" marker-end="url(#arrow)" />
     <path d="M420 92 H454" marker-end="url(#arrow)" />
     <path d="M548 92 H582" marker-end="url(#arrow)" />
     <path d="M676 92 H710" marker-end="url(#arrow)" />
