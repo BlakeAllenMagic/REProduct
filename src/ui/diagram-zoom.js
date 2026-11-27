@@ -8,6 +8,9 @@
 // - Pinch detection (Safari gesture events, touch, trackpad) is shared with
 //   the PDF viewer: src/pdf/pinch.js.
 // - A "Reset zoom" button shows while zoomed in.
+// - At 1× the drawing fits the screen: as wide as its card allows, but no
+//   taller than the space left below it, so no scrolling is needed to see it
+//   all (fitWidth). Pinching zooms in from there.
 
 import { attachPinch } from '../pdf/pinch.js';
 
@@ -28,6 +31,22 @@ export function scrollToKeep(scroll0, pad, point, from, to) {
   return pad + drawingUnits * to - point;
 }
 
+/** Drawings are designed on a 1000-unit-wide grid; narrower ones (Power) keep the same scale. */
+const DESIGN_WIDTH = 1000;
+/** Never shrink below this height to fit a very short window (a phone held sideways). */
+const MIN_HEIGHT = 180;
+
+/**
+ * The drawing's width in px at 1×: as wide as the card allows (a 1000-unit
+ * drawing fills it), but short enough to fit the height from its top to the
+ * bottom of the window. Pure, for tests.
+ */
+export function fitWidth({ viewBoxWidth, viewBoxHeight, innerWidth, availableHeight }) {
+  const byWidth = innerWidth / DESIGN_WIDTH;
+  const byHeight = Math.max(availableHeight, MIN_HEIGHT) / viewBoxHeight;
+  return Math.floor(viewBoxWidth * Math.min(byWidth, byHeight));
+}
+
 /**
  * card: the scrolling box (.diagram) holding one <svg>; reset: the button.
  * Returns a function that removes the listeners.
@@ -38,11 +57,25 @@ export function attachDiagramZoom(card, reset) {
   let baseWidth = 0; // the drawing's width in px at 1×
   let start = null; // { zoom, left, top } when the current pinch began
 
+  const applyFit = () => {
+    const style = getComputedStyle(card);
+    const pad = (a, b) => parseFloat(style[a]) + parseFloat(style[b]);
+    const box = svg.viewBox.baseVal;
+    const top = card.getBoundingClientRect().top + window.scrollY;
+    baseWidth = fitWidth({
+      viewBoxWidth: box.width,
+      viewBoxHeight: box.height,
+      innerWidth: card.clientWidth - pad('paddingLeft', 'paddingRight'),
+      availableHeight: window.innerHeight - top - pad('paddingTop', 'paddingBottom') - card.clientTop * 2 - 12,
+    });
+    svg.style.width = `${baseWidth}px`;
+    svg.style.minWidth = '0';
+  };
+
   const setZoom = (next, clientX, clientY, from = start) => {
     next = clampZoom(next);
     if (next === zoom && !from) return;
     if (zoom === 1) {
-      baseWidth = svg.getBoundingClientRect().width;
       card.style.height = `${card.offsetHeight}px`;
       card.classList.add('is-zoomed');
     }
@@ -62,13 +95,12 @@ export function attachDiagramZoom(card, reset) {
   const resetZoom = () => {
     zoom = 1;
     start = null;
-    svg.style.width = '';
-    svg.style.minWidth = '';
     card.style.height = '';
     card.classList.remove('is-zoomed');
     card.scrollLeft = 0;
     card.scrollTop = 0;
     reset.hidden = true;
+    applyFit();
   };
 
   const detachPinch = attachPinch(card, {
@@ -83,13 +115,14 @@ export function attachDiagramZoom(card, reset) {
   });
 
   reset.addEventListener('click', resetZoom);
-  // A rotation or a narrower/wider window changes the 1× width: start over.
-  // (Only the width: a Safari tab also "resizes" when its toolbar slides away.)
+  // A rotation or a narrower/wider window changes the fit: start over.
+  // (Only the width: a Safari tab also "resizes" its height when its toolbar
+  // slides away while scrolling, and the drawing shouldn't jump then.)
   let width = window.innerWidth;
   const onResize = () => {
     if (window.innerWidth === width) return;
     width = window.innerWidth;
-    if (zoom !== 1) resetZoom();
+    resetZoom();
   };
   window.addEventListener('resize', onResize);
   resetZoom();

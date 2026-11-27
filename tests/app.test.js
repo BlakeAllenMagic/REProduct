@@ -8,7 +8,7 @@ import { readFileSync } from 'node:fs';
 import { parseHash, hrefFor } from '../src/router.js';
 import { specHeader, specValue, formatBytes, MISSING } from '../src/format.js';
 import { indexLinecard } from '../src/data.js';
-import { clampZoom, scrollToKeep } from '../src/ui/diagram-zoom.js';
+import { clampZoom, scrollToKeep, fitWidth } from '../src/ui/diagram-zoom.js';
 
 const linecard = JSON.parse(readFileSync(new URL('./fixtures/linecard.json', import.meta.url)));
 
@@ -119,4 +119,15 @@ test('diagram zoom: the point under the fingers stays put; zoom stays within 1×
   assert.equal(clampZoom(0.5), 1);
   assert.equal(clampZoom(5), 3);
   assert.equal(clampZoom(1.5), 1.5);
+});
+
+test('diagram fit: fills the width unless that would be taller than the space below it', () => {
+  // Wide window: the receiver (1000 x 404) fills the 1000 px card.
+  assert.equal(fitWidth({ viewBoxWidth: 1000, viewBoxHeight: 404, innerWidth: 1000, availableHeight: 900 }), 1000);
+  // Short window: the transmitter (1000 x 532) gets 400 px of height -> 751 px wide.
+  assert.equal(fitWidth({ viewBoxWidth: 1000, viewBoxHeight: 532, innerWidth: 1000, availableHeight: 400 }), 751);
+  // Power (840 units) keeps the same scale as the others: 840 px in a 1000 px card.
+  assert.equal(fitWidth({ viewBoxWidth: 840, viewBoxHeight: 404, innerWidth: 1000, availableHeight: 900 }), 840);
+  // Never squeezed below 180 px tall, however short the window.
+  assert.equal(fitWidth({ viewBoxWidth: 1000, viewBoxHeight: 404, innerWidth: 1000, availableHeight: 50 }), 445);
 });
