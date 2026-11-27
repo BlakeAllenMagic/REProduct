@@ -31,11 +31,6 @@ export function renderDiagram(container, ctx, route = {}) {
   wrap.innerHTML = DRAWINGS[which];
   container.append(wrap);
 
-  const help = document.createElement('p');
-  help.className = 'diagram-help';
-  help.textContent = 'Tap a block to see the parts on the line card.';
-  container.append(help);
-
   for (const block of wrap.querySelectorAll('[data-block]')) {
     setUpBlock(block, ctx);
   }
