@@ -45,9 +45,11 @@ test('hasEverything ignores parts without a datasheet', () => {
   assert.equal(hasEverything(parts, new Set(['a2', 'b1'])), false);
 });
 
-test('Updated badge: within 30 days only', () => {
+test('Updated badge: a replaced datasheet, within 30 days only; a first-time datasheet never', () => {
   const now = new Date('2026-11-24T12:00:00Z');
-  assert.equal(isRecentlyUpdated(part('x', 's', '2026-11-10'), now), true);
-  assert.equal(isRecentlyUpdated(part('x', 's', '2026-10-20'), now), false);
+  const changed = (date) => ({ id: 'x', datasheet: { sha256: 's', updated: date, changed: date } });
+  assert.equal(isRecentlyUpdated(changed('2026-11-10'), now), true);
+  assert.equal(isRecentlyUpdated(changed('2026-10-20'), now), false);
+  assert.equal(isRecentlyUpdated(part('x', 's', '2026-11-10'), now), false); // saved for the first time
   assert.equal(isRecentlyUpdated(part('x', null), now), false);
 });

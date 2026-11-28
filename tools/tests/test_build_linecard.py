@@ -86,7 +86,7 @@ class GoodDataTests(BuildTestCase):
         self.assertEqual(part["specs"]["freq_min_ghz"], 0.5)
         self.assertEqual(part["specs"]["nf_db"], 0.6)
         self.assertEqual(
-            set(part["datasheet"]), {"sourceUrl", "file", "sha256", "bytes", "updated"}
+            set(part["datasheet"]), {"sourceUrl", "file", "sha256", "bytes", "updated", "changed"}
         )
         # This part has a sample datasheet from tools/make_sample_datasheets.py.
         self.assertRegex(part["datasheet"]["sha256"], r"^[0-9a-f]{64}$")

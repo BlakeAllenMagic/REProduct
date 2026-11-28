@@ -492,8 +492,12 @@ def load_datasheet_records(path: Path, report: Report) -> dict[str, dict[str, An
         if not isinstance(updated, str) or not DATE_RE.match(updated):
             report.error(rec_where, "updated must be a date like 2026-10-02")
             ok = False
+        changed = rec.get("changed")
+        if changed is not None and (not isinstance(changed, str) or not DATE_RE.match(changed)):
+            report.error(rec_where, "changed must be a date like 2026-10-02")
+            ok = False
         if ok:
-            records[part_id] = {"sha256": sha, "bytes": size, "updated": updated}
+            records[part_id] = {"sha256": sha, "bytes": size, "updated": updated, "changed": changed}
     return records
 
 
@@ -544,6 +548,8 @@ def build(data_dir: Path, data_version: str) -> tuple[dict[str, Any] | None, Rep
                 "sha256": rec["sha256"] if rec else None,
                 "bytes": rec["bytes"] if rec else None,
                 "updated": rec["updated"] if rec else None,
+                # Set only when a datasheet was replaced (not first saved): the "Updated" badge.
+                "changed": rec["changed"] if rec else None,
             }
         )
     for stale in sorted(set(records) - set(seen_ids)):

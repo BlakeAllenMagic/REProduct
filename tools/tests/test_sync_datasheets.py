@@ -183,6 +183,8 @@ class SyncTests(SyncTestCase):
         self.assertIn("| No datasheet (download failed, nothing to keep) | 6 |", out)
         # ETags are stored for next time.
         self.assertTrue(all("etag" in r for r in self.records().values()))
+        # Nothing was replaced, so nothing is marked as changed ("Updated" badge).
+        self.assertFalse(any("changed" in r for r in self.records().values()))
 
     def test_second_run_uses_not_modified_and_copies_from_the_site(self) -> None:
         self.first_run()
@@ -208,6 +210,8 @@ class SyncTests(SyncTestCase):
         record = self.records()["acme-afb2450"]
         self.assertEqual(record["sha256"], new_sha)
         self.assertNotEqual(record["updated"], old["updated"])
+        self.assertEqual(record["changed"], record["updated"])  # replaced: the app shows "Updated"
+        self.assertNotIn("changed", self.records()["acme-alm1234"])  # untouched parts aren't
         self.assertIn(f"{new_sha}.pdf", self.site_files())
         self.assertNotIn(f"{old['sha256']}.pdf", self.site_files())  # the site holds current versions only
         card = self.card()
@@ -215,6 +219,14 @@ class SyncTests(SyncTestCase):
         part = next(p for p in card["parts"] if p["id"] == "acme-afb2450")
         self.assertEqual(part["datasheet"]["sha256"], new_sha)
         self.assertIn("| Changed | 1 |", out)
+        self.assertEqual(part["datasheet"]["changed"], record["changed"])
+
+    def test_a_datasheet_saved_for_the_first_time_is_not_marked_changed(self) -> None:
+        records = sync_datasheets.new_records(
+            [sync_datasheets.Outcome(url="u", part_ids=["new-part"], mpns=["X"], status="new", sha="a" * 64, bytes=10)],
+            {}, "2026-11-28")
+        self.assertEqual(records["new-part"]["updated"], "2026-11-28")
+        self.assertNotIn("changed", records["new-part"])
 
     def test_html_error_page_keeps_the_previous_version(self) -> None:
         self.first_run()

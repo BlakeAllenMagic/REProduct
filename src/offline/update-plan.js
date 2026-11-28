@@ -46,10 +46,15 @@ export function hasEverything(parts, saved) {
   return parts.every((part) => !part.datasheet?.sha256 || saved.has(part.datasheet.sha256));
 }
 
-/** Parts whose datasheet changed in the last `days` days ("Updated" badge). */
+/**
+ * Parts whose datasheet was replaced by a new version in the last `days`
+ * days ("Updated" badge). `changed` is set by the datasheet sync only when a
+ * part's file changes, so a part whose datasheet was just added for the
+ * first time gets no badge.
+ */
 export function isRecentlyUpdated(part, now = new Date(), days = 30) {
-  const updated = part.datasheet?.sha256 && part.datasheet?.updated;
-  if (!updated) return false;
-  const age = now.getTime() - new Date(`${updated}T00:00:00Z`).getTime();
+  const changed = part.datasheet?.sha256 && part.datasheet?.changed;
+  if (!changed) return false;
+  const age = now.getTime() - new Date(`${changed}T00:00:00Z`).getTime();
   return age >= 0 && age <= days * 24 * 60 * 60 * 1000;
 }

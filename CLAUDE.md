@@ -87,7 +87,8 @@ Do not add Android or Windows workarounds yet. Use standard web APIs so those pl
         "file": "datasheets/<sha256>.pdf",
         "sha256": "<hex>",
         "bytes": 2483112,
-        "updated": "2026-10-02"
+        "updated": "2026-10-02",
+        "changed": null
       }
     }
   ]
@@ -125,7 +126,7 @@ Use two separate caches with different lifecycles:
 1. Fetch `linecard.json` network-first, falling back to the cached copy.
 2. Compare its datasheet hashes with what's in the datasheet cache.
 3. Queue only new or changed hashes. Delete orphaned hashes only after the new files are cached successfully.
-4. Mark parts whose datasheet changed in the last 30 days with an "Updated" badge.
+4. Mark parts whose datasheet changed in the last 30 days with an "Updated" badge. `changed` is the date a part's datasheet was replaced by a different file (null when it was only ever saved once), so a part whose datasheet was just added gets no badge.
 
 **Service worker routing:**
 

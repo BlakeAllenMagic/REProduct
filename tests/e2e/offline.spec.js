@@ -268,6 +268,7 @@ function revisedAfb2450() {
     sha256: sha256(newPdf),
     bytes: newPdf.length,
     updated: new Date().toISOString().slice(0, 10),
+    changed: new Date().toISOString().slice(0, 10), // as the sync records a replaced datasheet
   };
   card.dataVersion = new Date().toISOString().replace(/\.\d+Z$/, 'Z');
   return { card, newPdf, oldSha, newSha: part.datasheet.sha256 };

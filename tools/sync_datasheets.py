@@ -277,6 +277,13 @@ def new_records(
                 "bytes": outcome.bytes,
                 "updated": previous["updated"] if same else today,
             }
+            # "changed": the day this part's datasheet was replaced by a
+            # different file (drives the app's "Updated" badge). A datasheet
+            # saved for the first time has none: a new part isn't "updated".
+            if previous is not None and not same:
+                record["changed"] = today
+            elif same and previous.get("changed"):
+                record["changed"] = previous["changed"]
             if outcome.etag:
                 record["etag"] = outcome.etag
             if outcome.last_modified:
