@@ -55,3 +55,24 @@ export function datasheetFileName(part) {
     .slice(0, 120);
   return `${name || 'datasheet'}.pdf`;
 }
+
+/**
+ * { subject, text } for the shortlist: one email for several parts.
+ * attached: ids of parts whose PDF goes with the email; the others get their
+ * link (or just their name when there's none).
+ */
+export function shortlistEmail(parts, email, attached = new Set()) {
+  const lines = parts.map((part) => {
+    const values = valuesFor(part);
+    const name = `${part.manufacturer} ${part.mpn}`;
+    const what = part.description ? `: ${part.description}` : '';
+    if (attached.has(part.id)) return `- ${name}${what} (attached)`;
+    return values.datasheetUrl ? `- ${name}${what}\n  ${values.datasheetUrl}` : `- ${name}${what}`;
+  });
+  const values = { count: parts.length };
+  const body = `${fillTemplate(email.shortlistIntro, values)}\n\n${lines.join('\n')}\n\n${email.shortlistClosing}`;
+  return {
+    subject: fillTemplate(email.shortlistSubject, values),
+    text: withSignature(body, email.signature),
+  };
+}

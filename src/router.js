@@ -1,4 +1,4 @@
-// Hash-based routing: #/  #/receiver  #/transmitter  #/power  #/category/<id>
+// Hash-based routing: #/  #/shortlist  #/receiver  #/transmitter  #/power  #/category/<id>
 // #/category/<id>/<manufacturer> (one manufacturer's parts)  #/part/<id>
 //
 // Why the hash: the part after # never goes to a server, so a static host
@@ -12,6 +12,7 @@ export function parseHash(hash) {
   const path = (hash || '').replace(/^#\/?/, '');
   const [kind, rawId, ...rest] = path.split('/');
   if (kind === 'settings' && !rawId) return { name: 'settings' };
+  if (kind === 'shortlist' && !rawId) return { name: 'shortlist' };
   // The home screen with a chosen diagram. Plain #/ shows the last one used.
   if (DIAGRAMS.includes(kind) && !rawId) return { name: 'home', diagram: kind };
   // One manufacturer's parts of a category ("By Manufacturer" on the home screen).
@@ -30,6 +31,7 @@ export function parseHash(hash) {
 export function hrefFor(name, id, manufacturer) {
   if (name === 'home') return id ? `#/${id}` : '#/';
   if (name === 'settings') return '#/settings';
+  if (name === 'shortlist') return '#/shortlist';
   const base = `#/${name}/${encodeURIComponent(id)}`;
   return manufacturer ? `${base}/${encodeURIComponent(manufacturer)}` : base;
 }

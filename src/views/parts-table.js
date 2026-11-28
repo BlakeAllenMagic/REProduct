@@ -6,6 +6,7 @@ import { downloads, getSavedHashes, itemsForParts } from '../offline/downloads.j
 import { isRecentlyUpdated } from '../offline/update-plan.js';
 import { blockPinch } from '../ui/block-pinch.js';
 import { tableFullscreen } from '../ui/table-fullscreen.js';
+import { starButton, watchStars } from '../ui/star-button.js';
 import { hrefFor } from '../router.js';
 import { activeCount, filtersFor, matches } from '../table-filter.js';
 import { columnsFor, nextSort, sortParts } from '../table-sort.js';
@@ -138,6 +139,7 @@ export function renderPartsTable(container, ctx, route) {
   // page itself is already zoomed in (pinched on the diagram first), pinches
   // go to the browser so it can zoom back out.
   const stopWatchingZoom = watchPageZoom(scroller);
+  const stopWatchingStars = watchStars(scroller);
   const detachPinch = blockPinch(scroller, () => !isPageZoomed());
 
   const items = itemsForParts(parts);
@@ -172,6 +174,7 @@ export function renderPartsTable(container, ctx, route) {
     destroy() {
       destroyed = true;
       fullscreen.off();
+      stopWatchingStars();
       detachPinch();
       stopWatchingZoom();
       for (const type of ['saved', 'finished', 'progress']) downloads.removeEventListener(type, update);
@@ -242,7 +245,8 @@ function makeBody(columns, parts, statusCells, rows) {
     const link = document.createElement('a');
     link.href = href;
     link.textContent = part.mpn;
-    mpnCell.append(link);
+    // ☆ adds the part to the shortlist (src/shortlist.js) without opening it.
+    mpnCell.append(starButton(part, 'star-in-table'), link);
     if (isRecentlyUpdated(part)) {
       mpnCell.append(
         el('span', { class: 'badge-updated', title: `Datasheet updated ${part.datasheet.updated}` }, 'Updated'),

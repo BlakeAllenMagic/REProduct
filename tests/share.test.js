@@ -4,7 +4,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 
 import { config } from '../src/config.js';
-import { datasheetFileName, emailFor, fillTemplate, mailtoUrl } from '../src/share/message.js';
+import { datasheetFileName, emailFor, fillTemplate, mailtoUrl, shortlistEmail } from '../src/share/message.js';
 
 const part = {
   mpn: 'ALM-1234',
@@ -56,4 +56,15 @@ test('with no datasheet link, the email link falls back to the product page', ()
   assert.match(emailFor(pageOnly, config.email, 'link').text, /https:\/\/maker\.example\/p\/x/);
   const both = { ...part, productUrl: 'https://maker.example/p/x' };
   assert.match(emailFor(both, config.email, 'link').text, /ALM-1234\.pdf/); // the PDF wins for email
+});
+
+test('shortlist email: one line per part, "(attached)" or its link', () => {
+  const other = { id: 'b', mpn: 'KMX-1100', manufacturer: 'Kestrel', description: '', datasheet: {}, productUrl: 'https://k.example/kmx1100' };
+  const bare = { id: 'c', mpn: 'X-1', manufacturer: 'Nobody', description: 'No links', datasheet: {} };
+  const { subject, text } = shortlistEmail([{ ...part, id: 'a' }, other, bare], config.email, new Set(['a']));
+  assert.equal(subject, 'Datasheets: 3 parts');
+  assert.match(text, /- Acme RF ALM-1234: 0\.5 to 6 GHz LNA, 0\.6 dB NF \(attached\)/);
+  assert.match(text, /- Kestrel KMX-1100\n {2}https:\/\/k\.example\/kmx1100/);
+  assert.match(text, /- Nobody X-1: No links\n/);
+  assert.ok(!text.includes('X-1: No links (attached)'));
 });

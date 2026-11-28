@@ -403,3 +403,59 @@ html.table-fullscreen .table-scroll {
   background: var(--surface);
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
 }
+
+/* ---- Shortlist star (src/ui/star-button.js) ---- */
+
+.star-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  min-width: var(--tap);
+  min-height: var(--tap);
+  padding: 0;
+  border: 0;
+  border-radius: var(--radius);
+  background: transparent;
+  color: var(--text-muted);
+  cursor: pointer;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.star-button svg path {
+  fill: none;
+}
+
+.star-button[aria-pressed='true'] {
+  color: #e0a100;
+}
+
+.star-button[aria-pressed='true'] svg path {
+  fill: currentColor;
+}
+
+.star-button:active {
+  background: var(--pressed);
+}
+
+/* In a table: the star sits before the part number, inside the sticky first column. */
+.parts-table tbody th {
+  white-space: nowrap;
+}
+
+.star-in-table {
+  margin: 0 2px 0 -10px;
+  vertical-align: middle;
+}
+
+@media (max-width: 700px), (max-height: 500px) {
+  .star-button {
+    min-width: 32px;
+    min-height: 32px;
+  }
+
+  .star-in-table {
+    margin-left: -6px;
+  }
+}

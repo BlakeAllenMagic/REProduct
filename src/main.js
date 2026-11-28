@@ -15,6 +15,9 @@ import { installSearch } from './ui/search-panel.js';
 import { renderDiagram } from './views/diagram.js';
 import { renderPartsTable } from './views/parts-table.js';
 import { renderSettings } from './views/settings.js';
+import { renderShortlist } from './views/shortlist.js';
+import { installShortlistChip } from './ui/shortlist-chip.js';
+import { shortlist } from './shortlist.js';
 import { renderViewer } from './views/viewer.js';
 
 const els = {
@@ -31,6 +34,7 @@ const views = {
   category: renderPartsTable,
   part: renderViewer,
   settings: renderSettings,
+  shortlist: renderShortlist,
 };
 
 let current = null; // { destroy } of the view on screen
@@ -94,6 +98,7 @@ async function start() {
   installErrorHandling(document.getElementById('errors'));
   installTopbarFit(document.querySelector('.topbar'));
   installDownloadChip(document.getElementById('download-chip'));
+  installShortlistChip(document.getElementById('shortlist-chip'));
   // Before loading data, so offline support turns on even if loading fails.
   // The banners ("Update ready", the install hint) stick under the top bar;
   // --banners-h lets the parts table's fixed controls sit below them.
@@ -111,6 +116,7 @@ async function start() {
     showError(error);
     return;
   }
+  shortlist.keepOnly(new Set(ctx.parts.keys())); // parts removed from the Sheet leave the shortlist
   installSearch(document.getElementById('search-button'), ctx);
   startRouter((route) => show(ctx, route));
   // Quietly fetch updated datasheets when online (src/offline/updates.js).

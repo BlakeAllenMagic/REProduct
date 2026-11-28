@@ -1,5 +1,6 @@
 // Datasheet viewer: one part's PDF, rendered in-app with PDF.js.
 
+import { starButton, watchStars } from '../ui/star-button.js';
 import { linkForEmail, linkForPage, searchLinkFor } from '../data.js';
 import { downloads, getSavedDatasheet, getSavedFile } from '../offline/downloads.js';
 import { readSavedParts } from '../offline/saved-parts.js';
@@ -30,8 +31,14 @@ export function renderViewer(container, ctx, route) {
   };
 
   const viewer = new Viewer(container, part, ctx.manufacturerSites, category);
-  result.actions = viewer.sendButtons();
-  result.destroy = () => viewer.destroy();
+  // ☆ adds the part to the shortlist (src/shortlist.js), next to the send buttons.
+  const star = starButton(part, 'star-in-topbar');
+  const stopWatchingStars = watchStars(document.getElementById('actions') ?? document.body);
+  result.actions = [star, ...viewer.sendButtons()];
+  result.destroy = () => {
+    stopWatchingStars();
+    viewer.destroy();
+  };
   // Load in the background; the screen (title, back button) shows right away.
   viewer.open();
   return result;

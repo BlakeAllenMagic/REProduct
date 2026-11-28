@@ -152,6 +152,7 @@ Use two separate caches with different lifecycles:
 - **Gotcha:** sharing requires a recent user gesture. Build the `File` object when the part is selected, not after the button tap, so the share call runs right away.
 - **Fallback:** a `mailto:` link with the subject, part number, a short message, and the manufacturer's datasheet URL. mailto links cannot attach files.
 - The default message text lives in one config file so the rep can edit it.
+- **Shortlist** (`src/shortlist.js`, `src/views/shortlist.js`, `#/shortlist`): a ☆ next to each part number (tables and part pages) adds the part; the top bar shows "★ n". "Send all" shares every saved PDF in one share sheet, with an email listing all the parts (a link for those without a PDF on the device); "Email links" is the mailto fallback. The list is kept on the device until cleared, and the app offers to clear it after a successful send. Parts removed from the Sheet drop off the list.
 
 ## Datasheet update pipeline (build time, not in the app)
 
@@ -240,6 +241,7 @@ Do one phase at a time, and don't start the next until the current one's "done w
 - [ ] Airplane mode, force-quit, reopen: full flow works
 - [ ] Send datasheet while offline composes an email with the PDF attached
 - [ ] In Mail, the share's title shows up as the email subject (if not, note it; the rep types a subject)
+- [ ] Shortlist "Send all" with 3 or more parts: Mail attaches every PDF, and the parts list is in the body
 - [ ] Portrait and landscape layouts
 - [ ] Search: tapping the magnifier opens the on-screen keyboard right away
 - [ ] Diagram: pinching zooms only the drawing inside its card (the top bar and tabs stay put), one finger pans it, blocks still open, Reset zoom returns to the full view

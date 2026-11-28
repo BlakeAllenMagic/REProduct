@@ -12,7 +12,7 @@
 // thing.
 
 import { config } from '../config.js';
-import { datasheetFileName, emailFor, mailtoUrl } from './message.js';
+import { datasheetFileName, emailFor, mailtoUrl, shortlistEmail } from './message.js';
 
 /** Wrap the saved PDF as a File with a friendly name. */
 export function makeDatasheetFile(part, blob) {
@@ -66,4 +66,44 @@ export function describeShareError(error) {
     return 'The browser blocked the share sheet. Tap "Send datasheet" again, or use "Email link".';
   }
   return `${error instanceof Error ? error.message : String(error)}. You can use "Email link" instead.`;
+}
+
+/** Can this browser share these files together through the share sheet? */
+export function canShareFiles(files) {
+  try {
+    return files.length > 0 && typeof navigator.canShare === 'function' && navigator.canShare({ files });
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * The shortlist's "Send all": one share with every saved PDF attached and an
+ * email text listing all the parts (links for those without a PDF here).
+ * files: [{ part, file }] for the parts whose PDF is on this device.
+ * Same rule as sendDatasheet(): call straight from a tap, no await before it.
+ * Resolves to 'shared', 'cancelled' or 'link' (no file sharing: an email
+ * with links was opened instead).
+ */
+export function sendShortlist(parts, files) {
+  const list = files.map((f) => f.file);
+  if (!canShareFiles(list)) {
+    emailShortlistLinks(parts);
+    return Promise.resolve('link');
+  }
+  const { subject, text } = shortlistEmail(parts, config.email, new Set(files.map((f) => f.part.id)));
+  return navigator.share({ files: list, title: subject, text }).then(
+    () => 'shared',
+    (error) => {
+      if (error?.name === 'AbortError') return 'cancelled';
+      throw error;
+    },
+  );
+}
+
+/** A new prefilled email listing every shortlisted part with its link. */
+export function emailShortlistLinks(parts) {
+  const link = document.createElement('a');
+  link.href = mailtoUrl(shortlistEmail(parts, config.email));
+  link.click();
 }

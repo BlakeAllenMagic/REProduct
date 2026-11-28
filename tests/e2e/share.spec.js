@@ -139,3 +139,57 @@ test('a refused share explains what to do', async ({ page }) => {
   await expect(page.locator('.error-item')).toContainText('blocked the share sheet');
   await expect(page.locator('.error-item')).toContainText('Email link');
 });
+
+test('shortlist: star parts in a table and on a part page, then send all their datasheets at once', async ({ page }) => {
+  await page.addInitScript(installStandIns);
+  await page.goto('#/settings');
+  await page.getByRole('button', { name: 'Download all' }).click();
+  await expect(page.locator('.big-stat')).toContainText('5 of 5');
+
+  // Star two LNAs in the table (one with a saved datasheet, one without any).
+  await page.goto('#/category/lna');
+  const chip = page.locator('#shortlist-chip');
+  await expect(chip).toBeHidden();
+  await page.getByRole('button', { name: 'Add ALM-1234 to the shortlist' }).click();
+  await page.getByRole('button', { name: 'Add ALM-2280 to the shortlist' }).click();
+  await expect(page).toHaveURL(/#\/category\/lna$/); // the star didn't open the part
+  await expect(chip).toHaveText('★ 2');
+  // And one from its part page.
+  await page.goto('#/part/acme-amx0750');
+  await page.getByRole('button', { name: 'Add AMX-0750 to the shortlist' }).click();
+  await expect(chip).toHaveText('★ 3');
+
+  await chip.click();
+  await expect(page).toHaveURL(/#\/shortlist$/);
+  await expect(page.locator('.shortlist-summary')).toContainText('3 parts · 2 datasheets attached');
+  await expect(page.locator('.shortlist-item')).toHaveCount(3);
+  await page.getByRole('button', { name: 'Send all' }).click();
+  await expect.poll(() => page.evaluate(() => window.__shares.length)).toBe(1);
+  const [share] = await page.evaluate(() => window.__shares);
+  expect(share.count).toBe(2); // both saved PDFs in one share
+  expect(share.active).not.toBe(false); // during the tap
+  expect(share.title).toBe('Datasheets: 3 parts');
+  expect(share.text).toContain('Acme RF ALM-1234');
+  expect(share.text).toContain('(attached)');
+  expect(share.text).toContain('ALM-2280'); // no PDF here: listed with its link
+
+  // After sending: offered to clear. "Keep" keeps it.
+  await expect(page.locator('.shortlist-sent')).toContainText('Clear the shortlist?');
+  await page.locator('.shortlist-sent').getByRole('button', { name: 'Keep' }).click();
+  await expect(page.locator('.shortlist-sent')).toHaveCount(0);
+
+  // Remove one; the list survives a reload.
+  await page.getByRole('button', { name: 'Remove ALM-2280 from the shortlist' }).click();
+  await expect(chip).toHaveText('★ 2');
+  await page.reload();
+  await expect(page.locator('.shortlist-item')).toHaveCount(2);
+
+  // Email links lists every part.
+  await page.getByRole('button', { name: 'Email links' }).click();
+  const [href] = await page.evaluate(() => window.__mailto);
+  expect(mailtoParts(href).body).toContain('AMX-0750');
+
+  await page.locator('.shortlist-actions').getByRole('button', { name: 'Clear list' }).click();
+  await expect(page.getByText('No parts on the shortlist')).toBeVisible();
+  await expect(chip).toBeHidden();
+});
