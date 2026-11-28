@@ -374,6 +374,22 @@
   border-top: 1px solid var(--border);
 }
 
+/* The download button looks small (32 px) so the footer takes little room,
+   but an invisible strip above and below keeps the tap area 44 px tall
+   (CLAUDE.md: tap targets at least 44 pt). */
+.table-footer .btn {
+  position: relative;
+  min-height: 32px;
+  padding: 0 10px;
+  font-size: 14px;
+}
+
+.table-footer .btn::before {
+  content: '';
+  position: absolute;
+  inset: -6px 0;
+}
+
 /* ---- Full-screen table (src/ui/table-fullscreen.js): only the table and
    its header row; a corner button brings the rest back. ---- */
 
