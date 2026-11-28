@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-28T06:30:44Z",
+  "dataVersion": "2026-11-28T16:02:46Z",
   "groups": [
     "RF",
     "Power",
@@ -2818,6 +2818,126 @@
           "unit": "W",
           "type": "number",
           "sort": "asc"
+        },
+        {
+          "key": "package",
+          "label": "Package",
+          "type": "text"
+        },
+        {
+          "key": "temp_range",
+          "label": "Temperature Range",
+          "type": "text"
+        },
+        {
+          "key": "grade",
+          "label": "Grade",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "eccn",
+          "label": "ECCN",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "adc",
+      "name": "Analog-to-Digital Converters",
+      "group": "Digital",
+      "blocks": [
+        "adc"
+      ],
+      "specs": [
+        {
+          "key": "resolution_bits",
+          "label": "Resolution",
+          "unit": "bit",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "rate_gsps",
+          "label": "Max Rate",
+          "unit": "GSps",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "channels",
+          "label": "Channels",
+          "type": "text"
+        },
+        {
+          "key": "bandwidth_ghz",
+          "label": "Input Bandwidth",
+          "unit": "GHz",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "power_w",
+          "label": "Power",
+          "unit": "W",
+          "type": "number",
+          "sort": "asc"
+        },
+        {
+          "key": "package",
+          "label": "Package",
+          "type": "text"
+        },
+        {
+          "key": "temp_range",
+          "label": "Temperature Range",
+          "type": "text"
+        },
+        {
+          "key": "grade",
+          "label": "Grade",
+          "type": "text"
+        },
+        {
+          "key": "notes",
+          "label": "Notes",
+          "type": "text"
+        },
+        {
+          "key": "eccn",
+          "label": "ECCN",
+          "type": "text"
+        }
+      ]
+    },
+    {
+      "id": "dmux",
+      "name": "Demultiplexers (DMUX)",
+      "group": "Digital",
+      "blocks": [],
+      "specs": [
+        {
+          "key": "resolution_bits",
+          "label": "Resolution",
+          "unit": "bit",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "rate_gsps",
+          "label": "Rate",
+          "unit": "GSps",
+          "type": "number",
+          "sort": "desc"
+        },
+        {
+          "key": "channels",
+          "label": "Channels",
+          "type": "text"
         },
         {
           "key": "package",
@@ -60846,6 +60966,625 @@
         "notes": "6.4 GSps guaranteed (8.0 GSps with reduced data rate); RF synthesis up to 12 GHz, 24 GHz at reduced power"
       },
       "productUrl": "https://semiconductors.teledyne-e2v.com/products/dac/?model=EV12DS480A",
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-at84ad001b",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "AT84AD001B",
+      "description": "Dual 8-bit 2 GSps ADC",
+      "specs": {
+        "resolution_bits": 8,
+        "rate_gsps": 2,
+        "channels": "2",
+        "notes": "Sample rates: 1 / 2 GSps, by channel mode"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-at84ad001c",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "AT84AD001C",
+      "description": "Dual 8-bit 2 GSps ADC",
+      "specs": {
+        "resolution_bits": 8,
+        "rate_gsps": 2,
+        "channels": "2",
+        "notes": "Sample rates: 1 / 2 GSps, by channel mode"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-at84ad004b",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "AT84AD004B",
+      "description": "Dual 8-bit 1 GSps ADC",
+      "specs": {
+        "resolution_bits": 8,
+        "rate_gsps": 1,
+        "channels": "2",
+        "notes": "Sample rates: 0.5 / 1 GSps, by channel mode"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-at84as001",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "AT84AS001",
+      "description": "12-bit 0.5 GSps ADC",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 0.5,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-at84as003",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "AT84AS003",
+      "description": "10-bit 1.5 GSps ADC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 1.5,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-at84as004",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "AT84AS004",
+      "description": "10-bit 2 GSps ADC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 2,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-at84as008",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "AT84AS008",
+      "description": "10-bit 2.2 GSps ADC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 2.2,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev10aq190a",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV10AQ190A",
+      "description": "Quad 10-bit 5 GSps ADC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 5,
+        "channels": "4",
+        "notes": "Sample rates: 1.25 / 2.5 / 5 GSps, by channel mode"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev10as150a",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV10AS150A",
+      "description": "10-bit 2.5 GSps ADC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 2.5,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev10as150b",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV10AS150B",
+      "description": "10-bit 2.6 GSps ADC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 2.6,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev10as152a",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV10AS152A",
+      "description": "10-bit 3 GSps ADC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 3,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev10as180a",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV10AS180A",
+      "description": "10-bit 1.5 GSps ADC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 1.5,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev10as940",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV10AS940",
+      "description": "10-bit 12.8 GSps ADC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 12.8,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev12ad550b",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12AD550B",
+      "description": "Dual 12-bit 1.6 GSps ADC",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 1.6,
+        "channels": "2"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev12aq600",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12AQ600",
+      "description": "12-bit 6.4 GSps ADC",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 6.4,
+        "channels": "1, 2, 4",
+        "notes": "Sample rates: 6.4 / 3.2 / 1.6 GSps, by channel mode"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev12aq605",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12AQ605",
+      "description": "12-bit 6.4 GSps ADC",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 6.4,
+        "channels": "1, 2, 4",
+        "notes": "Sample rates: 6.4 / 3.2 / 1.6 GSps, by channel mode"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev12as200",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12AS200",
+      "description": "12-bit 1.5 GSps ADC",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 1.5,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev12as200a",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12AS200A",
+      "description": "12-bit 1.5 GSps ADC",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 1.5,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev12as350b",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV12AS350B",
+      "description": "12-bit 5.4 GSps ADC",
+      "specs": {
+        "resolution_bits": 12,
+        "rate_gsps": 5.4,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev8aq160",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV8AQ160",
+      "description": "Quad 8-bit 5 GSps ADC",
+      "specs": {
+        "resolution_bits": 8,
+        "rate_gsps": 5,
+        "channels": "4",
+        "notes": "Sample rates: 1.25 / 2.5 / 5 GSps, by channel mode"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev8aq165",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV8AQ165",
+      "description": "Quad 8-bit 5 GSps ADC",
+      "specs": {
+        "resolution_bits": 8,
+        "rate_gsps": 5,
+        "channels": "4",
+        "notes": "Sample rates: 1.25 / 2.5 / 5 GSps, by channel mode"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ts83102g0",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "TS83102G0",
+      "description": "10-bit 2 GSps ADC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 2,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ts83102g0bmgs",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "TS83102G0BMGS",
+      "description": "10-bit 2 GSps ADC",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 2,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ts8388b",
+      "category": "adc",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "TS8388B",
+      "description": "8-bit 1 GSps ADC",
+      "specs": {
+        "resolution_bits": 8,
+        "rate_gsps": 1,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-at84cs001",
+      "category": "dmux",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "AT84CS001",
+      "description": "2.2 GSps 10-bit demultiplexer (DMUX)",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 2.2,
+        "channels": "2"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ev10cs140",
+      "category": "dmux",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "EV10CS140",
+      "description": "3 GSps 10-bit demultiplexer (DMUX)",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 3,
+        "channels": "1"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ts81102g0",
+      "category": "dmux",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "TS81102G0",
+      "description": "1.5 GSps 8/10-bit demultiplexer (DMUX)",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 1.5,
+        "channels": "1",
+        "notes": "8- or 10-bit"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ts81102g0fs",
+      "category": "dmux",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "TS81102G0FS",
+      "description": "2 GSps 8/10-bit demultiplexer (DMUX)",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 2,
+        "channels": "1",
+        "notes": "8- or 10-bit"
+      },
+      "productUrl": null,
+      "datasheet": {
+        "sourceUrl": null,
+        "file": null,
+        "sha256": null,
+        "bytes": null,
+        "updated": null,
+        "changed": null
+      }
+    },
+    {
+      "id": "teledyne-ts86101g2",
+      "category": "dmux",
+      "manufacturer": "Teledyne e2v",
+      "mpn": "TS86101G2",
+      "description": "1.2 GSps 10-bit demultiplexer (DMUX)",
+      "specs": {
+        "resolution_bits": 10,
+        "rate_gsps": 1.2,
+        "channels": "1"
+      },
+      "productUrl": null,
       "datasheet": {
         "sourceUrl": null,
         "file": null,

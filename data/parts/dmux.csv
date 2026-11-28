@@ -1,0 +1,6 @@
+manufacturer,mpn,description,datasheet_url,product_url,resolution_bits,rate_gsps,channels,package,temp_range,grade,notes,eccn
+Teledyne e2v,AT84CS001,2.2 GSps 10-bit demultiplexer (DMUX),,,10,2.2,2,,,,,
+Teledyne e2v,EV10CS140,3 GSps 10-bit demultiplexer (DMUX),,,10,3,1,,,,,
+Teledyne e2v,TS81102G0,1.5 GSps 8/10-bit demultiplexer (DMUX),,,10,1.5,1,,,,8- or 10-bit,
+Teledyne e2v,TS81102G0FS,2 GSps 8/10-bit demultiplexer (DMUX),,,10,2,1,,,,8- or 10-bit,
+Teledyne e2v,TS86101G2,1.2 GSps 10-bit demultiplexer (DMUX),,,10,1.2,1,,,,,

@@ -672,6 +672,36 @@ categories:
       - { key: notes, label: "Notes", type: text }
       - { key: eccn, label: "ECCN", type: text }
 
+  - id: adc
+    name: "Analog-to-Digital Converters"
+    group: Digital
+    blocks: [adc]
+    specs:
+      - { key: resolution_bits, label: "Resolution", unit: "bit", type: number, sort: desc }
+      - { key: rate_gsps, label: "Max Rate", unit: "GSps", type: number, sort: desc }
+      - { key: channels, label: "Channels", type: text }
+      - { key: bandwidth_ghz, label: "Input Bandwidth", unit: "GHz", type: number, sort: desc }
+      - { key: power_w, label: "Power", unit: "W", type: number, sort: asc }
+      - { key: package, label: "Package", type: text }
+      - { key: temp_range, label: "Temperature Range", type: text }
+      - { key: grade, label: "Grade", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
+  - id: dmux
+    name: "Demultiplexers (DMUX)"
+    group: Digital
+    blocks: []
+    specs:
+      - { key: resolution_bits, label: "Resolution", unit: "bit", type: number, sort: desc }
+      - { key: rate_gsps, label: "Rate", unit: "GSps", type: number, sort: desc }
+      - { key: channels, label: "Channels", type: text }
+      - { key: package, label: "Package", type: text }
+      - { key: temp_range, label: "Temperature Range", type: text }
+      - { key: grade, label: "Grade", type: text }
+      - { key: notes, label: "Notes", type: text }
+      - { key: eccn, label: "ECCN", type: text }
+
   - id: phase_shifter
     name: "Phase Shifters"
     group: RF
