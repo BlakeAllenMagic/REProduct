@@ -1,6 +1,9 @@
 {
-  "ok": true,
-  "problems": [],
+  "ok": false,
+  "problems": [
+    "No tab for Analog-to-Digital Converters. Add a tab named \"Analog-to-Digital Converters\".",
+    "No tab for Demultiplexers (DMUX). Add a tab named \"Demultiplexers (DMUX)\"."
+  ],
   "warnings": [],
   "importedAt": null
 }
