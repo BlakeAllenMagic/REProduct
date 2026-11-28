@@ -145,6 +145,7 @@ Use two separate caches with different lifecycles:
 
 - Use a locally vendored PDF.js (`pdfjs-dist`) build, included in the app shell, so viewing works offline and looks the same on iPad and Mac. Do not rely on opening blob URLs in a new tab, because that behaves inconsistently in iOS standalone mode.
 - Read the PDF from the datasheet cache, render with PDF.js, and support pinch zoom and page navigation.
+- On phones (under 700 px wide) the viewer toolbar is one row (Specs, page arrows, Fit): the − / % / + zoom buttons and the maker and description line are left out, since pinching zooms and the Specs list has the rest.
 - Every part page starts with its key specs as chips ("0.3–10.6 GHz", "IL 0.4 dB"; `keySpecs()` in `src/ui/spec-list.js`): a tap opens (or scrolls to) the full Specs list.
 - If a datasheet isn't downloaded yet, show "Not downloaded." Offer to download it when online, or show the manufacturer link when offline.
 

@@ -92,14 +92,21 @@
   height: 100%;
 }
 
-/* Narrow screens: put the part info on its own row. */
+/* Phones: one toolbar row (Specs, page arrows, Fit), so the datasheet gets
+   the room. The maker and description are in the Specs list, and pinching
+   zooms, so the info line and the - / % / + buttons are left out. Buttons
+   stay 44 px. */
 @media (max-width: 700px) {
   .viewer-toolbar {
-    flex-wrap: wrap;
     justify-content: space-between;
+    gap: 8px;
   }
-  .viewer-info {
-    flex-basis: 100%;
+  .viewer-info,
+  .viewer-toolbar .zoom-step {
+    display: none;
+  }
+  .viewer-label {
+    min-width: 48px;
   }
 }
 

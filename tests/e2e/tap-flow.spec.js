@@ -358,6 +358,12 @@ test('phone, crowded bar (Email link + Send datasheet): the part number gets its
   const viewer = await page.locator('.viewer').boundingBox();
   expect(Math.round(viewer.y + viewer.height)).toBeLessThanOrEqual(780 + 1);
   expect(viewer.y).toBeGreaterThanOrEqual(bar.y + bar.height - 1);
+  // Phone toolbar: one row (Specs, page arrows, Fit); pinching replaces - / % / +.
+  await expect(page.getByRole('button', { name: 'Zoom in' })).toBeHidden();
+  await expect(page.locator('.viewer-info')).toBeHidden();
+  await expect(page.getByRole('button', { name: 'Fit page width' })).toBeVisible();
+  const toolbar = await page.locator('.viewer-toolbar').boundingBox();
+  expect(toolbar.height).toBeLessThan(70);
   // And the fitting code stays quiet once done (it used to rerun every frame).
   const changes = await page.evaluate(
     () =>

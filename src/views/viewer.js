@@ -183,6 +183,8 @@ class Viewer {
     const fit = button('Fit', 'Fit page width', () => this.doc?.setZoom(1));
     const zoomLabel = document.createElement('span');
     zoomLabel.className = 'viewer-label';
+    // Hidden on phones, where pinching zooms (src/styles/viewer.css).
+    for (const b of [zoomOut, zoomLabel, zoomIn]) b.classList.add('zoom-step');
 
     // "Specs" opens the part's values above the PDF (closed by default).
     const specsButton = button('Specs', 'Specs', () => this.toggleSpecs(specsButton));
