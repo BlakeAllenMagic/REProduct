@@ -3,12 +3,21 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
-    <meta name="color-scheme" content="light" />
+    <meta name="color-scheme" content="light dark" />
+    <!-- Night mode chosen in Settings: applied before anything draws, so the
+         app never flashes white first (src/ui/theme.js keeps it up to date). -->
+    <script>
+      try {
+        var theme = localStorage.getItem('linecard.theme');
+        if (theme === 'dark' || theme === 'light') document.documentElement.dataset.theme = theme;
+      } catch (e) {}
+    </script>
     <title>RF Line Card</title>
 
     <!-- Installable app: name, icons and colors live in the manifest. -->
     <link rel="manifest" href="./manifest.webmanifest" />
-    <meta name="theme-color" content="#ffffff" />
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+    <meta name="theme-color" content="#1b1f24" media="(prefers-color-scheme: dark)" />
     <link rel="icon" href="./icons/icon.svg" type="image/svg+xml" />
     <!-- iPadOS/macOS Safari read these instead of the manifest's icons. -->
     <link rel="apple-touch-icon" href="./icons/apple-touch-icon-180.png" />

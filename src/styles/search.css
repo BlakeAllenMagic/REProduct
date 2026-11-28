@@ -8,7 +8,7 @@
   justify-content: center;
   align-items: flex-start;
   padding: calc(12px + var(--safe-top)) calc(12px + var(--safe-right)) 12px calc(12px + var(--safe-left));
-  background: rgba(22, 25, 29, 0.35);
+  background: var(--overlay);
 }
 
 .search-panel {
@@ -92,8 +92,8 @@
 .search-saved {
   padding: 1px 8px;
   border-radius: 10px;
-  background: #e6f4ea;
-  color: #1b7a3d;
+  background: var(--success-soft);
+  color: var(--success);
   font-size: 12px;
   font-weight: 700;
 }

@@ -175,7 +175,7 @@
 }
 
 .parts-table td.status.is-saved {
-  color: #1b7a3d;
+  color: var(--success);
   font-weight: 600;
 }
 
@@ -244,8 +244,8 @@
   margin-left: 8px;
   padding: 2px 8px;
   border-radius: 10px;
-  background: #e6f4ea;
-  color: #1b7a3d;
+  background: var(--success-soft);
+  color: var(--success);
   font-size: 12px;
   font-weight: 700;
   vertical-align: middle;
@@ -254,19 +254,27 @@
 .viewer-note {
   margin: 0;
   padding: 8px calc(12px + var(--safe-right)) 8px calc(12px + var(--safe-left));
-  background: #fff8e1;
-  border-bottom: 1px solid #f0dca0;
+  background: var(--warn-soft);
+  border-bottom: 1px solid var(--warn-border);
   font-size: 14px;
 }
 
 /* ---- Parts sheet ---- */
 
 .sheet-ok {
-  color: #1b7a3d;
+  color: var(--success);
   font-weight: 600;
 }
 
 .sheet-problems li,
 .sheet-warnings li {
   margin: 6px 0;
+}
+
+/* ---- Appearance (night mode) ---- */
+
+.theme-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
 }

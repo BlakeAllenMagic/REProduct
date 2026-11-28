@@ -639,6 +639,29 @@ test('two-finger pinch zooms the datasheet', async ({ page, browserName, context
   await expect(zoomLabel).toHaveText('250%'); // fingers went from 120 px to 300 px apart
 });
 
+test('night mode: Automatic follows the device, Dark and Light stick after a reload', async ({ page }) => {
+  const background = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
+  await page.emulateMedia({ colorScheme: 'dark' });
+  await page.goto('#/settings');
+  const choice = (name) => page.getByRole('group', { name: 'Appearance' }).getByRole('button', { name });
+  await expect(choice('Automatic')).toHaveAttribute('aria-pressed', 'true');
+  const darkBg = await background(); // Automatic + a dark device
+  await page.emulateMedia({ colorScheme: 'light' });
+  const lightBg = await background(); // Automatic + a light device
+  expect(darkBg).not.toBe(lightBg);
+
+  await press(page, choice('Dark'));
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
+  expect(await background()).toBe(darkBg); // dark even though the device is light
+  await page.reload();
+  await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark'); // remembered
+  await expect(choice('Dark')).toHaveAttribute('aria-pressed', 'true');
+
+  await press(page, choice('Automatic'));
+  await expect(page.locator('html')).not.toHaveAttribute('data-theme', /./);
+  expect(await background()).toBe(lightBg);
+});
+
 test('Settings: Download all saves every datasheet', async ({ page }) => {
   await page.goto('#/settings');
   await expect(page.locator('.big-stat')).toContainText('0 of 5');

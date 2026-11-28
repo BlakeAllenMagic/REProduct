@@ -126,7 +126,7 @@ html.no-page-zoom {
 }
 
 .block-badge text {
-  fill: #fff;
+  fill: var(--on-accent);
   font-size: 15px;
   font-weight: 700;
   text-anchor: middle;
@@ -275,7 +275,7 @@ a.product-type:active {
   padding: 2px 8px;
   border-radius: 999px;
   background: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
   font-weight: 700;
   font-size: 0.9rem;
   text-align: center;

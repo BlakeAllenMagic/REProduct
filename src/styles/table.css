@@ -25,7 +25,7 @@
   /* A soft shadow on the right edge while more columns are hidden. The white
      "cover" scrolls with the content and hides the shadow at the far end. */
   background:
-    linear-gradient(to left, var(--surface) 24px, rgba(255, 255, 255, 0)) right / 48px 100%
+    linear-gradient(to left, var(--surface) 24px, transparent) right / 48px 100%
       no-repeat local,
     radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.14), rgba(0, 0, 0, 0)) right /
       14px 100% no-repeat scroll,

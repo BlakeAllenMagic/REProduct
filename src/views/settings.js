@@ -9,6 +9,7 @@ import { hrefFor } from '../router.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
 import { showError } from '../ui/errors.js';
+import { getTheme, setTheme, THEMES } from '../ui/theme.js';
 import {
   canPromptInstall,
   installInstructions,
@@ -59,9 +60,31 @@ class SettingsScreen {
       sheet: el('section', { class: 'card', 'aria-labelledby': 'h-sheet' }),
       storage: el('section', { class: 'card', 'aria-labelledby': 'h-storage' }),
       install: el('section', { class: 'card', 'aria-labelledby': 'h-install', hidden: true }),
+      appearance: el('section', { class: 'card', 'aria-labelledby': 'h-appearance' }),
       about: el('section', { class: 'card', 'aria-labelledby': 'h-about' }),
     };
     container.append(el('div', { class: 'settings' }, ...Object.values(this.sections)));
+    this.renderAppearance();
+  }
+
+  /** Night mode: Automatic / Light / Dark (src/ui/theme.js). */
+  renderAppearance() {
+    const current = getTheme();
+    const choices = el(
+      'div',
+      { class: 'theme-choices', role: 'group', 'aria-labelledby': 'h-appearance' },
+      THEMES.map((theme) =>
+        button(theme.label, () => {
+          setTheme(theme.id);
+          this.renderAppearance();
+        }, { class: 'btn filter-chip', 'aria-pressed': String(theme.id === current) }),
+      ),
+    );
+    this.sections.appearance.replaceChildren(
+      el('h2', { id: 'h-appearance' }, 'Appearance'),
+      choices,
+      el('p', { class: 'message-note' }, 'Automatic follows the light or dark setting of this device. Datasheets always show as printed.'),
+    );
   }
 
   /** Re-read everything (saved files, storage) and redraw. */

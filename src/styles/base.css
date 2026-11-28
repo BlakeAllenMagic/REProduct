@@ -12,6 +12,15 @@
   --disabled: #a7aeb6;
   --danger: #b3261e;
   --danger-soft: #fdecea;
+  --danger-border: #f3c2bd;
+  --on-accent: #ffffff; /* text on accent-coloured fills (buttons, count badges) */
+  --accent-strong: #094a8b; /* pressed primary button */
+  --success: #1b7a3d;
+  --success-soft: #e6f4ea;
+  --warn-soft: #fff8e1;
+  --warn-border: #f0dca0;
+  --overlay: rgba(22, 25, 29, 0.35);
+  color-scheme: light;
 
   --radius: 10px;
   --tap: 44px; /* minimum tap target (CLAUDE.md: 44x44 pt) */
@@ -23,6 +32,57 @@
   --safe-right: env(safe-area-inset-right, 0px);
   --safe-bottom: env(safe-area-inset-bottom, 0px);
   --safe-left: env(safe-area-inset-left, 0px);
+}
+
+/* Night mode. Settings > Appearance: Automatic follows the device (no
+   data-theme on <html>), Light and Dark set data-theme (src/ui/theme.js).
+   Datasheet pages stay white: they're the manufacturers' PDFs. */
+:root[data-theme='dark'] {
+  --bg: #111418;
+  --surface: #1b1f24;
+  --text: #e8eaed;
+  --text-muted: #9aa3ad;
+  --border: #343a41;
+  --accent: #6fb0f2;
+  --accent-soft: #1c3350;
+  --pressed: #26476c;
+  --disabled: #5b636c;
+  --danger: #f2877e;
+  --danger-soft: #3a1c1a;
+  --danger-border: #6b2c27;
+  --on-accent: #0d1b2a;
+  --accent-strong: #9cc9f7;
+  --success: #6fcf8f;
+  --success-soft: #173323;
+  --warn-soft: #3a3115;
+  --warn-border: #6b5a24;
+  --overlay: rgba(0, 0, 0, 0.6);
+  color-scheme: dark;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #111418;
+    --surface: #1b1f24;
+    --text: #e8eaed;
+    --text-muted: #9aa3ad;
+    --border: #343a41;
+    --accent: #6fb0f2;
+    --accent-soft: #1c3350;
+    --pressed: #26476c;
+    --disabled: #5b636c;
+    --danger: #f2877e;
+    --danger-soft: #3a1c1a;
+    --danger-border: #6b2c27;
+    --on-accent: #0d1b2a;
+    --accent-strong: #9cc9f7;
+    --success: #6fcf8f;
+    --success-soft: #173323;
+    --warn-soft: #3a3115;
+    --warn-border: #6b5a24;
+    --overlay: rgba(0, 0, 0, 0.6);
+    color-scheme: dark;
+  }
 }
 
 *,
@@ -157,11 +217,11 @@ a {
 .btn-primary {
   background: var(--accent);
   border-color: var(--accent);
-  color: #fff;
+  color: var(--on-accent);
 }
 
 .btn-primary:active:not(:disabled) {
-  background: #094a8b;
+  background: var(--accent-strong);
 }
 
 /* ---- Errors ---- */
@@ -179,7 +239,7 @@ a {
   padding: 4px calc(8px + var(--safe-right)) 4px calc(16px + var(--safe-left));
   background: var(--danger-soft);
   color: var(--danger);
-  border-bottom: 1px solid #f3c2bd;
+  border-bottom: 1px solid var(--danger-border);
 }
 
 .error-item span {
@@ -313,6 +373,21 @@ a {
   flex: none;
   height: 40px;
   width: auto;
+}
+
+/* Night mode: the logo is dark ink, so it sits on a small white plate. */
+:root[data-theme='dark'] .topbar-logo {
+  padding: 2px;
+  border-radius: 4px;
+  background: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) .topbar-logo {
+    padding: 2px;
+    border-radius: 4px;
+    background: #ffffff;
+  }
 }
 
 @media (max-width: 700px), (max-height: 500px) {
