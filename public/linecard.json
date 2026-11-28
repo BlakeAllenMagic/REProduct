@@ -1,5 +1,5 @@
 {
-  "dataVersion": "2026-11-28T16:02:46Z",
+  "dataVersion": "2026-11-28T16:09:38Z",
   "groups": [
     "RF",
     "Power",
@@ -2869,6 +2869,11 @@
           "sort": "desc"
         },
         {
+          "key": "status",
+          "label": "Status",
+          "type": "text"
+        },
+        {
           "key": "channels",
           "label": "Channels",
           "type": "text"
@@ -2938,6 +2943,18 @@
           "key": "channels",
           "label": "Channels",
           "type": "text"
+        },
+        {
+          "key": "status",
+          "label": "Status",
+          "type": "text"
+        },
+        {
+          "key": "power_w",
+          "label": "Power",
+          "unit": "W",
+          "type": "number",
+          "sort": "asc"
         },
         {
           "key": "package",
@@ -60976,156 +60993,6 @@
       }
     },
     {
-      "id": "teledyne-at84ad001b",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "AT84AD001B",
-      "description": "Dual 8-bit 2 GSps ADC",
-      "specs": {
-        "resolution_bits": 8,
-        "rate_gsps": 2,
-        "channels": "2",
-        "notes": "Sample rates: 1 / 2 GSps, by channel mode"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-at84ad001c",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "AT84AD001C",
-      "description": "Dual 8-bit 2 GSps ADC",
-      "specs": {
-        "resolution_bits": 8,
-        "rate_gsps": 2,
-        "channels": "2",
-        "notes": "Sample rates: 1 / 2 GSps, by channel mode"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-at84ad004b",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "AT84AD004B",
-      "description": "Dual 8-bit 1 GSps ADC",
-      "specs": {
-        "resolution_bits": 8,
-        "rate_gsps": 1,
-        "channels": "2",
-        "notes": "Sample rates: 0.5 / 1 GSps, by channel mode"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-at84as001",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "AT84AS001",
-      "description": "12-bit 0.5 GSps ADC",
-      "specs": {
-        "resolution_bits": 12,
-        "rate_gsps": 0.5,
-        "channels": "1"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-at84as003",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "AT84AS003",
-      "description": "10-bit 1.5 GSps ADC",
-      "specs": {
-        "resolution_bits": 10,
-        "rate_gsps": 1.5,
-        "channels": "1"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-at84as004",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "AT84AS004",
-      "description": "10-bit 2 GSps ADC",
-      "specs": {
-        "resolution_bits": 10,
-        "rate_gsps": 2,
-        "channels": "1"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-at84as008",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "AT84AS008",
-      "description": "10-bit 2.2 GSps ADC",
-      "specs": {
-        "resolution_bits": 10,
-        "rate_gsps": 2.2,
-        "channels": "1"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
       "id": "teledyne-ev10aq190a",
       "category": "adc",
       "manufacturer": "Teledyne e2v",
@@ -61134,7 +61001,9 @@
       "specs": {
         "resolution_bits": 10,
         "rate_gsps": 5,
+        "status": "Active",
         "channels": "4",
+        "package": "EBGA380",
         "notes": "Sample rates: 1.25 / 2.5 / 5 GSps, by channel mode"
       },
       "productUrl": null,
@@ -61156,7 +61025,10 @@
       "specs": {
         "resolution_bits": 10,
         "rate_gsps": 2.5,
-        "channels": "1"
+        "status": "Active",
+        "channels": "1",
+        "bandwidth_ghz": 5,
+        "package": "EBGA317"
       },
       "productUrl": null,
       "datasheet": {
@@ -61177,7 +61049,10 @@
       "specs": {
         "resolution_bits": 10,
         "rate_gsps": 2.6,
-        "channels": "1"
+        "status": "Active",
+        "channels": "1",
+        "package": "EBGA317",
+        "notes": "e2v's recommended upgrade from EV10AS150A"
       },
       "productUrl": null,
       "datasheet": {
@@ -61198,7 +61073,10 @@
       "specs": {
         "resolution_bits": 10,
         "rate_gsps": 3,
-        "channels": "1"
+        "status": "Active",
+        "channels": "1",
+        "bandwidth_ghz": 5,
+        "package": "EBGA317"
       },
       "productUrl": null,
       "datasheet": {
@@ -61219,7 +61097,9 @@
       "specs": {
         "resolution_bits": 10,
         "rate_gsps": 1.5,
-        "channels": "1"
+        "status": "Active",
+        "channels": "1",
+        "notes": "Space version: 5962-1522301VZF (EV10AS180AMGC-V)"
       },
       "productUrl": null,
       "datasheet": {
@@ -61240,7 +61120,12 @@
       "specs": {
         "resolution_bits": 10,
         "rate_gsps": 12.8,
-        "channels": "1"
+        "status": "Prototype (engineering models)",
+        "channels": "1",
+        "bandwidth_ghz": 33,
+        "power_w": 2.5,
+        "package": "FCBGA (16 x 17.6 mm)",
+        "notes": "Power at 12.8 GSps. Product brief gives 35.5 GHz bandwidth"
       },
       "productUrl": null,
       "datasheet": {
@@ -61261,7 +61146,11 @@
       "specs": {
         "resolution_bits": 12,
         "rate_gsps": 1.6,
-        "channels": "2"
+        "status": "Active",
+        "channels": "2",
+        "bandwidth_ghz": 4.3,
+        "package": "CCGA323",
+        "notes": "Input bandwidth from the preliminary datasheet"
       },
       "productUrl": null,
       "datasheet": {
@@ -61282,7 +61171,10 @@
       "specs": {
         "resolution_bits": 12,
         "rate_gsps": 6.4,
+        "status": "Active",
         "channels": "1, 2, 4",
+        "package": "CBGA323 (16 x 16 mm)",
+        "temp_range": "-55 to +125°C",
         "notes": "Sample rates: 6.4 / 3.2 / 1.6 GSps, by channel mode"
       },
       "productUrl": null,
@@ -61304,136 +61196,11 @@
       "specs": {
         "resolution_bits": 12,
         "rate_gsps": 6.4,
+        "status": "Active",
         "channels": "1, 2, 4",
-        "notes": "Sample rates: 6.4 / 3.2 / 1.6 GSps, by channel mode"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-ev12as200",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "EV12AS200",
-      "description": "12-bit 1.5 GSps ADC",
-      "specs": {
-        "resolution_bits": 12,
-        "rate_gsps": 1.5,
-        "channels": "1"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-ev12as200a",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "EV12AS200A",
-      "description": "12-bit 1.5 GSps ADC",
-      "specs": {
-        "resolution_bits": 12,
-        "rate_gsps": 1.5,
-        "channels": "1"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-ev12as350b",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "EV12AS350B",
-      "description": "12-bit 5.4 GSps ADC",
-      "specs": {
-        "resolution_bits": 12,
-        "rate_gsps": 5.4,
-        "channels": "1"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-ev8aq160",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "EV8AQ160",
-      "description": "Quad 8-bit 5 GSps ADC",
-      "specs": {
-        "resolution_bits": 8,
-        "rate_gsps": 5,
-        "channels": "4",
-        "notes": "Sample rates: 1.25 / 2.5 / 5 GSps, by channel mode"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-ev8aq165",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "EV8AQ165",
-      "description": "Quad 8-bit 5 GSps ADC",
-      "specs": {
-        "resolution_bits": 8,
-        "rate_gsps": 5,
-        "channels": "4",
-        "notes": "Sample rates: 1.25 / 2.5 / 5 GSps, by channel mode"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-ts83102g0",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "TS83102G0",
-      "description": "10-bit 2 GSps ADC",
-      "specs": {
-        "resolution_bits": 10,
-        "rate_gsps": 2,
-        "channels": "1"
+        "package": "CBGA323 (16 x 16 mm)",
+        "temp_range": "-55 to +125°C",
+        "notes": "Sample rates: 6.4 / 3.2 / 1.6 GSps, by channel mode; Pin-compatible version of EV12AQ600 for volume applications; input bandwidth above 6.5 GHz in extended-bandwidth mode"
       },
       "productUrl": null,
       "datasheet": {
@@ -61454,28 +61221,9 @@
       "specs": {
         "resolution_bits": 10,
         "rate_gsps": 2,
-        "channels": "1"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-ts8388b",
-      "category": "adc",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "TS8388B",
-      "description": "8-bit 1 GSps ADC",
-      "specs": {
-        "resolution_bits": 8,
-        "rate_gsps": 1,
-        "channels": "1"
+        "status": "Check with e2v",
+        "channels": "1",
+        "notes": "Status not found; TS83102G0 (non-space version) is discontinued"
       },
       "productUrl": null,
       "datasheet": {
@@ -61496,93 +61244,11 @@
       "specs": {
         "resolution_bits": 10,
         "rate_gsps": 2.2,
-        "channels": "2"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-ev10cs140",
-      "category": "dmux",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "EV10CS140",
-      "description": "3 GSps 10-bit demultiplexer (DMUX)",
-      "specs": {
-        "resolution_bits": 10,
-        "rate_gsps": 3,
-        "channels": "1"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-ts81102g0",
-      "category": "dmux",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "TS81102G0",
-      "description": "1.5 GSps 8/10-bit demultiplexer (DMUX)",
-      "specs": {
-        "resolution_bits": 10,
-        "rate_gsps": 1.5,
-        "channels": "1",
-        "notes": "8- or 10-bit"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-ts81102g0fs",
-      "category": "dmux",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "TS81102G0FS",
-      "description": "2 GSps 8/10-bit demultiplexer (DMUX)",
-      "specs": {
-        "resolution_bits": 10,
-        "rate_gsps": 2,
-        "channels": "1",
-        "notes": "8- or 10-bit"
-      },
-      "productUrl": null,
-      "datasheet": {
-        "sourceUrl": null,
-        "file": null,
-        "sha256": null,
-        "bytes": null,
-        "updated": null,
-        "changed": null
-      }
-    },
-    {
-      "id": "teledyne-ts86101g2",
-      "category": "dmux",
-      "manufacturer": "Teledyne e2v",
-      "mpn": "TS86101G2",
-      "description": "1.2 GSps 10-bit demultiplexer (DMUX)",
-      "specs": {
-        "resolution_bits": 10,
-        "rate_gsps": 1.2,
-        "channels": "1"
+        "channels": "2",
+        "status": "Check with e2v",
+        "power_w": 2.7,
+        "package": "EBGA240 (also TBGA240, CQFP196)",
+        "notes": "1:4 DMUX; one e2v listing may show it discontinued (EOL July 2010)"
       },
       "productUrl": null,
       "datasheet": {
