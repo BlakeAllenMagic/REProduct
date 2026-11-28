@@ -57,11 +57,13 @@ export function attachDiagramZoom(card, reset) {
   let baseWidth = 0; // the drawing's width in px at 1×
   let start = null; // { zoom, left, top } when the current pinch began
 
+  let fitTop = null; // where the card started when the fit was worked out
   const applyFit = () => {
     const style = getComputedStyle(card);
     const pad = (a, b) => parseFloat(style[a]) + parseFloat(style[b]);
     const box = svg.viewBox.baseVal;
     const top = card.getBoundingClientRect().top + window.scrollY;
+    fitTop = top;
     baseWidth = fitWidth({
       viewBoxWidth: box.width,
       viewBoxHeight: box.height,
@@ -125,9 +127,20 @@ export function attachDiagramZoom(card, reset) {
     resetZoom();
   };
   window.addEventListener('resize', onResize);
+  // Something above the diagram changed height after it was drawn (the
+  // "Update ready" bar or the install hint appeared, the top bar wrapped):
+  // refit, so the drawing still ends on screen. Only when the card moved,
+  // so a refit (which changes the page height) doesn't trigger another.
+  const watcher = new ResizeObserver(() => {
+    if (zoom !== 1 || !card.isConnected) return;
+    const top = card.getBoundingClientRect().top + window.scrollY;
+    if (fitTop === null || Math.abs(top - fitTop) > 1) applyFit();
+  });
+  watcher.observe(document.body);
   resetZoom();
 
   return () => {
+    watcher.disconnect();
     detachPinch();
     reset.removeEventListener('click', resetZoom);
     window.removeEventListener('resize', onResize);

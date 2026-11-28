@@ -194,7 +194,8 @@ test('the diagram fits the screen: no scrolling to see it all, and its blocks st
     await page.setViewportSize({ width, height });
     await page.goto(`#/${diagram}`);
     await expect(page.locator('[data-block]').first()).toBeVisible();
-    expect(await fits(), `${diagram} at ${width} x ${height}`).toBe(true);
+    // The top bar sizes itself on the next frame and the drawing refits after it: wait for that.
+    await expect.poll(fits, { message: `${diagram} at ${width} x ${height}` }).toBe(true);
   }
   // Small on a phone, but a tap still opens the table (pinch to enlarge first if needed).
   await page.setViewportSize({ width: 390, height: 844 });
