@@ -120,22 +120,6 @@ class SettingsScreen {
     const lastSynced = getLastSynced();
     const noDatasheet = this.ctx.linecard.parts.length - all.length;
 
-    const rows = [...this.ctx.categories.values()].map((category) => {
-      const parts = this.ctx.partsByCategory.get(category.id);
-      const items = itemsForParts(parts);
-      const done = items.filter((i) => this.saved.has(i.sha)).length;
-      return el(
-        'li',
-        { class: 'category-row' },
-        el('span', { class: 'category-name' }, category.name),
-        el('span', { class: 'category-count' }, `${done} of ${items.length} saved`),
-        button('Download', () => downloadParts(parts), {
-          disabled: done === items.length || downloads.running,
-          'aria-label': `Download ${category.name} datasheets`,
-        }),
-      );
-    });
-
     this.sections.datasheets.replaceChildren(
       el('h2', { id: 'h-datasheets' }, 'Datasheets on this device'),
       el(
@@ -157,7 +141,6 @@ class SettingsScreen {
         disabled: allSaved || downloads.running,
       }),
       this.renderUpdateCheck(),
-      el('ul', { class: 'category-list' }, rows),
       this.sections.progress,
     );
   }
