@@ -12,12 +12,24 @@ html.no-page-zoom {
   margin: 0 auto;
 }
 
+/* Looks small (30 px, 14 px text) so it covers little of the drawing; an
+   invisible strip above and below keeps the tap area 44 px tall
+   (CLAUDE.md: tap targets at least 44 pt). */
 .diagram-zoom-reset {
   position: absolute;
-  top: 8px;
-  right: 8px;
+  top: 14px;
+  right: 14px;
   z-index: 2;
+  min-height: 30px;
+  padding: 0 10px;
+  font-size: 14px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.diagram-zoom-reset::before {
+  content: '';
+  position: absolute;
+  inset: -7px 0;
 }
 
 /* Zoomed in: the card keeps its height and scrolls both ways. */
