@@ -215,3 +215,24 @@
     font-size: 14px;
   }
 }
+
+/* Part pages without a PDF ("No datasheet in the app", "Not downloaded"):
+   the key specs, the message and the Specs list form one white page, with
+   no grey gaps between them. On wide screens the text stays in a 560 px
+   column. */
+.view[data-view='part'] {
+  min-height: calc(100dvh - var(--topbar-actual, calc(var(--topbar-h) + var(--safe-top))));
+  background: var(--surface);
+}
+
+.view[data-view='part'] > .message {
+  max-width: none;
+  margin: 0;
+  padding: 24px max(24px, calc((100% - 560px) / 2));
+  border: 0;
+  border-radius: 0;
+}
+
+.view[data-view='part'] > .message + .message {
+  border-top: 1px solid var(--border);
+}
