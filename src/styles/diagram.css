@@ -167,8 +167,9 @@ html.no-page-zoom {
 
 .browse-tabs .diagram-tab {
   border: 0;
-  font: inherit;
+  font-family: inherit; /* not the whole font: phones use the tabs' smaller size */
   font-weight: 600;
+  white-space: nowrap; /* "By Manufacturer" on one line */
   cursor: pointer;
 }
 
