@@ -12,6 +12,12 @@ import { clampZoom, scrollToKeep, fitWidth } from '../src/ui/diagram-zoom.js';
 
 const linecard = JSON.parse(readFileSync(new URL('./fixtures/linecard.json', import.meta.url)));
 
+test('routes: one manufacturer\'s parts of a category', () => {
+  assert.deepEqual(parseHash('#/category/switch/Teledyne%20e2v'), { name: 'category', id: 'switch', manufacturer: 'Teledyne e2v' });
+  assert.equal(hrefFor('category', 'switch', 'Teledyne e2v'), '#/category/switch/Teledyne%20e2v');
+  assert.equal(hrefFor('category', 'switch'), '#/category/switch');
+});
+
 test('parseHash: known routes', () => {
   assert.deepEqual(parseHash('#/'), { name: 'home' });
   assert.deepEqual(parseHash(''), { name: 'home' });

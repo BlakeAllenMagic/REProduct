@@ -11,6 +11,7 @@ import transmitterSvg from '../diagram/transmitter.svg?raw';
 import powerSvg from '../diagram/power.svg?raw';
 import { DIAGRAMS, hrefFor } from '../router.js';
 import { attachDiagramZoom } from '../ui/diagram-zoom.js';
+import { browseSection } from './browse.js';
 import { blockPinch } from '../ui/block-pinch.js';
 
 const DRAWINGS = { receiver: receiverSvg, transmitter: transmitterSvg, power: powerSvg };
@@ -49,7 +50,7 @@ export function renderDiagram(container, ctx, route = {}) {
     setUpBlock(block, ctx);
   }
 
-  container.append(productTypes(ctx));
+  container.append(browseSection(ctx));
   // The top bar shows the firm's logo followed by "Line Card" (see main.js).
   return {
     title: 'G2CMI Line Card',
@@ -106,126 +107,6 @@ function rememberDiagram(name) {
   } catch {
     // Not saved; nothing else depends on it.
   }
-}
-
-/**
- * "All product types": one button per category with its part count, under a
- * heading per group (RF, Power, ...) in the order categories.yaml lists them.
- * Without groups (older data), one grid in categories.yaml order.
- */
-function productTypes(ctx) {
-  const section = document.createElement('section');
-  section.className = 'product-types';
-  section.setAttribute('aria-labelledby', 'product-types-title');
-
-  const heading = document.createElement('h2');
-  heading.id = 'product-types-title';
-  heading.textContent = 'All product types';
-  section.append(heading);
-
-  const all = [...ctx.categories.values()];
-  if (!ctx.groups?.length) {
-    section.append(productTypeGrid(all, ctx));
-    return section;
-  }
-
-  // One block per group: its heading and its grid.
-  const blocks = [];
-  for (const group of ctx.groups) {
-    const members = all.filter((c) => c.group === group);
-    if (!members.length) continue;
-    const block = document.createElement('div');
-    block.className = 'product-group';
-    block.dataset.group = group;
-    const title = document.createElement('h3');
-    title.className = 'product-group-title';
-    title.textContent = group;
-    block.append(title, productTypeGrid(members, ctx));
-    blocks.push(block);
-  }
-  // Safety net: a type whose group isn't listed still shows (the build
-  // rejects that, so this only matters for hand-made data).
-  const strays = all.filter((c) => !ctx.groups.includes(c.group));
-  if (strays.length) blocks.push(productTypeGrid(strays, ctx));
-
-  // Filter chips: All, RF, Power... Shows one group at a time, remembered on this device.
-  const chips = document.createElement('div');
-  chips.className = 'product-group-filter';
-  chips.setAttribute('role', 'group');
-  chips.setAttribute('aria-label', 'Show product types');
-  const show = (choice) => {
-    for (const chip of chips.children) chip.setAttribute('aria-pressed', String(chip.dataset.group === choice));
-    for (const block of blocks) {
-      block.hidden = choice !== ALL_GROUPS && block.dataset?.group !== choice;
-    }
-    section.classList.toggle('is-filtered', choice !== ALL_GROUPS);
-    rememberGroup(choice);
-  };
-  for (const choice of [ALL_GROUPS, ...blocks.map((b) => b.dataset?.group).filter(Boolean)]) {
-    const chip = document.createElement('button');
-    chip.type = 'button';
-    chip.className = 'btn filter-chip';
-    chip.dataset.group = choice;
-    chip.textContent = choice;
-    chip.addEventListener('click', () => show(choice));
-    chips.append(chip);
-  }
-  section.append(chips, ...blocks);
-  const saved = lastGroup();
-  show([...chips.children].some((c) => c.dataset.group === saved) ? saved : ALL_GROUPS);
-  return section;
-}
-
-const ALL_GROUPS = 'All';
-const GROUP_KEY = 'linecard.productGroup';
-
-function lastGroup() {
-  try {
-    return localStorage.getItem(GROUP_KEY) ?? ALL_GROUPS;
-  } catch {
-    return ALL_GROUPS;
-  }
-}
-
-function rememberGroup(group) {
-  try {
-    localStorage.setItem(GROUP_KEY, group);
-  } catch {
-    // Not saved; nothing else depends on it.
-  }
-}
-
-function productTypeGrid(categories, ctx) {
-  const list = document.createElement('ul');
-  list.className = 'product-type-grid';
-  for (const category of categories) {
-    const count = ctx.partsByCategory.get(category.id).length;
-    const item = document.createElement('li');
-    const name = document.createElement('span');
-    name.className = 'product-type-name';
-    name.textContent = category.name;
-    const badge = document.createElement('span');
-    badge.className = 'product-type-count';
-    badge.textContent = String(count);
-
-    if (count === 0) {
-      // Not a link: nothing to open. Shown so the list matches the sheet's tabs.
-      const box = document.createElement('span');
-      box.className = 'product-type is-empty';
-      box.setAttribute('aria-label', `${category.name}: no parts yet`);
-      box.append(name, badge);
-      item.append(box);
-    } else {
-      const link = document.createElement('a');
-      link.className = 'product-type';
-      link.href = hrefFor('category', category.id);
-      link.setAttribute('aria-label', `${category.name}: ${count} parts`);
-      link.append(name, badge);
-      item.append(link);
-    }
-    list.append(item);
-  }
-  return list;
 }
 
 function setUpBlock(block, ctx) {

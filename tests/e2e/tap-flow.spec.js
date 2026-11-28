@@ -61,9 +61,10 @@ test('Receiver/Transmitter tabs: switch, open a TX block, come back to the same 
   await expect(page.locator('[data-block="lna"]')).toBeVisible();
 });
 
-test('"All product types" lists every category with its count', async ({ page }) => {
+test('"By Product Type" lists every category with its count', async ({ page }) => {
   await page.goto('#/');
-  const grid = page.getByRole('region', { name: 'All product types' });
+  const grid = page.getByRole('region', { name: 'Browse the line card' });
+  await expect(page.getByRole('tab', { name: 'By Product Type' })).toHaveAttribute('aria-selected', 'true');
   await expect(grid.locator('.product-type')).toHaveCount(3);
   const filters = grid.getByRole('link', { name: 'Filters: 4 parts' });
   await expect(filters).toBeVisible();
@@ -72,6 +73,30 @@ test('"All product types" lists every category with its count', async ({ page })
   await press(page, filters);
   await expect(page).toHaveURL(/#\/category\/filter$/);
   await expect(page.locator('.part-row')).toHaveCount(4);
+});
+
+test('"By Manufacturer": a manufacturer\'s product types open tables showing only its parts', async ({ page }) => {
+  await page.goto('#/');
+  await press(page, page.getByRole('tab', { name: 'By Manufacturer' }));
+  const browse = page.getByRole('region', { name: 'Browse the line card' });
+  // The sample line card: Acme RF makes parts in all three types.
+  const acme = browse.locator('.product-group[data-group="Acme RF"]');
+  await expect(acme.locator('.product-group-title')).toHaveText('Acme RF');
+  const link = acme.getByRole('link', { name: /^Filters: \d+ parts$/ });
+  const label = await link.getAttribute('aria-label');
+  const count = Number(label.match(/(\d+) parts/)[1]);
+  await press(page, link);
+  await expect(page).toHaveURL(/#\/category\/filter\/Acme%20RF$/);
+  await expect(page.locator('.part-row')).toHaveCount(count);
+  for (const cell of await page.locator('.part-row td:nth-child(3)').all()) await expect(cell).toHaveText('Acme RF');
+  await expect(page.locator('.table-scope')).toContainText('Acme RF only.');
+  await press(page, page.getByRole('link', { name: /Show all manufacturers \(4\)/ }));
+  await expect(page).toHaveURL(/#\/category\/filter$/);
+  await expect(page.locator('.part-row')).toHaveCount(4);
+
+  // The choice is remembered on this device.
+  await page.goto('#/');
+  await expect(page.getByRole('tab', { name: 'By Manufacturer' })).toHaveAttribute('aria-selected', 'true');
 });
 
 test('table text size: A+ / A−, remembered, rows stay tappable', async ({ page }) => {
@@ -262,7 +287,7 @@ test('home screen shows the logo in the top bar; other screens show their title'
   await expect(page.locator('#title img')).toHaveCount(0);
 });
 
-test('All product types: chips filter the grid by group, and the choice is remembered', async ({ page }) => {
+test('By Product Type: chips filter the grid by group, and the choice is remembered', async ({ page }) => {
   // The sample line card has no groups; add two for this test.
   await page.route('**/linecard.json', async (route) => {
     const card = await (await route.fetch()).json();

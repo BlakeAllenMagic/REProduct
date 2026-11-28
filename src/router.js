@@ -1,4 +1,5 @@
-// Hash-based routing: #/  #/receiver  #/transmitter  #/power  #/category/<id>  #/part/<id>
+// Hash-based routing: #/  #/receiver  #/transmitter  #/power  #/category/<id>
+// #/category/<id>/<manufacturer> (one manufacturer's parts)  #/part/<id>
 //
 // Why the hash: the part after # never goes to a server, so a static host
 // needs no rewrite rules, reloads keep your place, and the browser's Back
@@ -13,6 +14,10 @@ export function parseHash(hash) {
   if (kind === 'settings' && !rawId) return { name: 'settings' };
   // The home screen with a chosen diagram. Plain #/ shows the last one used.
   if (DIAGRAMS.includes(kind) && !rawId) return { name: 'home', diagram: kind };
+  // One manufacturer's parts of a category ("By Manufacturer" on the home screen).
+  if (kind === 'category' && rawId && rest.length === 1 && rest[0]) {
+    return { name: 'category', id: decodeURIComponent(rawId), manufacturer: decodeURIComponent(rest[0]) };
+  }
   if (rest.length === 0 && rawId) {
     const id = decodeURIComponent(rawId);
     if (kind === 'category') return { name: 'category', id };
@@ -22,10 +27,11 @@ export function parseHash(hash) {
 }
 
 /** Build a hash for a route. */
-export function hrefFor(name, id) {
+export function hrefFor(name, id, manufacturer) {
   if (name === 'home') return id ? `#/${id}` : '#/';
   if (name === 'settings') return '#/settings';
-  return `#/${name}/${encodeURIComponent(id)}`;
+  const base = `#/${name}/${encodeURIComponent(id)}`;
+  return manufacturer ? `${base}/${encodeURIComponent(manufacturer)}` : base;
 }
 
 /** Call onRoute now and on every hash change. */

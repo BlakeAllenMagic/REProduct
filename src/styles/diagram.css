@@ -153,15 +153,27 @@ html.no-page-zoom {
   fill: var(--disabled);
 }
 
-/* "All product types" grid under the diagram. */
+/* Under the diagram: By Product Type / By Manufacturer (src/views/browse.js). */
 .product-types {
   max-width: 1100px;
   margin: 28px auto 8px;
 }
 
-.product-types h2 {
+/* By Product Type | By Manufacturer: looks like the diagram tabs, but they
+   are buttons (they switch the list below; no page change). */
+.browse-tabs {
   margin: 0 0 12px;
-  font-size: 1.1rem;
+}
+
+.browse-tabs .diagram-tab {
+  border: 0;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.browse-tabs .diagram-tab:not([aria-selected='true']) {
+  background: transparent;
 }
 
 /* RF, Power, Optical, Misc */
@@ -191,7 +203,7 @@ html.no-page-zoom {
 }
 
 /* One group chosen: its chip already names it, so the heading is hidden. */
-.product-types.is-filtered .product-group-title {
+.is-filtered .product-group-title {
   display: none;
 }
 

@@ -31,7 +31,12 @@ export function renderPartsTable(container, ctx, route) {
     return { title: 'Not found', back };
   }
 
-  const parts = ctx.partsByCategory.get(category.id);
+  // #/category/<id>/<manufacturer>: only that manufacturer's parts.
+  const allParts = ctx.partsByCategory.get(category.id);
+  const onlyThese = route.manufacturer ? allParts.filter((p) => p.manufacturer === route.manufacturer) : [];
+  const scoped = onlyThese.length > 0;
+  const parts = scoped ? onlyThese : allParts;
+  const viewKey = scoped ? `${category.id}|${route.manufacturer}` : category.id; // filters kept per view
   const statusCells = new Map(); // sha -> [cell, ...]
   const columns = columnsFor(category, parts);
   const rows = new Map(); // part id -> <tr>
@@ -66,8 +71,8 @@ export function renderPartsTable(container, ctx, route) {
 
   // ---- Filters ----
   const filters = filtersFor(columns, parts);
-  if (!filterByCategory.has(category.id)) filterByCategory.set(category.id, { state: {}, open: false });
-  const saved = filterByCategory.get(category.id);
+  if (!filterByCategory.has(viewKey)) filterByCategory.set(viewKey, { state: {}, open: false });
+  const saved = filterByCategory.get(viewKey);
   const noMatch = el('p', { class: 'filter-empty', hidden: true }, 'No parts match these filters.');
   const filterButton = button('Filter', () => togglePanel(), {
     'aria-expanded': 'false',
@@ -116,7 +121,16 @@ export function renderPartsTable(container, ctx, route) {
   // Full screen: hides the top bar, this toolbar and the footer (src/ui/table-fullscreen.js).
   const fullscreen = tableFullscreen();
   const toolbar = el('div', { class: 'table-toolbar' }, count, filterButton, sizer.element, fullscreen.enter);
-  const controls = el('div', { class: 'table-controls' }, toolbar, panelSlot, noMatch);
+  // One manufacturer only: say so, with a way to see everyone's parts.
+  const scope = scoped
+    ? el(
+        'p',
+        { class: 'table-scope' },
+        `${route.manufacturer} only. `,
+        el('a', { href: hrefFor('category', category.id) }, `Show all manufacturers (${allParts.length})`),
+      )
+    : null;
+  const controls = el('div', { class: 'table-controls' }, toolbar, scope, panelSlot, noMatch);
   const scroller = el('div', { class: 'table-scroll' }, table);
   const footer = el('div', { class: 'table-footer' }, downloadButton);
   container.append(controls, scroller, footer, fullscreen.exit);
