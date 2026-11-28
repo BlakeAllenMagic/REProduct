@@ -1,0 +1,169 @@
+/* Intro screen when the app opens: the G2CMI logo assembles itself
+   (src/ui/intro.js, src/brand/logo-animated.svg). "Signal lock": the frame
+   draws itself, the dish swings up and aims, the 2 appears and its signal
+   waves pulse out, then C, M and I arrive one by one. About 2.5 s; a tap
+   skips it. */
+
+.intro {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: calc(24px + var(--safe-top)) 24px calc(24px + var(--safe-bottom));
+  background: var(--bg);
+  /* Safety net: if the app's code never runs, the intro still goes away. */
+  animation: intro-out 0.3s ease 5s forwards;
+}
+
+.intro.is-leaving {
+  animation: intro-out 0.35s ease forwards;
+}
+
+@keyframes intro-out {
+  to {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
+
+/* A white card: the logo is navy and grey on white, also in night mode. */
+.intro-plate {
+  width: min(80vw, 520px);
+  padding: 4%;
+  border-radius: 16px;
+  background: #ffffff;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.intro-logo {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.intro-logo > * {
+  transform-box: view-box; /* transform-origin below is in logo units (360 x 176) */
+}
+/* Every piece's animation ends in "both": hidden until its turn, then it stays. */
+
+/* 1. The frame draws itself around the edge. */
+.intro-logo .lg-frame {
+  stroke-dasharray: 100;
+  animation: lg-draw 0.7s 0s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes lg-draw {
+  from {
+    stroke-dashoffset: 100;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 2. The dish swings up from its base and aims (a small overshoot). */
+.intro-logo .lg-base {
+  animation: lg-rise 0.4s 0.15s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.intro-logo .lg-dish {
+  transform-origin: 35px 165px;
+  animation: lg-swing 0.75s 0.2s cubic-bezier(0.34, 1.45, 0.64, 1) both;
+}
+
+@keyframes lg-rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+@keyframes lg-swing {
+  from {
+    opacity: 0;
+    transform: rotate(-40deg);
+  }
+  30% {
+    opacity: 1;
+  }
+}
+
+/* 3. The 2 appears at the feed, then the signal waves pulse out. */
+.intro-logo .lg-two {
+  transform-origin: 124px 59px;
+  animation: lg-pop 0.35s 0.85s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.intro-logo .lg-wave {
+  transform-origin: 124px 59px;
+}
+
+.intro-logo .lg-wave-mid {
+  animation: lg-wave 0.45s 1.05s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.intro-logo .lg-wave-outer {
+  animation: lg-wave 0.45s 1.2s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes lg-pop {
+  from {
+    opacity: 0;
+    transform: scale(0.4);
+  }
+}
+
+@keyframes lg-wave {
+  from {
+    opacity: 0;
+    transform: scale(0.7);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(1.06);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* 4. C, M and I arrive one by one, as if carried in by the signal. */
+.intro-logo .lg-c {
+  animation: lg-arrive 0.4s 1.35s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.intro-logo .lg-m {
+  animation: lg-arrive 0.4s 1.5s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+.intro-logo .lg-i {
+  animation: lg-arrive 0.4s 1.65s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+@keyframes lg-arrive {
+  from {
+    opacity: 0;
+    transform: translateX(-14px);
+  }
+}
+
+/* Reduce Motion (iPad: Settings > Accessibility > Motion): no movement,
+   the finished logo just fades in. */
+@media (prefers-reduced-motion: reduce) {
+  .intro-logo > * {
+    animation: none !important;
+  }
+
+  .intro-plate {
+    animation: lg-fade 0.3s both;
+  }
+}
+
+@keyframes lg-fade {
+  from {
+    opacity: 0;
+  }
+}

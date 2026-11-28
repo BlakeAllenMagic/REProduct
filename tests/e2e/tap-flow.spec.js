@@ -639,6 +639,27 @@ test('two-finger pinch zooms the datasheet', async ({ page, browserName, context
   await expect(zoomLabel).toHaveText('250%'); // fingers went from 120 px to 300 px apart
 });
 
+test('intro: the animated logo shows when the app opens, then leaves on its own or on a tap', async ({ page }) => {
+  // Automated tests normally skip the intro; this one asks for it.
+  await page.addInitScript(() => localStorage.setItem('linecard.intro', 'show'));
+  await page.goto('#/receiver');
+  const intro = page.locator('#intro');
+  await expect(intro.locator('svg.intro-logo')).toBeVisible();
+  for (const part of ['lg-frame', 'lg-dish', 'lg-two', 'lg-wave-outer', 'lg-m', 'lg-i']) {
+    await expect(intro.locator(`.${part}`)).toHaveCount(1);
+  }
+  await expect(intro).toHaveCount(0, { timeout: 5000 }); // gone after about 2.9 s
+  await press(page, page.locator('[data-block="lna"]')); // and the app underneath works
+  await expect(page).toHaveURL(/#\/category\/lna$/);
+
+  // A tap skips it.
+  await page.goto('#/receiver');
+  await page.reload();
+  await expect(intro.locator('svg.intro-logo')).toBeVisible();
+  await intro.click();
+  await expect(intro).toHaveCount(0, { timeout: 1000 });
+});
+
 test('night mode: Automatic follows the device, Dark and Light stick after a reload', async ({ page }) => {
   const background = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
   await page.emulateMedia({ colorScheme: 'dark' });

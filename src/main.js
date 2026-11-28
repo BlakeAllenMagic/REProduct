@@ -9,6 +9,7 @@ import { installDownloadChip } from './ui/download-chip.js';
 import { el } from './ui/dom.js';
 import { installErrorHandling, showError } from './ui/errors.js';
 import { installTopbarFit } from './ui/fit-topbar.js';
+import { playIntro } from './ui/intro.js';
 import { captureInstallPrompt, showInstallHintOnce } from './ui/install.js';
 import { installSearch } from './ui/search-panel.js';
 import { renderDiagram } from './views/diagram.js';
@@ -89,6 +90,7 @@ async function show(ctx, route) {
 }
 
 async function start() {
+  playIntro(); // the animated logo; the app loads underneath meanwhile
   installErrorHandling(document.getElementById('errors'));
   installTopbarFit(document.querySelector('.topbar'));
   installDownloadChip(document.getElementById('download-chip'));
