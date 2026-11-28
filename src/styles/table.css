@@ -353,3 +353,33 @@
   padding: 8px calc(16px + var(--safe-right)) calc(8px + var(--safe-bottom)) calc(16px + var(--safe-left));
   border-top: 1px solid var(--border);
 }
+
+/* ---- Full-screen table (src/ui/table-fullscreen.js): only the table and
+   its header row; a corner button brings the rest back. ---- */
+
+html.table-fullscreen .topbar,
+html.table-fullscreen .banners,
+html.table-fullscreen .table-controls,
+html.table-fullscreen .table-footer {
+  display: none;
+}
+
+html.table-fullscreen .view[data-view='category'] {
+  height: 100vh;
+  height: 100dvh;
+  padding-top: calc(8px + var(--safe-top));
+  padding-bottom: calc(8px + var(--safe-bottom));
+}
+
+html.table-fullscreen .table-scroll {
+  margin-bottom: 0;
+}
+
+.table-fullscreen-exit {
+  position: fixed;
+  top: calc(12px + var(--safe-top));
+  right: calc(12px + var(--safe-right));
+  z-index: 20;
+  background: var(--surface);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.25);
+}

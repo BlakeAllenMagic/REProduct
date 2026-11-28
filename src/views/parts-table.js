@@ -5,6 +5,7 @@ import { specHeader, specValue, MISSING } from '../format.js';
 import { downloads, getSavedHashes, itemsForParts } from '../offline/downloads.js';
 import { isRecentlyUpdated } from '../offline/update-plan.js';
 import { blockPinch } from '../ui/block-pinch.js';
+import { tableFullscreen } from '../ui/table-fullscreen.js';
 import { hrefFor } from '../router.js';
 import { activeCount, filtersFor, matches } from '../table-filter.js';
 import { columnsFor, nextSort, sortParts } from '../table-sort.js';
@@ -112,11 +113,13 @@ export function renderPartsTable(container, ctx, route) {
   // Count, Filter and A− / A+ (and the open filter panel) at the top, the
   // download button at the bottom; only the table scrolls between them, and
   // its header row stays put (src/styles/table.css).
-  const toolbar = el('div', { class: 'table-toolbar' }, count, filterButton, sizer.element);
+  // Full screen: hides the top bar, this toolbar and the footer (src/ui/table-fullscreen.js).
+  const fullscreen = tableFullscreen();
+  const toolbar = el('div', { class: 'table-toolbar' }, count, filterButton, sizer.element, fullscreen.enter);
   const controls = el('div', { class: 'table-controls' }, toolbar, panelSlot, noMatch);
   const scroller = el('div', { class: 'table-scroll' }, table);
   const footer = el('div', { class: 'table-footer' }, downloadButton);
-  container.append(controls, scroller, footer);
+  container.append(controls, scroller, footer, fullscreen.exit);
   // No pinch-to-zoom on the table: A− / A+ change the size. Exception: if the
   // page itself is already zoomed in (pinched on the diagram first), pinches
   // go to the browser so it can zoom back out.
@@ -154,6 +157,7 @@ export function renderPartsTable(container, ctx, route) {
     back,
     destroy() {
       destroyed = true;
+      fullscreen.off();
       detachPinch();
       stopWatchingZoom();
       for (const type of ['saved', 'finished', 'progress']) downloads.removeEventListener(type, update);

@@ -455,6 +455,30 @@ test('table: the header row stays put on an iPad too, and a short table keeps th
   expect(await page.evaluate(() => document.documentElement.scrollHeight)).toBeLessThanOrEqual(1180 + 1);
 });
 
+test('full-screen table: hides the top bar, toolbar and footer for more rows; the corner button brings them back', async ({ page }) => {
+  await page.setViewportSize({ width: 844, height: 390 }); // a phone held sideways
+  await page.goto('#/category/filter');
+  await expect(page.locator('.part-row').first()).toBeVisible();
+  const tableTop = () => page.locator('.table-scroll').evaluate((e) => e.getBoundingClientRect().top);
+  const before = await tableTop();
+  await press(page, page.getByRole('button', { name: 'Full-screen table' }));
+  await expect(page.locator('.topbar')).toBeHidden();
+  await expect(page.locator('.table-footer')).toBeHidden();
+  await expect(page.getByRole('button', { name: 'Filter', exact: true })).toBeHidden();
+  await expect(page.locator('.parts-table thead th').first()).toBeVisible(); // the header row stays
+  expect(await tableTop()).toBeLessThan(before - 100); // the table starts near the top of the screen
+
+  await press(page, page.getByRole('button', { name: 'Exit full screen' }));
+  await expect(page.locator('.topbar')).toBeVisible();
+  await expect(page.locator('.table-footer')).toBeVisible();
+
+  // Leaving the table always turns it off: no other screen opens without its top bar.
+  await press(page, page.getByRole('button', { name: 'Full-screen table' }));
+  await page.locator('.part-row').first().click();
+  await expect(page).toHaveURL(/#\/part\//);
+  await expect(page.locator('.topbar')).toBeVisible();
+});
+
 test('page zoomed in from the diagram: pinches on a table zoom the page, not the table', async ({ page, browserName, context }) => {
   test.skip(browserName !== 'chromium', 'page zoom and multi-touch simulation are Chromium-only');
   await page.setViewportSize({ width: 820, height: 1180 });
