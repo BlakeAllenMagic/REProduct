@@ -406,3 +406,68 @@ a {
   clip: rect(0 0 0 0);
   white-space: nowrap;
 }
+
+/* ---- Screen transitions (src/ui/transitions.js) ----
+   The top bar is its own layer, so it stays put while the content moves. */
+
+.topbar {
+  view-transition-name: topbar;
+}
+
+.view {
+  view-transition-name: content;
+}
+
+::view-transition-group(topbar) {
+  animation: none;
+}
+
+::view-transition-old(content),
+::view-transition-new(content) {
+  animation-duration: 0.25s;
+  animation-timing-function: cubic-bezier(0.2, 0.7, 0.2, 1);
+}
+
+html[data-nav='forward']::view-transition-old(content) {
+  animation-name: vt-out-left;
+}
+
+html[data-nav='forward']::view-transition-new(content) {
+  animation-name: vt-in-right;
+}
+
+html[data-nav='back']::view-transition-old(content) {
+  animation-name: vt-out-right;
+}
+
+html[data-nav='back']::view-transition-new(content) {
+  animation-name: vt-in-left;
+}
+
+@keyframes vt-out-left {
+  to {
+    opacity: 0;
+    transform: translateX(-12%);
+  }
+}
+
+@keyframes vt-in-right {
+  from {
+    opacity: 0;
+    transform: translateX(16%);
+  }
+}
+
+@keyframes vt-out-right {
+  to {
+    opacity: 0;
+    transform: translateX(12%);
+  }
+}
+
+@keyframes vt-in-left {
+  from {
+    opacity: 0;
+    transform: translateX(-16%);
+  }
+}

@@ -11,7 +11,7 @@ import { hrefFor } from '../router.js';
 import { downloadParts } from '../ui/download-actions.js';
 import { button, el } from '../ui/dom.js';
 import { showError } from '../ui/errors.js';
-import { specList } from '../ui/spec-list.js';
+import { keySpecs, specList } from '../ui/spec-list.js';
 import { isPageZoomed, watchPageZoom } from '../ui/page-zoom.js';
 import { canShareFile, describeShareError, emailLink, makeDatasheetFile, sendDatasheet } from '../share/send.js';
 
@@ -122,7 +122,7 @@ class Viewer {
       );
     }
     this.specsPanel = el('div', { class: 'viewer-specs', hidden: true }, specList(this.part, this.category));
-    frame.append(toolbar.element, this.specsPanel, scroller);
+    frame.append(...[toolbar.element, this.keySpecsStrip(), this.specsPanel, scroller].filter(Boolean));
     this.container.replaceChildren(frame);
 
     this.doc = new DocumentView({
@@ -186,6 +186,7 @@ class Viewer {
 
     // "Specs" opens the part's values above the PDF (closed by default).
     const specsButton = button('Specs', 'Specs', () => this.toggleSpecs(specsButton));
+    this.specsToggle = specsButton;
     specsButton.setAttribute('aria-expanded', 'false');
 
     element.append(info, specsButton, group(prev, pageLabel, next), group(zoomOut, zoomLabel, zoomIn, fit));
@@ -248,6 +249,24 @@ class Viewer {
     return el('section', { class: 'message spec-section' }, el('h3', {}, 'Specs'), specList(this.part, this.category));
   }
 
+  /**
+   * The part's headline numbers as chips above the datasheet ("0.3–10.6 GHz",
+   * "IL 0.4 dB"...), so they're readable at a glance over the rep's shoulder.
+   * One row that scrolls sideways; a tap opens the full Specs list (or, on
+   * the "not downloaded" screens, scrolls to it).
+   */
+  keySpecsStrip(onTap = () => this.toggleSpecs(this.specsToggle)) {
+    const chips = keySpecs(this.part, this.category);
+    if (chips.length === 0) return null;
+    const strip = el(
+      'div',
+      { class: 'key-specs', 'aria-label': `Key specs: ${chips.map((c) => c.text).join(', ')}` },
+      chips.map((c) => el('span', { class: 'key-spec' }, c.text)),
+    );
+    strip.addEventListener('click', onTap);
+    return strip;
+  }
+
   toggleSpecs(toggle) {
     const open = this.specsPanel.hidden;
     this.specsPanel.hidden = !open;
@@ -273,12 +292,18 @@ class Viewer {
       box.append(el('p', { class: 'message-note' }, 'Connect to the internet to download it.'));
       box.append(this.manufacturerLink());
     }
-    this.container.replaceChildren(box, this.specsSection());
+    this.container.replaceChildren(...[this.messageStrip(), box, this.specsSection()].filter(Boolean));
+  }
+
+  /** The key-spec strip for the screens without a PDF: a tap scrolls to the Specs list. */
+  messageStrip() {
+    return this.keySpecsStrip(() => this.container.querySelector('.spec-section')?.scrollIntoView({ behavior: 'smooth' }));
   }
 
   /** The line card has no datasheet file for this part at all. */
   showNoDatasheet() {
     this.container.replaceChildren(
+      ...[this.messageStrip()].filter(Boolean),
       el(
         'div',
         { class: 'message' },

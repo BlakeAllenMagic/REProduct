@@ -10,6 +10,7 @@ import { el } from './ui/dom.js';
 import { installErrorHandling, showError } from './ui/errors.js';
 import { installTopbarFit } from './ui/fit-topbar.js';
 import { playIntro } from './ui/intro.js';
+import { withTransition } from './ui/transitions.js';
 import { captureInstallPrompt, showInstallHintOnce } from './ui/install.js';
 import { installSearch } from './ui/search-panel.js';
 import { renderDiagram } from './views/diagram.js';
@@ -50,7 +51,17 @@ async function loadLinecard() {
  * Each view is a function (container, ctx, route) that fills the container and
  * returns (or resolves to) { title, back: { href, label }, actions, destroy }.
  */
-async function show(ctx, route) {
+let shownRoute = null; // for the slide direction (src/ui/transitions.js)
+
+function show(ctx, route) {
+  const from = shownRoute;
+  shownRoute = route;
+  return withTransition(from, route, () => swapScreen(ctx, route)).catch((error) => {
+    showError(error, `Couldn't open this screen`);
+  });
+}
+
+async function swapScreen(ctx, route) {
   const myRender = ++renderCount;
   current?.destroy?.();
   current = null;

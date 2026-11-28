@@ -171,3 +171,47 @@
     margin-bottom: 8px;
   }
 }
+
+/* Key specs above the datasheet ("0.3–10.6 GHz", "IL 0.4 dB"): one row that
+   scrolls sideways; a tap opens the full Specs list. */
+.key-specs {
+  display: flex;
+  flex: none;
+  gap: 8px;
+  padding: 8px calc(12px + var(--safe-right)) 8px calc(12px + var(--safe-left));
+  overflow-x: auto;
+  scrollbar-width: none;
+  background: var(--surface);
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  -webkit-overflow-scrolling: touch;
+}
+
+.key-specs::-webkit-scrollbar {
+  display: none;
+}
+
+.key-spec {
+  flex: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 16px;
+  font-weight: 700;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+
+@media (max-width: 700px), (max-height: 500px) {
+  .key-specs {
+    gap: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+  }
+
+  .key-spec {
+    padding: 4px 10px;
+    font-size: 14px;
+  }
+}

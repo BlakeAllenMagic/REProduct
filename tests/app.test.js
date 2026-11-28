@@ -8,6 +8,8 @@ import { readFileSync } from 'node:fs';
 import { parseHash, hrefFor } from '../src/router.js';
 import { specHeader, specValue, formatBytes, MISSING } from '../src/format.js';
 import { indexLinecard } from '../src/data.js';
+import { directionFor } from '../src/ui/transitions.js';
+import { keySpecs } from '../src/ui/spec-list.js';
 import { clampZoom, scrollToKeep, fitWidth } from '../src/ui/diagram-zoom.js';
 
 const linecard = JSON.parse(readFileSync(new URL('./fixtures/linecard.json', import.meta.url)));
@@ -136,4 +138,35 @@ test('diagram fit: fills the width unless that would be taller than the space be
   assert.equal(fitWidth({ viewBoxWidth: 840, viewBoxHeight: 404, innerWidth: 1000, availableHeight: 900 }), 840);
   // Never squeezed below 180 px tall, however short the window.
   assert.equal(fitWidth({ viewBoxWidth: 1000, viewBoxHeight: 404, innerWidth: 1000, availableHeight: 50 }), 445);
+});
+
+test('screen transitions: deeper slides forward, shallower back, same level fades', () => {
+  assert.equal(directionFor({ name: 'home' }, { name: 'category' }), 'forward');
+  assert.equal(directionFor({ name: 'category' }, { name: 'part' }), 'forward');
+  assert.equal(directionFor({ name: 'part' }, { name: 'category' }), 'back');
+  assert.equal(directionFor({ name: 'shortlist' }, { name: 'home' }), 'back');
+  assert.equal(directionFor({ name: 'home' }, { name: 'home' }), 'fade'); // Receiver -> Transmitter
+});
+
+test('key specs: ranges joined, make-up specs left out, text labelled unless it reads alone', () => {
+  const category = {
+    specs: [
+      { key: 'family', label: 'Family', type: 'text' },
+      { key: 'configuration', label: 'Configuration', type: 'text' },
+      { key: 'freq_min_ghz', label: 'Freq Min', unit: 'GHz', type: 'number' },
+      { key: 'freq_max_ghz', label: 'Freq Max', unit: 'GHz', type: 'number' },
+      { key: 'insertion_loss_db', label: 'IL', unit: 'dB', type: 'number' },
+      { key: 'channels', label: 'Channels', type: 'text' },
+      { key: 'package', label: 'Package', type: 'text' },
+      { key: 'eccn', label: 'ECCN', type: 'text' },
+    ],
+  };
+  const part = {
+    specs: { family: 'Broadband', configuration: 'SPDT reflective', freq_min_ghz: 0.3, freq_max_ghz: 10.6,
+      insertion_loss_db: 0.4, channels: '1, 2, 4', package: 'Surface mount', eccn: 'EAR99' },
+  };
+  assert.deepEqual(keySpecs(part, category).map((c) => c.text),
+    ['SPDT reflective', '0.3–10.6 GHz', 'IL 0.4 dB', 'Channels 1, 2, 4']);
+  assert.equal(keySpecs(part, category, 2).length, 2);
+  assert.deepEqual(keySpecs({ specs: {} }, category), []);
 });

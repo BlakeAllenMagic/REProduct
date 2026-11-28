@@ -23,7 +23,9 @@ export default defineConfig({
   testDir: 'tests/e2e',
   fullyParallel: true,
   reporter: [['list']],
-  use: { trace: 'off' },
+  // Reduce Motion: no screen transitions or intro movement, so tests never
+  // wait on (or tap during) an animation. A test that checks them turns it back on.
+  use: { trace: 'off', reducedMotion: 'reduce' },
   projects: [
     { name: 'chromium', testIgnore: OFFLINE, use: { ...devices['Desktop Chrome'], baseURL: `http://localhost:${DEV_PORT}/` } },
     { name: 'webkit', testIgnore: OFFLINE, use: { ...devices['Desktop Safari'], baseURL: `http://localhost:${DEV_PORT}/` } },

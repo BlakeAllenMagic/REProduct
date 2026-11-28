@@ -660,6 +660,46 @@ test('intro: the animated logo shows when the app opens, then leaves on its own 
   await expect(intro).toHaveCount(0, { timeout: 1000 });
 });
 
+test('part page: key specs as chips above the datasheet; a tap opens the full list', async ({ page }) => {
+  await page.goto('#/settings');
+  await page.getByRole('button', { name: 'Download all' }).click();
+  await expect(page.locator('.big-stat')).toContainText('5 of 5');
+  await page.goto('#/part/acme-alm1234');
+  const strip = page.locator('.key-specs');
+  await expect(strip).toBeVisible();
+  await expect(strip.locator('.key-spec').first()).toContainText('GHz'); // a frequency range first
+  await expect(page.locator('.viewer-specs')).toBeHidden();
+  await strip.click();
+  await expect(page.locator('.viewer-specs')).toBeVisible();
+
+  // A part with no datasheet in the app shows the strip too.
+  await page.goto('#/part/kestrel-kln4020');
+  await expect(page.getByRole('heading', { name: 'No datasheet in the app' })).toBeVisible();
+  await expect(page.locator('.key-specs .key-spec').first()).toBeVisible();
+});
+
+test('screen transitions: forward into a table, back out of it (Reduce Motion off)', async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: 'no-preference' });
+  await page.addInitScript(() => {
+    window.__nav = [];
+    const start = document.startViewTransition?.bind(document);
+    if (start) {
+      document.startViewTransition = (update) => {
+        window.__nav.push(document.documentElement.dataset.nav);
+        return start(update);
+      };
+    }
+  });
+  await page.goto('#/receiver');
+  test.skip(!(await page.evaluate(() => typeof document.startViewTransition === 'function')), 'no View Transitions here');
+  await press(page, page.locator('[data-block="lna"]'));
+  await expect(page).toHaveURL(/#\/category\/lna$/);
+  await expect(page.locator('.part-row').first()).toBeVisible();
+  await page.goBack();
+  await expect(page.locator('[data-block="lna"]')).toBeVisible();
+  await expect.poll(() => page.evaluate(() => window.__nav)).toEqual(['forward', 'back']);
+});
+
 test('night mode: Automatic follows the device, Dark and Light stick after a reload', async ({ page }) => {
   const background = () => page.evaluate(() => getComputedStyle(document.body).backgroundColor);
   await page.emulateMedia({ colorScheme: 'dark' });
