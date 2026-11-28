@@ -225,6 +225,14 @@ class SettingsScreen {
       el('h2', { id: 'h-sheet' }, 'Parts sheet'),
       el('p', { class: 'muted' }, 'The parts list is edited in the Google Sheet. Changes appear here within about 2 hours.'),
     ];
+    // Only a Google Sheets address is turned into a link (the status file is data).
+    const sheetUrl = /^https:\/\/docs\.google\.com\/spreadsheets\//.test(status?.sheetUrl ?? '') ? status.sheetUrl : null;
+    if (sheetUrl) {
+      children.push(
+        el('p', {}, el('a', { class: 'btn', href: sheetUrl, target: '_blank', rel: 'noopener' }, 'Open the Google Sheet')),
+        el('p', { class: 'muted' }, 'Needs an internet connection.'),
+      );
+    }
     const when = (iso) => (iso ? new Date(iso).toLocaleString() : null);
     if (!status) {
       children.push(el('p', { class: 'muted' }, 'Import status not available.'));

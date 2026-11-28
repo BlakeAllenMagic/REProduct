@@ -131,16 +131,25 @@ export function attachDiagramZoom(card, reset) {
   // "Update ready" bar or the install hint appeared, the top bar wrapped):
   // refit, so the drawing still ends on screen. Only when the card moved,
   // so a refit (which changes the page height) doesn't trigger another.
+  // The refit waits for the next frame: resizing the drawing inside the
+  // observer's own callback changes the page again before the browser has
+  // finished reporting sizes, which WebKit reports as a "ResizeObserver loop"
+  // error.
+  let frame = 0;
   const watcher = new ResizeObserver(() => {
-    if (zoom !== 1 || !card.isConnected) return;
-    const top = card.getBoundingClientRect().top + window.scrollY;
-    if (fitTop === null || Math.abs(top - fitTop) > 1) applyFit();
+    cancelAnimationFrame(frame);
+    frame = requestAnimationFrame(() => {
+      if (zoom !== 1 || !card.isConnected) return;
+      const top = card.getBoundingClientRect().top + window.scrollY;
+      if (fitTop === null || Math.abs(top - fitTop) > 1) applyFit();
+    });
   });
   watcher.observe(document.body);
   resetZoom();
 
   return () => {
     watcher.disconnect();
+    cancelAnimationFrame(frame);
     detachPinch();
     reset.removeEventListener('click', resetZoom);
     window.removeEventListener('resize', onResize);

@@ -11,6 +11,9 @@
      Valid and the same: change nothing.
      Problems: change no parts at all; record the problems in
      public/import-status.json, which the app shows under Settings.
+     The status also holds the sheet's link ("sheetUrl"), so Settings can
+     open the sheet. This publishes the link with the app (agreed: the sheet
+     is view-only).
 
 Messages use the sheet's words: "Filters tab, row 7: IL (dB): ...".
 
@@ -61,6 +64,9 @@ except ImportError:  # pragma: no cover
     sys.exit("openpyxl is not installed. Run: pip install -r tools/requirements.txt")
 
 EXPORT_URL = "https://docs.google.com/spreadsheets/d/{id}/export?format=xlsx"
+# The link the app shows under Settings > Parts sheet. Rebuilt from the id
+# alone, so nothing else from the secret (tab, sharing parameters) is published.
+EDIT_URL = "https://docs.google.com/spreadsheets/d/{id}/edit"
 SHEET_ID = re.compile(r"/spreadsheets/d/([A-Za-z0-9_-]{20,})")
 
 
@@ -229,11 +235,14 @@ def main(argv: list[str] | None = None) -> int:
     args = parser.parse_args(argv)
 
     # 1. Read the sheet.
+    sheet_url: str | None = None
     try:
         if args.xlsx:
             xlsx = args.xlsx.read_bytes()
         else:
-            url = args.export_url or EXPORT_URL.format(id=sheet_id(args.sheet))
+            sid = sheet_id(args.sheet)
+            sheet_url = EDIT_URL.format(id=sid)
+            url = args.export_url or EXPORT_URL.format(id=sid)
             xlsx = download(url)
     except SheetError as error:
         print(f"error: {error}", file=sys.stderr)
@@ -281,6 +290,8 @@ def main(argv: list[str] | None = None) -> int:
         result = "changed" if changed else "unchanged"
         status = {"ok": True, "problems": [], "warnings": warnings,
                   "importedAt": now if changed else old_status.get("importedAt")}
+    # A downloaded copy (--xlsx) keeps the link from the last real import.
+    status["sheetUrl"] = sheet_url or old_status.get("sheetUrl")
     # Only rewrite the status when what it says changes (see the docstring).
     if status != old_status:
         args.status.parent.mkdir(parents=True, exist_ok=True)

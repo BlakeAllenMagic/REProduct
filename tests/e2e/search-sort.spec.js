@@ -151,6 +151,22 @@ test.describe('parts sheet status', () => {
     await serveStatus(page, { ok: true, problems: [], warnings: [], importedAt: '2026-11-24T10:00:00Z' });
     await page.goto('#/settings');
     await expect(page.locator('.sheet-ok')).toContainText('Up to date. Last change imported');
+    // No link in the status file: no button.
+    await expect(page.getByRole('link', { name: 'Open the Google Sheet' })).toHaveCount(0);
+  });
+
+  test('links to the Google Sheet, and only to a Google Sheets address', async ({ page }) => {
+    const sheetUrl = 'https://docs.google.com/spreadsheets/d/abcdefghijklmnopqrstuvwxyz/edit';
+    await serveStatus(page, { ok: true, problems: [], warnings: [], importedAt: null, sheetUrl });
+    await page.goto('#/settings');
+    const link = page.getByRole('link', { name: 'Open the Google Sheet' });
+    await expect(link).toHaveAttribute('href', sheetUrl);
+    await expect(link).toHaveAttribute('target', '_blank');
+
+    await serveStatus(page, { ok: true, problems: [], warnings: [], importedAt: null, sheetUrl: 'javascript:alert(1)' });
+    await page.reload();
+    await expect(page.locator('.sheet-ok')).toBeVisible();
+    await expect(link).toHaveCount(0);
   });
 
   test('lists the problems to fix, in the sheet\'s words', async ({ page }) => {

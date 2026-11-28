@@ -221,6 +221,12 @@ class Downloading(ImportTestCase):
         code, out, err = self.run_import("--sheet", "x" * 30, "--export-url", url)
         self.assertEqual(code, 0, err)
         self.assertIn("Sheet unchanged", out)
+        # The app's link is rebuilt from the id: nothing else from the secret.
+        link = f"https://docs.google.com/spreadsheets/d/{'x' * 30}/edit"
+        self.assertEqual(self.status_json()["sheetUrl"], link)
+        # A later import from a downloaded copy keeps that link.
+        self.run_import()
+        self.assertEqual(self.status_json()["sheetUrl"], link)
 
     def test_a_sign_in_page_means_not_shared(self) -> None:
         url = self.serve(200, b"<html>Sign in to continue</html>")

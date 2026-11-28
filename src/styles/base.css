@@ -186,6 +186,7 @@ a {
 
 .btn {
   display: inline-flex;
+  text-decoration: none; /* also for links styled as buttons */
   align-items: center;
   justify-content: center;
   min-width: var(--tap);

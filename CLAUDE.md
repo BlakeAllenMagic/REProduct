@@ -48,7 +48,7 @@ Do not add Android or Windows workarounds yet. Use standard web APIs so those pl
 
 ### Data source of truth
 
-- **The parts list is a Google Sheet, with one tab per category.** The rep edits it like any spreadsheet. It is shared as "Anyone with the link can view", and its link is the GitHub secret `GOOGLE_SHEET_URL` (never in the repo).
+- **The parts list is a Google Sheet, with one tab per category.** The rep edits it like any spreadsheet. It is shared as "Anyone with the link can view", and its link is the GitHub secret `GOOGLE_SHEET_URL`. Don't hard-code the link in the repo. The import does publish it, though (agreed, since the Sheet is view-only): it writes a clean `…/spreadsheets/d/<id>/edit` link into `public/import-status.json` as `sheetUrl`, and Settings > Parts sheet shows an "Open the Google Sheet" button.
   - A tab matches a category by its name or id (ignoring capitals). Tabs starting with `_` are notes and are ignored; any other unknown tab is reported as a problem.
   - Row 1 holds the headings: friendly ("Part number", "NF (dB)") or the short keys ("mpn", "nf_db"). Text columns should be formatted as Plain text so codes like `0603` keep their leading zero.
   - `tools/export_sheet_template.py` writes a starter sheet (Excel file) from the current data.
